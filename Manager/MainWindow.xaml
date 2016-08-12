@@ -1,0 +1,51 @@
+﻿<Window x:Class="AllerConnectManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AllerConnectManager"
+        mc:Ignorable="d"
+        xmlns:vw="clr-namespace:AllerConnectManager.Views"   
+        xmlns:vm="clr-namespace:AllerConnectManager.ViewModel"     
+        Title="AllerConnect Manager" Height="550" Width="600" MinHeight="550"
+        WindowStartupLocation="CenterScreen" Loaded="WindowLoaded"
+        >
+    <Window.DataContext>
+        <vm:MainWindowModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate x:Key="WelcomeViewDataTemplate">
+            <vw:WelcomeView x:Name="WelcomeView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="AllergenViewDataTemplate">
+            <vw:AllergenView x:Name="AllergenView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="AllergenSelectionViewDataTemplate">
+            <vw:AllergenSelectionView x:Name="AllergenSelectionView"/>
+        </DataTemplate>
+        <local:NavigatorSelector x:Key="NavigatorSelector"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images\LightBrushedx.jpg" TileMode="Tile" 
+                            ViewportUnits="Absolute" Viewport="0,0,200,200">
+            </ImageBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <vw:NavigationBarView Grid.Row="0"/>
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ResizeBehavior="PreviousAndNext"
+                      Height="5"/>
+        <Grid Grid.Row="2">
+            <ContentPresenter
+                ContentTemplateSelector="{StaticResource NavigatorSelector}"
+                Content="{Binding CurrentViewState, Converter={StaticResource Enum2DataTemplateConverter}}"/>
+        </Grid>
+    </Grid>
+</Window>
