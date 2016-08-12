@@ -11,7 +11,10 @@ namespace AllerConnectManager.ViewModel
     {
         WelcomeView,
         AllergenSelectionView,
-        AllergenView
+        AllergenView,
+        ProductSelectionView,
+        ProductView,
+        InformationView
     }
 
     public class MainWindowModel : INotifyPropertyChanged
@@ -35,14 +38,25 @@ namespace AllerConnectManager.ViewModel
         public MainWindowModel()
         {
             currentViewState = ViewStates.WelcomeView;
-            App.UIController.Messenger.Register("WelcomeView", (Action)(() => SetViewState(ViewStates.WelcomeView)));
-            App.UIController.Messenger.Register("NavigateToAllergenView", (Action)(() => SetViewState(ViewStates.AllergenView)));
-            App.UIController.Messenger.Register("NavigateToAllergenSelectionView", (Action)(() => SetViewState(ViewStates.AllergenSelectionView)));
+
+            VMAllergenDisplayModel = new AllerConnectCommon.ViewModel.AllergenDisplayModel();
+            VMAllergenSelectionModel = new AllerConnectCommon.ViewModel.AllergenSelectionModel();
+
+            App.UIController.Messenger.Register("Navigate2AllergenView", (Action)(() => SetViewState(ViewStates.AllergenView)));
+            App.UIController.Messenger.Register("Navigate2AllergenSelectionView", (Action)(() => SetViewState(ViewStates.AllergenSelectionView)));
+            App.UIController.Messenger.Register("Navigate2InformationView", (Action)(() => SetViewState(ViewStates.InformationView)));
+            App.UIController.Messenger.Register("Navigate2ProductSelectionView", (Action)(() => SetViewState(ViewStates.ProductSelectionView)));
+            App.UIController.Messenger.Register("Navigate2ProductView", (Action)(() => SetViewState(ViewStates.ProductView)));
+            App.UIController.Messenger.Register("Navigate2WelcomeScreenView", (Action)(() => SetViewState(ViewStates.WelcomeView)));
         }
 
         private void SetViewState(ViewStates vs)
         {
             CurrentViewState = vs;
         }
+
+        public AllerConnectCommon.ViewModel.AllergenDisplayModel VMAllergenDisplayModel { get; private set; }
+        public AllerConnectCommon.ViewModel.AllergenSelectionModel VMAllergenSelectionModel { get; private set; }
+
     }
 }

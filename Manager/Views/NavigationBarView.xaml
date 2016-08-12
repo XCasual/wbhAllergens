@@ -14,14 +14,9 @@
 
     <Grid Background="LightGray">
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0" HorizontalAlignment="Left" Width="485">
-            <Button x:Name="btnNavigate2Files"
-                    Command="{Binding NavigateToAllergenSelectionViewCommand}" Content="Datei" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2Allergens"
-                    Command="{Binding NavigateToAllergenViewCommand}" Content="Allergen" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2Ingridients" Content="Rohstoff" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2ProductsParts" Content="Halbfabrikat" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2Products" Content="Produkt" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2Informations" Content="Information" Width="70" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2AllergenSelectionView" Command="{Binding Navigate2AllergenSelectionViewCmd}" Content="Allergene" Width="70" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2ProductSelectionView" Command="{Binding Navigate2ProductSelectionViewCmd}" Content="Produkt" Width="70" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2InformationView" Command="{Binding Navigate2InformationViewCmd}" Content="Information" Width="70" Margin="5,5,5,5"/>
         </StackPanel>
         <Image x:Name="image" HorizontalAlignment="Right" Width="90" Source="/Images/Logo.jpg" Stretch="Fill" Margin="5,5,5,5"/>
     </Grid>

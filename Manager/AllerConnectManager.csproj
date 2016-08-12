@@ -66,8 +66,17 @@
     <Compile Include="Views\AllergenView.xaml.cs">
       <DependentUpon>AllergenView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InformationView.xaml.cs">
+      <DependentUpon>InformationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NavigationBarView.xaml.cs">
       <DependentUpon>NavigationBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductSelectionView.xaml.cs">
+      <DependentUpon>ProductSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductView.xaml.cs">
+      <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomeScreenView.xaml.cs">
       <DependentUpon>WelcomeScreenView.xaml</DependentUpon>
@@ -92,7 +101,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\InformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NavigationBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

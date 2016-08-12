@@ -18,11 +18,20 @@
         <DataTemplate x:Key="WelcomeViewDataTemplate">
             <vw:WelcomeView x:Name="WelcomeView"/>
         </DataTemplate>
+        <DataTemplate x:Key="AllergenSelectionViewDataTemplate">
+            <vw:AllergenSelectionView x:Name="AllergenSelectionView" />
+        </DataTemplate>
         <DataTemplate x:Key="AllergenViewDataTemplate">
             <vw:AllergenView x:Name="AllergenView"/>
         </DataTemplate>
-        <DataTemplate x:Key="AllergenSelectionViewDataTemplate">
-            <vw:AllergenSelectionView x:Name="AllergenSelectionView"/>
+        <DataTemplate x:Key="ProductSelectionViewDataTemplate">
+            <vw:ProductSelectionView x:Name="ProductSelectionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductViewDataTemplate">
+            <vw:ProductView x:Name="ProductView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="InformationViewDataTemplate">
+            <vw:InformationView x:Name="InformationView"/>
         </DataTemplate>
         <local:NavigatorSelector x:Key="NavigatorSelector"/>
     </Window.Resources>
