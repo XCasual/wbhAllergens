@@ -18,7 +18,6 @@ namespace AllerConnectManager
         protected override void OnStartup(StartupEventArgs e)
         {
             UIController = AllerConnectCommon.Services.UIControllerService.Instance;
-            App.UIController.CurrentLanguageID = 5;
             base.OnStartup(e);
         }
     }
