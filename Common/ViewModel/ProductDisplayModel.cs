@@ -1,5 +1,4 @@
-﻿using AllerConnectCommon.Foundation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Windows.Input;
 
 namespace AllerConnectCommon.ViewModel
 {
-    public class AllergenDisplayModel : INotifyPropertyChanged
+    public class ProductDisplayModel : INotifyPropertyChanged
     {
         private bool isSelected = false;
 
@@ -28,6 +27,10 @@ namespace AllerConnectCommon.ViewModel
         {
             get { return displayedAllergen; }
             set {
+                if (string.IsNullOrEmpty(value.OrdinaryName))
+                {
+                    System.Diagnostics.Debug.Assert(false);
+                }
                 displayedAllergen = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("DisplayedAllergen")); }
         }
@@ -119,10 +122,9 @@ namespace AllerConnectCommon.ViewModel
         } //AddAllergen()
 
 
-        public AllergenDisplayModel()
+        public ProductDisplayModel()
         {
             var messenger = Services.UIControllerService.Instance.Messenger;
-            messenger.Register("AllergenViewCreateTemp", (Action)(() => PrepareNewAllergen()));
             messenger.Register("AllergenSelectionChanged", (Action<Allergen>)(param => ProcessAllergen(param)));
             messenger.Register("SetStatus", (Action<String>)(param => stat.Status = param));
         } //ctor
@@ -135,46 +137,5 @@ namespace AllerConnectCommon.ViewModel
             isSelected = true;
             stat.NoError();
         } // ProcessAllergen()
-
-        public void PrepareNewAllergen()
-        {
-            var tmpAllergen = new Allergen();
-            tmpAllergen.LocalName = "";
-            tmpAllergen.OrdinaryName = "";
-            tmpAllergen.LanguageID = Services.UIControllerService.Instance.CurrentLanguageID;
-            tmpAllergen.SymbolID = 0;
-            tmpAllergen.ToolTip = "";
-            DisplayedAllergen = tmpAllergen;
-            isSelected = true;
-            stat.NoError();
-        } // ProcessAllergen()
-
-        private RelayCommand navigate2AllergenSelectionViewCmd;
-        public ICommand Navigate2AllergenSelectionViewCmd
-        {
-            get { return navigate2AllergenSelectionViewCmd ?? (navigate2AllergenSelectionViewCmd = new RelayCommand(() => Navigate2AllergenSelectionView(), () => true)); }
-        }
-
-        private void Navigate2AllergenSelectionView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenSelectionView");
-        } //NavigateToAllergenView      
-
-        private RelayCommand saveAndnavigate2AllergenSelectionViewCmd;
-        public ICommand SaveAndNavigate2AllergenSelectionViewCmd
-        {
-            get { return saveAndnavigate2AllergenSelectionViewCmd ?? (saveAndnavigate2AllergenSelectionViewCmd = new RelayCommand(() => SaveAndNavigate2AllergenSelectionView(), () => true)); }
-        }
-
-        private void SaveAndNavigate2AllergenSelectionView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenSelectionView");
-        } //NavigateToAllergenView      
     }
 }

@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{2DB611FE-22D7-4CC8-82B6-1F0908AB7920}"
 	ProjectSection(SolutionItems) = preProject
 		InhaltstoffeStorage.sql = InhaltstoffeStorage.sql
+		Insert Statement 20160813.sql = Insert Statement 20160813.sql
+		SQLProceduren.sql = SQLProceduren.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllerConnectCommon", "Common\AllerConnectCommon.csproj", "{7BDEEB58-EE77-415C-849E-65C59423A24B}"

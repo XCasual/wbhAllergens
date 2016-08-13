@@ -58,7 +58,9 @@
     </ApplicationDefinition>
     <Compile Include="Converters\EnumToDataTemplateConverter.cs" />
     <Compile Include="NavigatorSelector.cs" />
+    <Compile Include="ViewModel\WelcomeModel.cs" />
     <Compile Include="ViewModel\MainWindowModel.cs" />
+    <Compile Include="ViewModel\InformationModel.cs" />
     <Compile Include="ViewModel\NavigationBarModel.cs" />
     <Compile Include="Views\AllergenSelectionView.xaml.cs">
       <DependentUpon>AllergenSelectionView.xaml</DependentUpon>
@@ -164,7 +166,12 @@
   <ItemGroup>
     <Resource Include="Images\Logo.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\print.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,68 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
-             xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon">
-    <UserControl.DataContext>
-        <vm:AllergenDisplayModel />
-    </UserControl.DataContext>
-    
-    <Grid Background="LightGray">
+             xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
+             d:DataContext="{d:DesignInstance {x:Type vm:AllergenDisplayModel}, IsDesignTimeCreatable=True}">
+    <Grid Background="#FF251E1E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
+        <Label x:Name="lblName" Content="Bezeichnung" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="0" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <TextBox x:Name="tbxName" Margin="5,4,5,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" 
+                 Text="{Binding Path=DisplayedAllergen.OrdinaryName, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" Margin="5,2,10,10">
-            <Button Command="{Binding GetAllergensCommand}" Margin="2,5,0,0"  Padding="5" Height="35" Width="70" 
-                  >DB Refresh</Button>
-            <Button Margin="2,5,0,0"  Padding="2" Height="35" Width="50"
-                  Command="{Binding ClearCommand}">Clear</Button>
-            <Button Margin="2,5,0,0"  Padding="2" Height="35" Width="50"
-                  Command="{Binding UpdateCommand}">Update</Button>
-            <Button Margin="2,5,0,0"  Padding="2" Height="35" Width="50"
-                  Command="{Binding DeleteCommand}">Delete</Button>
-            <Button Margin="2,5,0,0"  Height="35" Width="50"
-                  Command="{Binding AddCommand}" Padding="2">Add</Button>
-        </StackPanel>
-        <Grid Margin="10" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
+        <Label x:Name="lblDescription" Content="Beschreibung" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="1" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <TextBox x:Name="tbxDescription" Margin="5,3,5,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"
+                 Text="{Binding Path=DisplayedAllergen.ToolTip, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBlock Margin="7">Allergen ID:</TextBlock>
-            <TextBox Margin="5" Grid.Column="1" BorderBrush="{Binding Path=Stat.ModelOrdinaryNameBrush}" BorderThickness="1"
-                     Text="{Binding Path=DisplayedAllergen.ID, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Label x:Name="lblSymbol" Content="Symbol" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="2" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <TextBox x:Name="tbxSymbol" Margin="5,3,5,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"
+                 Text="{Binding Path=DisplayedAllergen.SymbolID, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBlock Margin="7" Grid.Row="1">Language ID:</TextBlock>
-            <TextBox Margin="5" Grid.Row="1" Grid.Column="1" BorderBrush="{Binding Path=Stat.ModelOrdinaryNameBrush}" BorderThickness="1"
-                     Text="{Binding Path=DisplayedAllergen.LanguageID, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-
-            <TextBlock Margin="7" Grid.Row="2">Ordinary Name:</TextBlock>
-            <TextBox Margin="5" Grid.Row="2" Grid.Column="1"   BorderBrush="{Binding Path=Stat.ModelOrdinaryNameBrush}" BorderThickness="1"
-                     Text="{Binding Path=DisplayedAllergen.OrdinaryName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-
-            <TextBlock Margin="7" Grid.Row="3">LocalName:</TextBlock>
-            <TextBox Margin="5" Grid.Row="3" Grid.Column="1"  BorderBrush="{Binding Path=Stat.ModelOrdinaryNameBrush}" BorderThickness="1"
-                     Text="{Binding Path=DisplayedAllergen.LocalName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-
-            <TextBlock Margin="7,7,7,0" Grid.Row="4">ToolTip:</TextBlock>
-            <TextBox Margin="7" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
-                 TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Text="{Binding Path=DisplayedAllergen.ToolTip}"></TextBox>
-
-            <TextBlock Margin="7,25,15,0" Grid.Row="6">Status:</TextBlock>
-            <TextBox Margin="7" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" 
-                 Text="{Binding Path=Stat.Status}"></TextBox>
-        </Grid>
+        <Image x:Name="imgSymbol" Grid.Column="1" HorizontalAlignment="Left" Height="72" Margin="5,2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80"
+               Source="{Binding Path=DisplayedAllergen.SymbolImage}">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFC52222" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Button x:Name="btnSave" Content="Speichern" Margin="0,0,77,5" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
+                Command="{Binding SaveAndNavigate2AllergenSelectionViewCmd}"/>
+        <Button x:Name="btnCancel" Content="Abbrechen" Margin="0,0,5,5" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
+                Command="{Binding Navigate2AllergenSelectionViewCmd}"/>
     </Grid>
 </UserControl>

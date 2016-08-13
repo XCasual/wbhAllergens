@@ -7,24 +7,14 @@ using System.Threading.Tasks;
 
 namespace AllerConnectManager.ViewModel
 {
-    public enum ViewStates
-    {
-        WelcomeView,
-        AllergenSelectionView,
-        AllergenView,
-        ProductSelectionView,
-        ProductView,
-        InformationView
-    }
-
     public class MainWindowModel : INotifyPropertyChanged
     {
-        private ViewStates currentViewState;
+        private App.ViewStates currentAppViewState;
 
-        public ViewStates CurrentViewState
+        public App.ViewStates CurrentAppViewState
         {
-            get { return currentViewState; }
-            set { currentViewState = value; OnPropertyChanged(new PropertyChangedEventArgs("CurrentViewState")); }
+            get { return currentAppViewState; }
+            set { currentAppViewState = value; OnPropertyChanged(new PropertyChangedEventArgs("CurrentAppViewState")); }
         }
 
 
@@ -37,26 +27,20 @@ namespace AllerConnectManager.ViewModel
 
         public MainWindowModel()
         {
-            currentViewState = ViewStates.WelcomeView;
+            currentAppViewState = App.CurrentViewState;
 
-            VMAllergenDisplayModel = new AllerConnectCommon.ViewModel.AllergenDisplayModel();
-            VMAllergenSelectionModel = new AllerConnectCommon.ViewModel.AllergenSelectionModel();
-
-            App.UIController.Messenger.Register("Navigate2AllergenView", (Action)(() => SetViewState(ViewStates.AllergenView)));
-            App.UIController.Messenger.Register("Navigate2AllergenSelectionView", (Action)(() => SetViewState(ViewStates.AllergenSelectionView)));
-            App.UIController.Messenger.Register("Navigate2InformationView", (Action)(() => SetViewState(ViewStates.InformationView)));
-            App.UIController.Messenger.Register("Navigate2ProductSelectionView", (Action)(() => SetViewState(ViewStates.ProductSelectionView)));
-            App.UIController.Messenger.Register("Navigate2ProductView", (Action)(() => SetViewState(ViewStates.ProductView)));
-            App.UIController.Messenger.Register("Navigate2WelcomeScreenView", (Action)(() => SetViewState(ViewStates.WelcomeView)));
+            App.UIController.Messenger.Register("Navigate2AllergenView", (Action)(() => SetViewState(App.ViewStates.AllergenView)));
+            App.UIController.Messenger.Register("Navigate2AllergenSelectionView", (Action)(() => SetViewState(App.ViewStates.AllergenSelectionView)));
+            App.UIController.Messenger.Register("Navigate2InformationView", (Action)(() => SetViewState(App.ViewStates.InformationView)));
+            App.UIController.Messenger.Register("Navigate2ProductSelectionView", (Action)(() => SetViewState(App.ViewStates.ProductSelectionView)));
+            App.UIController.Messenger.Register("Navigate2ProductView", (Action)(() => SetViewState(App.ViewStates.ProductView)));
+            App.UIController.Messenger.Register("Navigate2WelcomeScreenView", (Action)(() => SetViewState(App.ViewStates.WelcomeView)));
         }
 
-        private void SetViewState(ViewStates vs)
+        private void SetViewState(App.ViewStates vs)
         {
-            CurrentViewState = vs;
+            App.CurrentViewState = vs;
+            CurrentAppViewState = vs;
         }
-
-        public AllerConnectCommon.ViewModel.AllergenDisplayModel VMAllergenDisplayModel { get; private set; }
-        public AllerConnectCommon.ViewModel.AllergenSelectionModel VMAllergenSelectionModel { get; private set; }
-
     }
 }

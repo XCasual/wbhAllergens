@@ -65,8 +65,11 @@
     </Compile>
     <Compile Include="Services\UIControllerService.cs" />
     <Compile Include="ViewModel\Allergen.cs" />
+    <Compile Include="ViewModel\ProductDisplayModel.cs" />
     <Compile Include="ViewModel\AllergenDisplayModel.cs" />
+    <Compile Include="ViewModel\ProductModelStatus.cs" />
     <Compile Include="ViewModel\AllergenModelStatus.cs" />
+    <Compile Include="ViewModel\ProductSelectionModel.cs" />
     <Compile Include="ViewModel\AllergenSelectionModel.cs" />
     <Compile Include="ViewModel\LocalizedItem.cs" />
   </ItemGroup>

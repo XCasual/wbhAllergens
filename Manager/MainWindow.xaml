@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen" Loaded="WindowLoaded"
         >
     <Window.DataContext>
-        <vm:MainWindowModel />
+        <vm:MainWindowModel x:Name="MainWindowContext"/>
     </Window.DataContext>
 
     <Window.Resources>
@@ -54,7 +54,8 @@
         <Grid Grid.Row="2">
             <ContentPresenter
                 ContentTemplateSelector="{StaticResource NavigatorSelector}"
-                Content="{Binding CurrentViewState, Converter={StaticResource Enum2DataTemplateConverter}}"/>
+                Content="{Binding CurrentAppViewState, Converter={StaticResource Enum2DataTemplateConverter}}"
+                />
         </Grid>
     </Grid>
 </Window>

@@ -28,6 +28,7 @@ namespace AllerConnectManager
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
             App.UIController.CurrentLanguageID = Properties.Settings.Default.CurrentLanguageID;
+            App.IntiliazieViewModels();
         }
     }
 }

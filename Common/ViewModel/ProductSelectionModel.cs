@@ -5,10 +5,10 @@ using System.Windows.Input;
 
 namespace AllerConnectCommon.ViewModel
 {
-    public class AllergenSelectionModel : INotifyPropertyChanged
+    public class ProductSelectionModel : INotifyPropertyChanged
     {
 
-        public AllergenSelectionModel()
+        public ProductSelectionModel()
         {
             dataItems = new Model.DBObservableCollection<Allergen>();
             DataItems = Services.UIControllerService.Instance.IngridientsDB.GetAllergens(Services.UIControllerService.Instance.CurrentLanguageID);
@@ -96,19 +96,5 @@ namespace AllerConnectCommon.ViewModel
             Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenView");
         } //NavigateToAllergenView   
 
-        private RelayCommand addAndnavigate2AllergenViewCmd;
-        public ICommand AddAndnavigate2AllergenViewCmd
-        {
-            get { return addAndnavigate2AllergenViewCmd ?? (addAndnavigate2AllergenViewCmd = new RelayCommand(() => AddAndnavigate2AllergenView(), () => true)); }
-        }
-
-        private void AddAndnavigate2AllergenView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            Services.UIControllerService.Instance.Messenger.NotifyColleagues("AllergenViewCreateTemp");
-            Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenView");
-        } //NavigateToAllergenView 
     }//class AllergenSelectionModel
 }
