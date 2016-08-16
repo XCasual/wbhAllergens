@@ -78,6 +78,9 @@ namespace AllerConnectCommon
     partial void InsertProductsSymbol(ProductsSymbol instance);
     partial void UpdateProductsSymbol(ProductsSymbol instance);
     partial void DeleteProductsSymbol(ProductsSymbol instance);
+    partial void InsertProductProduct(ProductProduct instance);
+    partial void UpdateProductProduct(ProductProduct instance);
+    partial void DeleteProductProduct(ProductProduct instance);
     #endregion
 		
 		public LinqDataContext() : 
@@ -291,6 +294,14 @@ namespace AllerConnectCommon
 			get
 			{
 				return this.GetTable<ProductData>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductProduct> ProductProducts
+		{
+			get
+			{
+				return this.GetTable<ProductProduct>();
 			}
 		}
 		
@@ -2615,6 +2626,10 @@ namespace AllerConnectCommon
 		
 		private EntitySet<ProductsLocationsID> _ProductsLocationsIDs;
 		
+		private EntitySet<ProductProduct> _ProductProducts;
+		
+		private EntitySet<ProductProduct> _ProductProducts1;
+		
 		private EntityRef<Category> _Category;
 		
     #region Extensibility Method Definitions
@@ -2638,6 +2653,8 @@ namespace AllerConnectCommon
 			this._ProductsIngridients = new EntitySet<ProductsIngridient>(new Action<ProductsIngridient>(this.attach_ProductsIngridients), new Action<ProductsIngridient>(this.detach_ProductsIngridients));
 			this._ProductsLocals = new EntitySet<ProductsLocal>(new Action<ProductsLocal>(this.attach_ProductsLocals), new Action<ProductsLocal>(this.detach_ProductsLocals));
 			this._ProductsLocationsIDs = new EntitySet<ProductsLocationsID>(new Action<ProductsLocationsID>(this.attach_ProductsLocationsIDs), new Action<ProductsLocationsID>(this.detach_ProductsLocationsIDs));
+			this._ProductProducts = new EntitySet<ProductProduct>(new Action<ProductProduct>(this.attach_ProductProducts), new Action<ProductProduct>(this.detach_ProductProducts));
+			this._ProductProducts1 = new EntitySet<ProductProduct>(new Action<ProductProduct>(this.attach_ProductProducts1), new Action<ProductProduct>(this.detach_ProductProducts1));
 			this._Category = default(EntityRef<Category>);
 			OnCreated();
 		}
@@ -2785,6 +2802,32 @@ namespace AllerConnectCommon
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductProduct", Storage="_ProductProducts", ThisKey="ProductID", OtherKey="ProductParentID")]
+		public EntitySet<ProductProduct> ProductProducts
+		{
+			get
+			{
+				return this._ProductProducts;
+			}
+			set
+			{
+				this._ProductProducts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductProduct1", Storage="_ProductProducts1", ThisKey="ProductID", OtherKey="ProductChildID")]
+		public EntitySet<ProductProduct> ProductProducts1
+		{
+			get
+			{
+				return this._ProductProducts1;
+			}
+			set
+			{
+				this._ProductProducts1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Product", Storage="_Category", ThisKey="ProductCategoryID", OtherKey="CategoryID", IsForeignKey=true)]
 		public Category Category
 		{
@@ -2873,6 +2916,30 @@ namespace AllerConnectCommon
 		{
 			this.SendPropertyChanging();
 			entity.Product = null;
+		}
+		
+		private void attach_ProductProducts(ProductProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_ProductProducts(ProductProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
+		}
+		
+		private void attach_ProductProducts1(ProductProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product1 = this;
+		}
+		
+		private void detach_ProductProducts1(ProductProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product1 = null;
 		}
 	}
 	
@@ -4634,6 +4701,198 @@ namespace AllerConnectCommon
 				{
 					this._SymbolID = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductProducts")]
+	public partial class ProductProduct : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProductProductsID;
+		
+		private int _ProductParentID;
+		
+		private int _ProductChildID;
+		
+		private EntityRef<Product> _Product;
+		
+		private EntityRef<Product> _Product1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProductProductsIDChanging(int value);
+    partial void OnProductProductsIDChanged();
+    partial void OnProductParentIDChanging(int value);
+    partial void OnProductParentIDChanged();
+    partial void OnProductChildIDChanging(int value);
+    partial void OnProductChildIDChanged();
+    #endregion
+		
+		public ProductProduct()
+		{
+			this._Product = default(EntityRef<Product>);
+			this._Product1 = default(EntityRef<Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductProductsID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProductProductsID
+		{
+			get
+			{
+				return this._ProductProductsID;
+			}
+			set
+			{
+				if ((this._ProductProductsID != value))
+				{
+					this.OnProductProductsIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProductProductsID = value;
+					this.SendPropertyChanged("ProductProductsID");
+					this.OnProductProductsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductParentID", DbType="Int NOT NULL")]
+		public int ProductParentID
+		{
+			get
+			{
+				return this._ProductParentID;
+			}
+			set
+			{
+				if ((this._ProductParentID != value))
+				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProductParentIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProductParentID = value;
+					this.SendPropertyChanged("ProductParentID");
+					this.OnProductParentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductChildID", DbType="Int NOT NULL")]
+		public int ProductChildID
+		{
+			get
+			{
+				return this._ProductChildID;
+			}
+			set
+			{
+				if ((this._ProductChildID != value))
+				{
+					if (this._Product1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProductChildIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProductChildID = value;
+					this.SendPropertyChanged("ProductChildID");
+					this.OnProductChildIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductProduct", Storage="_Product", ThisKey="ProductParentID", OtherKey="ProductID", IsForeignKey=true)]
+		public Product Product
+		{
+			get
+			{
+				return this._Product.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.ProductProducts.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.ProductProducts.Add(this);
+						this._ProductParentID = value.ProductID;
+					}
+					else
+					{
+						this._ProductParentID = default(int);
+					}
+					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductProduct1", Storage="_Product1", ThisKey="ProductChildID", OtherKey="ProductID", IsForeignKey=true)]
+		public Product Product1
+		{
+			get
+			{
+				return this._Product1.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product1.Entity;
+				if (((previousValue != value) 
+							|| (this._Product1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product1.Entity = null;
+						previousValue.ProductProducts1.Remove(this);
+					}
+					this._Product1.Entity = value;
+					if ((value != null))
+					{
+						value.ProductProducts1.Add(this);
+						this._ProductChildID = value.ProductID;
+					}
+					else
+					{
+						this._ProductChildID = default(int);
+					}
+					this.SendPropertyChanged("Product1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

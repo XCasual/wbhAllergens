@@ -121,6 +121,8 @@
       <Association Name="Product_ProductsIngridient" Member="ProductsIngridients" ThisKey="ProductID" OtherKey="ProductID" Type="ProductsIngridient" />
       <Association Name="Product_ProductsLocal" Member="ProductsLocals" ThisKey="ProductID" OtherKey="ProductID" Type="ProductsLocal" />
       <Association Name="Product_ProductsLocationsID" Member="ProductsLocationsIDs" ThisKey="ProductID" OtherKey="ProductID" Type="ProductsLocationsID" />
+      <Association Name="Product_ProductProduct" Member="ProductProducts" ThisKey="ProductID" OtherKey="ProductParentID" Type="ProductProduct" />
+      <Association Name="Product_ProductProduct1" Member="ProductProducts1" ThisKey="ProductID" OtherKey="ProductChildID" Type="ProductProduct" />
       <Association Name="Category_Product" Member="Category" ThisKey="ProductCategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
@@ -238,6 +240,15 @@
       <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductProducts" Member="ProductProducts">
+    <Type Name="ProductProduct">
+      <Column Name="ProductProductsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductChildID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_ProductProduct" Member="Product" ThisKey="ProductParentID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Product_ProductProduct1" Member="Product1" ThisKey="ProductChildID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.v_AllergenSymbol" Method="v_AllergenSymbol" IsComposable="true">
