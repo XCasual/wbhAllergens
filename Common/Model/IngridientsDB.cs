@@ -38,8 +38,8 @@ namespace AllerConnectCommon.Model
                                 LanguageID = talLOJ.AllergenLanguageID == 0 ? -100 : talLOJ.AllergenLanguageID,
                                 LocalName = talLOJ.AllergenLocalName == null ? "(ERR:101)" : talLOJ.AllergenLocalName,
                                 ToolTip = talLOJ.AllergenLocalToolTip == null ? "(ERR:102)" : talLOJ.AllergenLocalToolTip,
-                                SymbolID = tsLOJ.AllergenSymbolID,
-                                SymbolBuffer = tsLOJ.Symbol.SymbolImage.ToArray()
+                                SymbolID = tsLOJ.AllergenSymbolID == 0 ? -103 : tsLOJ.AllergenSymbolID,
+                                SymbolBuffer = tsLOJ.AllergenSymbolID == 0 ? null : tsLOJ.Symbol.SymbolImage.ToArray()
                             };
                 foreach (var sp in query)
                 {
@@ -59,9 +59,9 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                int? allergenID = -1;
-                dc.AddAllergen(displayAllergen.OrdinaryName, ref allergenID);
-                displayAllergen.ID = allergenID.Value;
+                //int? allergenID = -1;
+                //dc.AddAllergen(displayAllergen.OrdinaryName, ref allergenID);
+                //displayAllergen.ID = allergenID.Value;
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                dc.UpdateAllergen(displayAllergen.OrdinaryName, displayAllergen.ID);
+                //dc.UpdateAllergen(displayAllergen.OrdinaryName, displayAllergen.ID);
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                dc.DeleteAllergen(allergenID);
+                //dc.DeleteAllergen(allergenID);
             }
             catch (Exception ex)
             {

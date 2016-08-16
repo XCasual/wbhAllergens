@@ -65,6 +65,9 @@
     <Compile Include="Views\AllergenSelectionView.xaml.cs">
       <DependentUpon>AllergenSelectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductInformationView.xaml.cs">
+      <DependentUpon>ProductInformationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AllergenView.xaml.cs">
       <DependentUpon>AllergenView.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
     <Page Include="Views\AllergenSelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductInformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AllergenView.xaml">
       <SubType>Designer</SubType>
@@ -171,6 +178,9 @@
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\edit.png" />
     <Resource Include="Images\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

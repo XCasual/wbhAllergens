@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Services\UIControllerService.cs" />
     <Compile Include="ViewModel\Allergen.cs" />
+    <Compile Include="ViewModel\ProductInformationModel.cs" />
     <Compile Include="ViewModel\ProductDisplayModel.cs" />
     <Compile Include="ViewModel\AllergenDisplayModel.cs" />
     <Compile Include="ViewModel\ProductModelStatus.cs" />

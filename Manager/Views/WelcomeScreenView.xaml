@@ -6,8 +6,15 @@
              xmlns:local="clr-namespace:AllerConnectManager.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="LightGray">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="29" Margin="60,103,0,0" TextWrapping="Wrap" Text="BLA BLA BLA" VerticalAlignment="Top" Width="150"/>
-
+    <Grid Background="#FF251E1E" OpacityMask="#FF251E1E">
+        <Image x:Name="image" HorizontalAlignment="Center" Height="127" Margin="0,23,0,0" VerticalAlignment="Top" Width="174" Source="/AllerConnectManager;component/Images/Logo.jpg">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Images/Logo.jpg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Label x:Name="lblWelcome" Content="Herzlich Willkommen" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="21.333"/>
+        <Button x:Name="button" Content="Allergene" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="button1" Content="Produkte" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="button2" Content="Informationen" HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.201,0.2"/>
     </Grid>
 </UserControl>

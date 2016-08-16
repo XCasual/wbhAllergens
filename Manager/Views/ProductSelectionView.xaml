@@ -4,9 +4,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AllerConnectManager.Views"
+             xmlns:vw="clr-namespace:AllerConnectManager.Views"     
+             xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
+             xmlns:foundation="clr-namespace:AllerConnectCommon.Foundation;assembly=AllerConnectCommon"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="LightGray">
-            
+             d:DesignHeight="300" d:DesignWidth="300" 
+             d:DataContext="{d:DesignInstance {x:Type vm:ProductSelectionModel}, IsDesignTimeCreatable=True}">
+
+    <Grid Background="#FF251E1E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnAddAllergen" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Row="0"
+                Command="{Binding Navigate2AllergenView}">
+            <Button.Background>
+                <ImageBrush ImageSource="/AllerConnectManager;component/Images/add.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnEditAllergen" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Row="0" Grid.Column="1"
+                Command="{Binding Navigate2AllergenViewCmd}">
+            <Button.Background>
+                <ImageBrush ImageSource="/AllerConnectManager;component/Images/edit.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnDeleteAllergen" Content="" Grid.Column="2" HorizontalAlignment="Left" Height="44" Grid.Row="0" VerticalAlignment="Top" Width="100">
+            <Button.Background>
+                <ImageBrush ImageSource="/AllerConnectManager;component/Images/delete.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.ColumnSpan="3"
+                Background="#FF251E1E"
+                ItemsSource="{Binding DataItems}" 
+                SelectedItem="{Binding SelectedAllergen}"
+                foundation:CommandBehavior.RoutedEventName="SelectionChanged"
+                foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2"
+                AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product ID" Binding="{Binding Path=ID}"  Width="80"/>
+                <DataGridTextColumn Header="Local Name" Binding="{Binding Path=LocalName}" Width="80" />
+                <DataGridTextColumn Header="Symbol ID Name" Binding="{Binding Path=SymbolID}" Width="80" />
+                <DataGridTemplateColumn Header="Image" Width="80" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=SymbolBuffer}" Width="60" Height="60" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

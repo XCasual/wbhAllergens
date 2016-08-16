@@ -9,6 +9,15 @@
       <Association Name="Allergen_IngridientsAllergen" Member="IngridientsAllergens" ThisKey="AllergenID" OtherKey="AllergenID" Type="IngridientsAllergen" />
     </Type>
   </Table>
+  <Table Name="dbo.Symbols" Member="Symbols">
+    <Type Name="Symbol">
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="Symbol_AllergensSymbol" Member="AllergensSymbols" ThisKey="SymbolID" OtherKey="SymbolID" Type="AllergensSymbol" />
+      <Association Name="Symbol_ProductsSymbol" Member="ProductsSymbols" ThisKey="SymbolID" OtherKey="ProductID" Type="ProductsSymbol" />
+    </Type>
+  </Table>
   <Table Name="dbo.AllergensLocals" Member="AllergensLocals">
     <Type Name="AllergensLocal">
       <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -75,17 +84,7 @@
       <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Ingridient_IngridientsLocal" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
-      <Association Name="IngridientsSymbol_IngridientsLocal" Member="IngridientsSymbol" ThisKey="IngridientID" OtherKey="IngridientSymbolID" Type="IngridientsSymbol" IsForeignKey="true" />
       <Association Name="Language_IngridientsLocal" Member="Language" ThisKey="IngridientLanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.IngridientsSymbols" Member="IngridientsSymbols">
-    <Type Name="IngridientsSymbol">
-      <Column Name="IngridientSymbolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="IngridientsSymbol_IngridientsLocal" Member="IngridientsLocals" ThisKey="IngridientSymbolID" OtherKey="IngridientID" Type="IngridientsLocal" />
-      <Association Name="Symbol_IngridientsSymbol" Member="Symbol" ThisKey="SymbolID" OtherKey="SymbolID" Type="Symbol" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Languages" Member="Languages">
@@ -155,27 +154,170 @@
       <Association Name="Product_ProductsLocationsID" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Symbols" Member="Symbols">
-    <Type Name="Symbol">
-      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Association Name="Symbol_AllergensSymbol" Member="AllergensSymbols" ThisKey="SymbolID" OtherKey="SymbolID" Type="AllergensSymbol" />
-      <Association Name="Symbol_IngridientsSymbol" Member="IngridientsSymbols" ThisKey="SymbolID" OtherKey="SymbolID" Type="IngridientsSymbol" />
+  <Table Name="dbo.ProductsSymbols" Member="ProductsSymbols">
+    <Type Name="ProductsSymbol">
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Symbol_ProductsSymbol" Member="Symbol" ThisKey="ProductID" OtherKey="SymbolID" Type="Symbol" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.AddAllergen" Method="AddAllergen">
-    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="AllergenId" Parameter="allergenId" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.DeleteAllergen" Method="DeleteAllergen">
+  <Table Name="dbo.AllergenData" Member="AllergenDatas">
+    <Type Name="AllergenData">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="AllergenSymbolID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SymbolData" Member="SymbolDatas">
+    <Type Name="SymbolData">
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoryData" Member="CategoryDatas">
+    <Type Name="CategoryData">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IngridientData" Member="IngridientDatas">
+    <Type Name="IngridientData">
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeelLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LanguageData" Member="LanguageDatas">
+    <Type Name="LanguageData">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LanguageShortCode" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageEnglishName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageGermanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LocationData" Member="LocationDatas">
+    <Type Name="LocationData">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocationCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalName" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationPostalCode" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationStreet" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCountry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductData" Member="ProductDatas">
+    <Type Name="ProductData">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOdrinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.v_AllergenSymbol" Method="v_AllergenSymbol" IsComposable="true">
     <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
+    <ElementType Name="v_AllergenSymbolResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
   </Function>
-  <Function Name="dbo.UpdateAllergen" Method="UpdateAllergen">
-    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
+  <Function Name="dbo.v_ProductSymbol" Method="v_ProductSymbol" IsComposable="true">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="v_ProductSymbolResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.v_CategoryProducts" Method="v_CategoryProducts" IsComposable="true">
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="v_CategoryProductsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOdrinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.v_IngridientAllergen" Method="v_IngridientAllergen" IsComposable="true">
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="v_IngridientAllergenResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.v_ProductAllergens" Method="v_ProductAllergens" IsComposable="true">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="v_ProductAllergensResult">
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.v_ProductIngridients" Method="v_ProductIngridients" IsComposable="true">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="v_ProductIngridientsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.v_ProductMask" Method="v_ProductMask" IsComposable="true">
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductName" Parameter="productName" Type="System.Char" DbType="NChar(1)" />
+    <ElementType Name="v_ProductMaskResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOdrinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

@@ -33,6 +33,9 @@ namespace AllerConnectCommon
     partial void InsertAllergen(Allergen instance);
     partial void UpdateAllergen(Allergen instance);
     partial void DeleteAllergen(Allergen instance);
+    partial void InsertSymbol(Symbol instance);
+    partial void UpdateSymbol(Symbol instance);
+    partial void DeleteSymbol(Symbol instance);
     partial void InsertAllergensLocal(AllergensLocal instance);
     partial void UpdateAllergensLocal(AllergensLocal instance);
     partial void DeleteAllergensLocal(AllergensLocal instance);
@@ -54,9 +57,6 @@ namespace AllerConnectCommon
     partial void InsertIngridientsLocal(IngridientsLocal instance);
     partial void UpdateIngridientsLocal(IngridientsLocal instance);
     partial void DeleteIngridientsLocal(IngridientsLocal instance);
-    partial void InsertIngridientsSymbol(IngridientsSymbol instance);
-    partial void UpdateIngridientsSymbol(IngridientsSymbol instance);
-    partial void DeleteIngridientsSymbol(IngridientsSymbol instance);
     partial void InsertLanguage(Language instance);
     partial void UpdateLanguage(Language instance);
     partial void DeleteLanguage(Language instance);
@@ -75,9 +75,9 @@ namespace AllerConnectCommon
     partial void InsertProductsLocationsID(ProductsLocationsID instance);
     partial void UpdateProductsLocationsID(ProductsLocationsID instance);
     partial void DeleteProductsLocationsID(ProductsLocationsID instance);
-    partial void InsertSymbol(Symbol instance);
-    partial void UpdateSymbol(Symbol instance);
-    partial void DeleteSymbol(Symbol instance);
+    partial void InsertProductsSymbol(ProductsSymbol instance);
+    partial void UpdateProductsSymbol(ProductsSymbol instance);
+    partial void DeleteProductsSymbol(ProductsSymbol instance);
     #endregion
 		
 		public LinqDataContext() : 
@@ -115,6 +115,14 @@ namespace AllerConnectCommon
 			get
 			{
 				return this.GetTable<Allergen>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Symbol> Symbols
+		{
+			get
+			{
+				return this.GetTable<Symbol>();
 			}
 		}
 		
@@ -174,14 +182,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		public System.Data.Linq.Table<IngridientsSymbol> IngridientsSymbols
-		{
-			get
-			{
-				return this.GetTable<IngridientsSymbol>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Language> Languages
 		{
 			get
@@ -230,34 +230,110 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		public System.Data.Linq.Table<Symbol> Symbols
+		public System.Data.Linq.Table<ProductsSymbol> ProductsSymbols
 		{
 			get
 			{
-				return this.GetTable<Symbol>();
+				return this.GetTable<ProductsSymbol>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddAllergen")]
-		public int AddAllergen([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenId", DbType="Int")] ref System.Nullable<int> allergenId)
+		public System.Data.Linq.Table<AllergenData> AllergenDatas
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName, allergenId);
-			allergenId = ((System.Nullable<int>)(result.GetParameterValue(1)));
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<AllergenData>();
+			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteAllergen")]
-		public int DeleteAllergen([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
+		public System.Data.Linq.Table<SymbolData> SymbolDatas
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenID);
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<SymbolData>();
+			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateAllergen")]
-		public int UpdateAllergen([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
+		public System.Data.Linq.Table<CategoryData> CategoryDatas
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName, allergenID);
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<CategoryData>();
+			}
+		}
+		
+		public System.Data.Linq.Table<IngridientData> IngridientDatas
+		{
+			get
+			{
+				return this.GetTable<IngridientData>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LanguageData> LanguageDatas
+		{
+			get
+			{
+				return this.GetTable<LanguageData>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LocationData> LocationDatas
+		{
+			get
+			{
+				return this.GetTable<LocationData>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductData> ProductDatas
+		{
+			get
+			{
+				return this.GetTable<ProductData>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_AllergenSymbol", IsComposable=true)]
+		public IQueryable<v_AllergenSymbolResult> v_AllergenSymbol([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
+		{
+			return this.CreateMethodCallQuery<v_AllergenSymbolResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_ProductSymbol", IsComposable=true)]
+		public IQueryable<v_ProductSymbolResult> v_ProductSymbol([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID)
+		{
+			return this.CreateMethodCallQuery<v_ProductSymbolResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_CategoryProducts", IsComposable=true)]
+		public IQueryable<v_CategoryProductsResult> v_CategoryProducts([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageID", DbType="Int")] System.Nullable<int> languageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryID", DbType="Int")] System.Nullable<int> categoryID)
+		{
+			return this.CreateMethodCallQuery<v_CategoryProductsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageID, categoryID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_IngridientAllergen", IsComposable=true)]
+		public IQueryable<v_IngridientAllergenResult> v_IngridientAllergen([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID)
+		{
+			return this.CreateMethodCallQuery<v_IngridientAllergenResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_ProductAllergens", IsComposable=true)]
+		public IQueryable<v_ProductAllergensResult> v_ProductAllergens([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryID", DbType="Int")] System.Nullable<int> categoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageID", DbType="Int")] System.Nullable<int> languageID)
+		{
+			return this.CreateMethodCallQuery<v_ProductAllergensResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, locationID, categoryID, languageID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_ProductIngridients", IsComposable=true)]
+		public IQueryable<v_ProductIngridientsResult> v_ProductIngridients([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID)
+		{
+			return this.CreateMethodCallQuery<v_ProductIngridientsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_ProductMask", IsComposable=true)]
+		public IQueryable<v_ProductMaskResult> v_ProductMask([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageID", DbType="Int")] System.Nullable<int> languageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductName", DbType="NChar(1)")] System.Nullable<char> productName)
+		{
+			return this.CreateMethodCallQuery<v_ProductMaskResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageID, productName);
 		}
 	}
 	
@@ -428,6 +504,172 @@ namespace AllerConnectCommon
 		{
 			this.SendPropertyChanging();
 			entity.Allergen = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Symbols")]
+	public partial class Symbol : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		private EntitySet<AllergensSymbol> _AllergensSymbols;
+		
+		private EntitySet<ProductsSymbol> _ProductsSymbols;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSymbolIDChanging(int value);
+    partial void OnSymbolIDChanged();
+    partial void OnSymbolImageChanging(System.Data.Linq.Binary value);
+    partial void OnSymbolImageChanged();
+    partial void OnSymbolArtChanging(short value);
+    partial void OnSymbolArtChanged();
+    #endregion
+		
+		public Symbol()
+		{
+			this._AllergensSymbols = new EntitySet<AllergensSymbol>(new Action<AllergensSymbol>(this.attach_AllergensSymbols), new Action<AllergensSymbol>(this.detach_AllergensSymbols));
+			this._ProductsSymbols = new EntitySet<ProductsSymbol>(new Action<ProductsSymbol>(this.attach_ProductsSymbols), new Action<ProductsSymbol>(this.detach_ProductsSymbols));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this.OnSymbolIDChanging(value);
+					this.SendPropertyChanging();
+					this._SymbolID = value;
+					this.SendPropertyChanged("SymbolID");
+					this.OnSymbolIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this.OnSymbolImageChanging(value);
+					this.SendPropertyChanging();
+					this._SymbolImage = value;
+					this.SendPropertyChanged("SymbolImage");
+					this.OnSymbolImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this.OnSymbolArtChanging(value);
+					this.SendPropertyChanging();
+					this._SymbolArt = value;
+					this.SendPropertyChanged("SymbolArt");
+					this.OnSymbolArtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Symbol_AllergensSymbol", Storage="_AllergensSymbols", ThisKey="SymbolID", OtherKey="SymbolID")]
+		public EntitySet<AllergensSymbol> AllergensSymbols
+		{
+			get
+			{
+				return this._AllergensSymbols;
+			}
+			set
+			{
+				this._AllergensSymbols.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Symbol_ProductsSymbol", Storage="_ProductsSymbols", ThisKey="SymbolID", OtherKey="ProductID")]
+		public EntitySet<ProductsSymbol> ProductsSymbols
+		{
+			get
+			{
+				return this._ProductsSymbols;
+			}
+			set
+			{
+				this._ProductsSymbols.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AllergensSymbols(AllergensSymbol entity)
+		{
+			this.SendPropertyChanging();
+			entity.Symbol = this;
+		}
+		
+		private void detach_AllergensSymbols(AllergensSymbol entity)
+		{
+			this.SendPropertyChanging();
+			entity.Symbol = null;
+		}
+		
+		private void attach_ProductsSymbols(ProductsSymbol entity)
+		{
+			this.SendPropertyChanging();
+			entity.Symbol = this;
+		}
+		
+		private void detach_ProductsSymbols(ProductsSymbol entity)
+		{
+			this.SendPropertyChanging();
+			entity.Symbol = null;
 		}
 	}
 	
@@ -1649,8 +1891,6 @@ namespace AllerConnectCommon
 		
 		private EntityRef<Ingridient> _Ingridient;
 		
-		private EntityRef<IngridientsSymbol> _IngridientsSymbol;
-		
 		private EntityRef<Language> _Language;
 		
     #region Extensibility Method Definitions
@@ -1672,7 +1912,6 @@ namespace AllerConnectCommon
 		public IngridientsLocal()
 		{
 			this._Ingridient = default(EntityRef<Ingridient>);
-			this._IngridientsSymbol = default(EntityRef<IngridientsSymbol>);
 			this._Language = default(EntityRef<Language>);
 			OnCreated();
 		}
@@ -1748,7 +1987,7 @@ namespace AllerConnectCommon
 			{
 				if ((this._IngridientID != value))
 				{
-					if ((this._Ingridient.HasLoadedOrAssignedValue || this._IngridientsSymbol.HasLoadedOrAssignedValue))
+					if (this._Ingridient.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1819,40 +2058,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngridientsSymbol_IngridientsLocal", Storage="_IngridientsSymbol", ThisKey="IngridientID", OtherKey="IngridientSymbolID", IsForeignKey=true)]
-		public IngridientsSymbol IngridientsSymbol
-		{
-			get
-			{
-				return this._IngridientsSymbol.Entity;
-			}
-			set
-			{
-				IngridientsSymbol previousValue = this._IngridientsSymbol.Entity;
-				if (((previousValue != value) 
-							|| (this._IngridientsSymbol.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._IngridientsSymbol.Entity = null;
-						previousValue.IngridientsLocals.Remove(this);
-					}
-					this._IngridientsSymbol.Entity = value;
-					if ((value != null))
-					{
-						value.IngridientsLocals.Add(this);
-						this._IngridientID = value.IngridientSymbolID;
-					}
-					else
-					{
-						this._IngridientID = default(int);
-					}
-					this.SendPropertyChanged("IngridientsSymbol");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_IngridientsLocal", Storage="_Language", ThisKey="IngridientLanguageID", OtherKey="LanguageID", IsForeignKey=true)]
 		public Language Language
 		{
@@ -1905,185 +2110,6 @@ namespace AllerConnectCommon
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngridientsSymbols")]
-	public partial class IngridientsSymbol : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IngridientSymbolID;
-		
-		private int _IngridientID;
-		
-		private int _SymbolID;
-		
-		private EntitySet<IngridientsLocal> _IngridientsLocals;
-		
-		private EntityRef<Symbol> _Symbol;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIngridientSymbolIDChanging(int value);
-    partial void OnIngridientSymbolIDChanged();
-    partial void OnIngridientIDChanging(int value);
-    partial void OnIngridientIDChanged();
-    partial void OnSymbolIDChanging(int value);
-    partial void OnSymbolIDChanged();
-    #endregion
-		
-		public IngridientsSymbol()
-		{
-			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
-			this._Symbol = default(EntityRef<Symbol>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientSymbolID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IngridientSymbolID
-		{
-			get
-			{
-				return this._IngridientSymbolID;
-			}
-			set
-			{
-				if ((this._IngridientSymbolID != value))
-				{
-					this.OnIngridientSymbolIDChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientSymbolID = value;
-					this.SendPropertyChanged("IngridientSymbolID");
-					this.OnIngridientSymbolIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					this.OnIngridientIDChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientID = value;
-					this.SendPropertyChanged("IngridientID");
-					this.OnIngridientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
-		public int SymbolID
-		{
-			get
-			{
-				return this._SymbolID;
-			}
-			set
-			{
-				if ((this._SymbolID != value))
-				{
-					if (this._Symbol.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSymbolIDChanging(value);
-					this.SendPropertyChanging();
-					this._SymbolID = value;
-					this.SendPropertyChanged("SymbolID");
-					this.OnSymbolIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngridientsSymbol_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="IngridientSymbolID", OtherKey="IngridientID")]
-		public EntitySet<IngridientsLocal> IngridientsLocals
-		{
-			get
-			{
-				return this._IngridientsLocals;
-			}
-			set
-			{
-				this._IngridientsLocals.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Symbol_IngridientsSymbol", Storage="_Symbol", ThisKey="SymbolID", OtherKey="SymbolID", IsForeignKey=true)]
-		public Symbol Symbol
-		{
-			get
-			{
-				return this._Symbol.Entity;
-			}
-			set
-			{
-				Symbol previousValue = this._Symbol.Entity;
-				if (((previousValue != value) 
-							|| (this._Symbol.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Symbol.Entity = null;
-						previousValue.IngridientsSymbols.Remove(this);
-					}
-					this._Symbol.Entity = value;
-					if ((value != null))
-					{
-						value.IngridientsSymbols.Add(this);
-						this._SymbolID = value.SymbolID;
-					}
-					else
-					{
-						this._SymbolID = default(int);
-					}
-					this.SendPropertyChanged("Symbol");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_IngridientsLocals(IngridientsLocal entity)
-		{
-			this.SendPropertyChanging();
-			entity.IngridientsSymbol = this;
-		}
-		
-		private void detach_IngridientsLocals(IngridientsLocal entity)
-		{
-			this.SendPropertyChanging();
-			entity.IngridientsSymbol = null;
 		}
 	}
 	
@@ -3498,42 +3524,83 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Symbols")]
-	public partial class Symbol : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductsSymbols")]
+	public partial class ProductsSymbol : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private int _ProductSymbolID;
+		
+		private int _ProductID;
+		
 		private int _SymbolID;
 		
-		private System.Data.Linq.Binary _SymbolImage;
-		
-		private short _SymbolArt;
-		
-		private EntitySet<AllergensSymbol> _AllergensSymbols;
-		
-		private EntitySet<IngridientsSymbol> _IngridientsSymbols;
+		private EntityRef<Symbol> _Symbol;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnProductSymbolIDChanging(int value);
+    partial void OnProductSymbolIDChanged();
+    partial void OnProductIDChanging(int value);
+    partial void OnProductIDChanged();
     partial void OnSymbolIDChanging(int value);
     partial void OnSymbolIDChanged();
-    partial void OnSymbolImageChanging(System.Data.Linq.Binary value);
-    partial void OnSymbolImageChanged();
-    partial void OnSymbolArtChanging(short value);
-    partial void OnSymbolArtChanged();
     #endregion
 		
-		public Symbol()
+		public ProductsSymbol()
 		{
-			this._AllergensSymbols = new EntitySet<AllergensSymbol>(new Action<AllergensSymbol>(this.attach_AllergensSymbols), new Action<AllergensSymbol>(this.detach_AllergensSymbols));
-			this._IngridientsSymbols = new EntitySet<IngridientsSymbol>(new Action<IngridientsSymbol>(this.attach_IngridientsSymbols), new Action<IngridientsSymbol>(this.detach_IngridientsSymbols));
+			this._Symbol = default(EntityRef<Symbol>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this.OnProductSymbolIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProductSymbolID = value;
+					this.SendPropertyChanged("ProductSymbolID");
+					this.OnProductSymbolIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					if (this._Symbol.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProductIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProductID = value;
+					this.SendPropertyChanged("ProductID");
+					this.OnProductIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
 		public int SymbolID
 		{
 			get
@@ -3553,69 +3620,37 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary SymbolImage
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Symbol_ProductsSymbol", Storage="_Symbol", ThisKey="ProductID", OtherKey="SymbolID", IsForeignKey=true)]
+		public Symbol Symbol
 		{
 			get
 			{
-				return this._SymbolImage;
+				return this._Symbol.Entity;
 			}
 			set
 			{
-				if ((this._SymbolImage != value))
+				Symbol previousValue = this._Symbol.Entity;
+				if (((previousValue != value) 
+							|| (this._Symbol.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnSymbolImageChanging(value);
 					this.SendPropertyChanging();
-					this._SymbolImage = value;
-					this.SendPropertyChanged("SymbolImage");
-					this.OnSymbolImageChanged();
+					if ((previousValue != null))
+					{
+						this._Symbol.Entity = null;
+						previousValue.ProductsSymbols.Remove(this);
+					}
+					this._Symbol.Entity = value;
+					if ((value != null))
+					{
+						value.ProductsSymbols.Add(this);
+						this._ProductID = value.SymbolID;
+					}
+					else
+					{
+						this._ProductID = default(int);
+					}
+					this.SendPropertyChanged("Symbol");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
-		public short SymbolArt
-		{
-			get
-			{
-				return this._SymbolArt;
-			}
-			set
-			{
-				if ((this._SymbolArt != value))
-				{
-					this.OnSymbolArtChanging(value);
-					this.SendPropertyChanging();
-					this._SymbolArt = value;
-					this.SendPropertyChanged("SymbolArt");
-					this.OnSymbolArtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Symbol_AllergensSymbol", Storage="_AllergensSymbols", ThisKey="SymbolID", OtherKey="SymbolID")]
-		public EntitySet<AllergensSymbol> AllergensSymbols
-		{
-			get
-			{
-				return this._AllergensSymbols;
-			}
-			set
-			{
-				this._AllergensSymbols.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Symbol_IngridientsSymbol", Storage="_IngridientsSymbols", ThisKey="SymbolID", OtherKey="SymbolID")]
-		public EntitySet<IngridientsSymbol> IngridientsSymbols
-		{
-			get
-			{
-				return this._IngridientsSymbols;
-			}
-			set
-			{
-				this._IngridientsSymbols.Assign(value);
 			}
 		}
 		
@@ -3638,29 +3673,1744 @@ namespace AllerConnectCommon
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AllergenData")]
+	public partial class AllergenData
+	{
 		
-		private void attach_AllergensSymbols(AllergensSymbol entity)
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		private System.Nullable<int> _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private System.Nullable<int> _AllergenSymbolID;
+		
+		private System.Nullable<int> _AllergenLanguageID;
+		
+		private System.Nullable<int> _SymbolID;
+		
+		public AllergenData()
 		{
-			this.SendPropertyChanging();
-			entity.Symbol = this;
 		}
 		
-		private void detach_AllergensSymbols(AllergensSymbol entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
 		{
-			this.SendPropertyChanging();
-			entity.Symbol = null;
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
 		}
 		
-		private void attach_IngridientsSymbols(IngridientsSymbol entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
 		{
-			this.SendPropertyChanging();
-			entity.Symbol = this;
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
 		}
 		
-		private void detach_IngridientsSymbols(IngridientsSymbol entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int")]
+		public System.Nullable<int> AllergenLocalD
 		{
-			this.SendPropertyChanging();
-			entity.Symbol = null;
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100)")]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600)")]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenSymbolID", DbType="Int")]
+		public System.Nullable<int> AllergenSymbolID
+		{
+			get
+			{
+				return this._AllergenSymbolID;
+			}
+			set
+			{
+				if ((this._AllergenSymbolID != value))
+				{
+					this._AllergenSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int")]
+		public System.Nullable<int> AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int")]
+		public System.Nullable<int> SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SymbolData")]
+	public partial class SymbolData
+	{
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		public SymbolData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this._SymbolArt = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CategoryData")]
+	public partial class CategoryData
+	{
+		
+		private int _CategoryID;
+		
+		private string _CategoryOrdinaryName;
+		
+		private int _CategoryLocalID;
+		
+		private string _CategoryLocalName;
+		
+		private string _CategoryLocalToolTip;
+		
+		private int _CategoryLanguageID;
+		
+		public CategoryData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryOrdinaryName
+		{
+			get
+			{
+				return this._CategoryOrdinaryName;
+			}
+			set
+			{
+				if ((this._CategoryOrdinaryName != value))
+				{
+					this._CategoryOrdinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalID", DbType="Int NOT NULL")]
+		public int CategoryLocalID
+		{
+			get
+			{
+				return this._CategoryLocalID;
+			}
+			set
+			{
+				if ((this._CategoryLocalID != value))
+				{
+					this._CategoryLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalName
+		{
+			get
+			{
+				return this._CategoryLocalName;
+			}
+			set
+			{
+				if ((this._CategoryLocalName != value))
+				{
+					this._CategoryLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalToolTip
+		{
+			get
+			{
+				return this._CategoryLocalToolTip;
+			}
+			set
+			{
+				if ((this._CategoryLocalToolTip != value))
+				{
+					this._CategoryLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLanguageID", DbType="Int NOT NULL")]
+		public int CategoryLanguageID
+		{
+			get
+			{
+				return this._CategoryLanguageID;
+			}
+			set
+			{
+				if ((this._CategoryLanguageID != value))
+				{
+					this._CategoryLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngridientData")]
+	public partial class IngridientData
+	{
+		
+		private int _IngridientID;
+		
+		private string _IngridientOrdinaryName;
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private int _IngridientFeelLimit;
+		
+		private int _IngridientLanguageID;
+		
+		private int _IngridientAllergenID;
+		
+		private int _AllergenID;
+		
+		public IngridientData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientOrdinaryName
+		{
+			get
+			{
+				return this._IngridientOrdinaryName;
+			}
+			set
+			{
+				if ((this._IngridientOrdinaryName != value))
+				{
+					this._IngridientOrdinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
+		public int IngridientLocalID
+		{
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this._IngridientLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this._IngridientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this._IgrridientToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeelLimit", DbType="Int NOT NULL")]
+		public int IngridientFeelLimit
+		{
+			get
+			{
+				return this._IngridientFeelLimit;
+			}
+			set
+			{
+				if ((this._IngridientFeelLimit != value))
+				{
+					this._IngridientFeelLimit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					this._IngridientLanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientAllergenID", DbType="Int NOT NULL")]
+		public int IngridientAllergenID
+		{
+			get
+			{
+				return this._IngridientAllergenID;
+			}
+			set
+			{
+				if ((this._IngridientAllergenID != value))
+				{
+					this._IngridientAllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LanguageData")]
+	public partial class LanguageData
+	{
+		
+		private int _LanguageID;
+		
+		private string _LanguageShortCode;
+		
+		private string _LanguageEnglishName;
+		
+		private string _LanguageGermanName;
+		
+		public LanguageData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int LanguageID
+		{
+			get
+			{
+				return this._LanguageID;
+			}
+			set
+			{
+				if ((this._LanguageID != value))
+				{
+					this._LanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageShortCode", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string LanguageShortCode
+		{
+			get
+			{
+				return this._LanguageShortCode;
+			}
+			set
+			{
+				if ((this._LanguageShortCode != value))
+				{
+					this._LanguageShortCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageEnglishName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageEnglishName
+		{
+			get
+			{
+				return this._LanguageEnglishName;
+			}
+			set
+			{
+				if ((this._LanguageEnglishName != value))
+				{
+					this._LanguageEnglishName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageGermanName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageGermanName
+		{
+			get
+			{
+				return this._LanguageGermanName;
+			}
+			set
+			{
+				if ((this._LanguageGermanName != value))
+				{
+					this._LanguageGermanName = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LocationData")]
+	public partial class LocationData
+	{
+		
+		private int _LocationID;
+		
+		private string _LocationCity;
+		
+		private string _LocationLocalName;
+		
+		private string _LocationPostalCode;
+		
+		private string _LocationStreet;
+		
+		private string _LocationLocalNumber;
+		
+		private string _LocationCountry;
+		
+		public LocationData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCity", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCity
+		{
+			get
+			{
+				return this._LocationCity;
+			}
+			set
+			{
+				if ((this._LocationCity != value))
+				{
+					this._LocationCity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalName", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalName
+		{
+			get
+			{
+				return this._LocationLocalName;
+			}
+			set
+			{
+				if ((this._LocationLocalName != value))
+				{
+					this._LocationLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationPostalCode", DbType="NVarChar(8) NOT NULL", CanBeNull=false)]
+		public string LocationPostalCode
+		{
+			get
+			{
+				return this._LocationPostalCode;
+			}
+			set
+			{
+				if ((this._LocationPostalCode != value))
+				{
+					this._LocationPostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationStreet", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string LocationStreet
+		{
+			get
+			{
+				return this._LocationStreet;
+			}
+			set
+			{
+				if ((this._LocationStreet != value))
+				{
+					this._LocationStreet = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalNumber
+		{
+			get
+			{
+				return this._LocationLocalNumber;
+			}
+			set
+			{
+				if ((this._LocationLocalNumber != value))
+				{
+					this._LocationLocalNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCountry", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCountry
+		{
+			get
+			{
+				return this._LocationCountry;
+			}
+			set
+			{
+				if ((this._LocationCountry != value))
+				{
+					this._LocationCountry = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductData")]
+	public partial class ProductData
+	{
+		
+		private int _ProductID;
+		
+		private string _ProductOdrinaryName;
+		
+		private int _ProductLocalID;
+		
+		private string _ProductName;
+		
+		private string _ProductToolTip;
+		
+		private short _ProductStatus;
+		
+		private int _ProductWeight;
+		
+		private int _ProductLanguageID;
+		
+		private int _ProductCategoryID;
+		
+		private int _ProductLocationID;
+		
+		private int _LocationID;
+		
+		private int _ProductSymbolID;
+		
+		private int _SymbolID;
+		
+		public ProductData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductOdrinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductOdrinaryName
+		{
+			get
+			{
+				return this._ProductOdrinaryName;
+			}
+			set
+			{
+				if ((this._ProductOdrinaryName != value))
+				{
+					this._ProductOdrinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocalID", DbType="Int NOT NULL")]
+		public int ProductLocalID
+		{
+			get
+			{
+				return this._ProductLocalID;
+			}
+			set
+			{
+				if ((this._ProductLocalID != value))
+				{
+					this._ProductLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string ProductToolTip
+		{
+			get
+			{
+				return this._ProductToolTip;
+			}
+			set
+			{
+				if ((this._ProductToolTip != value))
+				{
+					this._ProductToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductStatus", DbType="SmallInt NOT NULL")]
+		public short ProductStatus
+		{
+			get
+			{
+				return this._ProductStatus;
+			}
+			set
+			{
+				if ((this._ProductStatus != value))
+				{
+					this._ProductStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductWeight", DbType="Int NOT NULL")]
+		public int ProductWeight
+		{
+			get
+			{
+				return this._ProductWeight;
+			}
+			set
+			{
+				if ((this._ProductWeight != value))
+				{
+					this._ProductWeight = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLanguageID", DbType="Int NOT NULL")]
+		public int ProductLanguageID
+		{
+			get
+			{
+				return this._ProductLanguageID;
+			}
+			set
+			{
+				if ((this._ProductLanguageID != value))
+				{
+					this._ProductLanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCategoryID", DbType="Int NOT NULL")]
+		public int ProductCategoryID
+		{
+			get
+			{
+				return this._ProductCategoryID;
+			}
+			set
+			{
+				if ((this._ProductCategoryID != value))
+				{
+					this._ProductCategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocationID", DbType="Int NOT NULL")]
+		public int ProductLocationID
+		{
+			get
+			{
+				return this._ProductLocationID;
+			}
+			set
+			{
+				if ((this._ProductLocationID != value))
+				{
+					this._ProductLocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", DbType="Int NOT NULL")]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this._ProductSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_AllergenSymbolResult
+	{
+		
+		private int _AllergenID;
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		public v_AllergenSymbolResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_ProductSymbolResult
+	{
+		
+		private int _ProductID;
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		public v_ProductSymbolResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_CategoryProductsResult
+	{
+		
+		private int _ProductID;
+		
+		private string _ProductOdrinaryName;
+		
+		private int _ProductLocalID;
+		
+		private string _ProductName;
+		
+		private string _ProductToolTip;
+		
+		private short _ProductStatus;
+		
+		private int _ProductWeight;
+		
+		private int _ProductLanguageID;
+		
+		private int _ProductCategoryID;
+		
+		private int _ProductLocationID;
+		
+		private int _LocationID;
+		
+		private int _ProductSymbolID;
+		
+		private int _SymbolID;
+		
+		public v_CategoryProductsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductOdrinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductOdrinaryName
+		{
+			get
+			{
+				return this._ProductOdrinaryName;
+			}
+			set
+			{
+				if ((this._ProductOdrinaryName != value))
+				{
+					this._ProductOdrinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocalID", DbType="Int NOT NULL")]
+		public int ProductLocalID
+		{
+			get
+			{
+				return this._ProductLocalID;
+			}
+			set
+			{
+				if ((this._ProductLocalID != value))
+				{
+					this._ProductLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string ProductToolTip
+		{
+			get
+			{
+				return this._ProductToolTip;
+			}
+			set
+			{
+				if ((this._ProductToolTip != value))
+				{
+					this._ProductToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductStatus", DbType="SmallInt NOT NULL")]
+		public short ProductStatus
+		{
+			get
+			{
+				return this._ProductStatus;
+			}
+			set
+			{
+				if ((this._ProductStatus != value))
+				{
+					this._ProductStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductWeight", DbType="Int NOT NULL")]
+		public int ProductWeight
+		{
+			get
+			{
+				return this._ProductWeight;
+			}
+			set
+			{
+				if ((this._ProductWeight != value))
+				{
+					this._ProductWeight = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLanguageID", DbType="Int NOT NULL")]
+		public int ProductLanguageID
+		{
+			get
+			{
+				return this._ProductLanguageID;
+			}
+			set
+			{
+				if ((this._ProductLanguageID != value))
+				{
+					this._ProductLanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCategoryID", DbType="Int NOT NULL")]
+		public int ProductCategoryID
+		{
+			get
+			{
+				return this._ProductCategoryID;
+			}
+			set
+			{
+				if ((this._ProductCategoryID != value))
+				{
+					this._ProductCategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocationID", DbType="Int NOT NULL")]
+		public int ProductLocationID
+		{
+			get
+			{
+				return this._ProductLocationID;
+			}
+			set
+			{
+				if ((this._ProductLocationID != value))
+				{
+					this._ProductLocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", DbType="Int NOT NULL")]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this._ProductSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_IngridientAllergenResult
+	{
+		
+		private int _AllergenID;
+		
+		private int _IngridientID;
+		
+		public v_IngridientAllergenResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_ProductAllergensResult
+	{
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		public v_ProductAllergensResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100)")]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600)")]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this._SymbolArt = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_ProductIngridientsResult
+	{
+		
+		private int _ProductID;
+		
+		private int _IngridientID;
+		
+		public v_ProductIngridientsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class v_ProductMaskResult
+	{
+		
+		private int _ProductID;
+		
+		private string _ProductOdrinaryName;
+		
+		private int _ProductLocalID;
+		
+		private string _ProductName;
+		
+		private string _ProductToolTip;
+		
+		private short _ProductStatus;
+		
+		private int _ProductWeight;
+		
+		private int _ProductLanguageID;
+		
+		private int _ProductCategoryID;
+		
+		private int _ProductLocationID;
+		
+		private int _LocationID;
+		
+		private int _ProductSymbolID;
+		
+		private int _SymbolID;
+		
+		public v_ProductMaskResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductOdrinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductOdrinaryName
+		{
+			get
+			{
+				return this._ProductOdrinaryName;
+			}
+			set
+			{
+				if ((this._ProductOdrinaryName != value))
+				{
+					this._ProductOdrinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocalID", DbType="Int NOT NULL")]
+		public int ProductLocalID
+		{
+			get
+			{
+				return this._ProductLocalID;
+			}
+			set
+			{
+				if ((this._ProductLocalID != value))
+				{
+					this._ProductLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string ProductToolTip
+		{
+			get
+			{
+				return this._ProductToolTip;
+			}
+			set
+			{
+				if ((this._ProductToolTip != value))
+				{
+					this._ProductToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductStatus", DbType="SmallInt NOT NULL")]
+		public short ProductStatus
+		{
+			get
+			{
+				return this._ProductStatus;
+			}
+			set
+			{
+				if ((this._ProductStatus != value))
+				{
+					this._ProductStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductWeight", DbType="Int NOT NULL")]
+		public int ProductWeight
+		{
+			get
+			{
+				return this._ProductWeight;
+			}
+			set
+			{
+				if ((this._ProductWeight != value))
+				{
+					this._ProductWeight = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLanguageID", DbType="Int NOT NULL")]
+		public int ProductLanguageID
+		{
+			get
+			{
+				return this._ProductLanguageID;
+			}
+			set
+			{
+				if ((this._ProductLanguageID != value))
+				{
+					this._ProductLanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCategoryID", DbType="Int NOT NULL")]
+		public int ProductCategoryID
+		{
+			get
+			{
+				return this._ProductCategoryID;
+			}
+			set
+			{
+				if ((this._ProductCategoryID != value))
+				{
+					this._ProductCategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocationID", DbType="Int NOT NULL")]
+		public int ProductLocationID
+		{
+			get
+			{
+				return this._ProductLocationID;
+			}
+			set
+			{
+				if ((this._ProductLocationID != value))
+				{
+					this._ProductLocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", DbType="Int NOT NULL")]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this._ProductSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
 		}
 	}
 }
