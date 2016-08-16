@@ -41,10 +41,22 @@
         <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.ColumnSpan="3"
                 Background="#FF251E1E"
                 ItemsSource="{Binding DataItems}" 
-                DisplayMemberPath="OrdinaryName"
                 SelectedItem="{Binding SelectedAllergen}"
                 foundation:CommandBehavior.RoutedEventName="SelectionChanged"
-                foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2">
+                foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2"
+                AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Allergen ID" Binding="{Binding Path=ID}"  Width="80"/>
+                <DataGridTextColumn Header="Local Name" Binding="{Binding Path=LocalName}" Width="80" />
+                <DataGridTextColumn Header="Symbol ID Name" Binding="{Binding Path=SymbolID}" Width="80" />
+                <DataGridTemplateColumn Header="Image" Width="80" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=SymbolBuffer}" Width="60" Height="60" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </UserControl>

@@ -29,8 +29,8 @@ namespace AllerConnectCommon.Model
                             join talLOJ in dc.AllergensLocals on ta.AllergenID equals talLOJ.AllergenID into talLOJList
                             from talLOJ in talLOJList.DefaultIfEmpty()
                             where talLOJ.AllergenLanguageID == languageId
-                            //join tasLOJ in dc.AllergensSymbols on ta.AllergenID equals tasLOJ.AllergenID into tasLOJList
-                            //from tasLOJ in tasLOJList.DefaultIfEmpty()
+                            join tsLOJ in dc.AllergensSymbols on ta.AllergenID equals tsLOJ.AllergenID into tsLOJList
+                            from tsLOJ in tsLOJList.DefaultIfEmpty()
                             select new ViewModel.Allergen
                             {
                                 ID = ta.AllergenID,
@@ -38,7 +38,8 @@ namespace AllerConnectCommon.Model
                                 LanguageID = talLOJ.AllergenLanguageID == 0 ? -100 : talLOJ.AllergenLanguageID,
                                 LocalName = talLOJ.AllergenLocalName == null ? "(ERR:101)" : talLOJ.AllergenLocalName,
                                 ToolTip = talLOJ.AllergenLocalToolTip == null ? "(ERR:102)" : talLOJ.AllergenLocalToolTip,
-                                //SymbolBuffer = tsJ.SymbolImage.ToArray()
+                                SymbolID = tsLOJ.AllergenSymbolID,
+                                SymbolBuffer = tsLOJ.Symbol.SymbolImage.ToArray()
                             };
                 foreach (var sp in query)
                 {
