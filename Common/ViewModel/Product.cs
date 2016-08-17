@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace AllerConnectCommon.ViewModel
 {
-    public class Allergen : LocalizedItem, ICloneable
+    public class Product : LocalizedItem, ICloneable
     {
         public string OrdinaryName { get; set; }
 

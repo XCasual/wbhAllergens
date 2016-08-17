@@ -1,10 +1,13 @@
 ﻿using AllerConnectCommon.Foundation;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace AllerConnectCommon.ViewModel
@@ -149,6 +152,25 @@ namespace AllerConnectCommon.ViewModel
             stat.NoError();
         } // ProcessAllergen()
 
+        private RelayCommand chooseImageCmd;
+        public ICommand ChooseImageCmd
+        {
+            get { return chooseImageCmd ?? (chooseImageCmd = new RelayCommand(() => ChooseImageAction(), () => true)); }
+        }
+
+        private void ChooseImageAction()
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            var fileResult = ofd.ShowDialog(Application.Current.MainWindow);
+            if (fileResult == true)
+            {
+                var refImage = Image.FromFile(ofd.FileName);
+                displayedAllergen.SymbolImage = refImage;
+                OnPropertyChanged(new PropertyChangedEventArgs("DisplayedAllergen"));
+            }
+        }
+
         private RelayCommand navigate2AllergenSelectionViewCmd;
         public ICommand Navigate2AllergenSelectionViewCmd
         {
@@ -174,6 +196,7 @@ namespace AllerConnectCommon.ViewModel
             // TODO: Can switch?
             // TODO: Finish current jobs
             // TODO: Do the switch
+            AddAllergen();
             Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenSelectionView");
         } //NavigateToAllergenView      
     }

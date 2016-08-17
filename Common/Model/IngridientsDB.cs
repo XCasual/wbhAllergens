@@ -34,7 +34,8 @@ namespace AllerConnectCommon.Model
                                 LocalName = ad.AllergenLocalName != null ? ad.AllergenLocalName : "(ERR:102)",
                                 ToolTip = ad.AllergenLocalToolTip != null ? ad.AllergenLocalToolTip : "(ERR:103)",
                                 SymbolID = ad.AllergenSymbolID,
-                                SymbolBuffer = ad.SymbolImage.ToArray()
+                                SymbolBuffer = ad.SymbolImage.ToArray(),
+                                SymbolArt = ad.SymbolArt
                             };
                 foreach (var sp in query)
                 {
@@ -56,7 +57,7 @@ namespace AllerConnectCommon.Model
                 var dc = new LinqDataContext();
 
                 // Symbol
-                var resSymbol = dc.SymbolCreate(da.SymbolBuffer, 1).First();
+                var resSymbol = dc.SymbolCreate(da.SymbolBuffer, da.SymbolArt).First();
                 // Allergen
                 var resAllergen = dc.AllergenCreate(da.OrdinaryName).First();
                 // Localised description
