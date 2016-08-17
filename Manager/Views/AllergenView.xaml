@@ -18,6 +18,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="75"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
@@ -32,8 +33,9 @@
         <Label x:Name="lblSymbol" Content="Symbol" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="2" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <TextBox x:Name="tbxSymbol" Margin="5,3,5,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"
                  Text="{Binding Path=DisplayedAllergen.SymbolID, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Image x:Name="imgSymbol" Grid.Column="1" HorizontalAlignment="Left" Height="72" Margin="5,2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80"
+        <Button x:Name="btnImagePath" Content="..." Margin="85,0,0,1" Grid.Row="4" VerticalAlignment="Bottom" Grid.Column="1"
+                Command="{Binding Navigate2AllergenSelectionViewCmd}" HorizontalAlignment="Left" Width="20"/>
+        <Image x:Name="imgSymbol" Grid.Column="1" HorizontalAlignment="Left" Height="72" Margin="5,2,0,0" Grid.Row="4" VerticalAlignment="Top" Width="80"
                Source="{Binding Path=DisplayedAllergen.SymbolImage}">
             <Image.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -42,9 +44,9 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Button x:Name="btnSave" Content="Speichern" Margin="0,0,77,5" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
+        <Button x:Name="btnSave" Content="Speichern" Margin="0,0,77,5" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
                 Command="{Binding SaveAndNavigate2AllergenSelectionViewCmd}"/>
-        <Button x:Name="btnCancel" Content="Abbrechen" Margin="0,0,5,5" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
+        <Button x:Name="btnCancel" Content="Abbrechen" Margin="0,0,5,5" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
                 Command="{Binding Navigate2AllergenSelectionViewCmd}"/>
     </Grid>
 </UserControl>

@@ -78,6 +78,7 @@ namespace AllerConnectCommon.ViewModel
             return new Allergen()
             {
                 ID = this.ID,
+                LocalID = this.LocalID,
                 OrdinaryName = this.OrdinaryName,
                 LocalName = this.LocalName,
                 LanguageID = this.LanguageID,

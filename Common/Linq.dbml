@@ -164,18 +164,6 @@
       <Association Name="Symbol_ProductsSymbol" Member="Symbol" ThisKey="ProductID" OtherKey="SymbolID" Type="Symbol" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.AllergenData" Member="AllergenDatas">
-    <Type Name="AllergenData">
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
-      <Column Name="AllergenSymbolID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SymbolID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SymbolData" Member="SymbolDatas">
     <Type Name="SymbolData">
       <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -249,6 +237,20 @@
       <Column Name="ProductChildID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Product_ProductProduct" Member="Product" ThisKey="ProductParentID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
       <Association Name="Product_ProductProduct1" Member="Product1" ThisKey="ProductChildID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AllergenData" Member="AllergenDatas">
+    <Type Name="AllergenData">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="AllergenSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.v_AllergenSymbol" Method="v_AllergenSymbol" IsComposable="true">
@@ -331,13 +333,6 @@
       <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.AdapterCreate" Method="AdapterCreate">
-    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="AdapterCreateResult">
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.ProductUpdate" Method="ProductUpdate">
     <Parameter Name="ProductOdrinaryName" Parameter="productOdrinaryName" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="ProductCategoryID" Parameter="productCategoryID" Type="System.Int32" DbType="Int" />
@@ -355,76 +350,6 @@
       <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.AdapterDelete" Method="AdapterDelete">
-    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenOrdinaryName" Parameter="original_AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.AdapterLocalCreate" Method="AdapterLocalCreate">
-    <Parameter Name="AllergenLocalName" Parameter="allergenLocalName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="AllergenLocalToolTip" Parameter="allergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AllergenLanguageID" Parameter="allergenLanguageID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="AdapterLocalCreateResult">
-      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.AdapterLocalDelete" Method="AdapterLocalDelete">
-    <Parameter Name="Original_AllergenLocalD" Parameter="original_AllergenLocalD" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenLocalName" Parameter="original_AllergenLocalName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_AllergenLocalToolTip" Parameter="original_AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenLanguageID" Parameter="original_AllergenLanguageID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.AdapterLocalRead" Method="AdapterLocalRead">
-    <ElementType Name="AdapterLocalReadResult">
-      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.AdapterLocalUpdate" Method="AdapterLocalUpdate">
-    <Parameter Name="AllergenLocalName" Parameter="allergenLocalName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="AllergenLocalToolTip" Parameter="allergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AllergenLanguageID" Parameter="allergenLanguageID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenLocalD" Parameter="original_AllergenLocalD" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenLocalName" Parameter="original_AllergenLocalName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_AllergenLocalToolTip" Parameter="original_AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenLanguageID" Parameter="original_AllergenLanguageID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AllergenLocalD" Parameter="allergenLocalD" Type="System.Int32" DbType="Int" />
-    <ElementType Name="AdapterLocalUpdateResult">
-      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.AdapterRead" Method="AdapterRead">
-    <ElementType Name="AdapterReadResult">
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.AdapterUpdate" Method="AdapterUpdate">
-    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_AllergenOrdinaryName" Parameter="original_AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="AdapterUpdateResult">
-      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.AllergenSymbolCreate" Method="AllergenSymbolCreate">
@@ -1020,6 +945,83 @@
       <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" />
       <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenCreate" Method="AllergenCreate">
+    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="AllergenCreateResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenRead" Method="AllergenRead">
+    <ElementType Name="AllergenReadResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenDelete" Method="AllergenDelete">
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenOrdinaryName" Parameter="original_AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AllergenLocalCreate" Method="AllergenLocalCreate">
+    <Parameter Name="AllergenLocalName" Parameter="allergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AllergenLocalToolTip" Parameter="allergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenLanguageID" Parameter="allergenLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AllergenLocalCreateResult">
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenLocalDelete" Method="AllergenLocalDelete">
+    <Parameter Name="Original_AllergenLocalD" Parameter="original_AllergenLocalD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLocalName" Parameter="original_AllergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_AllergenLocalToolTip" Parameter="original_AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLanguageID" Parameter="original_AllergenLanguageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AllergenLocalRead" Method="AllergenLocalRead">
+    <ElementType Name="AllergenLocalReadResult">
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenLocalUpdate" Method="AllergenLocalUpdate">
+    <Parameter Name="AllergenLocalName" Parameter="allergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AllergenLocalToolTip" Parameter="allergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenLanguageID" Parameter="allergenLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLocalD" Parameter="original_AllergenLocalD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLocalName" Parameter="original_AllergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_AllergenLocalToolTip" Parameter="original_AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLanguageID" Parameter="original_AllergenLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenLocalD" Parameter="allergenLocalD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AllergenLocalUpdateResult">
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenUpdate" Method="AllergenUpdate">
+    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenOrdinaryName" Parameter="original_AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AllergenUpdateResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

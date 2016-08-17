@@ -15,7 +15,6 @@ namespace AllerConnectCommon.Model
 
         public IngridientsDB()
         {
-
         }
 
         public DBObservableCollection<ViewModel.Allergen> GetAllergens(int languageId)
@@ -25,21 +24,17 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                var query = from ta in dc.Allergens
-                            join talLOJ in dc.AllergensLocals on ta.AllergenID equals talLOJ.AllergenID into talLOJList
-                            from talLOJ in talLOJList.DefaultIfEmpty()
-                            where talLOJ.AllergenLanguageID == languageId
-                            join tsLOJ in dc.AllergensSymbols on ta.AllergenID equals tsLOJ.AllergenID into tsLOJList
-                            from tsLOJ in tsLOJList.DefaultIfEmpty()
+                var query = from ad in dc.AllergenDatas
                             select new ViewModel.Allergen
                             {
-                                ID = ta.AllergenID,
-                                OrdinaryName = ta.AllergenOrdinaryName,
-                                LanguageID = talLOJ.AllergenLanguageID == 0 ? -100 : talLOJ.AllergenLanguageID,
-                                LocalName = talLOJ.AllergenLocalName == null ? "(ERR:101)" : talLOJ.AllergenLocalName,
-                                ToolTip = talLOJ.AllergenLocalToolTip == null ? "(ERR:102)" : talLOJ.AllergenLocalToolTip,
-                                SymbolID = tsLOJ.AllergenSymbolID == 0 ? -103 : tsLOJ.AllergenSymbolID,
-                                SymbolBuffer = tsLOJ.AllergenSymbolID == 0 ? null : tsLOJ.Symbol.SymbolImage.ToArray()
+                                ID = ad.AllergenID,
+                                LocalID = ad.AllergenLanguageID.HasValue ? ad.AllergenLanguageID.Value : -100,
+                                OrdinaryName = ad.AllergenOrdinaryName,
+                                LanguageID = ad.AllergenLanguageID.HasValue ? ad.AllergenLanguageID.Value : -101,
+                                LocalName = ad.AllergenLocalName != null ? ad.AllergenLocalName : "(ERR:102)",
+                                ToolTip = ad.AllergenLocalToolTip != null ? ad.AllergenLocalToolTip : "(ERR:103)",
+                                SymbolID = ad.AllergenSymbolID,
+                                SymbolBuffer = ad.SymbolImage.ToArray()
                             };
                 foreach (var sp in query)
                 {
@@ -54,14 +49,23 @@ namespace AllerConnectCommon.Model
             return allergenCollection;
         } //GetAllergens()
 
-        public bool AddAllergen(ViewModel.Allergen displayAllergen)
+        public bool AddAllergen(ViewModel.Allergen da)
         {
             try
             {
                 var dc = new LinqDataContext();
-                //int? allergenID = -1;
-                //dc.AddAllergen(displayAllergen.OrdinaryName, ref allergenID);
-                //displayAllergen.ID = allergenID.Value;
+
+                // Symbol
+                var resSymbol = dc.SymbolCreate(da.SymbolBuffer, 1).First();
+                // Allergen
+                var resAllergen = dc.AllergenCreate(da.OrdinaryName).First();
+                // Localised description
+                var resAllergenLocal = dc.AllergenLocalCreate(da.LocalName, da.ToolTip, resAllergen.AllergenID, da.LanguageID).First();
+                // Symbol <-> Allergen
+                var resAllergenSymbol = dc.AllergenSymbolCreate(resAllergen.AllergenID, resSymbol.SymbolID).First();
+
+                da.ID = resAllergen.AllergenID;
+                da.SymbolID = resSymbol.SymbolID;
             }
             catch (Exception ex)
             {
@@ -71,12 +75,24 @@ namespace AllerConnectCommon.Model
             return (!hasError);
         } //AddAllergen()
 
-        public bool UpdateAllergen(ViewModel.Allergen displayAllergen)
+        public bool UpdateAllergen(ViewModel.Allergen da)
         {
             try
             {
                 var dc = new LinqDataContext();
-                //dc.UpdateAllergen(displayAllergen.OrdinaryName, displayAllergen.ID);
+
+                // Symbol
+                var sdm = dc.SymbolDatas.Where(sd => sd.SymbolID == da.SymbolID).First();
+                var resSymbol = dc.SymbolUpdate(da.SymbolBuffer, sdm.SymbolArt, da.SymbolID, sdm.SymbolArt, da.SymbolID).First(); 
+                // Allergen
+                var adm = dc.AllergenDatas.Where(ad => ad.AllergenID == da.ID).First();
+                var resAllergen = dc.AllergenUpdate(da.OrdinaryName, adm.AllergenID, adm.AllergenOrdinaryName, da.ID).First();
+                // Localised description
+                var aldm = dc.AllergensLocals.Where(ad => ad.AllergenLocalD == da.LocalID).First();
+                var resAllergenLocal = dc.AllergenLocalUpdate(da.LocalName, da.ToolTip, da.ID, da.LanguageID, aldm.AllergenID, aldm.AllergenLocalName, aldm.AllergenLocalToolTip,
+                    da.ID, aldm.AllergenLanguageID, aldm.AllergenLocalD).First();
+                // Symbol <-> Allergen
+                // Automaticly via constrains
             }
             catch (Exception ex)
             {
@@ -92,7 +108,9 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                //dc.DeleteAllergen(allergenID);
+                var adm = dc.AllergenDatas.Where(ad => ad.AllergenID == allergenID).First();
+                var rowResult = dc.AllergenDelete(adm.AllergenID, adm.AllergenOrdinaryName);
+                System.Diagnostics.Debug.Assert(rowResult != 1);
             }
             catch (Exception ex)
             {

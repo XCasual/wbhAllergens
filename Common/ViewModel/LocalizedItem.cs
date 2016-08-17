@@ -9,6 +9,9 @@ namespace AllerConnectCommon.ViewModel
     public abstract class LocalizedItem
     {
         public int ID { get; set; }
+
+        public int LocalID { get; set; }
+
         public int LanguageID { get; set; }
     }
 }

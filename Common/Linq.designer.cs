@@ -241,14 +241,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		public System.Data.Linq.Table<AllergenData> AllergenDatas
-		{
-			get
-			{
-				return this.GetTable<AllergenData>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SymbolData> SymbolDatas
 		{
 			get
@@ -305,6 +297,14 @@ namespace AllerConnectCommon
 			}
 		}
 		
+		public System.Data.Linq.Table<AllergenData> AllergenDatas
+		{
+			get
+			{
+				return this.GetTable<AllergenData>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.v_AllergenSymbol", IsComposable=true)]
 		public IQueryable<v_AllergenSymbolResult> v_AllergenSymbol([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
 		{
@@ -347,67 +347,11 @@ namespace AllerConnectCommon
 			return this.CreateMethodCallQuery<v_ProductMaskResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageID, productName);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterCreate")]
-		public ISingleResult<AdapterCreateResult> AdapterCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName);
-			return ((ISingleResult<AdapterCreateResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductUpdate")]
 		public ISingleResult<ProductUpdateResult> ProductUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductOdrinaryName", DbType="NVarChar(100)")] string productOdrinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCategoryID", DbType="Int")] System.Nullable<int> productCategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductStatus", DbType="SmallInt")] System.Nullable<short> productStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductWeight", DbType="Int")] System.Nullable<int> productWeight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductOdrinaryName", DbType="NVarChar(100)")] string original_ProductOdrinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductCategoryID", DbType="Int")] System.Nullable<int> original_ProductCategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductStatus", DbType="SmallInt")] System.Nullable<short> original_ProductStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductWeight", DbType="Int")] System.Nullable<int> original_ProductWeight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productOdrinaryName, productCategoryID, productStatus, productWeight, original_ProductID, original_ProductOdrinaryName, original_ProductCategoryID, original_ProductStatus, original_ProductWeight, productID);
 			return ((ISingleResult<ProductUpdateResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterDelete")]
-		public int AdapterDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenOrdinaryName", DbType="NVarChar(100)")] string original_AllergenOrdinaryName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenID, original_AllergenOrdinaryName);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalCreate")]
-		public ISingleResult<AdapterLocalCreateResult> AdapterLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalName", DbType="NVarChar(100)")] string allergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalToolTip", DbType="NVarChar(600)")] string allergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLanguageID", DbType="Int")] System.Nullable<int> allergenLanguageID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenLocalName, allergenLocalToolTip, allergenID, allergenLanguageID);
-			return ((ISingleResult<AdapterLocalCreateResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalDelete")]
-		public int AdapterLocalDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalD", DbType="Int")] System.Nullable<int> original_AllergenLocalD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalName", DbType="NVarChar(100)")] string original_AllergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalToolTip", DbType="NVarChar(600)")] string original_AllergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLanguageID", DbType="Int")] System.Nullable<int> original_AllergenLanguageID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenLocalD, original_AllergenLocalName, original_AllergenLocalToolTip, original_AllergenID, original_AllergenLanguageID);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalRead")]
-		public ISingleResult<AdapterLocalReadResult> AdapterLocalRead()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<AdapterLocalReadResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalUpdate")]
-		public ISingleResult<AdapterLocalUpdateResult> AdapterLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalName", DbType="NVarChar(100)")] string allergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalToolTip", DbType="NVarChar(600)")] string allergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLanguageID", DbType="Int")] System.Nullable<int> allergenLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalD", DbType="Int")] System.Nullable<int> original_AllergenLocalD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalName", DbType="NVarChar(100)")] string original_AllergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalToolTip", DbType="NVarChar(600)")] string original_AllergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLanguageID", DbType="Int")] System.Nullable<int> original_AllergenLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalD", DbType="Int")] System.Nullable<int> allergenLocalD)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenLocalName, allergenLocalToolTip, allergenID, allergenLanguageID, original_AllergenLocalD, original_AllergenLocalName, original_AllergenLocalToolTip, original_AllergenID, original_AllergenLanguageID, allergenLocalD);
-			return ((ISingleResult<AdapterLocalUpdateResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterRead")]
-		public ISingleResult<AdapterReadResult> AdapterRead()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<AdapterReadResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterUpdate")]
-		public ISingleResult<AdapterUpdateResult> AdapterUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenOrdinaryName", DbType="NVarChar(100)")] string original_AllergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName, original_AllergenID, original_AllergenOrdinaryName, allergenID);
-			return ((ISingleResult<AdapterUpdateResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenSymbolCreate")]
@@ -821,6 +765,62 @@ namespace AllerConnectCommon
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SymbolReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenCreate")]
+		public ISingleResult<AllergenCreateResult> AllergenCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName);
+			return ((ISingleResult<AllergenCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenRead")]
+		public ISingleResult<AllergenReadResult> AllergenRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AllergenReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenDelete")]
+		public int AllergenDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenOrdinaryName", DbType="NVarChar(100)")] string original_AllergenOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenID, original_AllergenOrdinaryName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenLocalCreate")]
+		public ISingleResult<AllergenLocalCreateResult> AllergenLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalName", DbType="NVarChar(100)")] string allergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalToolTip", DbType="NVarChar(600)")] string allergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLanguageID", DbType="Int")] System.Nullable<int> allergenLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenLocalName, allergenLocalToolTip, allergenID, allergenLanguageID);
+			return ((ISingleResult<AllergenLocalCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenLocalDelete")]
+		public int AllergenLocalDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalD", DbType="Int")] System.Nullable<int> original_AllergenLocalD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalName", DbType="NVarChar(100)")] string original_AllergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalToolTip", DbType="NVarChar(600)")] string original_AllergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLanguageID", DbType="Int")] System.Nullable<int> original_AllergenLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenLocalD, original_AllergenLocalName, original_AllergenLocalToolTip, original_AllergenID, original_AllergenLanguageID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenLocalRead")]
+		public ISingleResult<AllergenLocalReadResult> AllergenLocalRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AllergenLocalReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenLocalUpdate")]
+		public ISingleResult<AllergenLocalUpdateResult> AllergenLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalName", DbType="NVarChar(100)")] string allergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalToolTip", DbType="NVarChar(600)")] string allergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLanguageID", DbType="Int")] System.Nullable<int> allergenLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalD", DbType="Int")] System.Nullable<int> original_AllergenLocalD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalName", DbType="NVarChar(100)")] string original_AllergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalToolTip", DbType="NVarChar(600)")] string original_AllergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLanguageID", DbType="Int")] System.Nullable<int> original_AllergenLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalD", DbType="Int")] System.Nullable<int> allergenLocalD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenLocalName, allergenLocalToolTip, allergenID, allergenLanguageID, original_AllergenLocalD, original_AllergenLocalName, original_AllergenLocalToolTip, original_AllergenID, original_AllergenLanguageID, allergenLocalD);
+			return ((ISingleResult<AllergenLocalUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenUpdate")]
+		public ISingleResult<AllergenUpdateResult> AllergenUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenOrdinaryName", DbType="NVarChar(100)")] string original_AllergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName, original_AllergenID, original_AllergenOrdinaryName, allergenID);
+			return ((ISingleResult<AllergenUpdateResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4218,159 +4218,6 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AllergenData")]
-	public partial class AllergenData
-	{
-		
-		private int _AllergenID;
-		
-		private string _AllergenOrdinaryName;
-		
-		private System.Nullable<int> _AllergenLocalD;
-		
-		private string _AllergenLocalName;
-		
-		private string _AllergenLocalToolTip;
-		
-		private System.Nullable<int> _AllergenSymbolID;
-		
-		private System.Nullable<int> _AllergenLanguageID;
-		
-		private System.Nullable<int> _SymbolID;
-		
-		public AllergenData()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenOrdinaryName
-		{
-			get
-			{
-				return this._AllergenOrdinaryName;
-			}
-			set
-			{
-				if ((this._AllergenOrdinaryName != value))
-				{
-					this._AllergenOrdinaryName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int")]
-		public System.Nullable<int> AllergenLocalD
-		{
-			get
-			{
-				return this._AllergenLocalD;
-			}
-			set
-			{
-				if ((this._AllergenLocalD != value))
-				{
-					this._AllergenLocalD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100)")]
-		public string AllergenLocalName
-		{
-			get
-			{
-				return this._AllergenLocalName;
-			}
-			set
-			{
-				if ((this._AllergenLocalName != value))
-				{
-					this._AllergenLocalName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600)")]
-		public string AllergenLocalToolTip
-		{
-			get
-			{
-				return this._AllergenLocalToolTip;
-			}
-			set
-			{
-				if ((this._AllergenLocalToolTip != value))
-				{
-					this._AllergenLocalToolTip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenSymbolID", DbType="Int")]
-		public System.Nullable<int> AllergenSymbolID
-		{
-			get
-			{
-				return this._AllergenSymbolID;
-			}
-			set
-			{
-				if ((this._AllergenSymbolID != value))
-				{
-					this._AllergenSymbolID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int")]
-		public System.Nullable<int> AllergenLanguageID
-		{
-			get
-			{
-				return this._AllergenLanguageID;
-			}
-			set
-			{
-				if ((this._AllergenLanguageID != value))
-				{
-					this._AllergenLanguageID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int")]
-		public System.Nullable<int> SymbolID
-		{
-			get
-			{
-				return this._SymbolID;
-			}
-			set
-			{
-				if ((this._SymbolID != value))
-				{
-					this._SymbolID = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SymbolData")]
 	public partial class SymbolData
 	{
@@ -5373,6 +5220,195 @@ namespace AllerConnectCommon
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AllergenData")]
+	public partial class AllergenData
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		private System.Nullable<int> _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenSymbolID;
+		
+		private System.Nullable<int> _AllergenLanguageID;
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		public AllergenData()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int")]
+		public System.Nullable<int> AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100)")]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600)")]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenSymbolID", DbType="Int NOT NULL")]
+		public int AllergenSymbolID
+		{
+			get
+			{
+				return this._AllergenSymbolID;
+			}
+			set
+			{
+				if ((this._AllergenSymbolID != value))
+				{
+					this._AllergenSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int")]
+		public System.Nullable<int> AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this._SymbolArt = value;
+				}
+			}
+		}
+	}
+	
 	public partial class v_AllergenSymbolResult
 	{
 		
@@ -6149,50 +6185,6 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	public partial class AdapterCreateResult
-	{
-		
-		private int _AllergenID;
-		
-		private string _AllergenOrdinaryName;
-		
-		public AdapterCreateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenOrdinaryName
-		{
-			get
-			{
-				return this._AllergenOrdinaryName;
-			}
-			set
-			{
-				if ((this._AllergenOrdinaryName != value))
-				{
-					this._AllergenOrdinaryName = value;
-				}
-			}
-		}
-	}
-	
 	public partial class ProductUpdateResult
 	{
 		
@@ -6286,388 +6278,6 @@ namespace AllerConnectCommon
 				if ((this._ProductWeight != value))
 				{
 					this._ProductWeight = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AdapterLocalCreateResult
-	{
-		
-		private int _AllergenLocalD;
-		
-		private string _AllergenLocalName;
-		
-		private string _AllergenLocalToolTip;
-		
-		private int _AllergenID;
-		
-		private int _AllergenLanguageID;
-		
-		public AdapterLocalCreateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
-		public int AllergenLocalD
-		{
-			get
-			{
-				return this._AllergenLocalD;
-			}
-			set
-			{
-				if ((this._AllergenLocalD != value))
-				{
-					this._AllergenLocalD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenLocalName
-		{
-			get
-			{
-				return this._AllergenLocalName;
-			}
-			set
-			{
-				if ((this._AllergenLocalName != value))
-				{
-					this._AllergenLocalName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
-		public string AllergenLocalToolTip
-		{
-			get
-			{
-				return this._AllergenLocalToolTip;
-			}
-			set
-			{
-				if ((this._AllergenLocalToolTip != value))
-				{
-					this._AllergenLocalToolTip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
-		public int AllergenLanguageID
-		{
-			get
-			{
-				return this._AllergenLanguageID;
-			}
-			set
-			{
-				if ((this._AllergenLanguageID != value))
-				{
-					this._AllergenLanguageID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AdapterLocalReadResult
-	{
-		
-		private int _AllergenLocalD;
-		
-		private string _AllergenLocalName;
-		
-		private string _AllergenLocalToolTip;
-		
-		private int _AllergenID;
-		
-		private int _AllergenLanguageID;
-		
-		public AdapterLocalReadResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
-		public int AllergenLocalD
-		{
-			get
-			{
-				return this._AllergenLocalD;
-			}
-			set
-			{
-				if ((this._AllergenLocalD != value))
-				{
-					this._AllergenLocalD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenLocalName
-		{
-			get
-			{
-				return this._AllergenLocalName;
-			}
-			set
-			{
-				if ((this._AllergenLocalName != value))
-				{
-					this._AllergenLocalName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
-		public string AllergenLocalToolTip
-		{
-			get
-			{
-				return this._AllergenLocalToolTip;
-			}
-			set
-			{
-				if ((this._AllergenLocalToolTip != value))
-				{
-					this._AllergenLocalToolTip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
-		public int AllergenLanguageID
-		{
-			get
-			{
-				return this._AllergenLanguageID;
-			}
-			set
-			{
-				if ((this._AllergenLanguageID != value))
-				{
-					this._AllergenLanguageID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AdapterLocalUpdateResult
-	{
-		
-		private int _AllergenLocalD;
-		
-		private string _AllergenLocalName;
-		
-		private string _AllergenLocalToolTip;
-		
-		private int _AllergenID;
-		
-		private int _AllergenLanguageID;
-		
-		public AdapterLocalUpdateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
-		public int AllergenLocalD
-		{
-			get
-			{
-				return this._AllergenLocalD;
-			}
-			set
-			{
-				if ((this._AllergenLocalD != value))
-				{
-					this._AllergenLocalD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenLocalName
-		{
-			get
-			{
-				return this._AllergenLocalName;
-			}
-			set
-			{
-				if ((this._AllergenLocalName != value))
-				{
-					this._AllergenLocalName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
-		public string AllergenLocalToolTip
-		{
-			get
-			{
-				return this._AllergenLocalToolTip;
-			}
-			set
-			{
-				if ((this._AllergenLocalToolTip != value))
-				{
-					this._AllergenLocalToolTip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
-		public int AllergenLanguageID
-		{
-			get
-			{
-				return this._AllergenLanguageID;
-			}
-			set
-			{
-				if ((this._AllergenLanguageID != value))
-				{
-					this._AllergenLanguageID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AdapterReadResult
-	{
-		
-		private int _AllergenID;
-		
-		private string _AllergenOrdinaryName;
-		
-		public AdapterReadResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenOrdinaryName
-		{
-			get
-			{
-				return this._AllergenOrdinaryName;
-			}
-			set
-			{
-				if ((this._AllergenOrdinaryName != value))
-				{
-					this._AllergenOrdinaryName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AdapterUpdateResult
-	{
-		
-		private int _AllergenID;
-		
-		private string _AllergenOrdinaryName;
-		
-		public AdapterUpdateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
-		public int AllergenID
-		{
-			get
-			{
-				return this._AllergenID;
-			}
-			set
-			{
-				if ((this._AllergenID != value))
-				{
-					this._AllergenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AllergenOrdinaryName
-		{
-			get
-			{
-				return this._AllergenOrdinaryName;
-			}
-			set
-			{
-				if ((this._AllergenOrdinaryName != value))
-				{
-					this._AllergenOrdinaryName = value;
 				}
 			}
 		}
@@ -10062,6 +9672,432 @@ namespace AllerConnectCommon
 				if ((this._SymbolArt != value))
 				{
 					this._SymbolArt = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenCreateResult
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		public AllergenCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenReadResult
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		public AllergenReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenLocalCreateResult
+	{
+		
+		private int _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenID;
+		
+		private int _AllergenLanguageID;
+		
+		public AllergenLocalCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
+		public int AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
+		public int AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenLocalReadResult
+	{
+		
+		private int _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenID;
+		
+		private int _AllergenLanguageID;
+		
+		public AllergenLocalReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
+		public int AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
+		public int AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenLocalUpdateResult
+	{
+		
+		private int _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenID;
+		
+		private int _AllergenLanguageID;
+		
+		public AllergenLocalUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
+		public int AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
+		public int AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenUpdateResult
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		public AllergenUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
 				}
 			}
 		}
