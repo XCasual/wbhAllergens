@@ -346,6 +346,482 @@ namespace AllerConnectCommon
 		{
 			return this.CreateMethodCallQuery<v_ProductMaskResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageID, productName);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterCreate")]
+		public ISingleResult<AdapterCreateResult> AdapterCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName);
+			return ((ISingleResult<AdapterCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductUpdate")]
+		public ISingleResult<ProductUpdateResult> ProductUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductOdrinaryName", DbType="NVarChar(100)")] string productOdrinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCategoryID", DbType="Int")] System.Nullable<int> productCategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductStatus", DbType="SmallInt")] System.Nullable<short> productStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductWeight", DbType="Int")] System.Nullable<int> productWeight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductOdrinaryName", DbType="NVarChar(100)")] string original_ProductOdrinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductCategoryID", DbType="Int")] System.Nullable<int> original_ProductCategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductStatus", DbType="SmallInt")] System.Nullable<short> original_ProductStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductWeight", DbType="Int")] System.Nullable<int> original_ProductWeight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productOdrinaryName, productCategoryID, productStatus, productWeight, original_ProductID, original_ProductOdrinaryName, original_ProductCategoryID, original_ProductStatus, original_ProductWeight, productID);
+			return ((ISingleResult<ProductUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterDelete")]
+		public int AdapterDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenOrdinaryName", DbType="NVarChar(100)")] string original_AllergenOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenID, original_AllergenOrdinaryName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalCreate")]
+		public ISingleResult<AdapterLocalCreateResult> AdapterLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalName", DbType="NVarChar(100)")] string allergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalToolTip", DbType="NVarChar(600)")] string allergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLanguageID", DbType="Int")] System.Nullable<int> allergenLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenLocalName, allergenLocalToolTip, allergenID, allergenLanguageID);
+			return ((ISingleResult<AdapterLocalCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalDelete")]
+		public int AdapterLocalDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalD", DbType="Int")] System.Nullable<int> original_AllergenLocalD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalName", DbType="NVarChar(100)")] string original_AllergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalToolTip", DbType="NVarChar(600)")] string original_AllergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLanguageID", DbType="Int")] System.Nullable<int> original_AllergenLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenLocalD, original_AllergenLocalName, original_AllergenLocalToolTip, original_AllergenID, original_AllergenLanguageID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalRead")]
+		public ISingleResult<AdapterLocalReadResult> AdapterLocalRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AdapterLocalReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterLocalUpdate")]
+		public ISingleResult<AdapterLocalUpdateResult> AdapterLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalName", DbType="NVarChar(100)")] string allergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalToolTip", DbType="NVarChar(600)")] string allergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLanguageID", DbType="Int")] System.Nullable<int> allergenLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalD", DbType="Int")] System.Nullable<int> original_AllergenLocalD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalName", DbType="NVarChar(100)")] string original_AllergenLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLocalToolTip", DbType="NVarChar(600)")] string original_AllergenLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenLanguageID", DbType="Int")] System.Nullable<int> original_AllergenLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenLocalD", DbType="Int")] System.Nullable<int> allergenLocalD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenLocalName, allergenLocalToolTip, allergenID, allergenLanguageID, original_AllergenLocalD, original_AllergenLocalName, original_AllergenLocalToolTip, original_AllergenID, original_AllergenLanguageID, allergenLocalD);
+			return ((ISingleResult<AdapterLocalUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterRead")]
+		public ISingleResult<AdapterReadResult> AdapterRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AdapterReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdapterUpdate")]
+		public ISingleResult<AdapterUpdateResult> AdapterUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenOrdinaryName", DbType="NVarChar(100)")] string allergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenOrdinaryName", DbType="NVarChar(100)")] string original_AllergenOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenOrdinaryName, original_AllergenID, original_AllergenOrdinaryName, allergenID);
+			return ((ISingleResult<AdapterUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenSymbolCreate")]
+		public ISingleResult<AllergenSymbolCreateResult> AllergenSymbolCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolID", DbType="Int")] System.Nullable<int> symbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenID, symbolID);
+			return ((ISingleResult<AllergenSymbolCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenSymbolDelete")]
+		public int AllergenSymbolDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenSymbolID", DbType="Int")] System.Nullable<int> original_AllergenSymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolID", DbType="Int")] System.Nullable<int> original_SymbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_AllergenSymbolID, original_AllergenID, original_SymbolID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenSymbolRead")]
+		public ISingleResult<AllergenSymbolReadResult> AllergenSymbolRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AllergenSymbolReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllergenSymbolUpdate")]
+		public ISingleResult<AllergenSymbolUpdateResult> AllergenSymbolUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolID", DbType="Int")] System.Nullable<int> symbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenSymbolID", DbType="Int")] System.Nullable<int> original_AllergenSymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolID", DbType="Int")] System.Nullable<int> original_SymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenSymbolID", DbType="Int")] System.Nullable<int> allergenSymbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), allergenID, symbolID, original_AllergenSymbolID, original_AllergenID, original_SymbolID, allergenSymbolID);
+			return ((ISingleResult<AllergenSymbolUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryCreate")]
+		public ISingleResult<CategoryCreateResult> CategoryCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryOrdinaryName", DbType="NVarChar(100)")] string categoryOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), categoryOrdinaryName);
+			return ((ISingleResult<CategoryCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryDelete")]
+		public int CategoryDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryID", DbType="Int")] System.Nullable<int> original_CategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryOrdinaryName", DbType="NVarChar(100)")] string original_CategoryOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_CategoryID, original_CategoryOrdinaryName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryLocalCreate")]
+		public ISingleResult<CategoryLocalCreateResult> CategoryLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLocalName", DbType="NVarChar(100)")] string categoryLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLocalToolTip", DbType="NVarChar(600)")] string categoryLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryID", DbType="Int")] System.Nullable<int> categoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLanguageID", DbType="Int")] System.Nullable<int> categoryLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), categoryLocalName, categoryLocalToolTip, categoryID, categoryLanguageID);
+			return ((ISingleResult<CategoryLocalCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryLocalDelete")]
+		public int CategoryLocalDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLocalID", DbType="Int")] System.Nullable<int> original_CategoryLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLocalName", DbType="NVarChar(100)")] string original_CategoryLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLocalToolTip", DbType="NVarChar(600)")] string original_CategoryLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryID", DbType="Int")] System.Nullable<int> original_CategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLanguageID", DbType="Int")] System.Nullable<int> original_CategoryLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_CategoryLocalID, original_CategoryLocalName, original_CategoryLocalToolTip, original_CategoryID, original_CategoryLanguageID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryLocalRead")]
+		public ISingleResult<CategoryLocalReadResult> CategoryLocalRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<CategoryLocalReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryLocalUpdate")]
+		public ISingleResult<CategoryLocalUpdateResult> CategoryLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLocalName", DbType="NVarChar(100)")] string categoryLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLocalToolTip", DbType="NVarChar(600)")] string categoryLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryID", DbType="Int")] System.Nullable<int> categoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLanguageID", DbType="Int")] System.Nullable<int> categoryLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLocalID", DbType="Int")] System.Nullable<int> original_CategoryLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLocalName", DbType="NVarChar(100)")] string original_CategoryLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLocalToolTip", DbType="NVarChar(600)")] string original_CategoryLocalToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryID", DbType="Int")] System.Nullable<int> original_CategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryLanguageID", DbType="Int")] System.Nullable<int> original_CategoryLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryLocalID", DbType="Int")] System.Nullable<int> categoryLocalID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), categoryLocalName, categoryLocalToolTip, categoryID, categoryLanguageID, original_CategoryLocalID, original_CategoryLocalName, original_CategoryLocalToolTip, original_CategoryID, original_CategoryLanguageID, categoryLocalID);
+			return ((ISingleResult<CategoryLocalUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryRead")]
+		public ISingleResult<CategoryReadResult> CategoryRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<CategoryReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoryUpdate")]
+		public ISingleResult<CategoryUpdateResult> CategoryUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryOrdinaryName", DbType="NVarChar(100)")] string categoryOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryID", DbType="Int")] System.Nullable<int> original_CategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryOrdinaryName", DbType="NVarChar(100)")] string original_CategoryOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryID", DbType="Int")] System.Nullable<int> categoryID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), categoryOrdinaryName, original_CategoryID, original_CategoryOrdinaryName, categoryID);
+			return ((ISingleResult<CategoryUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientAllergenCreate")]
+		public ISingleResult<IngridientAllergenCreateResult> IngridientAllergenCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientFeelLimit", DbType="Int")] System.Nullable<int> ingridientFeelLimit)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientID, allergenID, ingridientFeelLimit);
+			return ((ISingleResult<IngridientAllergenCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientAllergenDelete")]
+		public int IngridientAllergenDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientAllergenID", DbType="Int")] System.Nullable<int> original_IngridientAllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientFeelLimit", DbType="Int")] System.Nullable<int> original_IngridientFeelLimit)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_IngridientAllergenID, original_IngridientID, original_AllergenID, original_IngridientFeelLimit);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientAllergenRead")]
+		public ISingleResult<IngridientAllergenReadResult> IngridientAllergenRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<IngridientAllergenReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientAllergenUpdate")]
+		public ISingleResult<IngridientAllergenUpdateResult> IngridientAllergenUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergenID", DbType="Int")] System.Nullable<int> allergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientFeelLimit", DbType="Int")] System.Nullable<int> ingridientFeelLimit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientAllergenID", DbType="Int")] System.Nullable<int> original_IngridientAllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_AllergenID", DbType="Int")] System.Nullable<int> original_AllergenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientFeelLimit", DbType="Int")] System.Nullable<int> original_IngridientFeelLimit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientAllergenID", DbType="Int")] System.Nullable<int> ingridientAllergenID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientID, allergenID, ingridientFeelLimit, original_IngridientAllergenID, original_IngridientID, original_AllergenID, original_IngridientFeelLimit, ingridientAllergenID);
+			return ((ISingleResult<IngridientAllergenUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientCreate")]
+		public ISingleResult<IngridientCreateResult> IngridientCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientOrdinaryName", DbType="NVarChar(100)")] string ingridientOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientOrdinaryName);
+			return ((ISingleResult<IngridientCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientDelete")]
+		public int IngridientDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientOrdinaryName", DbType="NVarChar(100)")] string original_IngridientOrdinaryName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_IngridientID, original_IngridientOrdinaryName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalCreate")]
+		public ISingleResult<IngridientLocalCreateResult> IngridientLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientName", DbType="NVarChar(100)")] string ingridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IgrridientToolTip", DbType="NVarChar(600)")] string igrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLanguageID", DbType="Int")] System.Nullable<int> ingridientLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientName, igrridientToolTip, ingridientID, ingridientLanguageID);
+			return ((ISingleResult<IngridientLocalCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalDelete")]
+		public int IngridientLocalDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLocalID", DbType="Int")] System.Nullable<int> original_IngridientLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientName", DbType="NVarChar(100)")] string original_IngridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IgrridientToolTip", DbType="NVarChar(600)")] string original_IgrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLanguageID", DbType="Int")] System.Nullable<int> original_IngridientLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_IngridientLocalID, original_IngridientName, original_IgrridientToolTip, original_IngridientID, original_IngridientLanguageID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalRead")]
+		public ISingleResult<IngridientLocalReadResult> IngridientLocalRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<IngridientLocalReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalUpdate")]
+		public ISingleResult<IngridientLocalUpdateResult> IngridientLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientName", DbType="NVarChar(100)")] string ingridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IgrridientToolTip", DbType="NVarChar(600)")] string igrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLanguageID", DbType="Int")] System.Nullable<int> ingridientLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLocalID", DbType="Int")] System.Nullable<int> original_IngridientLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientName", DbType="NVarChar(100)")] string original_IngridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IgrridientToolTip", DbType="NVarChar(600)")] string original_IgrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLanguageID", DbType="Int")] System.Nullable<int> original_IngridientLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLocalID", DbType="Int")] System.Nullable<int> ingridientLocalID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientName, igrridientToolTip, ingridientID, ingridientLanguageID, original_IngridientLocalID, original_IngridientName, original_IgrridientToolTip, original_IngridientID, original_IngridientLanguageID, ingridientLocalID);
+			return ((ISingleResult<IngridientLocalUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientRead")]
+		public ISingleResult<IngridientReadResult> IngridientRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<IngridientReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientUpdate")]
+		public ISingleResult<IngridientUpdateResult> IngridientUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientOrdinaryName", DbType="NVarChar(100)")] string ingridientOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientOrdinaryName", DbType="NVarChar(100)")] string original_IngridientOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientOrdinaryName, original_IngridientID, original_IngridientOrdinaryName, ingridientID);
+			return ((ISingleResult<IngridientUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LanguageCreate")]
+		public ISingleResult<LanguageCreateResult> LanguageCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageShortCode", DbType="NChar(2)")] string languageShortCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageEnglishName", DbType="NVarChar(100)")] string languageEnglishName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageGermanName", DbType="NVarChar(100)")] string languageGermanName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageShortCode, languageEnglishName, languageGermanName);
+			return ((ISingleResult<LanguageCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LanguageDelete")]
+		public int LanguageDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageID", DbType="Int")] System.Nullable<int> original_LanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageShortCode", DbType="NChar(2)")] string original_LanguageShortCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageEnglishName", DbType="NVarChar(100)")] string original_LanguageEnglishName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageGermanName", DbType="NVarChar(100)")] string original_LanguageGermanName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_LanguageID, original_LanguageShortCode, original_LanguageEnglishName, original_LanguageGermanName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LanguageRead")]
+		public ISingleResult<LanguageReadResult> LanguageRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<LanguageReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LanguageUpdate")]
+		public ISingleResult<LanguageUpdateResult> LanguageUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageShortCode", DbType="NChar(2)")] string languageShortCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageEnglishName", DbType="NVarChar(100)")] string languageEnglishName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageGermanName", DbType="NVarChar(100)")] string languageGermanName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageID", DbType="Int")] System.Nullable<int> original_LanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageShortCode", DbType="NChar(2)")] string original_LanguageShortCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageEnglishName", DbType="NVarChar(100)")] string original_LanguageEnglishName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LanguageGermanName", DbType="NVarChar(100)")] string original_LanguageGermanName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageID", DbType="Int")] System.Nullable<int> languageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageShortCode, languageEnglishName, languageGermanName, original_LanguageID, original_LanguageShortCode, original_LanguageEnglishName, original_LanguageGermanName, languageID);
+			return ((ISingleResult<LanguageUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LocationCreate")]
+		public ISingleResult<LocationCreateResult> LocationCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationCity", DbType="NVarChar(100)")] string locationCity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationLocalName", DbType="NVarChar(10)")] string locationLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationPostalCode", DbType="NVarChar(8)")] string locationPostalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationStreet", DbType="NVarChar(200)")] string locationStreet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationLocalNumber", DbType="NChar(10)")] string locationLocalNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationCountry", DbType="NVarChar(100)")] string locationCountry)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), locationCity, locationLocalName, locationPostalCode, locationStreet, locationLocalNumber, locationCountry);
+			return ((ISingleResult<LocationCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LocationDelete")]
+		public int LocationDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationID", DbType="Int")] System.Nullable<int> original_LocationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationCity", DbType="NVarChar(100)")] string original_LocationCity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationLocalName", DbType="NVarChar(10)")] string original_LocationLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationPostalCode", DbType="NVarChar(8)")] string original_LocationPostalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationStreet", DbType="NVarChar(200)")] string original_LocationStreet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationLocalNumber", DbType="NChar(10)")] string original_LocationLocalNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationCountry", DbType="NVarChar(100)")] string original_LocationCountry)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_LocationID, original_LocationCity, original_LocationLocalName, original_LocationPostalCode, original_LocationStreet, original_LocationLocalNumber, original_LocationCountry);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LocationRead")]
+		public ISingleResult<LocationReadResult> LocationRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<LocationReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LocationUpdate")]
+		public ISingleResult<LocationUpdateResult> LocationUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationCity", DbType="NVarChar(100)")] string locationCity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationLocalName", DbType="NVarChar(10)")] string locationLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationPostalCode", DbType="NVarChar(8)")] string locationPostalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationStreet", DbType="NVarChar(200)")] string locationStreet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationLocalNumber", DbType="NChar(10)")] string locationLocalNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationCountry", DbType="NVarChar(100)")] string locationCountry, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationID", DbType="Int")] System.Nullable<int> original_LocationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationCity", DbType="NVarChar(100)")] string original_LocationCity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationLocalName", DbType="NVarChar(10)")] string original_LocationLocalName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationPostalCode", DbType="NVarChar(8)")] string original_LocationPostalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationStreet", DbType="NVarChar(200)")] string original_LocationStreet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationLocalNumber", DbType="NChar(10)")] string original_LocationLocalNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationCountry", DbType="NVarChar(100)")] string original_LocationCountry, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), locationCity, locationLocalName, locationPostalCode, locationStreet, locationLocalNumber, locationCountry, original_LocationID, original_LocationCity, original_LocationLocalName, original_LocationPostalCode, original_LocationStreet, original_LocationLocalNumber, original_LocationCountry, locationID);
+			return ((ISingleResult<LocationUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductCreate")]
+		public ISingleResult<ProductCreateResult> ProductCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductOdrinaryName", DbType="NVarChar(100)")] string productOdrinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCategoryID", DbType="Int")] System.Nullable<int> productCategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductStatus", DbType="SmallInt")] System.Nullable<short> productStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductWeight", DbType="Int")] System.Nullable<int> productWeight)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productOdrinaryName, productCategoryID, productStatus, productWeight);
+			return ((ISingleResult<ProductCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductDelete")]
+		public int ProductDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductOdrinaryName", DbType="NVarChar(100)")] string original_ProductOdrinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductCategoryID", DbType="Int")] System.Nullable<int> original_ProductCategoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductStatus", DbType="SmallInt")] System.Nullable<short> original_ProductStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductWeight", DbType="Int")] System.Nullable<int> original_ProductWeight)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ProductID, original_ProductOdrinaryName, original_ProductCategoryID, original_ProductStatus, original_ProductWeight);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductIngridientCreate")]
+		public ISingleResult<ProductIngridientCreateResult> ProductIngridientCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientFeel", DbType="Int")] System.Nullable<int> ingridientFeel)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, ingridientID, ingridientFeel);
+			return ((ISingleResult<ProductIngridientCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductIngridientDelete")]
+		public int ProductIngridientDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductIngridientID", DbType="Int")] System.Nullable<int> original_ProductIngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientFeel", DbType="Int")] System.Nullable<int> original_IngridientFeel)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ProductIngridientID, original_ProductID, original_IngridientID, original_IngridientFeel);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductIngridientRead")]
+		public ISingleResult<ProductIngridientReadResult> ProductIngridientRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ProductIngridientReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductIngridientUpdate")]
+		public ISingleResult<ProductIngridientUpdateResult> ProductIngridientUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientFeel", DbType="Int")] System.Nullable<int> ingridientFeel, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductIngridientID", DbType="Int")] System.Nullable<int> original_ProductIngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientFeel", DbType="Int")] System.Nullable<int> original_IngridientFeel, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductIngridientID", DbType="Int")] System.Nullable<int> productIngridientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, ingridientID, ingridientFeel, original_ProductIngridientID, original_ProductID, original_IngridientID, original_IngridientFeel, productIngridientID);
+			return ((ISingleResult<ProductIngridientUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocalCreate")]
+		public ISingleResult<ProductLocalCreateResult> ProductLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductName", DbType="NVarChar(100)")] string productName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductToolTip", DbType="NVarChar(600)")] string productToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductLanguageID", DbType="Int")] System.Nullable<int> productLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productName, productToolTip, productID, productLanguageID);
+			return ((ISingleResult<ProductLocalCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocalDelete")]
+		public int ProductLocalDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductLocalID", DbType="Int")] System.Nullable<int> original_ProductLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductName", DbType="NVarChar(100)")] string original_ProductName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductToolTip", DbType="NVarChar(600)")] string original_ProductToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductLanguageID", DbType="Int")] System.Nullable<int> original_ProductLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ProductLocalID, original_ProductName, original_ProductToolTip, original_ProductID, original_ProductLanguageID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocalRead")]
+		public ISingleResult<ProductLocalReadResult> ProductLocalRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ProductLocalReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocalUpdate")]
+		public ISingleResult<ProductLocalUpdateResult> ProductLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductName", DbType="NVarChar(100)")] string productName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductToolTip", DbType="NVarChar(600)")] string productToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductLanguageID", DbType="Int")] System.Nullable<int> productLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductLocalID", DbType="Int")] System.Nullable<int> original_ProductLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductName", DbType="NVarChar(100)")] string original_ProductName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductToolTip", DbType="NVarChar(600)")] string original_ProductToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductLanguageID", DbType="Int")] System.Nullable<int> original_ProductLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductLocalID", DbType="Int")] System.Nullable<int> productLocalID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productName, productToolTip, productID, productLanguageID, original_ProductLocalID, original_ProductName, original_ProductToolTip, original_ProductID, original_ProductLanguageID, productLocalID);
+			return ((ISingleResult<ProductLocalUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocationCreate")]
+		public ISingleResult<ProductLocationCreateResult> ProductLocationCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, locationID);
+			return ((ISingleResult<ProductLocationCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocationDelete")]
+		public int ProductLocationDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductLocationID", DbType="Int")] System.Nullable<int> original_ProductLocationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationID", DbType="Int")] System.Nullable<int> original_LocationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ProductLocationID, original_ProductID, original_LocationID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocationRead")]
+		public ISingleResult<ProductLocationReadResult> ProductLocationRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ProductLocationReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductLocationUpdate")]
+		public ISingleResult<ProductLocationUpdateResult> ProductLocationUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductLocationID", DbType="Int")] System.Nullable<int> original_ProductLocationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_LocationID", DbType="Int")] System.Nullable<int> original_LocationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductLocationID", DbType="Int")] System.Nullable<int> productLocationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, locationID, original_ProductLocationID, original_ProductID, original_LocationID, productLocationID);
+			return ((ISingleResult<ProductLocationUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductProductCreate")]
+		public ISingleResult<ProductProductCreateResult> ProductProductCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductParentID", DbType="Int")] System.Nullable<int> productParentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductChildID", DbType="Int")] System.Nullable<int> productChildID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productParentID, productChildID);
+			return ((ISingleResult<ProductProductCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductProductDelete")]
+		public int ProductProductDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductProductsID", DbType="Int")] System.Nullable<int> original_ProductProductsID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductParentID", DbType="Int")] System.Nullable<int> original_ProductParentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductChildID", DbType="Int")] System.Nullable<int> original_ProductChildID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ProductProductsID, original_ProductParentID, original_ProductChildID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductProductRead")]
+		public ISingleResult<ProductProductReadResult> ProductProductRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ProductProductReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductProductUpdate")]
+		public ISingleResult<ProductProductUpdateResult> ProductProductUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductParentID", DbType="Int")] System.Nullable<int> productParentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductChildID", DbType="Int")] System.Nullable<int> productChildID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductProductsID", DbType="Int")] System.Nullable<int> original_ProductProductsID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductParentID", DbType="Int")] System.Nullable<int> original_ProductParentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductChildID", DbType="Int")] System.Nullable<int> original_ProductChildID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductProductsID", DbType="Int")] System.Nullable<int> productProductsID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productParentID, productChildID, original_ProductProductsID, original_ProductParentID, original_ProductChildID, productProductsID);
+			return ((ISingleResult<ProductProductUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductRead")]
+		public ISingleResult<ProductReadResult> ProductRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ProductReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductSymbolCreate")]
+		public ISingleResult<ProductSymbolCreateResult> ProductSymbolCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolID", DbType="Int")] System.Nullable<int> symbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, symbolID);
+			return ((ISingleResult<ProductSymbolCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductSymbolDelete")]
+		public int ProductSymbolDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductSymbolID", DbType="Int")] System.Nullable<int> original_ProductSymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolID", DbType="Int")] System.Nullable<int> original_SymbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ProductSymbolID, original_ProductID, original_SymbolID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductSymbolRead")]
+		public ISingleResult<ProductSymbolReadResult> ProductSymbolRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ProductSymbolReadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ProductSymbolUpdate")]
+		public ISingleResult<ProductSymbolUpdateResult> ProductSymbolUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolID", DbType="Int")] System.Nullable<int> symbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductSymbolID", DbType="Int")] System.Nullable<int> original_ProductSymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ProductID", DbType="Int")] System.Nullable<int> original_ProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolID", DbType="Int")] System.Nullable<int> original_SymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductSymbolID", DbType="Int")] System.Nullable<int> productSymbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, symbolID, original_ProductSymbolID, original_ProductID, original_SymbolID, productSymbolID);
+			return ((ISingleResult<ProductSymbolUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SymbolCreate")]
+		public ISingleResult<SymbolCreateResult> SymbolCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolImage", DbType="Image")] System.Data.Linq.Binary symbolImage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolArt", DbType="SmallInt")] System.Nullable<short> symbolArt)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), symbolImage, symbolArt);
+			return ((ISingleResult<SymbolCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SymbolUpdate")]
+		public ISingleResult<SymbolUpdateResult> SymbolUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolImage", DbType="Image")] System.Data.Linq.Binary symbolImage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolArt", DbType="SmallInt")] System.Nullable<short> symbolArt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolID", DbType="Int")] System.Nullable<int> original_SymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolArt", DbType="SmallInt")] System.Nullable<short> original_SymbolArt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SymbolID", DbType="Int")] System.Nullable<int> symbolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), symbolImage, symbolArt, original_SymbolID, original_SymbolArt, symbolID);
+			return ((ISingleResult<SymbolUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SymbolDelete")]
+		public int SymbolDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolID", DbType="Int")] System.Nullable<int> original_SymbolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_SymbolArt", DbType="SmallInt")] System.Nullable<short> original_SymbolArt)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_SymbolID, original_SymbolArt);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SymbolRead")]
+		public ISingleResult<SymbolReadResult> SymbolRead()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SymbolReadResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Allergens")]
@@ -5668,6 +6144,3924 @@ namespace AllerConnectCommon
 				if ((this._SymbolID != value))
 				{
 					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AdapterCreateResult
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		public AdapterCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductUpdateResult
+	{
+		
+		private int _ProductID;
+		
+		private string _ProductOdrinaryName;
+		
+		private int _ProductCategoryID;
+		
+		private short _ProductStatus;
+		
+		private int _ProductWeight;
+		
+		public ProductUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductOdrinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductOdrinaryName
+		{
+			get
+			{
+				return this._ProductOdrinaryName;
+			}
+			set
+			{
+				if ((this._ProductOdrinaryName != value))
+				{
+					this._ProductOdrinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCategoryID", DbType="Int NOT NULL")]
+		public int ProductCategoryID
+		{
+			get
+			{
+				return this._ProductCategoryID;
+			}
+			set
+			{
+				if ((this._ProductCategoryID != value))
+				{
+					this._ProductCategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductStatus", DbType="SmallInt NOT NULL")]
+		public short ProductStatus
+		{
+			get
+			{
+				return this._ProductStatus;
+			}
+			set
+			{
+				if ((this._ProductStatus != value))
+				{
+					this._ProductStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductWeight", DbType="Int NOT NULL")]
+		public int ProductWeight
+		{
+			get
+			{
+				return this._ProductWeight;
+			}
+			set
+			{
+				if ((this._ProductWeight != value))
+				{
+					this._ProductWeight = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AdapterLocalCreateResult
+	{
+		
+		private int _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenID;
+		
+		private int _AllergenLanguageID;
+		
+		public AdapterLocalCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
+		public int AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
+		public int AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AdapterLocalReadResult
+	{
+		
+		private int _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenID;
+		
+		private int _AllergenLanguageID;
+		
+		public AdapterLocalReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
+		public int AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
+		public int AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AdapterLocalUpdateResult
+	{
+		
+		private int _AllergenLocalD;
+		
+		private string _AllergenLocalName;
+		
+		private string _AllergenLocalToolTip;
+		
+		private int _AllergenID;
+		
+		private int _AllergenLanguageID;
+		
+		public AdapterLocalUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalD", DbType="Int NOT NULL")]
+		public int AllergenLocalD
+		{
+			get
+			{
+				return this._AllergenLocalD;
+			}
+			set
+			{
+				if ((this._AllergenLocalD != value))
+				{
+					this._AllergenLocalD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalName
+		{
+			get
+			{
+				return this._AllergenLocalName;
+			}
+			set
+			{
+				if ((this._AllergenLocalName != value))
+				{
+					this._AllergenLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string AllergenLocalToolTip
+		{
+			get
+			{
+				return this._AllergenLocalToolTip;
+			}
+			set
+			{
+				if ((this._AllergenLocalToolTip != value))
+				{
+					this._AllergenLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenLanguageID", DbType="Int NOT NULL")]
+		public int AllergenLanguageID
+		{
+			get
+			{
+				return this._AllergenLanguageID;
+			}
+			set
+			{
+				if ((this._AllergenLanguageID != value))
+				{
+					this._AllergenLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AdapterReadResult
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		public AdapterReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AdapterUpdateResult
+	{
+		
+		private int _AllergenID;
+		
+		private string _AllergenOrdinaryName;
+		
+		public AdapterUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AllergenOrdinaryName
+		{
+			get
+			{
+				return this._AllergenOrdinaryName;
+			}
+			set
+			{
+				if ((this._AllergenOrdinaryName != value))
+				{
+					this._AllergenOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenSymbolCreateResult
+	{
+		
+		private int _AllergenSymbolID;
+		
+		private int _AllergenID;
+		
+		private int _SymbolID;
+		
+		public AllergenSymbolCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenSymbolID", DbType="Int NOT NULL")]
+		public int AllergenSymbolID
+		{
+			get
+			{
+				return this._AllergenSymbolID;
+			}
+			set
+			{
+				if ((this._AllergenSymbolID != value))
+				{
+					this._AllergenSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenSymbolReadResult
+	{
+		
+		private int _AllergenSymbolID;
+		
+		private int _AllergenID;
+		
+		private int _SymbolID;
+		
+		public AllergenSymbolReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenSymbolID", DbType="Int NOT NULL")]
+		public int AllergenSymbolID
+		{
+			get
+			{
+				return this._AllergenSymbolID;
+			}
+			set
+			{
+				if ((this._AllergenSymbolID != value))
+				{
+					this._AllergenSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllergenSymbolUpdateResult
+	{
+		
+		private int _AllergenSymbolID;
+		
+		private int _AllergenID;
+		
+		private int _SymbolID;
+		
+		public AllergenSymbolUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenSymbolID", DbType="Int NOT NULL")]
+		public int AllergenSymbolID
+		{
+			get
+			{
+				return this._AllergenSymbolID;
+			}
+			set
+			{
+				if ((this._AllergenSymbolID != value))
+				{
+					this._AllergenSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CategoryCreateResult
+	{
+		
+		private int _CategoryID;
+		
+		private string _CategoryOrdinaryName;
+		
+		public CategoryCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryOrdinaryName
+		{
+			get
+			{
+				return this._CategoryOrdinaryName;
+			}
+			set
+			{
+				if ((this._CategoryOrdinaryName != value))
+				{
+					this._CategoryOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CategoryLocalCreateResult
+	{
+		
+		private int _CategoryLocalID;
+		
+		private string _CategoryLocalName;
+		
+		private string _CategoryLocalToolTip;
+		
+		private int _CategoryID;
+		
+		private int _CategoryLanguageID;
+		
+		public CategoryLocalCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalID", DbType="Int NOT NULL")]
+		public int CategoryLocalID
+		{
+			get
+			{
+				return this._CategoryLocalID;
+			}
+			set
+			{
+				if ((this._CategoryLocalID != value))
+				{
+					this._CategoryLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalName
+		{
+			get
+			{
+				return this._CategoryLocalName;
+			}
+			set
+			{
+				if ((this._CategoryLocalName != value))
+				{
+					this._CategoryLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalToolTip
+		{
+			get
+			{
+				return this._CategoryLocalToolTip;
+			}
+			set
+			{
+				if ((this._CategoryLocalToolTip != value))
+				{
+					this._CategoryLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLanguageID", DbType="Int NOT NULL")]
+		public int CategoryLanguageID
+		{
+			get
+			{
+				return this._CategoryLanguageID;
+			}
+			set
+			{
+				if ((this._CategoryLanguageID != value))
+				{
+					this._CategoryLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CategoryLocalReadResult
+	{
+		
+		private int _CategoryLocalID;
+		
+		private string _CategoryLocalName;
+		
+		private string _CategoryLocalToolTip;
+		
+		private int _CategoryID;
+		
+		private int _CategoryLanguageID;
+		
+		public CategoryLocalReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalID", DbType="Int NOT NULL")]
+		public int CategoryLocalID
+		{
+			get
+			{
+				return this._CategoryLocalID;
+			}
+			set
+			{
+				if ((this._CategoryLocalID != value))
+				{
+					this._CategoryLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalName
+		{
+			get
+			{
+				return this._CategoryLocalName;
+			}
+			set
+			{
+				if ((this._CategoryLocalName != value))
+				{
+					this._CategoryLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalToolTip
+		{
+			get
+			{
+				return this._CategoryLocalToolTip;
+			}
+			set
+			{
+				if ((this._CategoryLocalToolTip != value))
+				{
+					this._CategoryLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLanguageID", DbType="Int NOT NULL")]
+		public int CategoryLanguageID
+		{
+			get
+			{
+				return this._CategoryLanguageID;
+			}
+			set
+			{
+				if ((this._CategoryLanguageID != value))
+				{
+					this._CategoryLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CategoryLocalUpdateResult
+	{
+		
+		private int _CategoryLocalID;
+		
+		private string _CategoryLocalName;
+		
+		private string _CategoryLocalToolTip;
+		
+		private int _CategoryID;
+		
+		private int _CategoryLanguageID;
+		
+		public CategoryLocalUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalID", DbType="Int NOT NULL")]
+		public int CategoryLocalID
+		{
+			get
+			{
+				return this._CategoryLocalID;
+			}
+			set
+			{
+				if ((this._CategoryLocalID != value))
+				{
+					this._CategoryLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalName
+		{
+			get
+			{
+				return this._CategoryLocalName;
+			}
+			set
+			{
+				if ((this._CategoryLocalName != value))
+				{
+					this._CategoryLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLocalToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string CategoryLocalToolTip
+		{
+			get
+			{
+				return this._CategoryLocalToolTip;
+			}
+			set
+			{
+				if ((this._CategoryLocalToolTip != value))
+				{
+					this._CategoryLocalToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryLanguageID", DbType="Int NOT NULL")]
+		public int CategoryLanguageID
+		{
+			get
+			{
+				return this._CategoryLanguageID;
+			}
+			set
+			{
+				if ((this._CategoryLanguageID != value))
+				{
+					this._CategoryLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CategoryReadResult
+	{
+		
+		private int _CategoryID;
+		
+		private string _CategoryOrdinaryName;
+		
+		public CategoryReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryOrdinaryName
+		{
+			get
+			{
+				return this._CategoryOrdinaryName;
+			}
+			set
+			{
+				if ((this._CategoryOrdinaryName != value))
+				{
+					this._CategoryOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CategoryUpdateResult
+	{
+		
+		private int _CategoryID;
+		
+		private string _CategoryOrdinaryName;
+		
+		public CategoryUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this._CategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CategoryOrdinaryName
+		{
+			get
+			{
+				return this._CategoryOrdinaryName;
+			}
+			set
+			{
+				if ((this._CategoryOrdinaryName != value))
+				{
+					this._CategoryOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientAllergenCreateResult
+	{
+		
+		private int _IngridientAllergenID;
+		
+		private int _IngridientID;
+		
+		private int _AllergenID;
+		
+		private int _IngridientFeelLimit;
+		
+		public IngridientAllergenCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientAllergenID", DbType="Int NOT NULL")]
+		public int IngridientAllergenID
+		{
+			get
+			{
+				return this._IngridientAllergenID;
+			}
+			set
+			{
+				if ((this._IngridientAllergenID != value))
+				{
+					this._IngridientAllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeelLimit", DbType="Int NOT NULL")]
+		public int IngridientFeelLimit
+		{
+			get
+			{
+				return this._IngridientFeelLimit;
+			}
+			set
+			{
+				if ((this._IngridientFeelLimit != value))
+				{
+					this._IngridientFeelLimit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientAllergenReadResult
+	{
+		
+		private int _IngridientAllergenID;
+		
+		private int _IngridientID;
+		
+		private int _AllergenID;
+		
+		private int _IngridientFeelLimit;
+		
+		public IngridientAllergenReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientAllergenID", DbType="Int NOT NULL")]
+		public int IngridientAllergenID
+		{
+			get
+			{
+				return this._IngridientAllergenID;
+			}
+			set
+			{
+				if ((this._IngridientAllergenID != value))
+				{
+					this._IngridientAllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeelLimit", DbType="Int NOT NULL")]
+		public int IngridientFeelLimit
+		{
+			get
+			{
+				return this._IngridientFeelLimit;
+			}
+			set
+			{
+				if ((this._IngridientFeelLimit != value))
+				{
+					this._IngridientFeelLimit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientAllergenUpdateResult
+	{
+		
+		private int _IngridientAllergenID;
+		
+		private int _IngridientID;
+		
+		private int _AllergenID;
+		
+		private int _IngridientFeelLimit;
+		
+		public IngridientAllergenUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientAllergenID", DbType="Int NOT NULL")]
+		public int IngridientAllergenID
+		{
+			get
+			{
+				return this._IngridientAllergenID;
+			}
+			set
+			{
+				if ((this._IngridientAllergenID != value))
+				{
+					this._IngridientAllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllergenID", DbType="Int NOT NULL")]
+		public int AllergenID
+		{
+			get
+			{
+				return this._AllergenID;
+			}
+			set
+			{
+				if ((this._AllergenID != value))
+				{
+					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeelLimit", DbType="Int NOT NULL")]
+		public int IngridientFeelLimit
+		{
+			get
+			{
+				return this._IngridientFeelLimit;
+			}
+			set
+			{
+				if ((this._IngridientFeelLimit != value))
+				{
+					this._IngridientFeelLimit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientCreateResult
+	{
+		
+		private int _IngridientID;
+		
+		private string _IngridientOrdinaryName;
+		
+		public IngridientCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientOrdinaryName
+		{
+			get
+			{
+				return this._IngridientOrdinaryName;
+			}
+			set
+			{
+				if ((this._IngridientOrdinaryName != value))
+				{
+					this._IngridientOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientLocalCreateResult
+	{
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private int _IngridientID;
+		
+		private int _IngridientLanguageID;
+		
+		public IngridientLocalCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
+		public int IngridientLocalID
+		{
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this._IngridientLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this._IngridientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this._IgrridientToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					this._IngridientLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientLocalReadResult
+	{
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private int _IngridientID;
+		
+		private int _IngridientLanguageID;
+		
+		public IngridientLocalReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
+		public int IngridientLocalID
+		{
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this._IngridientLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this._IngridientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this._IgrridientToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					this._IngridientLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientLocalUpdateResult
+	{
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private int _IngridientID;
+		
+		private int _IngridientLanguageID;
+		
+		public IngridientLocalUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
+		public int IngridientLocalID
+		{
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this._IngridientLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this._IngridientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this._IgrridientToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					this._IngridientLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientReadResult
+	{
+		
+		private int _IngridientID;
+		
+		private string _IngridientOrdinaryName;
+		
+		public IngridientReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientOrdinaryName
+		{
+			get
+			{
+				return this._IngridientOrdinaryName;
+			}
+			set
+			{
+				if ((this._IngridientOrdinaryName != value))
+				{
+					this._IngridientOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientUpdateResult
+	{
+		
+		private int _IngridientID;
+		
+		private string _IngridientOrdinaryName;
+		
+		public IngridientUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientOrdinaryName
+		{
+			get
+			{
+				return this._IngridientOrdinaryName;
+			}
+			set
+			{
+				if ((this._IngridientOrdinaryName != value))
+				{
+					this._IngridientOrdinaryName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LanguageCreateResult
+	{
+		
+		private int _LanguageID;
+		
+		private string _LanguageShortCode;
+		
+		private string _LanguageEnglishName;
+		
+		private string _LanguageGermanName;
+		
+		public LanguageCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageID", DbType="Int NOT NULL")]
+		public int LanguageID
+		{
+			get
+			{
+				return this._LanguageID;
+			}
+			set
+			{
+				if ((this._LanguageID != value))
+				{
+					this._LanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageShortCode", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string LanguageShortCode
+		{
+			get
+			{
+				return this._LanguageShortCode;
+			}
+			set
+			{
+				if ((this._LanguageShortCode != value))
+				{
+					this._LanguageShortCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageEnglishName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageEnglishName
+		{
+			get
+			{
+				return this._LanguageEnglishName;
+			}
+			set
+			{
+				if ((this._LanguageEnglishName != value))
+				{
+					this._LanguageEnglishName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageGermanName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageGermanName
+		{
+			get
+			{
+				return this._LanguageGermanName;
+			}
+			set
+			{
+				if ((this._LanguageGermanName != value))
+				{
+					this._LanguageGermanName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LanguageReadResult
+	{
+		
+		private int _LanguageID;
+		
+		private string _LanguageShortCode;
+		
+		private string _LanguageEnglishName;
+		
+		private string _LanguageGermanName;
+		
+		public LanguageReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageID", DbType="Int NOT NULL")]
+		public int LanguageID
+		{
+			get
+			{
+				return this._LanguageID;
+			}
+			set
+			{
+				if ((this._LanguageID != value))
+				{
+					this._LanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageShortCode", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string LanguageShortCode
+		{
+			get
+			{
+				return this._LanguageShortCode;
+			}
+			set
+			{
+				if ((this._LanguageShortCode != value))
+				{
+					this._LanguageShortCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageEnglishName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageEnglishName
+		{
+			get
+			{
+				return this._LanguageEnglishName;
+			}
+			set
+			{
+				if ((this._LanguageEnglishName != value))
+				{
+					this._LanguageEnglishName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageGermanName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageGermanName
+		{
+			get
+			{
+				return this._LanguageGermanName;
+			}
+			set
+			{
+				if ((this._LanguageGermanName != value))
+				{
+					this._LanguageGermanName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LanguageUpdateResult
+	{
+		
+		private int _LanguageID;
+		
+		private string _LanguageShortCode;
+		
+		private string _LanguageEnglishName;
+		
+		private string _LanguageGermanName;
+		
+		public LanguageUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageID", DbType="Int NOT NULL")]
+		public int LanguageID
+		{
+			get
+			{
+				return this._LanguageID;
+			}
+			set
+			{
+				if ((this._LanguageID != value))
+				{
+					this._LanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageShortCode", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string LanguageShortCode
+		{
+			get
+			{
+				return this._LanguageShortCode;
+			}
+			set
+			{
+				if ((this._LanguageShortCode != value))
+				{
+					this._LanguageShortCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageEnglishName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageEnglishName
+		{
+			get
+			{
+				return this._LanguageEnglishName;
+			}
+			set
+			{
+				if ((this._LanguageEnglishName != value))
+				{
+					this._LanguageEnglishName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageGermanName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageGermanName
+		{
+			get
+			{
+				return this._LanguageGermanName;
+			}
+			set
+			{
+				if ((this._LanguageGermanName != value))
+				{
+					this._LanguageGermanName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LocationCreateResult
+	{
+		
+		private int _LocationID;
+		
+		private string _LocationCity;
+		
+		private string _LocationLocalName;
+		
+		private string _LocationPostalCode;
+		
+		private string _LocationStreet;
+		
+		private string _LocationLocalNumber;
+		
+		private string _LocationCountry;
+		
+		public LocationCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCity", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCity
+		{
+			get
+			{
+				return this._LocationCity;
+			}
+			set
+			{
+				if ((this._LocationCity != value))
+				{
+					this._LocationCity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalName", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalName
+		{
+			get
+			{
+				return this._LocationLocalName;
+			}
+			set
+			{
+				if ((this._LocationLocalName != value))
+				{
+					this._LocationLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationPostalCode", DbType="NVarChar(8) NOT NULL", CanBeNull=false)]
+		public string LocationPostalCode
+		{
+			get
+			{
+				return this._LocationPostalCode;
+			}
+			set
+			{
+				if ((this._LocationPostalCode != value))
+				{
+					this._LocationPostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationStreet", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string LocationStreet
+		{
+			get
+			{
+				return this._LocationStreet;
+			}
+			set
+			{
+				if ((this._LocationStreet != value))
+				{
+					this._LocationStreet = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalNumber
+		{
+			get
+			{
+				return this._LocationLocalNumber;
+			}
+			set
+			{
+				if ((this._LocationLocalNumber != value))
+				{
+					this._LocationLocalNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCountry", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCountry
+		{
+			get
+			{
+				return this._LocationCountry;
+			}
+			set
+			{
+				if ((this._LocationCountry != value))
+				{
+					this._LocationCountry = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LocationReadResult
+	{
+		
+		private int _LocationID;
+		
+		private string _LocationCity;
+		
+		private string _LocationLocalName;
+		
+		private string _LocationPostalCode;
+		
+		private string _LocationStreet;
+		
+		private string _LocationLocalNumber;
+		
+		private string _LocationCountry;
+		
+		public LocationReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCity", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCity
+		{
+			get
+			{
+				return this._LocationCity;
+			}
+			set
+			{
+				if ((this._LocationCity != value))
+				{
+					this._LocationCity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalName", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalName
+		{
+			get
+			{
+				return this._LocationLocalName;
+			}
+			set
+			{
+				if ((this._LocationLocalName != value))
+				{
+					this._LocationLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationPostalCode", DbType="NVarChar(8) NOT NULL", CanBeNull=false)]
+		public string LocationPostalCode
+		{
+			get
+			{
+				return this._LocationPostalCode;
+			}
+			set
+			{
+				if ((this._LocationPostalCode != value))
+				{
+					this._LocationPostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationStreet", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string LocationStreet
+		{
+			get
+			{
+				return this._LocationStreet;
+			}
+			set
+			{
+				if ((this._LocationStreet != value))
+				{
+					this._LocationStreet = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalNumber
+		{
+			get
+			{
+				return this._LocationLocalNumber;
+			}
+			set
+			{
+				if ((this._LocationLocalNumber != value))
+				{
+					this._LocationLocalNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCountry", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCountry
+		{
+			get
+			{
+				return this._LocationCountry;
+			}
+			set
+			{
+				if ((this._LocationCountry != value))
+				{
+					this._LocationCountry = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LocationUpdateResult
+	{
+		
+		private int _LocationID;
+		
+		private string _LocationCity;
+		
+		private string _LocationLocalName;
+		
+		private string _LocationPostalCode;
+		
+		private string _LocationStreet;
+		
+		private string _LocationLocalNumber;
+		
+		private string _LocationCountry;
+		
+		public LocationUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCity", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCity
+		{
+			get
+			{
+				return this._LocationCity;
+			}
+			set
+			{
+				if ((this._LocationCity != value))
+				{
+					this._LocationCity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalName", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalName
+		{
+			get
+			{
+				return this._LocationLocalName;
+			}
+			set
+			{
+				if ((this._LocationLocalName != value))
+				{
+					this._LocationLocalName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationPostalCode", DbType="NVarChar(8) NOT NULL", CanBeNull=false)]
+		public string LocationPostalCode
+		{
+			get
+			{
+				return this._LocationPostalCode;
+			}
+			set
+			{
+				if ((this._LocationPostalCode != value))
+				{
+					this._LocationPostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationStreet", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string LocationStreet
+		{
+			get
+			{
+				return this._LocationStreet;
+			}
+			set
+			{
+				if ((this._LocationStreet != value))
+				{
+					this._LocationStreet = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationLocalNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string LocationLocalNumber
+		{
+			get
+			{
+				return this._LocationLocalNumber;
+			}
+			set
+			{
+				if ((this._LocationLocalNumber != value))
+				{
+					this._LocationLocalNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCountry", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocationCountry
+		{
+			get
+			{
+				return this._LocationCountry;
+			}
+			set
+			{
+				if ((this._LocationCountry != value))
+				{
+					this._LocationCountry = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductCreateResult
+	{
+		
+		private int _ProductID;
+		
+		private string _ProductOdrinaryName;
+		
+		private int _ProductCategoryID;
+		
+		private short _ProductStatus;
+		
+		private int _ProductWeight;
+		
+		public ProductCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductOdrinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductOdrinaryName
+		{
+			get
+			{
+				return this._ProductOdrinaryName;
+			}
+			set
+			{
+				if ((this._ProductOdrinaryName != value))
+				{
+					this._ProductOdrinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCategoryID", DbType="Int NOT NULL")]
+		public int ProductCategoryID
+		{
+			get
+			{
+				return this._ProductCategoryID;
+			}
+			set
+			{
+				if ((this._ProductCategoryID != value))
+				{
+					this._ProductCategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductStatus", DbType="SmallInt NOT NULL")]
+		public short ProductStatus
+		{
+			get
+			{
+				return this._ProductStatus;
+			}
+			set
+			{
+				if ((this._ProductStatus != value))
+				{
+					this._ProductStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductWeight", DbType="Int NOT NULL")]
+		public int ProductWeight
+		{
+			get
+			{
+				return this._ProductWeight;
+			}
+			set
+			{
+				if ((this._ProductWeight != value))
+				{
+					this._ProductWeight = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductIngridientCreateResult
+	{
+		
+		private int _ProductIngridientID;
+		
+		private int _ProductID;
+		
+		private int _IngridientID;
+		
+		private int _IngridientFeel;
+		
+		public ProductIngridientCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductIngridientID", DbType="Int NOT NULL")]
+		public int ProductIngridientID
+		{
+			get
+			{
+				return this._ProductIngridientID;
+			}
+			set
+			{
+				if ((this._ProductIngridientID != value))
+				{
+					this._ProductIngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeel", DbType="Int NOT NULL")]
+		public int IngridientFeel
+		{
+			get
+			{
+				return this._IngridientFeel;
+			}
+			set
+			{
+				if ((this._IngridientFeel != value))
+				{
+					this._IngridientFeel = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductIngridientReadResult
+	{
+		
+		private int _ProductIngridientID;
+		
+		private int _ProductID;
+		
+		private int _IngridientID;
+		
+		private int _IngridientFeel;
+		
+		public ProductIngridientReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductIngridientID", DbType="Int NOT NULL")]
+		public int ProductIngridientID
+		{
+			get
+			{
+				return this._ProductIngridientID;
+			}
+			set
+			{
+				if ((this._ProductIngridientID != value))
+				{
+					this._ProductIngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeel", DbType="Int NOT NULL")]
+		public int IngridientFeel
+		{
+			get
+			{
+				return this._IngridientFeel;
+			}
+			set
+			{
+				if ((this._IngridientFeel != value))
+				{
+					this._IngridientFeel = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductIngridientUpdateResult
+	{
+		
+		private int _ProductIngridientID;
+		
+		private int _ProductID;
+		
+		private int _IngridientID;
+		
+		private int _IngridientFeel;
+		
+		public ProductIngridientUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductIngridientID", DbType="Int NOT NULL")]
+		public int ProductIngridientID
+		{
+			get
+			{
+				return this._ProductIngridientID;
+			}
+			set
+			{
+				if ((this._ProductIngridientID != value))
+				{
+					this._ProductIngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientFeel", DbType="Int NOT NULL")]
+		public int IngridientFeel
+		{
+			get
+			{
+				return this._IngridientFeel;
+			}
+			set
+			{
+				if ((this._IngridientFeel != value))
+				{
+					this._IngridientFeel = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductLocalCreateResult
+	{
+		
+		private int _ProductLocalID;
+		
+		private string _ProductName;
+		
+		private string _ProductToolTip;
+		
+		private int _ProductID;
+		
+		private int _ProductLanguageID;
+		
+		public ProductLocalCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocalID", DbType="Int NOT NULL")]
+		public int ProductLocalID
+		{
+			get
+			{
+				return this._ProductLocalID;
+			}
+			set
+			{
+				if ((this._ProductLocalID != value))
+				{
+					this._ProductLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string ProductToolTip
+		{
+			get
+			{
+				return this._ProductToolTip;
+			}
+			set
+			{
+				if ((this._ProductToolTip != value))
+				{
+					this._ProductToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLanguageID", DbType="Int NOT NULL")]
+		public int ProductLanguageID
+		{
+			get
+			{
+				return this._ProductLanguageID;
+			}
+			set
+			{
+				if ((this._ProductLanguageID != value))
+				{
+					this._ProductLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductLocalReadResult
+	{
+		
+		private int _ProductLocalID;
+		
+		private string _ProductName;
+		
+		private string _ProductToolTip;
+		
+		private int _ProductID;
+		
+		private int _ProductLanguageID;
+		
+		public ProductLocalReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocalID", DbType="Int NOT NULL")]
+		public int ProductLocalID
+		{
+			get
+			{
+				return this._ProductLocalID;
+			}
+			set
+			{
+				if ((this._ProductLocalID != value))
+				{
+					this._ProductLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string ProductToolTip
+		{
+			get
+			{
+				return this._ProductToolTip;
+			}
+			set
+			{
+				if ((this._ProductToolTip != value))
+				{
+					this._ProductToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLanguageID", DbType="Int NOT NULL")]
+		public int ProductLanguageID
+		{
+			get
+			{
+				return this._ProductLanguageID;
+			}
+			set
+			{
+				if ((this._ProductLanguageID != value))
+				{
+					this._ProductLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductLocalUpdateResult
+	{
+		
+		private int _ProductLocalID;
+		
+		private string _ProductName;
+		
+		private string _ProductToolTip;
+		
+		private int _ProductID;
+		
+		private int _ProductLanguageID;
+		
+		public ProductLocalUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocalID", DbType="Int NOT NULL")]
+		public int ProductLocalID
+		{
+			get
+			{
+				return this._ProductLocalID;
+			}
+			set
+			{
+				if ((this._ProductLocalID != value))
+				{
+					this._ProductLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string ProductToolTip
+		{
+			get
+			{
+				return this._ProductToolTip;
+			}
+			set
+			{
+				if ((this._ProductToolTip != value))
+				{
+					this._ProductToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLanguageID", DbType="Int NOT NULL")]
+		public int ProductLanguageID
+		{
+			get
+			{
+				return this._ProductLanguageID;
+			}
+			set
+			{
+				if ((this._ProductLanguageID != value))
+				{
+					this._ProductLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductLocationCreateResult
+	{
+		
+		private int _ProductLocationID;
+		
+		private int _ProductID;
+		
+		private int _LocationID;
+		
+		public ProductLocationCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocationID", DbType="Int NOT NULL")]
+		public int ProductLocationID
+		{
+			get
+			{
+				return this._ProductLocationID;
+			}
+			set
+			{
+				if ((this._ProductLocationID != value))
+				{
+					this._ProductLocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductLocationReadResult
+	{
+		
+		private int _ProductLocationID;
+		
+		private int _ProductID;
+		
+		private int _LocationID;
+		
+		public ProductLocationReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocationID", DbType="Int NOT NULL")]
+		public int ProductLocationID
+		{
+			get
+			{
+				return this._ProductLocationID;
+			}
+			set
+			{
+				if ((this._ProductLocationID != value))
+				{
+					this._ProductLocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductLocationUpdateResult
+	{
+		
+		private int _ProductLocationID;
+		
+		private int _ProductID;
+		
+		private int _LocationID;
+		
+		public ProductLocationUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductLocationID", DbType="Int NOT NULL")]
+		public int ProductLocationID
+		{
+			get
+			{
+				return this._ProductLocationID;
+			}
+			set
+			{
+				if ((this._ProductLocationID != value))
+				{
+					this._ProductLocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductProductCreateResult
+	{
+		
+		private int _ProductProductsID;
+		
+		private int _ProductParentID;
+		
+		private int _ProductChildID;
+		
+		public ProductProductCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductProductsID", DbType="Int NOT NULL")]
+		public int ProductProductsID
+		{
+			get
+			{
+				return this._ProductProductsID;
+			}
+			set
+			{
+				if ((this._ProductProductsID != value))
+				{
+					this._ProductProductsID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductParentID", DbType="Int NOT NULL")]
+		public int ProductParentID
+		{
+			get
+			{
+				return this._ProductParentID;
+			}
+			set
+			{
+				if ((this._ProductParentID != value))
+				{
+					this._ProductParentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductChildID", DbType="Int NOT NULL")]
+		public int ProductChildID
+		{
+			get
+			{
+				return this._ProductChildID;
+			}
+			set
+			{
+				if ((this._ProductChildID != value))
+				{
+					this._ProductChildID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductProductReadResult
+	{
+		
+		private int _ProductProductsID;
+		
+		private int _ProductParentID;
+		
+		private int _ProductChildID;
+		
+		public ProductProductReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductProductsID", DbType="Int NOT NULL")]
+		public int ProductProductsID
+		{
+			get
+			{
+				return this._ProductProductsID;
+			}
+			set
+			{
+				if ((this._ProductProductsID != value))
+				{
+					this._ProductProductsID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductParentID", DbType="Int NOT NULL")]
+		public int ProductParentID
+		{
+			get
+			{
+				return this._ProductParentID;
+			}
+			set
+			{
+				if ((this._ProductParentID != value))
+				{
+					this._ProductParentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductChildID", DbType="Int NOT NULL")]
+		public int ProductChildID
+		{
+			get
+			{
+				return this._ProductChildID;
+			}
+			set
+			{
+				if ((this._ProductChildID != value))
+				{
+					this._ProductChildID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductProductUpdateResult
+	{
+		
+		private int _ProductProductsID;
+		
+		private int _ProductParentID;
+		
+		private int _ProductChildID;
+		
+		public ProductProductUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductProductsID", DbType="Int NOT NULL")]
+		public int ProductProductsID
+		{
+			get
+			{
+				return this._ProductProductsID;
+			}
+			set
+			{
+				if ((this._ProductProductsID != value))
+				{
+					this._ProductProductsID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductParentID", DbType="Int NOT NULL")]
+		public int ProductParentID
+		{
+			get
+			{
+				return this._ProductParentID;
+			}
+			set
+			{
+				if ((this._ProductParentID != value))
+				{
+					this._ProductParentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductChildID", DbType="Int NOT NULL")]
+		public int ProductChildID
+		{
+			get
+			{
+				return this._ProductChildID;
+			}
+			set
+			{
+				if ((this._ProductChildID != value))
+				{
+					this._ProductChildID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductReadResult
+	{
+		
+		private int _ProductID;
+		
+		private string _ProductOdrinaryName;
+		
+		private int _ProductCategoryID;
+		
+		private short _ProductStatus;
+		
+		private int _ProductWeight;
+		
+		public ProductReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductOdrinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ProductOdrinaryName
+		{
+			get
+			{
+				return this._ProductOdrinaryName;
+			}
+			set
+			{
+				if ((this._ProductOdrinaryName != value))
+				{
+					this._ProductOdrinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCategoryID", DbType="Int NOT NULL")]
+		public int ProductCategoryID
+		{
+			get
+			{
+				return this._ProductCategoryID;
+			}
+			set
+			{
+				if ((this._ProductCategoryID != value))
+				{
+					this._ProductCategoryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductStatus", DbType="SmallInt NOT NULL")]
+		public short ProductStatus
+		{
+			get
+			{
+				return this._ProductStatus;
+			}
+			set
+			{
+				if ((this._ProductStatus != value))
+				{
+					this._ProductStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductWeight", DbType="Int NOT NULL")]
+		public int ProductWeight
+		{
+			get
+			{
+				return this._ProductWeight;
+			}
+			set
+			{
+				if ((this._ProductWeight != value))
+				{
+					this._ProductWeight = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductSymbolCreateResult
+	{
+		
+		private int _ProductSymbolID;
+		
+		private int _ProductID;
+		
+		private int _SymbolID;
+		
+		public ProductSymbolCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", DbType="Int NOT NULL")]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this._ProductSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductSymbolReadResult
+	{
+		
+		private int _ProductSymbolID;
+		
+		private int _ProductID;
+		
+		private int _SymbolID;
+		
+		public ProductSymbolReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", DbType="Int NOT NULL")]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this._ProductSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ProductSymbolUpdateResult
+	{
+		
+		private int _ProductSymbolID;
+		
+		private int _ProductID;
+		
+		private int _SymbolID;
+		
+		public ProductSymbolUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductSymbolID", DbType="Int NOT NULL")]
+		public int ProductSymbolID
+		{
+			get
+			{
+				return this._ProductSymbolID;
+			}
+			set
+			{
+				if ((this._ProductSymbolID != value))
+				{
+					this._ProductSymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL")]
+		public int ProductID
+		{
+			get
+			{
+				return this._ProductID;
+			}
+			set
+			{
+				if ((this._ProductID != value))
+				{
+					this._ProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SymbolCreateResult
+	{
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		public SymbolCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this._SymbolArt = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SymbolUpdateResult
+	{
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		public SymbolUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this._SymbolArt = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SymbolReadResult
+	{
+		
+		private int _SymbolID;
+		
+		private System.Data.Linq.Binary _SymbolImage;
+		
+		private short _SymbolArt;
+		
+		public SymbolReadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolID", DbType="Int NOT NULL")]
+		public int SymbolID
+		{
+			get
+			{
+				return this._SymbolID;
+			}
+			set
+			{
+				if ((this._SymbolID != value))
+				{
+					this._SymbolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolImage", DbType="Image NOT NULL", CanBeNull=false)]
+		public System.Data.Linq.Binary SymbolImage
+		{
+			get
+			{
+				return this._SymbolImage;
+			}
+			set
+			{
+				if ((this._SymbolImage != value))
+				{
+					this._SymbolImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SymbolArt", DbType="SmallInt NOT NULL")]
+		public short SymbolArt
+		{
+			get
+			{
+				return this._SymbolArt;
+			}
+			set
+			{
+				if ((this._SymbolArt != value))
+				{
+					this._SymbolArt = value;
 				}
 			}
 		}

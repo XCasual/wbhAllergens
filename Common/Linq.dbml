@@ -331,4 +331,695 @@
       <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.AdapterCreate" Method="AdapterCreate">
+    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="AdapterCreateResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductUpdate" Method="ProductUpdate">
+    <Parameter Name="ProductOdrinaryName" Parameter="productOdrinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ProductCategoryID" Parameter="productCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductStatus" Parameter="productStatus" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ProductWeight" Parameter="productWeight" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductOdrinaryName" Parameter="original_ProductOdrinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_ProductCategoryID" Parameter="original_ProductCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductStatus" Parameter="original_ProductStatus" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Original_ProductWeight" Parameter="original_ProductWeight" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductUpdateResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOdrinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AdapterDelete" Method="AdapterDelete">
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenOrdinaryName" Parameter="original_AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AdapterLocalCreate" Method="AdapterLocalCreate">
+    <Parameter Name="AllergenLocalName" Parameter="allergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AllergenLocalToolTip" Parameter="allergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenLanguageID" Parameter="allergenLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AdapterLocalCreateResult">
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AdapterLocalDelete" Method="AdapterLocalDelete">
+    <Parameter Name="Original_AllergenLocalD" Parameter="original_AllergenLocalD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLocalName" Parameter="original_AllergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_AllergenLocalToolTip" Parameter="original_AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLanguageID" Parameter="original_AllergenLanguageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AdapterLocalRead" Method="AdapterLocalRead">
+    <ElementType Name="AdapterLocalReadResult">
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AdapterLocalUpdate" Method="AdapterLocalUpdate">
+    <Parameter Name="AllergenLocalName" Parameter="allergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AllergenLocalToolTip" Parameter="allergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenLanguageID" Parameter="allergenLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLocalD" Parameter="original_AllergenLocalD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLocalName" Parameter="original_AllergenLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_AllergenLocalToolTip" Parameter="original_AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenLanguageID" Parameter="original_AllergenLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenLocalD" Parameter="allergenLocalD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AdapterLocalUpdateResult">
+      <Column Name="AllergenLocalD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AdapterRead" Method="AdapterRead">
+    <ElementType Name="AdapterReadResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AdapterUpdate" Method="AdapterUpdate">
+    <Parameter Name="AllergenOrdinaryName" Parameter="allergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenOrdinaryName" Parameter="original_AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AdapterUpdateResult">
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenSymbolCreate" Method="AllergenSymbolCreate">
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SymbolID" Parameter="symbolID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AllergenSymbolCreateResult">
+      <Column Name="AllergenSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenSymbolDelete" Method="AllergenSymbolDelete">
+    <Parameter Name="Original_AllergenSymbolID" Parameter="original_AllergenSymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_SymbolID" Parameter="original_SymbolID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AllergenSymbolRead" Method="AllergenSymbolRead">
+    <ElementType Name="AllergenSymbolReadResult">
+      <Column Name="AllergenSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AllergenSymbolUpdate" Method="AllergenSymbolUpdate">
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SymbolID" Parameter="symbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenSymbolID" Parameter="original_AllergenSymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_SymbolID" Parameter="original_SymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenSymbolID" Parameter="allergenSymbolID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AllergenSymbolUpdateResult">
+      <Column Name="AllergenSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryCreate" Method="CategoryCreate">
+    <Parameter Name="CategoryOrdinaryName" Parameter="categoryOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="CategoryCreateResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryDelete" Method="CategoryDelete">
+    <Parameter Name="Original_CategoryID" Parameter="original_CategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryOrdinaryName" Parameter="original_CategoryOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryLocalCreate" Method="CategoryLocalCreate">
+    <Parameter Name="CategoryLocalName" Parameter="categoryLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CategoryLocalToolTip" Parameter="categoryLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CategoryLanguageID" Parameter="categoryLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CategoryLocalCreateResult">
+      <Column Name="CategoryLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryLocalDelete" Method="CategoryLocalDelete">
+    <Parameter Name="Original_CategoryLocalID" Parameter="original_CategoryLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryLocalName" Parameter="original_CategoryLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_CategoryLocalToolTip" Parameter="original_CategoryLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_CategoryID" Parameter="original_CategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryLanguageID" Parameter="original_CategoryLanguageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryLocalRead" Method="CategoryLocalRead">
+    <ElementType Name="CategoryLocalReadResult">
+      <Column Name="CategoryLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryLocalUpdate" Method="CategoryLocalUpdate">
+    <Parameter Name="CategoryLocalName" Parameter="categoryLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CategoryLocalToolTip" Parameter="categoryLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CategoryLanguageID" Parameter="categoryLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryLocalID" Parameter="original_CategoryLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryLocalName" Parameter="original_CategoryLocalName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_CategoryLocalToolTip" Parameter="original_CategoryLocalToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_CategoryID" Parameter="original_CategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryLanguageID" Parameter="original_CategoryLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CategoryLocalID" Parameter="categoryLocalID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CategoryLocalUpdateResult">
+      <Column Name="CategoryLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLocalToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryRead" Method="CategoryRead">
+    <ElementType Name="CategoryReadResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryUpdate" Method="CategoryUpdate">
+    <Parameter Name="CategoryOrdinaryName" Parameter="categoryOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_CategoryID" Parameter="original_CategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_CategoryOrdinaryName" Parameter="original_CategoryOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CategoryUpdateResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientAllergenCreate" Method="IngridientAllergenCreate">
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientFeelLimit" Parameter="ingridientFeelLimit" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientAllergenCreateResult">
+      <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeelLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientAllergenDelete" Method="IngridientAllergenDelete">
+    <Parameter Name="Original_IngridientAllergenID" Parameter="original_IngridientAllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientFeelLimit" Parameter="original_IngridientFeelLimit" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngridientAllergenRead" Method="IngridientAllergenRead">
+    <ElementType Name="IngridientAllergenReadResult">
+      <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeelLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientAllergenUpdate" Method="IngridientAllergenUpdate">
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AllergenID" Parameter="allergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientFeelLimit" Parameter="ingridientFeelLimit" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientAllergenID" Parameter="original_IngridientAllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_AllergenID" Parameter="original_AllergenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientFeelLimit" Parameter="original_IngridientFeelLimit" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientAllergenID" Parameter="ingridientAllergenID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientAllergenUpdateResult">
+      <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeelLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientCreate" Method="IngridientCreate">
+    <Parameter Name="IngridientOrdinaryName" Parameter="ingridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="IngridientCreateResult">
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientDelete" Method="IngridientDelete">
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientOrdinaryName" Parameter="original_IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngridientLocalCreate" Method="IngridientLocalCreate">
+    <Parameter Name="IngridientName" Parameter="ingridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IgrridientToolTip" Parameter="igrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientLanguageID" Parameter="ingridientLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientLocalCreateResult">
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientLocalDelete" Method="IngridientLocalDelete">
+    <Parameter Name="Original_IngridientLocalID" Parameter="original_IngridientLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientName" Parameter="original_IngridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_IgrridientToolTip" Parameter="original_IgrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientLanguageID" Parameter="original_IngridientLanguageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngridientLocalRead" Method="IngridientLocalRead">
+    <ElementType Name="IngridientLocalReadResult">
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientLocalUpdate" Method="IngridientLocalUpdate">
+    <Parameter Name="IngridientName" Parameter="ingridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IgrridientToolTip" Parameter="igrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientLanguageID" Parameter="ingridientLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientLocalID" Parameter="original_IngridientLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientName" Parameter="original_IngridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_IgrridientToolTip" Parameter="original_IgrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientLanguageID" Parameter="original_IngridientLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientLocalID" Parameter="ingridientLocalID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientLocalUpdateResult">
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientRead" Method="IngridientRead">
+    <ElementType Name="IngridientReadResult">
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientUpdate" Method="IngridientUpdate">
+    <Parameter Name="IngridientOrdinaryName" Parameter="ingridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientOrdinaryName" Parameter="original_IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientUpdateResult">
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LanguageCreate" Method="LanguageCreate">
+    <Parameter Name="LanguageShortCode" Parameter="languageShortCode" Type="System.String" DbType="NChar(2)" />
+    <Parameter Name="LanguageEnglishName" Parameter="languageEnglishName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LanguageGermanName" Parameter="languageGermanName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="LanguageCreateResult">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageShortCode" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageEnglishName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageGermanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LanguageDelete" Method="LanguageDelete">
+    <Parameter Name="Original_LanguageID" Parameter="original_LanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_LanguageShortCode" Parameter="original_LanguageShortCode" Type="System.String" DbType="NChar(2)" />
+    <Parameter Name="Original_LanguageEnglishName" Parameter="original_LanguageEnglishName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_LanguageGermanName" Parameter="original_LanguageGermanName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LanguageRead" Method="LanguageRead">
+    <ElementType Name="LanguageReadResult">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageShortCode" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageEnglishName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageGermanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LanguageUpdate" Method="LanguageUpdate">
+    <Parameter Name="LanguageShortCode" Parameter="languageShortCode" Type="System.String" DbType="NChar(2)" />
+    <Parameter Name="LanguageEnglishName" Parameter="languageEnglishName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LanguageGermanName" Parameter="languageGermanName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_LanguageID" Parameter="original_LanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_LanguageShortCode" Parameter="original_LanguageShortCode" Type="System.String" DbType="NChar(2)" />
+    <Parameter Name="Original_LanguageEnglishName" Parameter="original_LanguageEnglishName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_LanguageGermanName" Parameter="original_LanguageGermanName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="LanguageUpdateResult">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageShortCode" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageEnglishName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageGermanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LocationCreate" Method="LocationCreate">
+    <Parameter Name="LocationCity" Parameter="locationCity" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LocationLocalName" Parameter="locationLocalName" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="LocationPostalCode" Parameter="locationPostalCode" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="LocationStreet" Parameter="locationStreet" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="LocationLocalNumber" Parameter="locationLocalNumber" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="LocationCountry" Parameter="locationCountry" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="LocationCreateResult">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalName" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationPostalCode" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationStreet" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCountry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LocationDelete" Method="LocationDelete">
+    <Parameter Name="Original_LocationID" Parameter="original_LocationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_LocationCity" Parameter="original_LocationCity" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_LocationLocalName" Parameter="original_LocationLocalName" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Original_LocationPostalCode" Parameter="original_LocationPostalCode" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="Original_LocationStreet" Parameter="original_LocationStreet" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Original_LocationLocalNumber" Parameter="original_LocationLocalNumber" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Original_LocationCountry" Parameter="original_LocationCountry" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LocationRead" Method="LocationRead">
+    <ElementType Name="LocationReadResult">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalName" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationPostalCode" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationStreet" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCountry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LocationUpdate" Method="LocationUpdate">
+    <Parameter Name="LocationCity" Parameter="locationCity" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LocationLocalName" Parameter="locationLocalName" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="LocationPostalCode" Parameter="locationPostalCode" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="LocationStreet" Parameter="locationStreet" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="LocationLocalNumber" Parameter="locationLocalNumber" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="LocationCountry" Parameter="locationCountry" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_LocationID" Parameter="original_LocationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_LocationCity" Parameter="original_LocationCity" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_LocationLocalName" Parameter="original_LocationLocalName" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Original_LocationPostalCode" Parameter="original_LocationPostalCode" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="Original_LocationStreet" Parameter="original_LocationStreet" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Original_LocationLocalNumber" Parameter="original_LocationLocalNumber" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Original_LocationCountry" Parameter="original_LocationCountry" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="LocationUpdateResult">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalName" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationPostalCode" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationStreet" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationLocalNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCountry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductCreate" Method="ProductCreate">
+    <Parameter Name="ProductOdrinaryName" Parameter="productOdrinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ProductCategoryID" Parameter="productCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductStatus" Parameter="productStatus" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ProductWeight" Parameter="productWeight" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductCreateResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOdrinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductDelete" Method="ProductDelete">
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductOdrinaryName" Parameter="original_ProductOdrinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_ProductCategoryID" Parameter="original_ProductCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductStatus" Parameter="original_ProductStatus" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Original_ProductWeight" Parameter="original_ProductWeight" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductIngridientCreate" Method="ProductIngridientCreate">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientFeel" Parameter="ingridientFeel" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductIngridientCreateResult">
+      <Column Name="ProductIngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductIngridientDelete" Method="ProductIngridientDelete">
+    <Parameter Name="Original_ProductIngridientID" Parameter="original_ProductIngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientFeel" Parameter="original_IngridientFeel" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductIngridientRead" Method="ProductIngridientRead">
+    <ElementType Name="ProductIngridientReadResult">
+      <Column Name="ProductIngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductIngridientUpdate" Method="ProductIngridientUpdate">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientFeel" Parameter="ingridientFeel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductIngridientID" Parameter="original_ProductIngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientFeel" Parameter="original_IngridientFeel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductIngridientID" Parameter="productIngridientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductIngridientUpdateResult">
+      <Column Name="ProductIngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientFeel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductLocalCreate" Method="ProductLocalCreate">
+    <Parameter Name="ProductName" Parameter="productName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ProductToolTip" Parameter="productToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductLanguageID" Parameter="productLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductLocalCreateResult">
+      <Column Name="ProductLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductLocalDelete" Method="ProductLocalDelete">
+    <Parameter Name="Original_ProductLocalID" Parameter="original_ProductLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductName" Parameter="original_ProductName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_ProductToolTip" Parameter="original_ProductToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductLanguageID" Parameter="original_ProductLanguageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductLocalRead" Method="ProductLocalRead">
+    <ElementType Name="ProductLocalReadResult">
+      <Column Name="ProductLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductLocalUpdate" Method="ProductLocalUpdate">
+    <Parameter Name="ProductName" Parameter="productName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ProductToolTip" Parameter="productToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductLanguageID" Parameter="productLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductLocalID" Parameter="original_ProductLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductName" Parameter="original_ProductName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_ProductToolTip" Parameter="original_ProductToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductLanguageID" Parameter="original_ProductLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductLocalID" Parameter="productLocalID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductLocalUpdateResult">
+      <Column Name="ProductLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductLocationCreate" Method="ProductLocationCreate">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductLocationCreateResult">
+      <Column Name="ProductLocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductLocationDelete" Method="ProductLocationDelete">
+    <Parameter Name="Original_ProductLocationID" Parameter="original_ProductLocationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_LocationID" Parameter="original_LocationID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductLocationRead" Method="ProductLocationRead">
+    <ElementType Name="ProductLocationReadResult">
+      <Column Name="ProductLocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductLocationUpdate" Method="ProductLocationUpdate">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductLocationID" Parameter="original_ProductLocationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_LocationID" Parameter="original_LocationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductLocationID" Parameter="productLocationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductLocationUpdateResult">
+      <Column Name="ProductLocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductProductCreate" Method="ProductProductCreate">
+    <Parameter Name="ProductParentID" Parameter="productParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductChildID" Parameter="productChildID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductProductCreateResult">
+      <Column Name="ProductProductsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductChildID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductProductDelete" Method="ProductProductDelete">
+    <Parameter Name="Original_ProductProductsID" Parameter="original_ProductProductsID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductParentID" Parameter="original_ProductParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductChildID" Parameter="original_ProductChildID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductProductRead" Method="ProductProductRead">
+    <ElementType Name="ProductProductReadResult">
+      <Column Name="ProductProductsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductChildID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductProductUpdate" Method="ProductProductUpdate">
+    <Parameter Name="ProductParentID" Parameter="productParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductChildID" Parameter="productChildID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductProductsID" Parameter="original_ProductProductsID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductParentID" Parameter="original_ProductParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductChildID" Parameter="original_ProductChildID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductProductsID" Parameter="productProductsID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductProductUpdateResult">
+      <Column Name="ProductProductsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductChildID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductRead" Method="ProductRead">
+    <ElementType Name="ProductReadResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOdrinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductStatus" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductWeight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductSymbolCreate" Method="ProductSymbolCreate">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SymbolID" Parameter="symbolID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductSymbolCreateResult">
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductSymbolDelete" Method="ProductSymbolDelete">
+    <Parameter Name="Original_ProductSymbolID" Parameter="original_ProductSymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_SymbolID" Parameter="original_SymbolID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductSymbolRead" Method="ProductSymbolRead">
+    <ElementType Name="ProductSymbolReadResult">
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductSymbolUpdate" Method="ProductSymbolUpdate">
+    <Parameter Name="ProductID" Parameter="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SymbolID" Parameter="symbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductSymbolID" Parameter="original_ProductSymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductID" Parameter="original_ProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_SymbolID" Parameter="original_SymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductSymbolID" Parameter="productSymbolID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductSymbolUpdateResult">
+      <Column Name="ProductSymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SymbolCreate" Method="SymbolCreate">
+    <Parameter Name="SymbolImage" Parameter="symbolImage" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="SymbolArt" Parameter="symbolArt" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="SymbolCreateResult">
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SymbolUpdate" Method="SymbolUpdate">
+    <Parameter Name="SymbolImage" Parameter="symbolImage" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="SymbolArt" Parameter="symbolArt" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Original_SymbolID" Parameter="original_SymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_SymbolArt" Parameter="original_SymbolArt" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="SymbolID" Parameter="symbolID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SymbolUpdateResult">
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SymbolDelete" Method="SymbolDelete">
+    <Parameter Name="Original_SymbolID" Parameter="original_SymbolID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_SymbolArt" Parameter="original_SymbolArt" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SymbolRead" Method="SymbolRead">
+    <ElementType Name="SymbolReadResult">
+      <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
