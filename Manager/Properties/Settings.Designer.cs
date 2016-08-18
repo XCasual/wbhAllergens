@@ -25,13 +25,25 @@ namespace AllerConnectManager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int CurrentLanguageID {
             get {
                 return ((int)(this["CurrentLanguageID"]));
             }
             set {
                 this["CurrentLanguageID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int CurrentLocalId {
+            get {
+                return ((int)(this["CurrentLocalId"]));
+            }
+            set {
+                this["CurrentLocalId"] = value;
             }
         }
     }

@@ -25,7 +25,7 @@
             <vw:AllergenView x:Name="AllergenView"/>
         </DataTemplate>
         <DataTemplate x:Key="ProductSelectionViewDataTemplate">
-            <vw:ProductSelectionView x:Name="ProductSelectionView"/>
+            <vw:ProductCompositView x:Name="ProductSelectionView"/>
         </DataTemplate>
         <DataTemplate x:Key="ProductViewDataTemplate">
             <vw:ProductView x:Name="ProductView"/>
@@ -33,7 +33,7 @@
         <DataTemplate x:Key="InformationViewDataTemplate">
             <vw:InformationView x:Name="InformationView"/>
         </DataTemplate>
-        <local:NavigatorSelector x:Key="NavigatorSelector"/>
+        <local:CompositionSelector x:Key="CompositeSelector"/>
     </Window.Resources>
 
     <Grid>
@@ -53,7 +53,7 @@
                       Height="5"/>
         <Grid Grid.Row="2">
             <ContentPresenter
-                ContentTemplateSelector="{StaticResource NavigatorSelector}"
+                ContentTemplateSelector="{StaticResource CompositeSelector}"
                 Content="{Binding CurrentAppViewState, Converter={StaticResource Enum2DataTemplateConverter}}"
                 />
         </Grid>

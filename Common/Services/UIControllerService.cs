@@ -19,6 +19,7 @@ namespace AllerConnectCommon.Services
         }
 
         public int CurrentLanguageID { get; set; }
+        public int CurrentLocalID { get; set; }
 
 
         private static Model.IngridientsDB _ingridientsDB = new Model.IngridientsDB();

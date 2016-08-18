@@ -10,8 +10,12 @@ namespace AllerConnectCommon.ViewModel
     {
         public int ID { get; set; }
 
-        public int LocalID { get; set; }
-
         public int LanguageID { get; set; }
+
+        public int LocalisationID { get; set; }
+
+        public string OrdinaryName { get; set; }
+
+        public string LocalName { get; set; }
     }
 }

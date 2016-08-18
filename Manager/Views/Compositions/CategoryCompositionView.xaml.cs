@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AllerConnectManager
+namespace AllerConnectManager.Views.Compositions
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CategoryCompositionView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CategoryCompositionView : UserControl
     {
-        public MainWindow()
+        public CategoryCompositionView()
         {
             InitializeComponent();
-        }
-
-        private void WindowLoaded(object sender, RoutedEventArgs e)
-        {
-            App.UIController.CurrentLanguageID = Properties.Settings.Default.CurrentLanguageID;
-            App.UIController.CurrentLocalID = Properties.Settings.Default.CurrentLocalId;
-            App.IntiliazieViewModels();
         }
     }
 }

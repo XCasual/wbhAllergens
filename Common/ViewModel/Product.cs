@@ -10,11 +10,9 @@ namespace AllerConnectCommon.ViewModel
 {
     public class Product : LocalizedItem, ICloneable
     {
-        public string OrdinaryName { get; set; }
-
-        public string LocalName { get; set; }
-
         public string ToolTip { get; set; }
+
+        public int LocalID { get; set; }
 
         public int SymbolID { get; set; }
 
@@ -81,7 +79,6 @@ namespace AllerConnectCommon.ViewModel
             return new Allergen()
             {
                 ID = this.ID,
-                LocalID = this.LocalID,
                 OrdinaryName = this.OrdinaryName,
                 LocalName = this.LocalName,
                 LanguageID = this.LanguageID,

@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="AllerConnectManager.Views.ProductCompositView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AllerConnectManager.Views"
+             xmlns:main="clr-namespace:AllerConnectManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:vw="clr-namespace:AllerConnectManager.Views.Compositions"     
+             xmlns:vm="clr-namespace:AllerConnectManager.ViewModel" 
+             d:DataContext="{d:DesignInstance {x:Type vm:ProductCompositionModel}, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="NoneDataTemplate">
+            <vw:CompositionInstructionView x:Name="CompositionInstructionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TreeCategoryViewDataTemplate">
+            <vw:CategoryCompositionView x:Name="CategoryCompositionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TreeIngridientViewDataTemplate">
+            <vw:IngridientCompositionView x:Name="IngridientCompositionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TreePartproductViewDataTemplate">
+            <vw:PartproductCompositionView x:Name="PartproductCompositionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TreeProductViewDataTemplate">
+            <vw:ProductCompositionView x:Name="ProductCompositionView"/>
+        </DataTemplate>
+        <main:CompositionSelector x:Key="CompositeSelector"/>
+    </UserControl.Resources>
+
+    <Grid Background="#FF251E1E" Margin="0,0,-77,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Width="5" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext" />
+        <DockPanel Grid.Column="0" Grid.Row="2">
+            <!-- SEARCH AREA -->
+            <Border 
+      DockPanel.Dock="Bottom" 
+      BorderBrush="Gray" 
+      BorderThickness="1,0,1,1"
+      >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#33000000" Offset="0" />
+                        <GradientStop Color="#11000000" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel 
+        HorizontalAlignment="Center" 
+        Margin="4" 
+        Orientation="Horizontal"
+        >
+                    <TextBlock Text="Suche nach:" />
+                    <TextBox 
+          x:Name="searchTextBox"
+          KeyDown="searchTextBoxKeyDown" 
+          Margin="6,0"
+          Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+          Width="50"
+          />
+                    <Button 
+          Command="{Binding SearchCommand}" 
+          Content="_Suche" 
+          Padding="8,0" 
+          />
+                </StackPanel>
+            </Border>
+
+            <!-- FAMILY TREE -->
+            <TreeView ItemsSource="{Binding VerwaltungTree}">
+                <TreeView.ItemContainerStyle>
+                    <!-- 
+        This Style binds a TreeViewItem to a PersonViewModel. 
+        -->
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        <Setter Property="FontWeight" Value="Normal" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate 
+                          DataType="{x:Type vm:TreeRootViewModel}" 
+                          ItemsSource="{Binding Children}"
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene1.png" />-->
+                            <TextBlock Text="{Binding ElementName}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate 
+                          DataType="{x:Type vm:TreeCategoryViewModel}" 
+                          ItemsSource="{Binding Children}"
+                          >         
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene2.png" />-->
+                            <TextBlock Text="{Binding ElementName}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate 
+                          DataType="{x:Type vm:TreeProductViewModel}" 
+                          ItemsSource="{Binding Children}"
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene3.png" />-->
+                            <TextBlock Text="{Binding ElementName}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate 
+                          DataType="{x:Type vm:TreePartproductRootViewModel}" 
+                          ItemsSource="{Binding Children}"
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene4a.png" />-->
+                            <TextBlock Text="{Binding ElementName}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate 
+                          DataType="{x:Type vm:TreeIngridientsRootViewModel}" 
+                          ItemsSource="{Binding Children}"
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene4b.png" />-->
+                            <TextBlock Text="{Binding ElementName}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <DataTemplate DataType="{x:Type vm:TreePartproductViewModel}">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene5.png" />-->
+                            <TextBlock Text="{Binding ElementName}" />
+                        </StackPanel>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type vm:TreeIngridientsViewModel}">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene5.png" />-->
+                            <TextBlock Text="{Binding IngridientName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+
+        </DockPanel>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <ContentPresenter
+                ContentTemplateSelector="{StaticResource CompositeSelector}"
+                Content="{Binding CurrentAppCompositeViewState, Converter={StaticResource Enum2DataTemplateConverter}}"
+                />
+        </Grid>
+    </Grid>
+</UserControl>

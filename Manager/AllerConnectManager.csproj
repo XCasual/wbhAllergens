@@ -57,13 +57,40 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\EnumToDataTemplateConverter.cs" />
-    <Compile Include="NavigatorSelector.cs" />
+    <Compile Include="CompositionSelector.cs" />
+    <Compile Include="ViewModel\TreeIngridientsViewModel.cs" />
+    <Compile Include="ViewModel\TreeIngridientsRootViewModel.cs" />
+    <Compile Include="ViewModel\TreePartproductRootViewModel.cs" />
+    <Compile Include="ViewModel\TreePartproductViewModel.cs" />
+    <Compile Include="ViewModel\TreeProductViewModel.cs" />
+    <Compile Include="ViewModel\TreeCategoryViewModel.cs" />
+    <Compile Include="ViewModel\TreeRootViewModel.cs" />
+    <Compile Include="ViewModel\TreeViewItemViewModel.cs" />
+    <Compile Include="ViewModel\ProductCompositionModel.cs" />
     <Compile Include="ViewModel\WelcomeModel.cs" />
     <Compile Include="ViewModel\MainWindowModel.cs" />
     <Compile Include="ViewModel\InformationModel.cs" />
     <Compile Include="ViewModel\NavigationBarModel.cs" />
     <Compile Include="Views\AllergenSelectionView.xaml.cs">
       <DependentUpon>AllergenSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compositions\CompositionInstructionView.xaml.cs">
+      <DependentUpon>CompositionInstructionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compositions\CategoryCompositionView.xaml.cs">
+      <DependentUpon>CategoryCompositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compositions\IngridientCompositionView.xaml.cs">
+      <DependentUpon>IngridientCompositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compositions\PartproductCompositionView.xaml.cs">
+      <DependentUpon>PartproductCompositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compositions\ProductCompositionView.xaml.cs">
+      <DependentUpon>ProductCompositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductCompositView.xaml.cs">
+      <DependentUpon>ProductCompositView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductInformationView.xaml.cs">
       <DependentUpon>ProductInformationView.xaml</DependentUpon>
@@ -101,6 +128,30 @@
     <Page Include="Views\AllergenSelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compositions\CompositionInstructionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Compositions\CategoryCompositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compositions\IngridientCompositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compositions\PartproductCompositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compositions\ProductCompositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductCompositView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ProductInformationView.xaml">
       <Generator>MSBuild:Compile</Generator>

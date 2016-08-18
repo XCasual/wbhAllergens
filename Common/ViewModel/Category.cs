@@ -8,8 +8,9 @@ using System.Drawing;
 
 namespace AllerConnectCommon.ViewModel
 {
-    public class Ingridient : LocalizedItem, ICloneable
+    public class Category : LocalizedItem, ICloneable
     {
+
         public object Clone()
         {
             return new Category()

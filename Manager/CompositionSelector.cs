@@ -8,11 +8,14 @@ using System.Windows.Controls;
 
 namespace AllerConnectManager
 {
-    class NavigatorSelector : DataTemplateSelector
+    class CompositionSelector : DataTemplateSelector
     {
         public override DataTemplate SelectTemplate
             (object item, DependencyObject container)
         {
+            if (item == null)
+                return null;
+
             // Determine the resource key to use
             var key = string.Format("{0}DataTemplate", item);
             // Find the resource starting from the container
