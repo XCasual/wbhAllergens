@@ -93,7 +93,7 @@ namespace AllerConnectManager.ViewModel
         private RelayCommand navigate2IngridientViewCmd;
         public ICommand Navigate2IngridientViewCmd
         {
-            get { return navigate2ProductViewCmd ?? (navigate2ProductViewCmd = new RelayCommand(() => Navigate2IngridientView(), () => isSelected)); }
+            get { return navigate2IngridientViewCmd ?? (navigate2IngridientViewCmd = new RelayCommand(() => Navigate2IngridientView(), () => isSelected)); }
         }
 
         private void Navigate2IngridientView()
