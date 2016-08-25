@@ -21,6 +21,7 @@ namespace AllerConnectManager.ViewModel
         {
             foreach (Category categoryElement in App.UIController.IngridientsDB.GetCategories(App.UIController.CurrentLanguageID))
                 base.Children.Add(new TreeCategoryViewModel(categoryElement, this));
+            base.IsExpanded = true;
         }
 
         public override string ElementName
@@ -35,7 +36,7 @@ namespace AllerConnectManager.ViewModel
         {
             get
             {
-                return App.CompositeViewStates.None;
+                return App.CompositeViewStates.TreeCategoryView;
             }
         }
     }

@@ -99,7 +99,7 @@
                           ItemsSource="{Binding Children}"
                           >
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene1.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene1.png" />-->
                             <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </HierarchicalDataTemplate>
@@ -109,7 +109,7 @@
                           ItemsSource="{Binding Children}"
                           >         
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene2.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene2.png" />-->
                             <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </HierarchicalDataTemplate>
@@ -119,7 +119,7 @@
                           ItemsSource="{Binding Children}"
                           >
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene3.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene3.png" />-->
                             <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </HierarchicalDataTemplate>
@@ -129,7 +129,7 @@
                           ItemsSource="{Binding Children}"
                           >
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene4a.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene4a.png" />-->
                             <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </HierarchicalDataTemplate>
@@ -139,21 +139,21 @@
                           ItemsSource="{Binding Children}"
                           >
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene4b.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene4b.png" />-->
                             <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </HierarchicalDataTemplate>
 
                     <DataTemplate DataType="{x:Type vm:TreePartproductViewModel}">
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene5.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene5.png" />-->
                             <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </DataTemplate>
 
                     <DataTemplate DataType="{x:Type vm:TreeIngridientsViewModel}">
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Images\Ebene5.png" />-->
+                            <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene5.png" />-->
                             <TextBlock Text="{Binding IngridientName}" />
                         </StackPanel>
                     </DataTemplate>

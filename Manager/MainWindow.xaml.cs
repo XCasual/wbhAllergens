@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,7 +30,27 @@ namespace AllerConnectManager
         {
             App.UIController.CurrentLanguageID = Properties.Settings.Default.CurrentLanguageID;
             App.UIController.CurrentLocalID = Properties.Settings.Default.CurrentLocalId;
+            SetUICulture(Properties.Settings.Default.AppLanguage);
             App.IntiliazieViewModels();
+        }
+
+        private void LanguageSwitchTrigger(object sender, MouseButtonEventArgs e)
+        {
+            var enCulture = new System.Globalization.CultureInfo("en");
+            var deCulture = new System.Globalization.CultureInfo("de");
+
+            var imgButton = sender as Image;
+            if (imgButton != null)
+            {
+                SetUICulture(imgButton.Name);
+            }
+        }
+
+        private void SetUICulture(string cultureName)
+        {
+            var appCulture = new System.Globalization.CultureInfo(cultureName);
+            Thread.CurrentThread.CurrentUICulture = appCulture;
+            WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.Culture = appCulture;
         }
     }
 }

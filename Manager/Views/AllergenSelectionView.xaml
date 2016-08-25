@@ -24,18 +24,18 @@
         <Button x:Name="btnAddAllergen" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Row="0"
                 Command="{Binding AddAndnavigate2AllergenViewCmd}">
             <Button.Background>
-                <ImageBrush ImageSource="/AllerConnectManager;component/Images/add.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/AllerConnectManager;component/Resources/Images/add.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="btnEditAllergen" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Row="0" Grid.Column="1"
                 Command="{Binding Navigate2AllergenViewCmd}">
             <Button.Background>
-                <ImageBrush ImageSource="/AllerConnectManager;component/Images/edit.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/AllerConnectManager;component/Resources/Images/edit.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="btnDeleteAllergen" Content="" Grid.Column="2" HorizontalAlignment="Left" Height="44" Grid.Row="0" VerticalAlignment="Top" Width="100">
             <Button.Background>
-                <ImageBrush ImageSource="/AllerConnectManager;component/Images/delete.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/AllerConnectManager;component/Resources/Images/delete.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.ColumnSpan="3"

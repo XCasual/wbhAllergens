@@ -7,17 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="590"
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
-             xmlns:vm="clr-namespace:AllerConnectManager.ViewModel">
+             xmlns:vm="clr-namespace:AllerConnectManager.ViewModel"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+        >
     <UserControl.DataContext>
         <vm:NavigationBarModel />
     </UserControl.DataContext>
 
     <Grid Background="LightGray">
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0" HorizontalAlignment="Left" Width="485">
-            <Button x:Name="btnNavigate2AllergenSelectionView" Command="{Binding Navigate2AllergenSelectionViewCmd}" Content="Allergene" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2ProductSelectionView" Command="{Binding Navigate2ProductSelectionViewCmd}" Content="Produkt" Width="70" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2InformationView" Command="{Binding Navigate2InformationViewCmd}" Content="Information" Width="70" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2AllergenSelectionView" Command="{Binding Navigate2AllergenSelectionViewCmd}" Content="{lex:Loc Key=NavigationBar.Allergens}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2ProductSelectionView" Command="{Binding Navigate2ProductSelectionViewCmd}" Content="{lex:Loc Key=NavigationBar.Products}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2IngridientView" Command="{Binding Navigate2IngridientViewCmd}" Content="{lex:Loc Key=NavigationBar.Ingriedients}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2InformationView" Command="{Binding Navigate2InformationViewCmd}" Content="{lex:Loc Key=NavigationBar.Informations}" Width="90" Margin="5,5,5,5"/>
         </StackPanel>
-        <Image x:Name="image" HorizontalAlignment="Right" Width="90" Source="/Images/Logo.jpg" Stretch="Fill" Margin="5,5,5,5"/>
+        <Image x:Name="image" HorizontalAlignment="Right" Width="90" Source="/Resources/Images/Logo.jpg" Stretch="Fill" Margin="5,5,5,5"/>
     </Grid>
 </UserControl>

@@ -5,16 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AllerConnectManager.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+             >
     <Grid Background="#FF251E1E" OpacityMask="#FF251E1E">
-        <Image x:Name="image" HorizontalAlignment="Center" Height="127" Margin="0,23,0,0" VerticalAlignment="Top" Width="174" Source="/AllerConnectManager;component/Images/Logo.jpg">
+        <Image x:Name="image" HorizontalAlignment="Center" Height="127" Margin="0,23,0,0" VerticalAlignment="Top" Width="174" Source="/AllerConnectManager;component/Resources/Images/Logo.jpg">
             <Image.OpacityMask>
-                <ImageBrush ImageSource="/Images/Logo.jpg"/>
+                <ImageBrush ImageSource="/Resources/Images/Logo.jpg"/>
             </Image.OpacityMask>
         </Image>
-        <Label x:Name="lblWelcome" Content="Herzlich Willkommen" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="21.333"/>
-        <Button x:Name="button" Content="Allergene" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="button1" Content="Produkte" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Width="86"/>
-        <Button x:Name="button2" Content="Informationen" HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.201,0.2"/>
+        <Label x:Name="lblWelcome" Content="{lex:Loc Key=NavigationBar.Welcome}" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="21.333"/>
+        <Button x:Name="button" Content="{lex:Loc Key=NavigationBar.Allergens}" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="button1" Content="{lex:Loc Key=NavigationBar.Products}" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="button2" Content="{lex:Loc Key=NavigationBar.Ingriedients}" HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="button3" Content="{lex:Loc Key=NavigationBar.Informations}" HorizontalAlignment="Center" Margin="0,269,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.201,0.2"/>
     </Grid>
 </UserControl>

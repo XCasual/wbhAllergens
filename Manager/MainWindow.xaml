@@ -9,9 +9,14 @@
         xmlns:vm="clr-namespace:AllerConnectManager.ViewModel"     
         Title="AllerConnect Manager" Height="550" Width="600" MinHeight="550"
         WindowStartupLocation="CenterScreen" Loaded="WindowLoaded"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:LocalizeDictionary.OutputMissingKeys="True"
+        lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+        lex:ResxLocalizationProvider.DefaultDictionary="Strings"
         >
     <Window.DataContext>
-        <vm:MainWindowModel x:Name="MainWindowContext"/>
+        <vm:MainWindowModel/>
     </Window.DataContext>
 
     <Window.Resources>
@@ -38,7 +43,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images\LightBrushedx.jpg" TileMode="Tile" 
+            <ImageBrush ImageSource="Resources\Images\LightBrushedx.jpg" TileMode="Tile" 
                             ViewportUnits="Absolute" Viewport="0,0,200,200">
             </ImageBrush>
         </Grid.Background>
@@ -49,12 +54,16 @@
             <RowDefinition Height="7*"></RowDefinition>
         </Grid.RowDefinitions>
         <vw:NavigationBarView Grid.Row="0"/>
+        <Image Grid.Row="2" x:Name="en" HorizontalAlignment="Right" Height="20" Width="30" Source="/Resources/Images/flagEngland.jpg" Stretch="Fill" Margin="0,1,32,0" Panel.ZIndex="5" VerticalAlignment="Top"
+               MouseLeftButtonDown="LanguageSwitchTrigger" Cursor="Hand" />
+        <Image Grid.Row="2" x:Name="de" HorizontalAlignment="Right" Height="20" Width="30" Source="/Resources/Images/flagGermany.png" Stretch="Fill" Margin="0,1,1,0" Panel.ZIndex="5" VerticalAlignment="top"
+               MouseLeftButtonDown="LanguageSwitchTrigger" Cursor="Hand"/>
         <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ResizeBehavior="PreviousAndNext"
                       Height="5"/>
         <Grid Grid.Row="2">
             <ContentPresenter
                 ContentTemplateSelector="{StaticResource CompositeSelector}"
-                Content="{Binding CurrentAppViewState, Converter={StaticResource Enum2DataTemplateConverter}}"
+                Content="{Binding CurrentAppViewState, Converter={StaticResource Enum2DataTemplateConverter}}" Panel.ZIndex="5"
                 />
         </Grid>
     </Grid>

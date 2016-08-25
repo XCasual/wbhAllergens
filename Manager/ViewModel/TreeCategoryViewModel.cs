@@ -10,6 +10,7 @@ namespace AllerConnectManager.ViewModel
             : base(parent, true)
         {
             category = categoryElement;
+            base.IsExpanded = true;
         }
 
         public override string ElementName
