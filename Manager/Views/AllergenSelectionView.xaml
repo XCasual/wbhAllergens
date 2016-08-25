@@ -9,6 +9,11 @@
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
              xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
              xmlns:foundation="clr-namespace:AllerConnectCommon.Foundation;assembly=AllerConnectCommon"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
              d:DataContext="{d:DesignInstance {x:Type vm:AllergenSelectionModel}, IsDesignTimeCreatable=True}">
     
     <Grid Background="#FF251E1E">
@@ -33,7 +38,8 @@
                 <ImageBrush ImageSource="/AllerConnectManager;component/Resources/Images/edit.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDeleteAllergen" Content="" Grid.Column="2" HorizontalAlignment="Left" Height="44" Grid.Row="0" VerticalAlignment="Top" Width="100">
+        <Button x:Name="btnDeleteAllergen" Content="" Grid.Column="2" HorizontalAlignment="Left" Height="44" Grid.Row="0" VerticalAlignment="Top" Width="100"
+                Command="{Binding DeleteCommand}">
             <Button.Background>
                 <ImageBrush ImageSource="/AllerConnectManager;component/Resources/Images/delete.png" Stretch="Uniform"/>
             </Button.Background>
@@ -46,10 +52,10 @@
                 foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2"
                 AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Allergen ID" Binding="{Binding Path=ID}"  Width="80"/>
-                <DataGridTextColumn Header="Local Name" Binding="{Binding Path=LocalName}" Width="80" />
-                <DataGridTextColumn Header="Symbol ID Name" Binding="{Binding Path=SymbolID}" Width="80" />
-                <DataGridTemplateColumn Header="Image" Width="80" IsReadOnly="True">
+                <DataGridTextColumn Header="{lex:Loc Key=Column.ID}" Binding="{Binding Path=ID}"  Width="80" Visibility="Hidden"/>
+                <DataGridTextColumn Header="{lex:Loc Key=Column.LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
+                <DataGridTextColumn Header="{lex:Loc Key=Column.SymbolID}" Binding="{Binding Path=SymbolID}" Width="80" Visibility="Hidden" />
+                <DataGridTemplateColumn Header="{lex:Loc Key=Column.Image}" Width="80" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Path=SymbolBuffer}" Width="60" Height="60" />

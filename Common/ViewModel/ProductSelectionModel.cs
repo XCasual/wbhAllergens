@@ -13,11 +13,6 @@ namespace AllerConnectCommon.ViewModel
             dataItems = new Model.DBObservableCollection<Allergen>();
             DataItems = Services.UIControllerService.Instance.IngridientsDB.GetAllergens(Services.UIControllerService.Instance.CurrentLanguageID);
             listBoxCommand = new Foundation.RelayCommand(() => SelectionHasChanged());
-            Services.UIControllerService.Instance.Messenger.Register("AllergenCleared", (Action)(() => SelectedAllergen = null));
-            Services.UIControllerService.Instance.Messenger.Register("GetAllergens", (Action)(() => GetAllergens()));
-            Services.UIControllerService.Instance.Messenger.Register("UpdateAllergen", (Action<Allergen>)(param => UpdateAllergen(param)));
-            Services.UIControllerService.Instance.Messenger.Register("DeleteAllergen", (Action)(() => DeleteAllergen()));
-            Services.UIControllerService.Instance.Messenger.Register("AddAllergen", (Action<Allergen>)(param => AddAllergen(param)));
         }
 
 

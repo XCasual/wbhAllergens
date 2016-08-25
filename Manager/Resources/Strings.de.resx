@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Column.ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Column.Image" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
+  <data name="Column.LocalName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Column.OrdinaryName" xml:space="preserve">
+    <value>Bezeichnung</value>
+  </data>
+  <data name="Column.SymbolID" xml:space="preserve">
+    <value>Symbol ID</value>
+  </data>
   <data name="NavigationBar.Allergens" xml:space="preserve">
     <value>_Allergene</value>
   </data>

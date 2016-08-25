@@ -61,6 +61,51 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string Column_ID {
+            get {
+                return ResourceManager.GetString("Column.ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string Column_Image {
+            get {
+                return ResourceManager.GetString("Column.Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local name.
+        /// </summary>
+        internal static string Column_LocalName {
+            get {
+                return ResourceManager.GetString("Column.LocalName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordinary name.
+        /// </summary>
+        internal static string Column_OrdinaryName {
+            get {
+                return ResourceManager.GetString("Column.OrdinaryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image ID.
+        /// </summary>
+        internal static string Column_SymbolID {
+            get {
+                return ResourceManager.GetString("Column.SymbolID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Allergenes.
         /// </summary>
         internal static string NavigationBar_Allergens {

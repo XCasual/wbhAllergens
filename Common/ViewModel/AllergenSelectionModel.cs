@@ -16,7 +16,6 @@ namespace AllerConnectCommon.ViewModel
             Services.UIControllerService.Instance.Messenger.Register("AllergenCleared", (Action)(() => SelectedAllergen = null));
             Services.UIControllerService.Instance.Messenger.Register("GetAllergens", (Action)(() => GetAllergens()));
             Services.UIControllerService.Instance.Messenger.Register("UpdateAllergen", (Action<Allergen>)(param => UpdateAllergen(param)));
-            Services.UIControllerService.Instance.Messenger.Register("DeleteAllergen", (Action)(() => DeleteAllergen()));
             Services.UIControllerService.Instance.Messenger.Register("AddAllergen", (Action<Allergen>)(param => AddAllergen(param)));
         }
 
@@ -40,12 +39,6 @@ namespace AllerConnectCommon.ViewModel
             int index = dataItems.IndexOf(selectedAllergen);
             dataItems.ReplaceItem(index, al);
             SelectedAllergen = al;
-        }
-
-
-        private void DeleteAllergen()
-        {
-            dataItems.Remove(selectedAllergen);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -110,5 +103,24 @@ namespace AllerConnectCommon.ViewModel
             Services.UIControllerService.Instance.Messenger.NotifyColleagues("AllergenViewCreateTemp");
             Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenView");
         } //NavigateToAllergenView 
+
+        private Foundation.RelayCommand deleteCommand;
+        public ICommand DeleteCommand
+        {
+            get { return deleteCommand ?? (deleteCommand = new Foundation.RelayCommand(() => DeleteAllergen(), () => true)); }
+        }
+
+        private void DeleteAllergen()
+        {
+
+            if (!Services.UIControllerService.Instance.IngridientsDB.DeleteAllergen(selectedAllergen.ID))
+            {
+                System.Diagnostics.Debug.Assert(Services.UIControllerService.Instance.IngridientsDB.errorMessage == null);
+                return;
+            }
+            dataItems.Remove(selectedAllergen);
+            Services.UIControllerService.Instance.Messenger.NotifyColleagues("DeleteAllergen");
+        } //DeleteAllergen
+
     }//class AllergenSelectionModel
 }

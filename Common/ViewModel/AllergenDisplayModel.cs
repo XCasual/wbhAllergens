@@ -83,26 +83,6 @@ namespace AllerConnectCommon.ViewModel
             Services.UIControllerService.Instance.Messenger.NotifyColleagues("UpdateAllergen", DisplayedAllergen);
         } //UpdateAllergen()
 
-
-        private Foundation.RelayCommand deleteCommand;
-        public ICommand DeleteCommand
-        {
-            get { return deleteCommand ?? (deleteCommand = new Foundation.RelayCommand(() => DeleteAllergen(), () => isSelected)); }
-        }
-
-
-        private void DeleteAllergen()
-        {
-            if (!Services.UIControllerService.Instance.IngridientsDB.DeleteAllergen(DisplayedAllergen.ID))
-            {
-                stat.Status = Services.UIControllerService.Instance.IngridientsDB.errorMessage;
-                return;
-            }
-            isSelected = false;
-            Services.UIControllerService.Instance.Messenger.NotifyColleagues("DeleteAllergen");
-        } //DeleteAllergen
-
-
         private Foundation.RelayCommand addCommand;
         public ICommand AddCommand
         {
@@ -196,7 +176,14 @@ namespace AllerConnectCommon.ViewModel
             // TODO: Can switch?
             // TODO: Finish current jobs
             // TODO: Do the switch
-            AddAllergen();
+            if (displayedAllergen.ID > 0)
+            {
+                UpdateAllergen();
+            }
+            else
+            {
+                AddAllergen();
+            }
             Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenSelectionView");
         } //NavigateToAllergenView      
     }

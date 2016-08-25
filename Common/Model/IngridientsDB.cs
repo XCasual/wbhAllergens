@@ -26,6 +26,7 @@ namespace AllerConnectCommon.Model
             {
                 var dc = new LinqDataContext();
                 var query = from ad in dc.AllergenDatas
+                            where ad.AllergenLanguageID == languageId
                             select new ViewModel.Allergen
                             {
                                 ID = ad.AllergenID,
@@ -170,6 +171,25 @@ namespace AllerConnectCommon.Model
             return ingridientCollection;
         } //GetPartproduct()
 
+
+        public int GetLanguageID(string cultureName)
+        {
+            hasError = false;
+            int resultID = -1;
+            try
+            {
+                var dc = new LinqDataContext();
+                var resultRow = dc.Languages.Where(p => p.LanguageShortCode == cultureName).FirstOrDefault();
+                resultID = resultRow.LanguageID;
+            } //try
+            catch (Exception ex)
+            {
+                errorMessage = "GetPartproduct() error, " + ex.Message;
+                hasError = true;
+            }
+            return resultID;
+        } //GetPartproduct()
+
         public bool AddAllergen(ViewModel.Allergen da)
         {
             try
@@ -229,9 +249,10 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                var adm = dc.AllergenDatas.Where(ad => ad.AllergenID == allergenID).First();
-                var rowResult = dc.AllergenDelete(adm.AllergenID, adm.AllergenOrdinaryName);
-                System.Diagnostics.Debug.Assert(rowResult != 1);
+
+                var rowToDelete = dc.Allergens.Where(param => param.AllergenID == allergenID).First();
+                dc.Allergens.DeleteOnSubmit(rowToDelete);
+                dc.SubmitChanges(ConflictMode.FailOnFirstConflict);
             }
             catch (Exception ex)
             {
