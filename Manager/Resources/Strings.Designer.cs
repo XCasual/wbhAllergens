@@ -61,6 +61,15 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Conservant.
+        /// </summary>
+        internal static string Column_Conservant {
+            get {
+                return ResourceManager.GetString("Column_Conservant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
         internal static string Column_ID {

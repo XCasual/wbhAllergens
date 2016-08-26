@@ -64,6 +64,7 @@
                     <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_OrdinaryName}" Binding="{Binding Path=OrdinaryName}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_ToolTip}" Binding="{Binding Path=ToolTip}" Width="80" />
+                    <DataGridCheckBoxColumn Header="{lex:Loc Key=Column_Conservant}" Binding="{Binding Path=Conservant}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_SymbolID}" Binding="{Binding Path=SymbolID}" Width="80" Visibility="Hidden" />
                 </DataGrid.Columns>
             </DataGrid>

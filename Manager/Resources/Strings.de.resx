@@ -165,4 +165,7 @@
   <data name="NavigationBar_Welcome" xml:space="preserve">
     <value>Herzlich Willkommen</value>
   </data>
+  <data name="Column_Conservant" xml:space="preserve">
+    <value>Zusatzstoff</value>
+  </data>
 </root>
