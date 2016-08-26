@@ -53,7 +53,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="button_Copy" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Column="0" Grid.Row="0">
+        <Button x:Name="button_Copy" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Column="0" Grid.Row="0" Click="btnPringClicked">
             <Button.Background>
                 <ImageBrush ImageSource="/Resources/Images/print.png" Stretch="Uniform"/>
             </Button.Background>

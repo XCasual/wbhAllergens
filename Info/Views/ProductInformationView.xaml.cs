@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SUT.PrintEngine.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,13 @@ namespace AllerConnectInfo.Views
             this.DataContext = App.DataTemplateVWDataContext;
 
             base.OnApplyTemplate();
+        }
+
+        private void btnPrintClicked(object sender, RoutedEventArgs e)
+        {
+            var visualSize = new Size(PrintGrid.ActualWidth, PrintGrid.ActualHeight);
+            var printControl = PrintControlFactory.Create(visualSize, PrintGrid);
+            printControl.ShowPrintPreview();
         }
     }
 }

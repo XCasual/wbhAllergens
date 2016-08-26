@@ -35,24 +35,24 @@ namespace AllerConnectManager.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int CurrentLocalId {
-            get {
-                return ((int)(this["CurrentLocalId"]));
-            }
-            set {
-                this["CurrentLocalId"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("en")]
         public string AppLanguage {
             get {
                 return ((string)(this["AppLanguage"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int CurrentLocalId {
+            get {
+                return ((int)(this["CurrentLocalId"]));
+            }
+            set {
+                this["CurrentLocalId"] = value;
             }
         }
     }

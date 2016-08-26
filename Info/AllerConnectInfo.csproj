@@ -158,6 +158,10 @@
       <Project>{7bdeeb58-ee77-415c-849e-65c59423a24b}</Project>
       <Name>AllerConnectCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SUT.PrintEngine\SUT.PrintEngine.csproj">
+      <Project>{0b3d76d5-d9f4-4c0e-afa9-143138ebc74d}</Project>
+      <Name>SUT.PrintEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
