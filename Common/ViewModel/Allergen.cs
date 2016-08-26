@@ -10,7 +10,6 @@ namespace AllerConnectCommon.ViewModel
 {
     public class Allergen : LocalizedItem, ICloneable
     {
-        public string ToolTip { get; set; }
 
         public int SymbolID { get; set; }
 

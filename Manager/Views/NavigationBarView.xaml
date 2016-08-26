@@ -20,10 +20,10 @@
 
     <Grid Background="LightGray">
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0" HorizontalAlignment="Left" Width="485">
-            <Button x:Name="btnNavigate2AllergenSelectionView" Command="{Binding Navigate2AllergenSelectionViewCmd}" Content="{lex:Loc Key=NavigationBar.Allergens}" Width="90" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2ProductSelectionView" Command="{Binding Navigate2ProductSelectionViewCmd}" Content="{lex:Loc Key=NavigationBar.Products}" Width="90" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2IngridientView" Command="{Binding Navigate2IngridientViewCmd}" Content="{lex:Loc Key=NavigationBar.Ingriedients}" Width="90" Margin="5,5,5,5"/>
-            <Button x:Name="btnNavigate2InformationView" Command="{Binding Navigate2InformationViewCmd}" Content="{lex:Loc Key=NavigationBar.Informations}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2AllergenSelectionView" Command="{Binding Navigate2AllergenSelectionViewCmd}" Content="{lex:Loc Key=NavigationBar_Allergens}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2ProductSelectionView" Command="{Binding Navigate2ProductSelectionViewCmd}" Content="{lex:Loc Key=NavigationBar_Products}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2IngridientView" Command="{Binding Navigate2IngridientViewCmd}" Content="{lex:Loc Key=NavigationBar_Ingriedients}" Width="90" Margin="5,5,5,5"/>
+            <Button x:Name="btnNavigate2InformationView" Command="{Binding Navigate2ProductInformationViewCmd}" Content="{lex:Loc Key=NavigationBar_Informations}" Width="90" Margin="5,5,5,5"/>
         </StackPanel>
         <Image x:Name="image" HorizontalAlignment="Right" Width="90" Source="/Resources/Images/Logo.jpg" Stretch="Fill" Margin="5,5,5,5"/>
     </Grid>

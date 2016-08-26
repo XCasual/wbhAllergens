@@ -27,11 +27,11 @@ namespace AllerConnectManager.ViewModel
             // No Children
         }
 
-        public override App.CompositeViewStates ElementComposit
+        public override App.ProductCompositeViewStates ElementComposit
         {
             get
             {
-                return App.CompositeViewStates.TreeIngridientView;
+                return App.ProductCompositeViewStates.TreeIngridientView;
             }
         }
     }

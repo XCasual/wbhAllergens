@@ -5,7 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AllerConnectManager.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             xmlns:vw="clr-namespace:AllerConnectManager.Views"     
+             xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
+             xmlns:foundation="clr-namespace:AllerConnectCommon.Foundation;assembly=AllerConnectCommon"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+             d:DesignHeight="300" d:DesignWidth="400"
+             d:DataContext="{d:DesignInstance {x:Type vm:ProductInformationModel}, IsDesignTimeCreatable=True}">
     <Grid Background="#FF251E1E">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -18,15 +27,30 @@
             <RowDefinition Height="197*"/>
         </Grid.RowDefinitions>
         <Label x:Name="label" Content="&lt;Produktbzeichnung&gt;" HorizontalAlignment="Left" Margin="0,0,-33.054,0" VerticalAlignment="Top" Height="29" Width="133.054" Background="{x:Null}" Foreground="White" Grid.Row="1"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="91.624" Width="300" Grid.Row="2" Grid.ColumnSpan="3" d:LayoutOverrides="VerticalAlignment"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="91.624" Width="300" Grid.Row="2" Grid.ColumnSpan="3" d:LayoutOverrides="VerticalAlignment"
+                Background="#FF251E1E"
+                ItemsSource="{Binding DataItems}" 
+                SelectedItem="{Binding SelectedAllergen}"
+                CanUserAddRows="False" CanUserDeleteRows="False"
+                foundation:CommandBehavior.RoutedEventName="SelectionChanged"
+                foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2"
+                AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{lex:Loc Key=Column_ID}" Binding="{Binding Path=ID}"  Width="80" Visibility="Hidden"/>
+                <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
+                <DataGridTextColumn Header="{lex:Loc Key=Column_SymbolID}" Binding="{Binding Path=SymbolID}" Width="80" Visibility="Hidden" />
+                <DataGridTemplateColumn Header="{lex:Loc Key=Column_Image}" Width="80" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=SymbolBuffer}" Width="60" Height="60" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button x:Name="button_Copy" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44">
             <Button.Background>
                 <ImageBrush ImageSource="/Resources/Images/print.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="button" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="44" Grid.Column="1">
-            <Button.Background>
-                <ImageBrush ImageSource="/Resources/Images/cancel.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Label x:Name="label_Copy" Content="Das ausgewählte Produkt enthält folgende Allergene:" HorizontalAlignment="Left" Margin="0,20.376,0,0" VerticalAlignment="Top" Height="23.624" Width="250.279" Background="{x:Null}" Foreground="White" Grid.Row="1" FontSize="10" Grid.ColumnSpan="3"/>

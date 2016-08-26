@@ -16,13 +16,26 @@ using System.Windows.Shapes;
 namespace AllerConnectManager.Views
 {
     /// <summary>
-    /// Interaction logic for ProductSelectionView.xaml
+    /// Interaction logic for IngridientCompositView.xaml
     /// </summary>
-    public partial class ProductSelectionView : UserControl
+    public partial class IngridientView : UserControl
     {
-        public ProductSelectionView()
+        public IngridientView()
         {
             InitializeComponent();
+        }
+
+        public override void OnApplyTemplate()
+        {
+            this.DataContext = App.DataTemplateVWDataContext;
+
+            base.OnApplyTemplate();
+        }
+
+        public void searchTextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.Key == Key.Enter)
+            //    tree.SearchCommand.Execute(null);
         }
     }
 }

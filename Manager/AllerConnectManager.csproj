@@ -65,6 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BinaryToImageConverter.cs" />
+    <Compile Include="Converters\SentinelConverter.cs" />
     <Compile Include="Converters\EnumToDataTemplateConverter.cs" />
     <Compile Include="CompositionSelector.cs" />
     <Compile Include="Resources\Images.Designer.cs">
@@ -82,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\TreeIngridientsConservantsViewModel.cs" />
     <Compile Include="ViewModel\TreeIngridientsViewModel.cs" />
     <Compile Include="ViewModel\TreeIngridientsRootViewModel.cs" />
     <Compile Include="ViewModel\TreePartproductRootViewModel.cs" />
@@ -110,14 +113,11 @@
     <Compile Include="Views\Compositions\PartproductCompositionView.xaml.cs">
       <DependentUpon>PartproductCompositionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Compositions\ProductCompositionView.xaml.cs">
+    <Compile Include="Views\ProductCompositionView.xaml.cs">
       <DependentUpon>ProductCompositionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductCompositView.xaml.cs">
       <DependentUpon>ProductCompositView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ProductInformationView.xaml.cs">
-      <DependentUpon>ProductInformationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AllergenView.xaml.cs">
       <DependentUpon>AllergenView.xaml</DependentUpon>
@@ -125,11 +125,14 @@
     <Compile Include="Views\InformationView.xaml.cs">
       <DependentUpon>InformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductInformationView.xaml.cs">
+      <DependentUpon>ProductInformationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NavigationBarView.xaml.cs">
       <DependentUpon>NavigationBarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductSelectionView.xaml.cs">
-      <DependentUpon>ProductSelectionView.xaml</DependentUpon>
+    <Compile Include="Views\IngridientView.xaml.cs">
+      <DependentUpon>IngridientView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>
@@ -169,15 +172,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Compositions\ProductCompositionView.xaml">
+    <Page Include="Views\ProductCompositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProductCompositView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ProductInformationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -186,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProductInformationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,7 +196,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProductSelectionView.xaml">
+    <Page Include="Views\IngridientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

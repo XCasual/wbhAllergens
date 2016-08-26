@@ -64,6 +64,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\UIControllerService.cs" />
+    <Compile Include="ViewModel\IngridientModel.cs" />
+    <Compile Include="ViewModel\IngridientSelectionModel.cs" />
     <Compile Include="ViewModel\Ingridient.cs" />
     <Compile Include="ViewModel\Category.cs" />
     <Compile Include="ViewModel\Product.cs" />

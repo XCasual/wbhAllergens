@@ -108,7 +108,7 @@ namespace AllerConnectManager.ViewModel
         /// Gets/sets whether the TreeViewItem 
         /// associated with this object is selected.
         /// </summary>
-        public bool IsSelected
+        public virtual bool IsSelected
         {
             get { return _isSelected; }
             set
@@ -162,7 +162,7 @@ namespace AllerConnectManager.ViewModel
 
         public virtual string ElementName { get; }
 
-        public virtual App.CompositeViewStates ElementComposit { get; }
+        public virtual App.ProductCompositeViewStates ElementComposit { get; }
 
 
         public bool ElementContainsText(string text)

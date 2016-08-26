@@ -6,5 +6,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <converter:EnumToDataTemplateConverter x:Key="Enum2DataTemplateConverter"/>
+        <converter:SentinelConverter x:Key="SentinelConverter"/>
+        <converter:BinaryToImageConverter x:Key="BinaryToImageConverter"/>
     </Application.Resources>
 </Application>

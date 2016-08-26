@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace AllerConnectManager.Views
 {
     /// <summary>
-    /// Interaction logic for AllergenViewy.xaml
+    /// Interaction logic for InformationView.xaml
     /// </summary>
     public partial class ProductInformationView : UserControl
     {

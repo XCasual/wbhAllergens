@@ -117,34 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Column.ID" xml:space="preserve">
+  <data name="Column_ID" xml:space="preserve">
     <value>ID</value>
   </data>
-  <data name="Column.Image" xml:space="preserve">
-    <value>Symbol</value>
+  <data name="Column_Image" xml:space="preserve">
+    <value>Bild</value>
   </data>
-  <data name="Column.LocalName" xml:space="preserve">
+  <data name="Column_IsReferenced" xml:space="preserve">
+    <value>Referenziert</value>
+  </data>
+  <data name="Column_LocalName" xml:space="preserve">
+    <value>Lokale Name</value>
+  </data>
+  <data name="Column_OrdinaryName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="Column.OrdinaryName" xml:space="preserve">
-    <value>Bezeichnung</value>
+  <data name="Column_SymbolID" xml:space="preserve">
+    <value>Bild ID</value>
   </data>
-  <data name="Column.SymbolID" xml:space="preserve">
-    <value>Symbol ID</value>
+  <data name="Column_ToolTip" xml:space="preserve">
+    <value>Beschreibung</value>
   </data>
-  <data name="NavigationBar.Allergens" xml:space="preserve">
+  <data name="Ingridients_DeleteSelected" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="Ingridients_Saveall" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="Ingridients_Saveallergen" xml:space="preserve">
+    <value>Allergenespeichern</value>
+  </data>
+  <data name="Ingridients_SaveIngriedient" xml:space="preserve">
+    <value>Stoffespeichern</value>
+  </data>
+  <data name="NavigationBar_Allergens" xml:space="preserve">
     <value>_Allergene</value>
   </data>
-  <data name="NavigationBar.Informations" xml:space="preserve">
+  <data name="NavigationBar_Informations" xml:space="preserve">
     <value>_Informationen</value>
   </data>
-  <data name="NavigationBar.Ingriedients" xml:space="preserve">
-    <value>_Rohstoffe</value>
+  <data name="NavigationBar_Ingriedients" xml:space="preserve">
+    <value>_Stoffe</value>
   </data>
-  <data name="NavigationBar.Products" xml:space="preserve">
+  <data name="NavigationBar_Products" xml:space="preserve">
     <value>_Produkte</value>
   </data>
-  <data name="NavigationBar.Welcome" xml:space="preserve">
-    <value>Herzlich Willkomen</value>
+  <data name="NavigationBar_Welcome" xml:space="preserve">
+    <value>Herzlich Willkommen</value>
   </data>
 </root>

@@ -2,37 +2,36 @@
 
 namespace AllerConnectManager.ViewModel
 {
-    public class TreePartproductViewModel : TreeViewItemViewModel
+    public class TreeIngridientsConservantsViewModel : TreeViewItemViewModel
     {
-        readonly Product product;
+        readonly Ingridient ingridient;
 
-        public TreePartproductViewModel(Product productElement, TreeProductViewModel parent)
+        public TreeIngridientsConservantsViewModel(Ingridient ingridientElement, TreeProductViewModel parent)
             : base(parent, false)
         {
-            product = productElement;
+            ingridient = ingridientElement;
         }
 
         public override string ElementName
         {
-            get { return product.OrdinaryName; }
+            get { return ingridient.OrdinaryName; }
         }
 
         internal int ID
         {
-            get { return product.ID; }
+            get { return ingridient.ID; }
         }
 
         protected override void LoadChildren()
         {
             // No Children
-            base.LoadChildren();
         }
 
         public override App.ProductCompositeViewStates ElementComposit
         {
             get
             {
-                return App.ProductCompositeViewStates.TreePartproductView;
+                return App.ProductCompositeViewStates.TreeIngridientView;
             }
         }
     }

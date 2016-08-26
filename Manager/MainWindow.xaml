@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         xmlns:vw="clr-namespace:AllerConnectManager.Views"   
         xmlns:vm="clr-namespace:AllerConnectManager.ViewModel"     
-        Title="AllerConnect Manager" Height="550" Width="600" MinHeight="550"
+        Title="AllerConnect Manager" Height="620" Width="620" MinHeight="600" MinWidth="600"
         WindowStartupLocation="CenterScreen" Loaded="WindowLoaded"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         lex:LocalizeDictionary.DesignCulture="en"
         lex:LocalizeDictionary.OutputMissingKeys="True"
         lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
         lex:ResxLocalizationProvider.DefaultDictionary="Strings"
-        >
+        d:DataContext="{d:DesignInstance {x:Type vm:MainWindowModel}, IsDesignTimeCreatable=True}">
     <Window.DataContext>
         <vm:MainWindowModel/>
     </Window.DataContext>
@@ -30,13 +30,16 @@
             <vw:AllergenView x:Name="AllergenView"/>
         </DataTemplate>
         <DataTemplate x:Key="ProductSelectionViewDataTemplate">
-            <vw:ProductCompositView x:Name="ProductSelectionView"/>
+            <vw:ProductCompositView x:Name="ProductCompositView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="IngridientViewDataTemplate">
+            <vw:IngridientView x:Name="IngridientView"/>
         </DataTemplate>
         <DataTemplate x:Key="ProductViewDataTemplate">
             <vw:ProductView x:Name="ProductView"/>
         </DataTemplate>
-        <DataTemplate x:Key="InformationViewDataTemplate">
-            <vw:InformationView x:Name="InformationView"/>
+        <DataTemplate x:Key="ProductInformationViewDataTemplate">
+            <vw:ProductInformationView x:Name="ProductInformationView"/>
         </DataTemplate>
         <local:CompositionSelector x:Key="CompositeSelector"/>
     </Window.Resources>

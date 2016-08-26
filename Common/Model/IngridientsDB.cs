@@ -89,12 +89,14 @@ namespace AllerConnectCommon.Model
             {
                 var dc = new LinqDataContext();
                 var query = from pd in dc.ProductDatas
-                            where pd.ProductLanguageID == languageId && pd.ProductCategoryID == categoryId && pd.ProductLocationID == localId
+                            where pd.ProductLanguageID == languageId && pd.ProductCategoryID == categoryId && pd.LocationID == localId
                             select new ViewModel.Product
                             {
                                 ID = pd.ProductID,
                                 OrdinaryName = pd.ProductOdrinaryName,
                                 LanguageID = pd.ProductLanguageID,
+                                CategoryID = pd.ProductCategoryID,
+                                LocalID = pd.LocationID,
                                 LocalName = pd.ProductName != null ? pd.ProductName : "(ERR:102)"
                             };
                 foreach (var sp in query)
@@ -126,6 +128,8 @@ namespace AllerConnectCommon.Model
                                 ID = pd.ProductID,
                                 OrdinaryName = pd.ProductOdrinaryName,
                                 LanguageID = pd.ProductLanguageID,
+                                CategoryID = pd.ProductCategoryID,
+                                LocalID = pd.LocationID,
                                 LocalName = pd.ProductName != null ? pd.ProductName : "(ERR:102)"
                             };
                 foreach (var sp in query)
@@ -150,12 +154,12 @@ namespace AllerConnectCommon.Model
                 var dc = new LinqDataContext();
                 var query = from id in dc.IngridientDatas
                             join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                            where pd.ProductID == parentProductID
+                            where pd.ProductID == parentProductID || parentProductID == -1
                             select new ViewModel.Ingridient
                             {
                                 ID = pd.ProductID,
-                                OrdinaryName = id.IngridientName,
-                                LanguageID = id.IngridientLanguageID,
+                                OrdinaryName = id.IngridientOrdinaryName,
+                                LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
                                 LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
                             };
                 foreach (var sp in query)
@@ -169,6 +173,28 @@ namespace AllerConnectCommon.Model
                 hasError = true;
             }
             return ingridientCollection;
+        } //GetPartproduct()
+
+        public DBObservableCollection<v_ProductAllergensResult> GetProductAllergenInfo(ViewModel.Product parentProduct)
+        {
+            hasError = false;
+            var productAllergenCollection = new DBObservableCollection<v_ProductAllergensResult>();
+            try
+            {
+                var dc = new LinqDataContext();
+                var query = from pa in dc.v_ProductAllergens(parentProduct.ID, parentProduct.LocalID, parentProduct.CategoryID, parentProduct.LanguageID)
+                            select pa;
+                foreach (var sp in query)
+                {
+                    productAllergenCollection.Add(sp);
+                }
+            } //try
+            catch (Exception ex)
+            {
+                errorMessage = "GetPartproduct() error, " + ex.Message;
+                hasError = true;
+            }
+            return productAllergenCollection;
         } //GetPartproduct()
 
 

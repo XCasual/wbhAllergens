@@ -29,11 +29,11 @@ namespace AllerConnectManager.ViewModel
                     base.Children.Add(new TreePartproductViewModel(productElement, parentModel));
         }
 
-        public override App.CompositeViewStates ElementComposit
+        public override App.ProductCompositeViewStates ElementComposit
         {
             get
             {
-                return App.CompositeViewStates.None;
+                return App.ProductCompositeViewStates.None;
             }
         }
     }

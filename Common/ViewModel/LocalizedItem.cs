@@ -17,5 +17,11 @@ namespace AllerConnectCommon.ViewModel
         public string OrdinaryName { get; set; }
 
         public string LocalName { get; set; }
+
+        public string ToolTip { get; set; }
+
+        public bool IsSelected { get; set; }
+
+        public bool IsChecked { get; set; }
     }
 }

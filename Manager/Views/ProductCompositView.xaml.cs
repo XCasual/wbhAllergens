@@ -27,7 +27,7 @@ namespace AllerConnectManager.Views
 
         public override void OnApplyTemplate()
         {
-            this.DataContext = App.DataTemplateVMCompositeDataContext;
+            this.DataContext = App.DataTemplateVMProductCompositeDataContext;
 
             base.OnApplyTemplate();
         }

@@ -65,7 +65,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string Column_ID {
             get {
-                return ResourceManager.GetString("Column.ID", resourceCulture);
+                return ResourceManager.GetString("Column_ID", resourceCulture);
             }
         }
         
@@ -74,7 +74,16 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string Column_Image {
             get {
-                return ResourceManager.GetString("Column.Image", resourceCulture);
+                return ResourceManager.GetString("Column_Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contains.
+        /// </summary>
+        internal static string Column_IsReferenced {
+            get {
+                return ResourceManager.GetString("Column_IsReferenced", resourceCulture);
             }
         }
         
@@ -83,7 +92,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string Column_LocalName {
             get {
-                return ResourceManager.GetString("Column.LocalName", resourceCulture);
+                return ResourceManager.GetString("Column_LocalName", resourceCulture);
             }
         }
         
@@ -92,7 +101,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string Column_OrdinaryName {
             get {
-                return ResourceManager.GetString("Column.OrdinaryName", resourceCulture);
+                return ResourceManager.GetString("Column_OrdinaryName", resourceCulture);
             }
         }
         
@@ -101,7 +110,52 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string Column_SymbolID {
             get {
-                return ResourceManager.GetString("Column.SymbolID", resourceCulture);
+                return ResourceManager.GetString("Column_SymbolID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Column_ToolTip {
+            get {
+                return ResourceManager.GetString("Column_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete selected.
+        /// </summary>
+        internal static string Ingridients_DeleteSelected {
+            get {
+                return ResourceManager.GetString("Ingridients_DeleteSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save all.
+        /// </summary>
+        internal static string Ingridients_Saveall {
+            get {
+                return ResourceManager.GetString("Ingridients_Saveall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save allergen.
+        /// </summary>
+        internal static string Ingridients_Saveallergen {
+            get {
+                return ResourceManager.GetString("Ingridients_Saveallergen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save ingriedient.
+        /// </summary>
+        internal static string Ingridients_SaveIngriedient {
+            get {
+                return ResourceManager.GetString("Ingridients_SaveIngriedient", resourceCulture);
             }
         }
         
@@ -110,7 +164,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string NavigationBar_Allergens {
             get {
-                return ResourceManager.GetString("NavigationBar.Allergens", resourceCulture);
+                return ResourceManager.GetString("NavigationBar_Allergens", resourceCulture);
             }
         }
         
@@ -119,7 +173,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string NavigationBar_Informations {
             get {
-                return ResourceManager.GetString("NavigationBar.Informations", resourceCulture);
+                return ResourceManager.GetString("NavigationBar_Informations", resourceCulture);
             }
         }
         
@@ -128,7 +182,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string NavigationBar_Ingriedients {
             get {
-                return ResourceManager.GetString("NavigationBar.Ingriedients", resourceCulture);
+                return ResourceManager.GetString("NavigationBar_Ingriedients", resourceCulture);
             }
         }
         
@@ -137,7 +191,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string NavigationBar_Products {
             get {
-                return ResourceManager.GetString("NavigationBar.Products", resourceCulture);
+                return ResourceManager.GetString("NavigationBar_Products", resourceCulture);
             }
         }
         
@@ -146,7 +200,7 @@ namespace AllerConnectManager.Resources {
         /// </summary>
         internal static string NavigationBar_Welcome {
             get {
-                return ResourceManager.GetString("NavigationBar.Welcome", resourceCulture);
+                return ResourceManager.GetString("NavigationBar_Welcome", resourceCulture);
             }
         }
     }

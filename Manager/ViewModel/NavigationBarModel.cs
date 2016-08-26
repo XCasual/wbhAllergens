@@ -60,7 +60,21 @@ namespace AllerConnectManager.ViewModel
             // TODO: Finish current jobs
             // TODO: Do the switch
             App.UIController.Messenger.NotifyColleagues("Navigate2InformationView");
-        } //NavigateToAllergenView              
+        } //Navigate2InformationView         
+
+        private RelayCommand navigate2ProductInformationViewCmd;
+        public ICommand Navigate2ProductInformationViewCmd
+        {
+            get { return navigate2ProductInformationViewCmd ?? (navigate2ProductInformationViewCmd = new RelayCommand(() => navigate2ProductInformationView(), () => isSelected)); }
+        }
+
+        private void navigate2ProductInformationView()
+        {
+            // TODO: Can switch?
+            // TODO: Finish current jobs
+            // TODO: Do the switch
+            App.UIController.Messenger.NotifyColleagues("Navigate2ProductInformationView");
+        } //NavigateToAllergenView           
 
         private RelayCommand navigate2ProductSelectionViewCmd;
         public ICommand Navigate2ProductSelectionViewCmd

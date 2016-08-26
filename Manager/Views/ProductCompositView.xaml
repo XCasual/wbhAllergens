@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:AllerConnectManager.Views"
              xmlns:main="clr-namespace:AllerConnectManager"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
-             xmlns:vw="clr-namespace:AllerConnectManager.Views.Compositions"     
+             d:DesignHeight="300" d:DesignWidth="500"
+             xmlns:vw="clr-namespace:AllerConnectManager.Views.Compositions"
              xmlns:vm="clr-namespace:AllerConnectManager.ViewModel" 
              d:DataContext="{d:DesignInstance {x:Type vm:ProductCompositionModel}, IsDesignTimeCreatable=True}">
     <UserControl.Resources>
@@ -29,7 +29,7 @@
         <main:CompositionSelector x:Key="CompositeSelector"/>
     </UserControl.Resources>
 
-    <Grid Background="#FF251E1E" Margin="0,0,-77,0">
+    <Grid Background="#FF251E1E" Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="Auto"/>
@@ -40,7 +40,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Width="5" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext" />
-        <DockPanel Grid.Column="0" Grid.Row="2">
+        <DockPanel Grid.Column="0" Grid.Row="1">
             <!-- SEARCH AREA -->
             <Border 
       DockPanel.Dock="Bottom" 
@@ -154,12 +154,12 @@
                     <DataTemplate DataType="{x:Type vm:TreeIngridientsViewModel}">
                         <StackPanel Orientation="Horizontal">
                             <!--<Image Width="16" Height="16" Margin="3,0" Source="Resources\Images\Ebene5.png" />-->
-                            <TextBlock Text="{Binding IngridientName}" />
+                            <TextBlock Text="{Binding ElementName}" />
                         </StackPanel>
                     </DataTemplate>
                 </TreeView.Resources>
             </TreeView>
-
+            
         </DockPanel>
         <Grid Grid.Row="1" Grid.Column="2">
             <ContentPresenter

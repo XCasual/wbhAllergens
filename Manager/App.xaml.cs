@@ -22,11 +22,12 @@ namespace AllerConnectManager
             AllergenView,
             ProductInformationView,
             ProductSelectionView,
+            IngridientView,
             ProductView,
             InformationView
         }
 
-        public enum CompositeViewStates
+        public enum ProductCompositeViewStates
         {
             None,
             TreeCategoryView,
@@ -43,9 +44,9 @@ namespace AllerConnectManager
             set { currentViewState = value; }
         }
 
-        private static CompositeViewStates currentCompositeViewState;
+        private static ProductCompositeViewStates currentCompositeViewState;
 
-        public static CompositeViewStates CurrentCompositeViewState
+        public static ProductCompositeViewStates CurrentCompositeViewState
         {
             get { return currentCompositeViewState; }
             set { currentCompositeViewState = value; }
@@ -54,7 +55,7 @@ namespace AllerConnectManager
         public static AllerConnectCommon.Services.UIControllerService UIController;
 
         private static Dictionary<ViewStates, INotifyPropertyChanged> dataTemplateVMDataContext;
-        private static Dictionary<CompositeViewStates, INotifyPropertyChanged> dataTemplateVMCompositeDataContext;
+        private static Dictionary<ProductCompositeViewStates, INotifyPropertyChanged> dataTemplateVMProductCompositeDataContext;
 
 
         public static INotifyPropertyChanged DataTemplateVWDataContext
@@ -62,9 +63,9 @@ namespace AllerConnectManager
             get { return dataTemplateVMDataContext[CurrentViewState]; }
         }
 
-        public static INotifyPropertyChanged DataTemplateVMCompositeDataContext
+        public static INotifyPropertyChanged DataTemplateVMProductCompositeDataContext
         {
-            get { return dataTemplateVMCompositeDataContext[CurrentCompositeViewState]; }
+            get { return dataTemplateVMProductCompositeDataContext[CurrentCompositeViewState]; }
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -73,28 +74,30 @@ namespace AllerConnectManager
 
             CurrentViewState = ViewStates.WelcomeView;
             dataTemplateVMDataContext = new Dictionary<ViewStates, INotifyPropertyChanged>();
-            dataTemplateVMCompositeDataContext = new Dictionary<CompositeViewStates, INotifyPropertyChanged>();
+            dataTemplateVMProductCompositeDataContext = new Dictionary<ProductCompositeViewStates, INotifyPropertyChanged>();
 
             base.OnStartup(e);
         }
 
         public static void IntiliazieViewModels()
         {
+            var vmIngridient = new AllerConnectCommon.ViewModel.IngridientModel();
+
             dataTemplateVMDataContext.Add(ViewStates.WelcomeView, new WelcomeModel());
             dataTemplateVMDataContext.Add(ViewStates.AllergenView, new AllerConnectCommon.ViewModel.AllergenDisplayModel());
             dataTemplateVMDataContext.Add(ViewStates.ProductInformationView, new AllerConnectCommon.ViewModel.ProductInformationModel());
-            dataTemplateVMDataContext.Add(ViewStates.AllergenSelectionView, new AllerConnectCommon.ViewModel.AllergenSelectionModel());
+            dataTemplateVMDataContext.Add(ViewStates.AllergenSelectionView, vmIngridient.AllergenVMModel);
             dataTemplateVMDataContext.Add(ViewStates.ProductView, new AllerConnectCommon.ViewModel.ProductDisplayModel());
-            dataTemplateVMDataContext.Add(ViewStates.ProductSelectionView, new AllerConnectCommon.ViewModel.ProductSelectionModel());
+            dataTemplateVMDataContext.Add(ViewStates.ProductSelectionView, new ProductCompositionModel());
+            dataTemplateVMDataContext.Add(ViewStates.IngridientView, vmIngridient);
             dataTemplateVMDataContext.Add(ViewStates.InformationView, new InformationModel());
 
             var productCompositeModel = new ProductCompositionModel();
-            dataTemplateVMCompositeDataContext.Add(CompositeViewStates.None, productCompositeModel);
-            dataTemplateVMCompositeDataContext.Add(CompositeViewStates.TreeCategoryView, productCompositeModel);
-            dataTemplateVMCompositeDataContext.Add(CompositeViewStates.TreeProductView, productCompositeModel);
-            dataTemplateVMCompositeDataContext.Add(CompositeViewStates.TreePartproductView, productCompositeModel);
-            dataTemplateVMCompositeDataContext.Add(CompositeViewStates.TreeIngridientView, productCompositeModel);
-
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.None, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeCategoryView, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeProductView, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreePartproductView, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeIngridientView, productCompositeModel);
         }
     }
 }

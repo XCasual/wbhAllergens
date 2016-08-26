@@ -32,11 +32,11 @@ namespace AllerConnectManager.ViewModel
             }
         }
 
-        public override App.CompositeViewStates ElementComposit
+        public override App.ProductCompositeViewStates ElementComposit
         {
             get
             {
-                return App.CompositeViewStates.TreeCategoryView;
+                return App.ProductCompositeViewStates.TreeCategoryView;
             }
         }
     }

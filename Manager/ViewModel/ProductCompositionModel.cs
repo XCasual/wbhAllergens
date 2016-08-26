@@ -112,7 +112,7 @@ namespace AllerConnectManager.ViewModel
             verwaltungTree = new ReadOnlyCollection<TreeRootViewModel>(new TreeRootViewModel[] { treeRoot });
             searchCommand = new SearchTreeCommand(treeRoot, this);
 
-            App.CurrentCompositeViewState = CurrentAppCompositeViewState = App.CompositeViewStates.None;
+            App.CurrentCompositeViewState = CurrentAppCompositeViewState = App.ProductCompositeViewStates.None;
             App.UIController.Messenger.Register("CompositeChanged", (Action<TreeViewItemViewModel>)(param => UpdateComposite(param)));
         }
 
@@ -122,9 +122,9 @@ namespace AllerConnectManager.ViewModel
             App.CurrentCompositeViewState = itemModel.ElementComposit;
         }
 
-        private App.CompositeViewStates currentAppCompositeViewState;
+        private App.ProductCompositeViewStates currentAppCompositeViewState;
 
-        public App.CompositeViewStates CurrentAppCompositeViewState
+        public App.ProductCompositeViewStates CurrentAppCompositeViewState
         {
             get { return currentAppCompositeViewState; }
             set { currentAppCompositeViewState = value; OnPropertyChanged(new PropertyChangedEventArgs("CurrentAppCompositeViewState")); }

@@ -48,14 +48,15 @@
                 Background="#FF251E1E"
                 ItemsSource="{Binding DataItems}" 
                 SelectedItem="{Binding SelectedAllergen}"
+                CanUserAddRows="False" CanUserDeleteRows="False"
                 foundation:CommandBehavior.RoutedEventName="SelectionChanged"
                 foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2"
                 AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{lex:Loc Key=Column.ID}" Binding="{Binding Path=ID}"  Width="80" Visibility="Hidden"/>
-                <DataGridTextColumn Header="{lex:Loc Key=Column.LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
-                <DataGridTextColumn Header="{lex:Loc Key=Column.SymbolID}" Binding="{Binding Path=SymbolID}" Width="80" Visibility="Hidden" />
-                <DataGridTemplateColumn Header="{lex:Loc Key=Column.Image}" Width="80" IsReadOnly="True">
+                <DataGridTextColumn Header="{lex:Loc Key=Column_ID}" Binding="{Binding Path=ID}"  Width="80" Visibility="Hidden"/>
+                <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
+                <DataGridTextColumn Header="{lex:Loc Key=Column_SymbolID}" Binding="{Binding Path=SymbolID}" Width="80" Visibility="Hidden" />
+                <DataGridTemplateColumn Header="{lex:Loc Key=Column_Image}" Width="80" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Path=SymbolBuffer}" Width="60" Height="60" />
