@@ -11,7 +11,7 @@ namespace AllerConnectCommon.ViewModel
         public IngridientSelectionModel()
         {
             ingriedientItems = new Model.DBObservableCollection<Ingridient>();
-            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(-1);
+            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(true);
             listBoxCommand = new Foundation.RelayCommand(() => SelectionHasChanged());
             Services.UIControllerService.Instance.Messenger.Register("IngridientCleared", (Action)(() => SelectedIngriedient = null));
             Services.UIControllerService.Instance.Messenger.Register("GetIngriedients", (Action)(() => GetIngriedients()));
@@ -22,7 +22,7 @@ namespace AllerConnectCommon.ViewModel
 
         private void GetIngriedients()
         {
-            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(-1);
+            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(true);
             if (Services.UIControllerService.Instance.IngridientsDB.hasError)
                 Services.UIControllerService.Instance.Messenger.NotifyColleagues("SetStatus", Services.UIControllerService.Instance.IngridientsDB.errorMessage);
         }

@@ -12,7 +12,8 @@ namespace AllerConnectManager.ViewModel
         {
             product = productElement;
             base.Children.Add(new TreePartproductRootViewModel(product, this));
-            base.Children.Add(new TreeIngridientsRootViewModel(product, this));
+            base.Children.Add(new TreeIngridientsRootViewModel(product, this, false /* Rohstoffe */));
+            base.Children.Add(new TreeIngridientsRootViewModel(product, this, true /* Zusatzstoffe */));
         }
 
         public override string ElementName

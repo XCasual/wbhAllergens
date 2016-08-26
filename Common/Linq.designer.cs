@@ -48,9 +48,6 @@ namespace AllerConnectCommon
     partial void InsertCategoriesLocal(CategoriesLocal instance);
     partial void UpdateCategoriesLocal(CategoriesLocal instance);
     partial void DeleteCategoriesLocal(CategoriesLocal instance);
-    partial void InsertIngridient(Ingridient instance);
-    partial void UpdateIngridient(Ingridient instance);
-    partial void DeleteIngridient(Ingridient instance);
     partial void InsertIngridientsAllergen(IngridientsAllergen instance);
     partial void UpdateIngridientsAllergen(IngridientsAllergen instance);
     partial void DeleteIngridientsAllergen(IngridientsAllergen instance);
@@ -81,6 +78,9 @@ namespace AllerConnectCommon
     partial void InsertProductProduct(ProductProduct instance);
     partial void UpdateProductProduct(ProductProduct instance);
     partial void DeleteProductProduct(ProductProduct instance);
+    partial void InsertIngridient(Ingridient instance);
+    partial void UpdateIngridient(Ingridient instance);
+    partial void DeleteIngridient(Ingridient instance);
     #endregion
 		
 		public LinqDataContext() : 
@@ -158,14 +158,6 @@ namespace AllerConnectCommon
 			get
 			{
 				return this.GetTable<CategoriesLocal>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Ingridient> Ingridients
-		{
-			get
-			{
-				return this.GetTable<Ingridient>();
 			}
 		}
 		
@@ -294,6 +286,14 @@ namespace AllerConnectCommon
 			get
 			{
 				return this.GetTable<AllergenData>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Ingridient> Ingridients
+		{
+			get
+			{
+				return this.GetTable<Ingridient>();
 			}
 		}
 		
@@ -1974,176 +1974,6 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ingridients")]
-	public partial class Ingridient : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IngridientID;
-		
-		private string _IngridientOrdinaryName;
-		
-		private EntitySet<IngridientsAllergen> _IngridientsAllergens;
-		
-		private EntitySet<IngridientsLocal> _IngridientsLocals;
-		
-		private EntitySet<ProductsIngridient> _ProductsIngridients;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIngridientIDChanging(int value);
-    partial void OnIngridientIDChanged();
-    partial void OnIngridientOrdinaryNameChanging(string value);
-    partial void OnIngridientOrdinaryNameChanged();
-    #endregion
-		
-		public Ingridient()
-		{
-			this._IngridientsAllergens = new EntitySet<IngridientsAllergen>(new Action<IngridientsAllergen>(this.attach_IngridientsAllergens), new Action<IngridientsAllergen>(this.detach_IngridientsAllergens));
-			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
-			this._ProductsIngridients = new EntitySet<ProductsIngridient>(new Action<ProductsIngridient>(this.attach_ProductsIngridients), new Action<ProductsIngridient>(this.detach_ProductsIngridients));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					this.OnIngridientIDChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientID = value;
-					this.SendPropertyChanged("IngridientID");
-					this.OnIngridientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string IngridientOrdinaryName
-		{
-			get
-			{
-				return this._IngridientOrdinaryName;
-			}
-			set
-			{
-				if ((this._IngridientOrdinaryName != value))
-				{
-					this.OnIngridientOrdinaryNameChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientOrdinaryName = value;
-					this.SendPropertyChanged("IngridientOrdinaryName");
-					this.OnIngridientOrdinaryNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsAllergen", Storage="_IngridientsAllergens", ThisKey="IngridientID", OtherKey="IngridientID")]
-		public EntitySet<IngridientsAllergen> IngridientsAllergens
-		{
-			get
-			{
-				return this._IngridientsAllergens;
-			}
-			set
-			{
-				this._IngridientsAllergens.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="IngridientID", OtherKey="IngridientID")]
-		public EntitySet<IngridientsLocal> IngridientsLocals
-		{
-			get
-			{
-				return this._IngridientsLocals;
-			}
-			set
-			{
-				this._IngridientsLocals.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_ProductsIngridient", Storage="_ProductsIngridients", ThisKey="IngridientID", OtherKey="IngridientID")]
-		public EntitySet<ProductsIngridient> ProductsIngridients
-		{
-			get
-			{
-				return this._ProductsIngridients;
-			}
-			set
-			{
-				this._ProductsIngridients.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_IngridientsAllergens(IngridientsAllergen entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ingridient = this;
-		}
-		
-		private void detach_IngridientsAllergens(IngridientsAllergen entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ingridient = null;
-		}
-		
-		private void attach_IngridientsLocals(IngridientsLocal entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ingridient = this;
-		}
-		
-		private void detach_IngridientsLocals(IngridientsLocal entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ingridient = null;
-		}
-		
-		private void attach_ProductsIngridients(ProductsIngridient entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ingridient = this;
-		}
-		
-		private void detach_ProductsIngridients(ProductsIngridient entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ingridient = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngridientsAllergens")]
 	public partial class IngridientsAllergen : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2376,9 +2206,9 @@ namespace AllerConnectCommon
 		
 		private int _IngridientLanguageID;
 		
-		private EntityRef<Ingridient> _Ingridient;
-		
 		private EntityRef<Language> _Language;
+		
+		private EntityRef<Ingridient> _Ingridient;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2398,8 +2228,8 @@ namespace AllerConnectCommon
 		
 		public IngridientsLocal()
 		{
-			this._Ingridient = default(EntityRef<Ingridient>);
 			this._Language = default(EntityRef<Language>);
+			this._Ingridient = default(EntityRef<Ingridient>);
 			OnCreated();
 		}
 		
@@ -2511,40 +2341,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_Ingridient", ThisKey="IngridientID", OtherKey="IngridientID", IsForeignKey=true)]
-		public Ingridient Ingridient
-		{
-			get
-			{
-				return this._Ingridient.Entity;
-			}
-			set
-			{
-				Ingridient previousValue = this._Ingridient.Entity;
-				if (((previousValue != value) 
-							|| (this._Ingridient.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ingridient.Entity = null;
-						previousValue.IngridientsLocals.Remove(this);
-					}
-					this._Ingridient.Entity = value;
-					if ((value != null))
-					{
-						value.IngridientsLocals.Add(this);
-						this._IngridientID = value.IngridientID;
-					}
-					else
-					{
-						this._IngridientID = default(int);
-					}
-					this.SendPropertyChanged("Ingridient");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_IngridientsLocal", Storage="_Language", ThisKey="IngridientLanguageID", OtherKey="LanguageID", IsForeignKey=true)]
 		public Language Language
 		{
@@ -2575,6 +2371,40 @@ namespace AllerConnectCommon
 						this._IngridientLanguageID = default(int);
 					}
 					this.SendPropertyChanged("Language");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_Ingridient", ThisKey="IngridientID", OtherKey="IngridientID", IsForeignKey=true)]
+		public Ingridient Ingridient
+		{
+			get
+			{
+				return this._Ingridient.Entity;
+			}
+			set
+			{
+				Ingridient previousValue = this._Ingridient.Entity;
+				if (((previousValue != value) 
+							|| (this._Ingridient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Ingridient.Entity = null;
+						previousValue.IngridientsLocals.Remove(this);
+					}
+					this._Ingridient.Entity = value;
+					if ((value != null))
+					{
+						value.IngridientsLocals.Add(this);
+						this._IngridientID = value.IngridientID;
+					}
+					else
+					{
+						this._IngridientID = default(int);
+					}
+					this.SendPropertyChanged("Ingridient");
 				}
 			}
 		}
@@ -3433,9 +3263,9 @@ namespace AllerConnectCommon
 		
 		private int _IngridientFeel;
 		
-		private EntityRef<Ingridient> _Ingridient;
-		
 		private EntityRef<Product> _Product;
+		
+		private EntityRef<Ingridient> _Ingridient;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3453,8 +3283,8 @@ namespace AllerConnectCommon
 		
 		public ProductsIngridient()
 		{
-			this._Ingridient = default(EntityRef<Ingridient>);
 			this._Product = default(EntityRef<Product>);
+			this._Ingridient = default(EntityRef<Ingridient>);
 			OnCreated();
 		}
 		
@@ -3546,40 +3376,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_ProductsIngridient", Storage="_Ingridient", ThisKey="IngridientID", OtherKey="IngridientID", IsForeignKey=true)]
-		public Ingridient Ingridient
-		{
-			get
-			{
-				return this._Ingridient.Entity;
-			}
-			set
-			{
-				Ingridient previousValue = this._Ingridient.Entity;
-				if (((previousValue != value) 
-							|| (this._Ingridient.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ingridient.Entity = null;
-						previousValue.ProductsIngridients.Remove(this);
-					}
-					this._Ingridient.Entity = value;
-					if ((value != null))
-					{
-						value.ProductsIngridients.Add(this);
-						this._IngridientID = value.IngridientID;
-					}
-					else
-					{
-						this._IngridientID = default(int);
-					}
-					this.SendPropertyChanged("Ingridient");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductsIngridient", Storage="_Product", ThisKey="ProductID", OtherKey="ProductID", IsForeignKey=true)]
 		public Product Product
 		{
@@ -3610,6 +3406,40 @@ namespace AllerConnectCommon
 						this._ProductID = default(int);
 					}
 					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_ProductsIngridient", Storage="_Ingridient", ThisKey="IngridientID", OtherKey="IngridientID", IsForeignKey=true)]
+		public Ingridient Ingridient
+		{
+			get
+			{
+				return this._Ingridient.Entity;
+			}
+			set
+			{
+				Ingridient previousValue = this._Ingridient.Entity;
+				if (((previousValue != value) 
+							|| (this._Ingridient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Ingridient.Entity = null;
+						previousValue.ProductsIngridients.Remove(this);
+					}
+					this._Ingridient.Entity = value;
+					if ((value != null))
+					{
+						value.ProductsIngridients.Add(this);
+						this._IngridientID = value.IngridientID;
+					}
+					else
+					{
+						this._IngridientID = default(int);
+					}
+					this.SendPropertyChanged("Ingridient");
 				}
 			}
 		}
@@ -5238,6 +5068,200 @@ namespace AllerConnectCommon
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ingridients")]
+	public partial class Ingridient : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IngridientID;
+		
+		private string _IngridientOrdinaryName;
+		
+		private bool _Conservant;
+		
+		private EntitySet<IngridientsAllergen> _IngridientsAllergens;
+		
+		private EntitySet<IngridientsLocal> _IngridientsLocals;
+		
+		private EntitySet<ProductsIngridient> _ProductsIngridients;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIngridientIDChanging(int value);
+    partial void OnIngridientIDChanged();
+    partial void OnIngridientOrdinaryNameChanging(string value);
+    partial void OnIngridientOrdinaryNameChanged();
+    partial void OnConservantChanging(bool value);
+    partial void OnConservantChanged();
+    #endregion
+		
+		public Ingridient()
+		{
+			this._IngridientsAllergens = new EntitySet<IngridientsAllergen>(new Action<IngridientsAllergen>(this.attach_IngridientsAllergens), new Action<IngridientsAllergen>(this.detach_IngridientsAllergens));
+			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
+			this._ProductsIngridients = new EntitySet<ProductsIngridient>(new Action<ProductsIngridient>(this.attach_ProductsIngridients), new Action<ProductsIngridient>(this.detach_ProductsIngridients));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this.OnIngridientIDChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientID = value;
+					this.SendPropertyChanged("IngridientID");
+					this.OnIngridientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientOrdinaryName
+		{
+			get
+			{
+				return this._IngridientOrdinaryName;
+			}
+			set
+			{
+				if ((this._IngridientOrdinaryName != value))
+				{
+					this.OnIngridientOrdinaryNameChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientOrdinaryName = value;
+					this.SendPropertyChanged("IngridientOrdinaryName");
+					this.OnIngridientOrdinaryNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conservant", DbType="Bit NOT NULL")]
+		public bool Conservant
+		{
+			get
+			{
+				return this._Conservant;
+			}
+			set
+			{
+				if ((this._Conservant != value))
+				{
+					this.OnConservantChanging(value);
+					this.SendPropertyChanging();
+					this._Conservant = value;
+					this.SendPropertyChanged("Conservant");
+					this.OnConservantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsAllergen", Storage="_IngridientsAllergens", ThisKey="IngridientID", OtherKey="IngridientID")]
+		public EntitySet<IngridientsAllergen> IngridientsAllergens
+		{
+			get
+			{
+				return this._IngridientsAllergens;
+			}
+			set
+			{
+				this._IngridientsAllergens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="IngridientID", OtherKey="IngridientID")]
+		public EntitySet<IngridientsLocal> IngridientsLocals
+		{
+			get
+			{
+				return this._IngridientsLocals;
+			}
+			set
+			{
+				this._IngridientsLocals.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_ProductsIngridient", Storage="_ProductsIngridients", ThisKey="IngridientID", OtherKey="IngridientID")]
+		public EntitySet<ProductsIngridient> ProductsIngridients
+		{
+			get
+			{
+				return this._ProductsIngridients;
+			}
+			set
+			{
+				this._ProductsIngridients.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_IngridientsAllergens(IngridientsAllergen entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = this;
+		}
+		
+		private void detach_IngridientsAllergens(IngridientsAllergen entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = null;
+		}
+		
+		private void attach_IngridientsLocals(IngridientsLocal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = this;
+		}
+		
+		private void detach_IngridientsLocals(IngridientsLocal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = null;
+		}
+		
+		private void attach_ProductsIngridients(ProductsIngridient entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = this;
+		}
+		
+		private void detach_ProductsIngridients(ProductsIngridient entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngridientData")]
 	public partial class IngridientData
 	{
@@ -5259,6 +5283,8 @@ namespace AllerConnectCommon
 		private int _IngridientAllergenID;
 		
 		private int _AllergenID;
+		
+		private bool _Conservant;
 		
 		public IngridientData()
 		{
@@ -5404,6 +5430,22 @@ namespace AllerConnectCommon
 				if ((this._AllergenID != value))
 				{
 					this._AllergenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conservant", DbType="Bit NOT NULL")]
+		public bool Conservant
+		{
+			get
+			{
+				return this._Conservant;
+			}
+			set
+			{
+				if ((this._Conservant != value))
+				{
+					this._Conservant = value;
 				}
 			}
 		}

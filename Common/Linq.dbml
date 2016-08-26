@@ -57,15 +57,6 @@
       <Association Name="Language_CategoriesLocal" Member="Language" ThisKey="CategoryLanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Ingridients" Member="Ingridients">
-    <Type Name="Ingridient">
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="Ingridient_IngridientsAllergen" Member="IngridientsAllergens" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsAllergen" />
-      <Association Name="Ingridient_IngridientsLocal" Member="IngridientsLocals" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsLocal" />
-      <Association Name="Ingridient_ProductsIngridient" Member="ProductsIngridients" ThisKey="IngridientID" OtherKey="IngridientID" Type="ProductsIngridient" />
-    </Type>
-  </Table>
   <Table Name="dbo.IngridientsAllergens" Member="IngridientsAllergens">
     <Type Name="IngridientsAllergen">
       <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -83,8 +74,8 @@
       <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
       <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Ingridient_IngridientsLocal" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
       <Association Name="Language_IngridientsLocal" Member="Language" ThisKey="IngridientLanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" />
+      <Association Name="Ingridient_IngridientsLocal" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Languages" Member="Languages">
@@ -132,8 +123,8 @@
       <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IngridientFeel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Ingridient_ProductsIngridient" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
       <Association Name="Product_ProductsIngridient" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Ingridient_ProductsIngridient" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ProductsLocals" Member="ProductsLocals">
@@ -240,6 +231,16 @@
       <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Ingridients" Member="Ingridients">
+    <Type Name="Ingridient">
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Conservant" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Ingridient_IngridientsAllergen" Member="IngridientsAllergens" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsAllergen" />
+      <Association Name="Ingridient_IngridientsLocal" Member="IngridientsLocals" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsLocal" />
+      <Association Name="Ingridient_ProductsIngridient" Member="ProductsIngridients" ThisKey="IngridientID" OtherKey="IngridientID" Type="ProductsIngridient" />
+    </Type>
+  </Table>
   <Table Name="dbo.IngridientData" Member="IngridientDatas">
     <Type Name="IngridientData">
       <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -251,6 +252,7 @@
       <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Conservant" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.v_AllergenSymbol" Method="v_AllergenSymbol" IsComposable="true">

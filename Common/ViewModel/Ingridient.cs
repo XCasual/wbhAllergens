@@ -10,13 +10,16 @@ namespace AllerConnectCommon.ViewModel
 {
     public class Ingridient : LocalizedItem, ICloneable
     {
+        public bool IsConservant { get; set; }
+
         public object Clone()
         {
-            return new Category()
+            return new Ingridient()
             {
                 ID = this.ID,
                 OrdinaryName = this.OrdinaryName,
-                LocalName = this.LocalName
+                LocalName = this.LocalName,
+                IsConservant = this.IsConservant
             };
         }
     }

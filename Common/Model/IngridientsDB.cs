@@ -176,26 +176,48 @@ namespace AllerConnectCommon.Model
             return partproductCollection;
         } //GetPartproduct()
 
-        public DBObservableCollection<ViewModel.Ingridient> GetIngridients(int parentProductID)
+        public DBObservableCollection<ViewModel.Ingridient> GetIngridients(bool ignoreConservantFlag, int parentProductID = -1,  bool conservantsOnly = false)
         {
             hasError = false;
             var ingridientCollection = new DBObservableCollection<ViewModel.Ingridient>();
             try
             {
                 var dc = new LinqDataContext();
-                var query = from id in dc.IngridientDatas
-                            join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                            where pd.ProductID == parentProductID || parentProductID == -1
-                            select new ViewModel.Ingridient
-                            {
-                                ID = pd.ProductID,
-                                OrdinaryName = id.IngridientOrdinaryName,
-                                LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
-                                LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
-                            };
-                foreach (var sp in query)
+                if (ignoreConservantFlag)
                 {
-                    ingridientCollection.Add(sp);
+                    var query = from id in dc.IngridientDatas
+                                join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
+                                where pd.ProductID == parentProductID || parentProductID == -1
+                                select new ViewModel.Ingridient
+                                {
+                                    ID = pd.ProductID,
+                                    OrdinaryName = id.IngridientOrdinaryName,
+                                    IsConservant = id.Conservant,
+                                    LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
+                                    LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
+                                };
+                    foreach (var sp in query)
+                    {
+                        ingridientCollection.Add(sp);
+                    }
+                }
+                else
+                {
+                    var query = from id in dc.IngridientDatas
+                                join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
+                                where id.Conservant == conservantsOnly && (pd.ProductID == parentProductID || parentProductID == -1)
+                                select new ViewModel.Ingridient
+                                {
+                                    ID = pd.ProductID,
+                                    OrdinaryName = id.IngridientOrdinaryName,
+                                    IsConservant = id.Conservant,
+                                    LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
+                                    LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
+                                };
+                    foreach (var sp in query)
+                    {
+                        ingridientCollection.Add(sp);
+                    }
                 }
             } //try
             catch (Exception ex)

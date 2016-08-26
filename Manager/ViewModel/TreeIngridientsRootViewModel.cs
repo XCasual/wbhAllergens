@@ -5,16 +5,18 @@ namespace AllerConnectManager.ViewModel
     public class TreeIngridientsRootViewModel : TreeViewItemViewModel
     {
         readonly Product product;
+        private bool isConservant;
 
-        public TreeIngridientsRootViewModel(Product productElement, TreeProductViewModel parent)
+        public TreeIngridientsRootViewModel(Product productElement, TreeProductViewModel parent, bool conservants)
             : base(parent, true)
         {
             product = productElement;
+            isConservant = conservants;
         }
 
         public override string ElementName
         {
-            get { return "Rohstoffe"; }
+            get { return isConservant ? "Zusatzstoffe" : "Rohstoffe"; }
         }
 
         internal int ID
@@ -25,8 +27,8 @@ namespace AllerConnectManager.ViewModel
         protected override void LoadChildren()
         {
             var parentModel = base.Parent as TreeProductViewModel;
-            foreach (Ingridient ingridientElement in App.UIController.IngridientsDB.GetIngridients(parentModel.ID))
-                    base.Children.Add(new TreeIngridientsViewModel(ingridientElement, parentModel));
+            foreach (Ingridient ingridientElement in App.UIController.IngridientsDB.GetIngridients(false, parentModel.ID, isConservant))
+                    base.Children.Add(new TreeIngridientsViewModel(ingridientElement, parentModel, isConservant));
         }
 
         public override App.ProductCompositeViewStates ElementComposit
