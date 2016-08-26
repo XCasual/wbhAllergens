@@ -40,5 +40,4 @@ namespace AllerConnectManager.Views
             printControl.ShowPrintPreview();
         }
     }
-    }
 }
