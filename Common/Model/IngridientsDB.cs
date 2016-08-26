@@ -112,6 +112,37 @@ namespace AllerConnectCommon.Model
             return productCollection;
         } //GetProducts()
 
+        public DBObservableCollection<ViewModel.Product> GetProducts(int languageId, int localId)
+        {
+            hasError = false;
+            var productCollection = new DBObservableCollection<ViewModel.Product>();
+            try
+            {
+                var dc = new LinqDataContext();
+                var query = from pd in dc.ProductDatas
+                            where pd.ProductLanguageID == languageId && pd.LocationID == localId
+                            select new ViewModel.Product
+                            {
+                                ID = pd.ProductID,
+                                OrdinaryName = pd.ProductOdrinaryName,
+                                LanguageID = pd.ProductLanguageID,
+                                CategoryID = pd.ProductCategoryID,
+                                LocalID = pd.LocationID,
+                                LocalName = pd.ProductName != null ? pd.ProductName : "(ERR:102)"
+                            };
+                foreach (var sp in query)
+                {
+                    productCollection.Add(sp);
+                }
+            } //try
+            catch (Exception ex)
+            {
+                errorMessage = "GetProducts() error, " + ex.Message;
+                hasError = true;
+            }
+            return productCollection;
+        } //GetProducts()
+
 
         public DBObservableCollection<ViewModel.Product> GetPartproduct(int parentProductID)
         {

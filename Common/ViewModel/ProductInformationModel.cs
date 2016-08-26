@@ -22,6 +22,7 @@ namespace AllerConnectCommon.ViewModel
         public ProductInformationModel()
         {
             Services.UIControllerService.Instance.Messenger.Register("ProductCompositeSelected", (Action<Product>)(param => SetCompositeProduct(param)));
+            possibleProducts = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
         }
 
         private void SetCompositeProduct(Product itemModel)
@@ -53,7 +54,10 @@ namespace AllerConnectCommon.ViewModel
             set
             {
                 displayedProduct = value;
+                UpdateInformationModel(displayedProduct);
                 OnPropertyChanged(new PropertyChangedEventArgs("DisplayedProduct"));
+                OnPropertyChanged(new PropertyChangedEventArgs("DisplayedAllergens"));
+
             }
         }
 
@@ -65,6 +69,17 @@ namespace AllerConnectCommon.ViewModel
             {
                 displayedAllergens = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("DisplayedAllergens"));
+            }
+        }
+
+        private ObservableCollection<Product> possibleProducts = new ObservableCollection<Product>();
+        public ObservableCollection<Product> PossibleProducts
+        {
+            get { return possibleProducts; }
+            set
+            {
+                possibleProducts = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("PossibleProducts"));
             }
         }
 

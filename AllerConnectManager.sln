@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllerConnectCommon", "Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllerConnectManager", "Manager\AllerConnectManager.csproj", "{106D2500-8C85-4BD6-9347-160CA64C3AA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllerConnectInfo", "Info\AllerConnectInfo.csproj", "{BC466995-0649-4834-9BC7-63AC4ED05A2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{106D2500-8C85-4BD6-9347-160CA64C3AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106D2500-8C85-4BD6-9347-160CA64C3AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{106D2500-8C85-4BD6-9347-160CA64C3AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC466995-0649-4834-9BC7-63AC4ED05A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC466995-0649-4834-9BC7-63AC4ED05A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC466995-0649-4834-9BC7-63AC4ED05A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC466995-0649-4834-9BC7-63AC4ED05A2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

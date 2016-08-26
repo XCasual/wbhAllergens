@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="AllerConnectInfo.Views.WelcomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AllerConnectInfo.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectInfo"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+             >
+    <Grid Background="#FF251E1E" OpacityMask="#FF251E1E">
+        <Image x:Name="image" HorizontalAlignment="Center" Height="127" Margin="0,23,0,0" VerticalAlignment="Top" Width="174" Source="/AllerConnectInfo;component/Resources/Images/Logo.jpg">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Resources/Images/Logo.jpg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Label x:Name="lblWelcome" Content="{lex:Loc Key=NavigationBar_Welcome}" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="21.333"/>
+        <Button x:Name="button3"  Command="{Binding Navigate2ProductInformationViewCmd}" Content="{lex:Loc Key=NavigationBar_Informations}" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.201,0.2"/>
+    </Grid>
+</UserControl>

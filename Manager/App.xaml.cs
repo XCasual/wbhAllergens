@@ -82,8 +82,9 @@ namespace AllerConnectManager
         public static void IntiliazieViewModels()
         {
             var vmIngridient = new AllerConnectCommon.ViewModel.IngridientModel();
+            var vmNavigation = new NavigationBarModel();
 
-            dataTemplateVMDataContext.Add(ViewStates.WelcomeView, new WelcomeModel());
+            dataTemplateVMDataContext.Add(ViewStates.WelcomeView, vmNavigation);
             dataTemplateVMDataContext.Add(ViewStates.AllergenView, new AllerConnectCommon.ViewModel.AllergenDisplayModel());
             dataTemplateVMDataContext.Add(ViewStates.ProductInformationView, new AllerConnectCommon.ViewModel.ProductInformationModel());
             dataTemplateVMDataContext.Add(ViewStates.AllergenSelectionView, vmIngridient.AllergenVMModel);
