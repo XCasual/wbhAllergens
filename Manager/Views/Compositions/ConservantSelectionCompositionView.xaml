@@ -62,6 +62,8 @@
                     <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_OrdinaryName}" Binding="{Binding Path=OrdinaryName}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_ToolTip}" Binding="{Binding Path=ToolTip}" Width="80" />
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_ClassName}" Binding="{Binding Path=ClassName}" Width="80" />
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_ClassType}" Binding="{Binding Path=ClassType}" Width="80" />
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

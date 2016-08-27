@@ -11,7 +11,7 @@ namespace AllerConnectCommon.ViewModel
         public IngridientSelectionModel()
         {
             ingriedientItems = new Model.DBObservableCollection<Ingridient>();
-            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(true);
+            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, -1, false);
             ConservantsItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, -1, true);
             DataItems = new Model.DBObservableCollection<Ingridient>();
             foreach (var element in IngriedientItems)
@@ -28,7 +28,7 @@ namespace AllerConnectCommon.ViewModel
 
         private void GetIngriedients()
         {
-            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(true);
+            IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, -1, false);
             ConservantsItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, -1, true);
             DataItems = new Model.DBObservableCollection<Ingridient>();
             foreach (var element in IngriedientItems)
