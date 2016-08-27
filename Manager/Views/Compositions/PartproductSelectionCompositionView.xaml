@@ -49,7 +49,7 @@
             Background="#FF251E1E"
             ItemsSource="{Binding ProductSelectionVMModel.DataItems}" 
             SelectedItem="{Binding ProductSelectionVMModel.SelectedProduct, ConverterParameter=SelectedIngriedient, Converter={StaticResource SentinelConverter}}"
-            foundation:CommandBehavior.RoutedEventName="SelectionChanged" Margin="2,2,2,2"
+            foundation:CommandBehavior.RoutedEventName="SelectionChanged" Margin="2,2,2,2" CanUserAddRows="False" CanUserDeleteRows="False"
             AutoGenerateColumns="False">
                 <DataGrid.RowStyle>
                     <Style TargetType="{x:Type DataGridRow}">

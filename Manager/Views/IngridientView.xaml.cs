@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllerConnectCommon.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,37 @@ namespace AllerConnectManager.Views
         {
             //if (e.Key == Key.Enter)
             //    tree.SearchCommand.Execute(null);
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentVM = DataContext as IngridientModel;
+            var ingridientElement = currentVM.IngridientVMModel.SelectedItem;
+            
+
+            foreach (var allergen in currentVM.AllergenVMModel.DataItems)
+            {
+                allergen.IsChecked = false;
+            }
+
+            if (ingridientElement != null)
+            {
+                App.UIController.IngridientsDB.GetIngridientAllergenId(ingridientElement);
+                foreach (var alergenRef in ingridientElement.AllergenIDs)
+                {
+                    foreach (var allergen in currentVM.AllergenVMModel.DataItems)
+                    {
+                        bool isChecked = alergenRef.ID == allergen.ID;
+                        if (isChecked)
+                        {
+                            allergen.IsChecked = isChecked;
+                            break;
+                        }
+                    }
+                }
+            }
+            currentVM.IngridientVMModel.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("DataItems"));
+            currentVM.AllergenVMModel.DataItems.UpdateCollection();
         }
     }
 }

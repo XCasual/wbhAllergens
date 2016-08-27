@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400"
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
-             xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
-             d:DataContext="{d:DesignInstance {x:Type vm:AllergenDisplayModel}, IsDesignTimeCreatable=True}">
+             xmlns:vm="clr-namespace:AllerConnectManager.ViewModel"
+             d:DataContext="{d:DesignInstance {x:Type vm:ProductCompositionModel}, IsDesignTimeCreatable=True}">
     <Grid Background="#FF251E1E">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -25,7 +25,7 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="300">
             <TextBox x:Name="tbxName" Margin="5,10,5,5" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" 
-                 Text="{Binding Path=DisplayedAllergen.OrdinaryName, UpdateSourceTrigger=PropertyChanged}"/>
+                 Text="{Binding SelectedProduct.OrdinaryName}"/>
             <TextBox x:Name="tbxDescription" Margin="5,12,5,5" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"
                  Text="{Binding Path=DisplayedAllergen.ToolTip, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox x:Name="tbxLocalName" Margin="5,12,5,5" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"

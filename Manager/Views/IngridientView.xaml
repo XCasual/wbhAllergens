@@ -52,6 +52,7 @@
                 Background="#FF251E1E"
                 ItemsSource="{Binding IngridientVMModel.DataItems}" 
                 SelectedItem="{Binding IngridientVMModel.SelectedItem, ConverterParameter=SelectedIngriedient, Converter={StaticResource SentinelConverter}}"
+                SelectionChanged="dataGrid_SelectionChanged"
                 foundation:CommandBehavior.RoutedEventName="SelectionChanged" Margin="2,2,2,2"
                 AutoGenerateColumns="False">
                 <DataGrid.RowStyle>

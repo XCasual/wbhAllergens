@@ -52,6 +52,33 @@ namespace AllerConnectCommon.Model
             return allergenCollection;
         } //GetAllergens()
 
+
+        public void GetIngridientAllergenId(ViewModel.Ingridient ingridient)
+        {
+            hasError = false;
+            try
+            {
+                var dc = new LinqDataContext();
+                var query = from ad in dc.IngridientsAllergens
+                            where ad.IngridientID == ingridient.ID
+                            select new ViewModel.AllergenLimit
+                            {
+                                ID = ad.AllergenID,
+                                FeelLimit = ad.IngridientFeelLimit,
+                            };
+                ingridient.AllergenIDs.Clear();
+                foreach (var sp in query)
+                {
+                    ingridient.AllergenIDs.Add(sp);
+                }
+            } //try
+            catch (Exception ex)
+            {
+                errorMessage = "GetAllergens() error, " + ex.Message;
+                hasError = true;
+            }
+        } //GetAllergens()
+
         public DBObservableCollection<ViewModel.Category> GetCategories(int languageId)
         {
             hasError = false;

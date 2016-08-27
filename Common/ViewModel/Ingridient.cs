@@ -14,6 +14,12 @@ namespace AllerConnectCommon.ViewModel
         public string ClassName { get; set; }
         public string ClassType { get; set; }
 
+        public List<AllergenLimit> AllergenIDs { get; private set; }
+
+        public Ingridient()
+        {
+            AllergenIDs = new List<AllergenLimit>();
+        }
 
         public object Clone()
         {
@@ -24,7 +30,8 @@ namespace AllerConnectCommon.ViewModel
                 LocalName = this.LocalName,
                 IsConservant = this.IsConservant,
                 ClassName = this.ClassName,
-                ClassType = this.ClassType
+                ClassType = this.ClassType,
+                AllergenIDs = this.AllergenIDs
             };
         }
     }
