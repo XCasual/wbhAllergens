@@ -145,10 +145,10 @@
     <value>Speichern</value>
   </data>
   <data name="Ingridients_Saveallergen" xml:space="preserve">
-    <value>Allergenespeichern</value>
+    <value>Allergene speichern</value>
   </data>
   <data name="Ingridients_SaveIngriedient" xml:space="preserve">
-    <value>Stoffespeichern</value>
+    <value>Stoffe speichern</value>
   </data>
   <data name="NavigationBar_Allergens" xml:space="preserve">
     <value>_Allergene</value>

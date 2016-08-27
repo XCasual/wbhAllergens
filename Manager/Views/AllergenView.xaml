@@ -8,6 +8,11 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
              xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
              d:DataContext="{d:DesignInstance {x:Type vm:AllergenDisplayModel}, IsDesignTimeCreatable=True}">
     <Grid Background="#FF251E1E">
         <Grid.ColumnDefinitions>
@@ -24,7 +29,7 @@
             <RowDefinition Height="75"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblName" Content="Bezeichnung" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="1" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblName" Content="{lex:Loc Key=NavigationBar_Welcome}" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="1" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <TextBox x:Name="tbxName" Margin="5,4,5,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" 
                  Text="{Binding Path=DisplayedAllergen.OrdinaryName, UpdateSourceTrigger=PropertyChanged}"/>
 

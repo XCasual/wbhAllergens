@@ -17,7 +17,7 @@ namespace AllerConnectManager.ViewModel
 
         public override string ElementName
         {
-            get { return product.OrdinaryName; }
+            get { return product.LocalName; }
         }
 
         internal int ID
