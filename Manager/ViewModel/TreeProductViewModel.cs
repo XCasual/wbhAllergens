@@ -5,7 +5,6 @@ namespace AllerConnectManager.ViewModel
     public class TreeProductViewModel : TreeViewItemViewModel
     {
         readonly Product product;
-        private bool isSelected;
 
         public TreeProductViewModel(Product productElement, TreeCategoryViewModel parent)
             : base(parent, false)
@@ -33,6 +32,8 @@ namespace AllerConnectManager.ViewModel
                 return App.ProductCompositeViewStates.TreeProductView;
             }
         }
+
+        private bool isSelected;
 
         public override bool IsSelected
         {

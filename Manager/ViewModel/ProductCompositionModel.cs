@@ -41,6 +41,14 @@ namespace AllerConnectManager.ViewModel
             set { vmProducts.SelectedProduct = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedProduct")); }
         }
 
+        private Category selectedCategory;
+
+        public Category SelectedCategory
+        {
+            get { return selectedCategory; }
+            set { selectedCategory = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedCategory")); }
+        }
+
 
         public ProductCompositionModel()
         {
@@ -53,6 +61,24 @@ namespace AllerConnectManager.ViewModel
 
             App.CurrentCompositeViewState = CurrentAppCompositeViewState = App.ProductCompositeViewStates.None;
             App.UIController.Messenger.Register("CompositeChanged", (Action<TreeViewItemViewModel>)(param => UpdateComposite(param)));
+            App.UIController.Messenger.Register("ProductCompositeSelected", (Action<Product>)(param => SetProduct(param)));
+            App.UIController.Messenger.Register("CategoryCompositeSelected", (Action<Category>)(param => SetCategory(param)));
+            App.UIController.Messenger.Register("IngridientCompositeSelected", (Action<Ingridient>)(param => SetIngridient(param)));
+        }
+
+        private void SetIngridient(Ingridient param)
+        {
+            vmIngridients.SelectedItem = param;
+        }
+
+        private void SetCategory(Category param)
+        {
+            SelectedCategory = param;
+        }
+
+        private void SetProduct(Product param)
+        {
+            SelectedProduct = param;
         }
 
         private void UpdateComposite(TreeViewItemViewModel itemModel)

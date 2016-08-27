@@ -24,5 +24,12 @@ namespace AllerConnectManager.Views.Compositions
         {
             InitializeComponent();
         }
+
+        public override void OnApplyTemplate()
+        {
+            this.DataContext = App.DataTemplateVWDataContext;
+
+            base.OnApplyTemplate();
+        }
     }
 }

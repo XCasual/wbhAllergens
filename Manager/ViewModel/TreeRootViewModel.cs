@@ -39,5 +39,22 @@ namespace AllerConnectManager.ViewModel
                 return App.ProductCompositeViewStates.TreeCategoryView;
             }
         }
+
+        private bool isSelected;
+
+        public override bool IsSelected
+        {
+            get { return isSelected; }
+            set
+            {
+                if (value != isSelected)
+                {
+                    isSelected = value;
+                    this.OnPropertyChanged("IsSelected");
+                    App.UIController.Messenger.NotifyColleagues("CompositeChanged", this);
+                    App.UIController.Messenger.NotifyColleagues("CategoryCompositeSelected", new Category());
+                }
+            }
+        }
     }
 }
