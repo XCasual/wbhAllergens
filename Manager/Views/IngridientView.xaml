@@ -41,9 +41,9 @@
                 </Border.Background>
 
                 <StackPanel HorizontalAlignment="Center" Margin="4" Orientation="Horizontal">
-                    <TextBlock Text="Suche nach:" />
+                    <TextBlock Text="{lex:Loc Key=Lbl_Search}" />
                     <TextBox x:Name="searchTextBox" KeyDown="searchTextBoxKeyDown" Margin="6,0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
-                    <Button Command="{Binding SearchIngridientCommand}" Content="_Suche" Padding="8,0" />
+                    <Button Command="{Binding SearchIngridientCommand}" Content="{lex:Loc Key=Btn_Search}" Padding="8,0" />
                 </StackPanel>
             </Border>
 
@@ -84,9 +84,9 @@
                 </Border.Background>
 
                 <StackPanel HorizontalAlignment="Center" Margin="4" Orientation="Horizontal">
-                    <TextBlock Text="Suche nach:" />
+                    <TextBlock Text="{lex:Loc Key=Lbl_Search}"/>
                     <TextBox x:Name="searchTextBoxAllergen" KeyDown="searchTextBoxKeyDown" Margin="6,0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
-                    <Button Command="{Binding SearchAllergenCommand}" Content="_Suche" Padding="8,0" />
+                    <Button Command="{Binding SearchAllergenCommand}" Content="{lex:Loc Key=Btn_Search}" Padding="8,0" />
                 </StackPanel>
             </Border>
 

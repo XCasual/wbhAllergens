@@ -61,6 +61,33 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _Cancel.
+        /// </summary>
+        internal static string Btn_Cancel {
+            get {
+                return ResourceManager.GetString("Btn_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Save.
+        /// </summary>
+        internal static string Btn_Save {
+            get {
+                return ResourceManager.GetString("Btn_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Search.
+        /// </summary>
+        internal static string Btn_Search {
+            get {
+                return ResourceManager.GetString("Btn_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conservant.
         /// </summary>
         internal static string Column_Class {
@@ -183,6 +210,51 @@ namespace AllerConnectManager.Resources {
         internal static string Ingridients_SaveIngriedient {
             get {
                 return ResourceManager.GetString("Ingridients_SaveIngriedient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conservants:.
+        /// </summary>
+        internal static string Lbl_ProductConservant {
+            get {
+                return ResourceManager.GetString("Lbl_ProductConservant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All statements without guarantee. The product may contain traces of other allergen..
+        /// </summary>
+        internal static string Lbl_ProductFooter {
+            get {
+                return ResourceManager.GetString("Lbl_ProductFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The choosen product contains following allergen:.
+        /// </summary>
+        internal static string Lbl_ProductInfo {
+            get {
+                return ResourceManager.GetString("Lbl_ProductInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbol.
+        /// </summary>
+        internal static string Lbl_ProductSymbol {
+            get {
+                return ResourceManager.GetString("Lbl_ProductSymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search for:.
+        /// </summary>
+        internal static string Lbl_Search {
+            get {
+                return ResourceManager.GetString("Lbl_Search", resourceCulture);
             }
         }
         

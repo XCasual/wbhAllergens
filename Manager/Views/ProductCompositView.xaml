@@ -9,6 +9,11 @@
              d:DesignHeight="300" d:DesignWidth="500"
              xmlns:vw="clr-namespace:AllerConnectManager.Views.Compositions"
              xmlns:vm="clr-namespace:AllerConnectManager.ViewModel" 
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
              d:DataContext="{d:DesignInstance {x:Type vm:ProductCompositionModel}, IsDesignTimeCreatable=True}">
     <UserControl.Resources>
         <DataTemplate x:Key="NoneDataTemplate">
@@ -65,7 +70,7 @@
         Margin="4" 
         Orientation="Horizontal"
         >
-                    <TextBlock Text="Suche nach:" />
+                    <TextBlock Text="{lex:Loc Key=Lbl_Search}" />
                     <TextBox 
           x:Name="searchTextBox"
           KeyDown="searchTextBoxKeyDown" 
@@ -75,7 +80,7 @@
           />
                     <Button 
           Command="{Binding SearchCommand}" 
-          Content="_Suche" 
+          Content="{lex:Loc Key=Btn_Search}"
           Padding="8,0" 
           />
                 </StackPanel>

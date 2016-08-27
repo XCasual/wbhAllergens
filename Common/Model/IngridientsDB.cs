@@ -33,7 +33,7 @@ namespace AllerConnectCommon.Model
                                 OrdinaryName = ad.AllergenOrdinaryName.Replace("\r\n",""),
                                 LocalisationID = ad.AllergenLocalD.HasValue ? ad.AllergenLocalD.Value : -100,
                                 LanguageID = ad.AllergenLanguageID.HasValue ? ad.AllergenLanguageID.Value : -101,
-                                LocalName = ad.AllergenLocalName != null ? ad.AllergenLocalName.Trim() : "(ERR:102)",
+                                LocalName = ad.AllergenLocalName != null ? ad.AllergenLocalName.Replace("\r\n", "") : "(ERR:102)",
                                 ToolTip = ad.AllergenLocalToolTip != null ? ad.AllergenLocalToolTip : "(ERR:103)",
                                 SymbolID = ad.AllergenSymbolID,
                                 SymbolBuffer = ad.SymbolImage.ToArray(),
@@ -93,7 +93,7 @@ namespace AllerConnectCommon.Model
                                 ID = cd.CategoryID,
                                 OrdinaryName = cd.CategoryOrdinaryName.Replace("\r\n",""),
                                 LanguageID = cd.CategoryLanguageID,
-                                LocalName = cd.CategoryLocalName != null ? cd.CategoryLocalName.Trim() : "(ERR:102)"
+                                LocalName = cd.CategoryLocalName != null ? cd.CategoryLocalName.Replace("\r\n", "") : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -124,7 +124,7 @@ namespace AllerConnectCommon.Model
                                 LanguageID = pd.ProductLanguageID,
                                 CategoryID = pd.ProductCategoryID,
                                 LocalID = pd.LocationID,
-                                LocalName = pd.ProductName != null ? pd.ProductName.Trim() : "(ERR:102)"
+                                LocalName = pd.ProductName != null ? pd.ProductName.Replace("\r\n", "") : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -137,6 +137,36 @@ namespace AllerConnectCommon.Model
                 hasError = true;
             }
             return productCollection;
+        } //GetProducts()
+
+        public ViewModel.Product GetProduct(int productId, int languageId, int categoryId, int localId)
+        {
+            hasError = false;
+            try
+            {
+                var dc = new LinqDataContext();
+                var query = from pd in dc.ProductDatas
+                            where pd.ProductLanguageID == languageId && pd.ProductCategoryID == categoryId && pd.LocationID == localId
+                            select new ViewModel.Product
+                            {
+                                ID = pd.ProductID,
+                                OrdinaryName = pd.ProductOdrinaryName.Replace("\r\n", ""),
+                                LanguageID = pd.ProductLanguageID,
+                                CategoryID = pd.ProductCategoryID,
+                                LocalID = pd.LocationID,
+                                LocalName = pd.ProductName != null ? pd.ProductName.Replace("\r\n", "") : "(ERR:102)"
+                            };
+                foreach (var sp in query)
+                {
+                    return sp;
+                }
+            } //try
+            catch (Exception ex)
+            {
+                errorMessage = "GetProducts() error, " + ex.Message;
+                hasError = true;
+            }
+            return null;
         } //GetProducts()
 
         public DBObservableCollection<ViewModel.Product> GetProducts(int languageId, int localId)
@@ -155,7 +185,7 @@ namespace AllerConnectCommon.Model
                                 LanguageID = pd.ProductLanguageID,
                                 CategoryID = pd.ProductCategoryID,
                                 LocalID = pd.LocationID,
-                                LocalName = pd.ProductName != null ? pd.ProductName.Trim() : "(ERR:102)"
+                                LocalName = pd.ProductName != null ? pd.ProductName.Replace("\r\n", "") : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -178,9 +208,9 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
-                var partproducts = dc.ProductProductRead().Where(row => row.ProductParentID == parentProductID);
+                var partproducts = dc.ProductProducts.Where(row => row.ProductParentID == parentProductID);
                 var query = from pp in partproducts
-                            join pd in dc.ProductDatas on  pp.ProductParentID equals pd.ProductID
+                            join pd in dc.ProductDatas on pp.ProductChildID equals pd.ProductID
                             select new ViewModel.Product
                             {
                                 ID = pd.ProductID,
@@ -188,7 +218,7 @@ namespace AllerConnectCommon.Model
                                 LanguageID = pd.ProductLanguageID,
                                 CategoryID = pd.ProductCategoryID,
                                 LocalID = pd.LocationID,
-                                LocalName = pd.ProductName != null ? pd.ProductName.Trim() : "(ERR:102)"
+                                LocalName = pd.ProductName != null ? pd.ProductName.Replace("\r\n", "") : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -213,42 +243,86 @@ namespace AllerConnectCommon.Model
                 int langID = Services.UIControllerService.Instance.CurrentLanguageID;
                 if (ignoreConservantFlag)
                 {
-                    var query = from id in dc.IngridientDatas
-                                join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                                where id.IngridientLanguageID == langID && (pd.ProductID == parentProductID || parentProductID == -1)
-                                select new ViewModel.Ingridient
-                                {
-                                    ID = pd.ProductID,
-                                    OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n",""),
-                                    IsConservant = id.IngridientClass != null,
-                                    ClassName = id.IngridientClass,
-                                    ClassType = id.IngridientTyp,
-                                    LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
-                                    LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
-                                };
-                    foreach (var sp in query)
+                    if (parentProductID == -1)
                     {
-                        ingridientCollection.Add(sp);
+                        var query = from id in dc.IngridientDatas
+                                    where id.IngridientLanguageID == langID
+                                    select new ViewModel.Ingridient
+                                    {
+                                        ID = id.IngridientID,
+                                        OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n", ""),
+                                        IsConservant = id.IngridientClass != null,
+                                        ClassName = id.IngridientClass.Replace("\r\n", ""),
+                                        ClassType = id.IngridientTyp,
+                                        LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
+                                        LocalName = id.IngridientName != null ? id.IngridientName.Replace("\r\n", "") : "(ERR:102)"
+                                    };
+                        foreach (var sp in query)
+                        {
+                            ingridientCollection.Add(sp);
+                        }
+                    }
+                    else
+                    {
+                        var query = from id in dc.IngridientDatas
+                                    join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
+                                    where id.IngridientLanguageID == langID && pd.ProductID == parentProductID
+                                    select new ViewModel.Ingridient
+                                    {
+                                        ID = id.IngridientID,
+                                        OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n", ""),
+                                        IsConservant = id.IngridientClass != null,
+                                        ClassName = id.IngridientClass.Replace("\r\n", ""),
+                                        ClassType = id.IngridientTyp,
+                                        LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
+                                        LocalName = id.IngridientName != null ? id.IngridientName.Replace("\r\n", "") : "(ERR:102)"
+                                    };
+                        foreach (var sp in query)
+                        {
+                            ingridientCollection.Add(sp);
+                        }
                     }
                 }
                 else
                 {
-                    var query = from id in dc.IngridientDatas
-                                join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                                where id.IngridientLanguageID == langID && ((id.IngridientClass != null) == conservantsOnly) && (pd.ProductID == parentProductID || parentProductID == -1)
-                                select new ViewModel.Ingridient
-                                {
-                                    ID = pd.ProductID,
-                                    OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n",""),
-                                    IsConservant = id.IngridientClass != null,
-                                    ClassName = id.IngridientClass,
-                                    ClassType = id.IngridientTyp,
-                                    LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
-                                    LocalName = id.IngridientName != null ? id.IngridientName.Trim() : "(ERR:102)"
-                                };
-                    foreach (var sp in query)
+                    if (parentProductID == -1)
                     {
-                        ingridientCollection.Add(sp);
+                        var query = from id in dc.IngridientDatas
+                                    where id.IngridientLanguageID == langID && ((id.IngridientClass != null) == conservantsOnly)
+                                    select new ViewModel.Ingridient
+                                    {
+                                        ID = id.IngridientID,
+                                        OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n", ""),
+                                        IsConservant = id.IngridientClass != null,
+                                        ClassName = id.IngridientClass.Replace("\r\n", ""),
+                                        ClassType = id.IngridientTyp,
+                                        LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
+                                        LocalName = id.IngridientName != null ? id.IngridientName.Replace("\r\n", "") : "(ERR:102)"
+                                    };
+                        foreach (var sp in query)
+                        {
+                            ingridientCollection.Add(sp);
+                        }
+                    }
+                    else
+                    {
+                        var query = from id in dc.IngridientDatas
+                                    join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
+                                    where id.IngridientLanguageID == langID && ((id.IngridientClass != null) == conservantsOnly) && (pd.ProductID == parentProductID || parentProductID == -1)
+                                    select new ViewModel.Ingridient
+                                    {
+                                        ID = id.IngridientID,
+                                        OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n", ""),
+                                        IsConservant = id.IngridientClass != null,
+                                        ClassName = id.IngridientClass,
+                                        ClassType = id.IngridientTyp,
+                                        LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
+                                        LocalName = id.IngridientName != null ? id.IngridientName.Replace("\r\n", "") : "(ERR:102)"
+                                    };
+                        foreach (var sp in query)
+                        {
+                            ingridientCollection.Add(sp);
+                        }
                     }
                 }
             } //try

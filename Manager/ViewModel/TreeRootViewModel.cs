@@ -32,6 +32,14 @@ namespace AllerConnectManager.ViewModel
             }
         }
 
+        public override void Reload()
+        {
+            this.Children.Clear();
+            foreach (Category categoryElement in App.UIController.IngridientsDB.GetCategories(App.UIController.CurrentLanguageID))
+                base.Children.Add(new TreeCategoryViewModel(categoryElement, this));
+            base.Reload();
+        }
+
         public override App.ProductCompositeViewStates ElementComposit
         {
             get

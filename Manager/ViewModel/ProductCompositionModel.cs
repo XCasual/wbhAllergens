@@ -53,7 +53,7 @@ namespace AllerConnectManager.ViewModel
         public ProductCompositionModel()
         {
             treeRoot = new TreeRootViewModel();
-            verwaltungTree = new ReadOnlyCollection<TreeRootViewModel>(new TreeRootViewModel[] { treeRoot });
+            verwaltungTree = new ObservableCollection<TreeRootViewModel>(new TreeRootViewModel[] { treeRoot });
             searchCommand = new SearchTreeCommand(treeRoot, this);
 
             vmIngridients = new IngridientSelectionModel();
@@ -64,6 +64,12 @@ namespace AllerConnectManager.ViewModel
             App.UIController.Messenger.Register("ProductCompositeSelected", (Action<Product>)(param => SetProduct(param)));
             App.UIController.Messenger.Register("CategoryCompositeSelected", (Action<Category>)(param => SetCategory(param)));
             App.UIController.Messenger.Register("IngridientCompositeSelected", (Action<Ingridient>)(param => SetIngridient(param)));
+            App.UIController.Messenger.Register("ReloadTree", (Action)(() => ReloadTree()));
+        }
+
+        private void ReloadTree()
+        {
+            treeRoot.Reload();
         }
 
         private void SetIngridient(Ingridient param)
@@ -96,9 +102,9 @@ namespace AllerConnectManager.ViewModel
         }
 
         private TreeRootViewModel treeRoot;
-        readonly ReadOnlyCollection<TreeRootViewModel> verwaltungTree;
+        private ObservableCollection<TreeRootViewModel> verwaltungTree;
 
-        public ReadOnlyCollection<TreeRootViewModel> VerwaltungTree
+        public ObservableCollection<TreeRootViewModel> VerwaltungTree
         {
             get { return verwaltungTree; }
         }

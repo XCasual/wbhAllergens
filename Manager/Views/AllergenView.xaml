@@ -29,15 +29,15 @@
             <RowDefinition Height="75"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblName" Content="{lex:Loc Key=NavigationBar_Welcome}" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="1" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblName" Content="{lex:Loc Key=Column_OrdinaryName}" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="1" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <TextBox x:Name="tbxName" Margin="5,4,5,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" 
                  Text="{Binding Path=DisplayedAllergen.OrdinaryName, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label x:Name="lblDescription" Content="Beschreibung" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="2" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblDescription" Content="{lex:Loc Key=Column_ToolTip}"  HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="2" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <TextBox x:Name="tbxDescription" Margin="5,3,5,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"
                  Text="{Binding Path=DisplayedAllergen.ToolTip, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label x:Name="lblLocalName" Content="Übersetzung" HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="3" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblLocalName" Content="{lex:Loc Key=Column_LocalName}"  HorizontalAlignment="Left" Margin="5,1,5,0" Grid.Row="3" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <TextBox x:Name="tbxLocalName" Margin="5,3,5,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"
                  Text="{Binding Path=DisplayedAllergen.LocalName, UpdateSourceTrigger=PropertyChanged}"/>
         <Button x:Name="btnImagePath" Content="..." Margin="85,0,0,1" Grid.Row="5" VerticalAlignment="Bottom" Grid.Column="1"
@@ -51,9 +51,9 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Button x:Name="btnSave" Content="Speichern" Margin="0,0,77,5" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
+        <Button x:Name="btnSave" Content="{lex:Loc Key=Btn_Save}" Margin="0,0,77,5" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
                 Command="{Binding SaveAndNavigate2AllergenSelectionViewCmd}"/>
-        <Button x:Name="btnCancel" Content="Abbrechen" Margin="0,0,5,5" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
+        <Button x:Name="btnCancel" Content="{lex:Loc Key=Btn_Cancel}" Margin="0,0,5,5" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="67"
                 Command="{Binding Navigate2AllergenSelectionViewCmd}"/>
     </Grid>
 </UserControl>

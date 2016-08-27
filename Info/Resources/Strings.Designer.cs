@@ -124,6 +124,42 @@ namespace AllerConnectInfo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Conservants:.
+        /// </summary>
+        internal static string Lbl_ProductConservant {
+            get {
+                return ResourceManager.GetString("Lbl_ProductConservant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All statements without guarantee. The product may contain traces of other allergen..
+        /// </summary>
+        internal static string Lbl_ProductFooter {
+            get {
+                return ResourceManager.GetString("Lbl_ProductFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The choosen product contains following allergen:.
+        /// </summary>
+        internal static string Lbl_ProductInfo {
+            get {
+                return ResourceManager.GetString("Lbl_ProductInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbol.
+        /// </summary>
+        internal static string Lbl_ProductSymbol {
+            get {
+                return ResourceManager.GetString("Lbl_ProductSymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Allergenes.
         /// </summary>
         internal static string NavigationBar_Allergens {

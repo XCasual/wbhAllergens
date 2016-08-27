@@ -22,7 +22,30 @@ namespace AllerConnectCommon.ViewModel
         public ProductInformationModel()
         {
             Services.UIControllerService.Instance.Messenger.Register("ProductCompositeSelected", (Action<Product>)(param => SetCompositeProduct(param)));
+            Services.UIControllerService.Instance.Messenger.Register("GetProducts", (Action)(() => SetCompositeProduct()));
             possibleProducts = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
+        }
+
+        private void SetCompositeProduct()
+        {
+            if (displayedProduct != null)
+            {
+                var conservants = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, displayedProduct.ID, true);
+                DisplayedProduct = Services.UIControllerService.Instance.IngridientsDB.GetProduct(displayedProduct.ID, Services.UIControllerService.Instance.CurrentLanguageID,
+                displayedProduct.CategoryID, displayedProduct.LocalID);
+                var conservantsClass = from ce in conservants
+                                       select ce.ClassName;
+                var finalList = conservantsClass.Distinct();
+                var sb = new StringBuilder();
+                foreach (var item in finalList)
+                {
+                    if (sb.Length > 0)
+                        sb.Append(',');
+                    sb.Append(item);
+                }
+                productConservants = sb.ToString();
+                PossibleProducts = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
+            }
         }
 
         private void SetCompositeProduct(Product itemModel)
@@ -31,6 +54,19 @@ namespace AllerConnectCommon.ViewModel
             if (productElement != null)
             {
                 UpdateInformationModel(productElement);
+                var conservants = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, displayedProduct.ID, true);
+                var conservantsClass = from ce in conservants
+                                       select ce.ClassName;
+                var finalList = conservantsClass.Distinct();
+                var sb = new StringBuilder();
+                foreach (var item in finalList)
+                {
+                    if (sb.Length > 0)
+                        sb.Append(',');
+                    sb.Append(item);
+                }
+                productConservants = sb.ToString();
+                PossibleProducts = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
             }
         }
 
@@ -57,7 +93,19 @@ namespace AllerConnectCommon.ViewModel
                 UpdateInformationModel(displayedProduct);
                 OnPropertyChanged(new PropertyChangedEventArgs("DisplayedProduct"));
                 OnPropertyChanged(new PropertyChangedEventArgs("DisplayedAllergens"));
+                OnPropertyChanged(new PropertyChangedEventArgs("PossibleProducts"));
+            }
+        }
 
+        private string productConservants;
+
+        public string ProductConservants
+        {
+            get { return productConservants; }
+            set
+            {
+                productConservants = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("ProductConservants"));
             }
         }
 

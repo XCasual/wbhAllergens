@@ -174,4 +174,28 @@
   <data name="Column_ClassType" xml:space="preserve">
     <value>Klassentyp</value>
   </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>_Abbrechen</value>
+  </data>
+  <data name="Btn_Save" xml:space="preserve">
+    <value>_Speichern</value>
+  </data>
+  <data name="Btn_Search" xml:space="preserve">
+    <value>_Suche</value>
+  </data>
+  <data name="Lbl_Search" xml:space="preserve">
+    <value>Suche nach:</value>
+  </data>
+  <data name="Lbl_ProductConservant" xml:space="preserve">
+    <value>Zusatzstoffe:</value>
+  </data>
+  <data name="Lbl_ProductFooter" xml:space="preserve">
+    <value>Alle Angaben ohne Gewähr. Das Produkt kann Spuren weiterere Allergene enthalten.</value>
+  </data>
+  <data name="Lbl_ProductInfo" xml:space="preserve">
+    <value>Das ausgewählte Produkt enthält folgende Allergene:</value>
+  </data>
+  <data name="Lbl_ProductSymbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
 </root>

@@ -70,6 +70,11 @@ namespace AllerConnectManager.ViewModel
 
         #endregion // HasLoadedChildren
 
+        public virtual void Reload()
+        {
+
+        }
+
         #region IsExpanded
 
         /// <summary>

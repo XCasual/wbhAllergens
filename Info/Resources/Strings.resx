@@ -138,6 +138,18 @@
   <data name="Column_ToolTip" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="Lbl_ProductConservant" xml:space="preserve">
+    <value>Conservants:</value>
+  </data>
+  <data name="Lbl_ProductFooter" xml:space="preserve">
+    <value>All statements without guarantee. The product may contain traces of other allergen.</value>
+  </data>
+  <data name="Lbl_ProductInfo" xml:space="preserve">
+    <value>The choosen product contains following allergen:</value>
+  </data>
+  <data name="Lbl_ProductSymbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
   <data name="NavigationBar_Allergens" xml:space="preserve">
     <value>_Allergenes</value>
   </data>

@@ -60,6 +60,7 @@ namespace AllerConnectManager
             App.UIController.Messenger.NotifyColleagues("GetAllergens");
             App.UIController.Messenger.NotifyColleagues("GetProducts");
             App.UIController.Messenger.NotifyColleagues("GetIngriedients");
+            App.UIController.Messenger.NotifyColleagues("ReloadTree");
         }
     }
 }

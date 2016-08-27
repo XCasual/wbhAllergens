@@ -13,10 +13,11 @@ namespace AllerConnectCommon.ViewModel
             dataItems = new Model.DBObservableCollection<Product>();
             DataItems = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
             listBoxCommand = new Foundation.RelayCommand(() => SelectionHasChanged());
+            Services.UIControllerService.Instance.Messenger.Register("GetProducts", (Action)(() => GetProducts()));
         }
 
 
-        private void GetAllergens()
+        private void GetProducts()
         {
             DataItems = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
             if (Services.UIControllerService.Instance.IngridientsDB.hasError)
