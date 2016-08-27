@@ -32,7 +32,7 @@ namespace AllerConnectManager.ViewModel
         {
             get
             {
-                return App.ProductCompositeViewStates.TreePartproductView;
+                return App.ProductCompositeViewStates.None;
             }
         }
     }

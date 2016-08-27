@@ -16,13 +16,20 @@ using System.Windows.Shapes;
 namespace AllerConnectManager.Views.Compositions
 {
     /// <summary>
-    /// Interaction logic for PartproductCompositionView.xaml
+    /// Interaction logic for ProductCompositionView.xaml
     /// </summary>
-    public partial class PartproductCompositionView : UserControl
+    public partial class ProductCompositionView : UserControl
     {
-        public PartproductCompositionView()
+        public ProductCompositionView()
         {
             InitializeComponent();
+        }
+
+        public override void OnApplyTemplate()
+        {
+            this.DataContext = App.DataTemplateVWDataContext;
+
+            base.OnApplyTemplate();
         }
     }
 }

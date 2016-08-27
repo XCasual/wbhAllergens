@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="AllerConnectManager.Views.Compositions.ConservantSelectionCompositionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AllerConnectManager.Views.Compositions"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="400"
+             xmlns:vw="clr-namespace:AllerConnectManager.Views.Compositions"     
+             xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon" 
+             xmlns:vmRoot="clr-namespace:AllerConnectManager.ViewModel" 
+             xmlns:foundation="clr-namespace:AllerConnectCommon.Foundation;assembly=AllerConnectCommon"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+             d:DataContext="{d:DesignInstance {x:Type vmRoot:ProductCompositionModel}, IsDesignTimeCreatable=True}">
+    <Grid Background="#FF251E1E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
+
+            <!-- SEARCH AREA -->
+            <Border DockPanel.Dock="Bottom" BorderBrush="Gray" BorderThickness="1,0,1,1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#33000000" Offset="0" />
+                        <GradientStop Color="#11000000" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel HorizontalAlignment="Center" Margin="4" Orientation="Horizontal">
+                    <TextBlock Text="Suche nach:" />
+                    <TextBox x:Name="searchTextBox" KeyDown="searchTextBoxKeyDown" Margin="6,0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+                    <Button Command="{Binding SearchIngridientCommand}" Content="_Suche" Padding="8,0" />
+                </StackPanel>
+            </Border>
+
+
+            <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.ColumnSpan="3"
+            Background="#FF251E1E"
+            ItemsSource="{Binding IngridientSelectionVMModel.ConservantsItems}" 
+            SelectedItem="{Binding IngridientSelectionVMModel.SelectedConservant, ConverterParameter=SelectedIngriedient, Converter={StaticResource SentinelConverter}}"
+            foundation:CommandBehavior.RoutedEventName="SelectionChanged" Margin="2,2,2,2"
+            AutoGenerateColumns="False">
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn  Header="{lex:Loc Key=Column_IsReferenced}" Binding="{Binding Path=IsChecked}"  Width="80"/>
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_ID}" Binding="{Binding Path=ID}"  Width="80" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_OrdinaryName}" Binding="{Binding Path=OrdinaryName}" Width="80" />
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_ToolTip}" Binding="{Binding Path=ToolTip}" Width="80" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                <Button x:Name="btnAdd" Content="Add" Margin="0,0,5,5" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
+                        Command="{Binding SaveAndNavigate2AllergenSelectionViewCmd}"/>
+                <Button x:Name="btnSave" Content="Save" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
+                        Command="{Binding Navigate2AllergenSelectionViewCmd}"/>
+                <Button x:Name="btnDelete" Content="Delete" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
+                        Command="{Binding Navigate2AllergenSelectionViewCmd}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

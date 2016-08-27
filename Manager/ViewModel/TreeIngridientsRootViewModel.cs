@@ -35,7 +35,7 @@ namespace AllerConnectManager.ViewModel
         {
             get
             {
-                return App.ProductCompositeViewStates.TreeIngridientView;
+                return isConservant ? App.ProductCompositeViewStates.TreeConservantSelectionView : App.ProductCompositeViewStates.TreeIngridientSelectionView;
             }
         }
     }

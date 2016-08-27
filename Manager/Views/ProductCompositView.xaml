@@ -20,8 +20,14 @@
         <DataTemplate x:Key="TreeIngridientViewDataTemplate">
             <vw:IngridientCompositionView x:Name="IngridientCompositionView"/>
         </DataTemplate>
-        <DataTemplate x:Key="TreePartproductViewDataTemplate">
-            <vw:PartproductCompositionView x:Name="PartproductCompositionView"/>
+        <DataTemplate x:Key="TreeIngridientSelectionViewDataTemplate">
+            <vw:IngridientSelectionCompositionView x:Name="IngridientSelectionCompositionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TreeConservantSelectionViewDataTemplate">
+            <vw:ConservantSelectionCompositionView x:Name="ConservantSelectionCompositionView"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TreePartproductSelectionViewDataTemplate">
+            <vw:PartproductSelectionCompositionView x:Name="PartproductSelectionCompositionView"/>
         </DataTemplate>
         <DataTemplate x:Key="TreeProductViewDataTemplate">
             <vw:ProductCompositionView x:Name="ProductCompositionView"/>

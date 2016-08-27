@@ -10,37 +10,36 @@ namespace AllerConnectCommon.ViewModel
 
         public ProductSelectionModel()
         {
-            dataItems = new Model.DBObservableCollection<Allergen>();
-            DataItems = Services.UIControllerService.Instance.IngridientsDB.GetAllergens(Services.UIControllerService.Instance.CurrentLanguageID);
+            dataItems = new Model.DBObservableCollection<Product>();
+            DataItems = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
             listBoxCommand = new Foundation.RelayCommand(() => SelectionHasChanged());
         }
 
 
         private void GetAllergens()
         {
-            DataItems = Services.UIControllerService.Instance.IngridientsDB.GetAllergens(Services.UIControllerService.Instance.CurrentLanguageID);
+            DataItems = Services.UIControllerService.Instance.IngridientsDB.GetProducts(Services.UIControllerService.Instance.CurrentLanguageID, Services.UIControllerService.Instance.CurrentLocalID);
             if (Services.UIControllerService.Instance.IngridientsDB.hasError)
                 Services.UIControllerService.Instance.Messenger.NotifyColleagues("SetStatus", Services.UIControllerService.Instance.IngridientsDB.errorMessage);
         }
 
-
-        private void AddAllergen(Allergen al)
+        private void AddProduct(Product pr)
         {
-            dataItems.Add(al);
+            dataItems.Add(pr);
         }
 
 
-        private void UpdateAllergen(Allergen al)
+        private void UpdateProduct(Product pr)
         {
-            int index = dataItems.IndexOf(selectedAllergen);
-            dataItems.ReplaceItem(index, al);
-            SelectedAllergen = al;
+            int index = dataItems.IndexOf(selectedProduct);
+            dataItems.ReplaceItem(index, pr);
+            SelectedProduct = pr;
         }
 
 
-        private void DeleteAllergen()
+        private void DeleteProduct()
         {
-            dataItems.Remove(selectedAllergen);
+            dataItems.Remove(selectedProduct);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -50,19 +49,25 @@ namespace AllerConnectCommon.ViewModel
                 PropertyChanged(this, e);
         }
 
-        private Model.DBObservableCollection<Allergen> dataItems;
-        public Model.DBObservableCollection<Allergen> DataItems
+        private Model.DBObservableCollection<Product> dataItems;
+        public Model.DBObservableCollection<Product> DataItems
         {
             get { return dataItems; }
             //If dataItems replaced by new collection, WPF must be told
             set { dataItems = value; OnPropertyChanged(new PropertyChangedEventArgs("DataItems")); }
         }
 
-        private Allergen selectedAllergen;
-        public Allergen SelectedAllergen
+        private Product selectedProduct;
+        public Product SelectedProduct
         {
-            get { return selectedAllergen; }
-            set { selectedAllergen = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedAllergen")); }
+            get { return selectedProduct; }
+            set { selectedProduct = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedProduct")); }
+        }
+
+        private void SelectionHasChanged()
+        {
+            var messenger = Services.UIControllerService.Instance.Messenger;
+            messenger.NotifyColleagues("AllergenSelectionChanged", selectedProduct);
         }
 
         private Foundation.RelayCommand listBoxCommand;
@@ -70,26 +75,6 @@ namespace AllerConnectCommon.ViewModel
         {
             get { return listBoxCommand; }
         }
-
-        private void SelectionHasChanged()
-        {
-            var messenger = Services.UIControllerService.Instance.Messenger;
-            messenger.NotifyColleagues("AllergenSelectionChanged", selectedAllergen);
-        }
-
-        private RelayCommand navigate2AllergenViewCmd;
-        public ICommand Navigate2AllergenViewCmd
-        {
-            get { return navigate2AllergenViewCmd ?? (navigate2AllergenViewCmd = new RelayCommand(() => Navigate2AllergenView(), () => true)); }
-        }
-
-        private void Navigate2AllergenView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            Services.UIControllerService.Instance.Messenger.NotifyColleagues("Navigate2AllergenView");
-        } //NavigateToAllergenView   
 
     }//class AllergenSelectionModel
 }

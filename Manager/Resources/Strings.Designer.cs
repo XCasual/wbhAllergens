@@ -70,6 +70,24 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class name.
+        /// </summary>
+        internal static string Column_ClassName {
+            get {
+                return ResourceManager.GetString("Column_ClassName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class type.
+        /// </summary>
+        internal static string Column_ClassType {
+            get {
+                return ResourceManager.GetString("Column_ClassType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
         internal static string Column_ID {

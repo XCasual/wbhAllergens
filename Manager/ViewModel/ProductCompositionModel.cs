@@ -1,4 +1,6 @@
 ﻿using AllerConnectCommon.Foundation;
+using AllerConnectCommon.Model;
+using AllerConnectCommon.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,8 +15,6 @@ namespace AllerConnectManager.ViewModel
 {
     public class ProductCompositionModel : INotifyPropertyChanged
     {
-        private bool isSelected = true;
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(PropertyChangedEventArgs e)
         {
@@ -22,95 +22,34 @@ namespace AllerConnectManager.ViewModel
                 PropertyChanged(this, e);
         }
 
-        private RelayCommand navigate2AllergenSelectionViewCmd;
-        public ICommand Navigate2AllergenSelectionViewCmd
+        private IngridientSelectionModel vmIngridients;
+        private ProductSelectionModel vmProducts;
+
+        public IngridientSelectionModel IngridientSelectionVMModel
         {
-            get { return navigate2AllergenSelectionViewCmd ?? (navigate2AllergenSelectionViewCmd = new RelayCommand(() => Navigate2AllergenSelectionView(), () => isSelected)); }
+            get { return vmIngridients; }
         }
 
-        private void Navigate2AllergenSelectionView()
+        public ProductSelectionModel ProductSelectionVMModel
         {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            App.UIController.Messenger.NotifyColleagues("Navigate2AllergenSelectionView");
-        } //NavigateToAllergenView        
-
-        private RelayCommand navigate2AllergenViewCmd;
-        public ICommand Navigate2AllergenViewCmd
-        {
-            get { return navigate2AllergenViewCmd ?? (navigate2AllergenViewCmd = new RelayCommand(() => Navigate2AllergenView(), () => isSelected)); }
+            get { return vmProducts; }
         }
 
-        private void Navigate2AllergenView()
+        public Product SelectedProduct
         {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            App.UIController.Messenger.NotifyColleagues("Navigate2AllergenView");
-        } //NavigateToAllergenView        
-
-        private RelayCommand navigate2InformationViewCmd;
-        public ICommand Navigate2InformationViewCmd
-        {
-            get { return navigate2InformationViewCmd ?? (navigate2InformationViewCmd = new RelayCommand(() => Navigate2InformationView(), () => isSelected)); }
+            get { return vmProducts.SelectedProduct; }
+            set { vmProducts.SelectedProduct = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedProduct")); }
         }
 
-        private void Navigate2InformationView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            App.UIController.Messenger.NotifyColleagues("Navigate2InformationView");
-        } //NavigateToAllergenView              
-
-        private RelayCommand navigate2ProductSelectionViewCmd;
-        public ICommand Navigate2ProductSelectionViewCmd
-        {
-            get { return navigate2ProductSelectionViewCmd ?? (navigate2ProductSelectionViewCmd = new RelayCommand(() => Navigate2ProductSelectionView(), () => isSelected)); }
-        }
-
-        private void Navigate2ProductSelectionView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            App.UIController.Messenger.NotifyColleagues("Navigate2ProductSelectionView");
-        } //NavigateToAllergenView        
-
-        private RelayCommand navigate2ProductViewCmd;
-        public ICommand Navigate2ProductViewCmd
-        {
-            get { return navigate2ProductViewCmd ?? (navigate2ProductViewCmd = new RelayCommand(() => Navigate2ProductView(), () => isSelected)); }
-        }
-
-        private void Navigate2ProductView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            App.UIController.Messenger.NotifyColleagues("Navigate2ProductView");
-        } //NavigateToAllergenView        
-
-        private RelayCommand navigate2WelcomeScreenViewCmd;
-        public ICommand Navigate2WelcomeScreenViewCmd
-        {
-            get { return navigate2WelcomeScreenViewCmd ?? (navigate2WelcomeScreenViewCmd = new RelayCommand(() => Navigate2WelcomeScreenView(), () => isSelected)); }
-        }
-
-        private void Navigate2WelcomeScreenView()
-        {
-            // TODO: Can switch?
-            // TODO: Finish current jobs
-            // TODO: Do the switch
-            App.UIController.Messenger.NotifyColleagues("Navigate2WelcomeScreenView");
-        } //NavigateToAllergenView
 
         public ProductCompositionModel()
         {
             treeRoot = new TreeRootViewModel();
             verwaltungTree = new ReadOnlyCollection<TreeRootViewModel>(new TreeRootViewModel[] { treeRoot });
             searchCommand = new SearchTreeCommand(treeRoot, this);
+
+            vmIngridients = new IngridientSelectionModel();
+            vmProducts = new ProductSelectionModel();
 
             App.CurrentCompositeViewState = CurrentAppCompositeViewState = App.ProductCompositeViewStates.None;
             App.UIController.Messenger.Register("CompositeChanged", (Action<TreeViewItemViewModel>)(param => UpdateComposite(param)));

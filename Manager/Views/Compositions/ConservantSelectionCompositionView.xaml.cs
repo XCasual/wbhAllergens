@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AllerConnectManager.Views.Compositions
 {
     /// <summary>
-    /// Interaction logic for CategoryCompositionView.xaml
+    /// Interaction logic for ConservantSelectionCompositionView.xaml
     /// </summary>
-    public partial class CompositionInstructionView : UserControl
+    public partial class ConservantSelectionCompositionView : UserControl
     {
-        public CompositionInstructionView()
+        public ConservantSelectionCompositionView()
         {
             InitializeComponent();
         }
@@ -30,6 +30,12 @@ namespace AllerConnectManager.Views.Compositions
             this.DataContext = App.DataTemplateVWDataContext;
 
             base.OnApplyTemplate();
+        }
+
+        public void searchTextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.Key == Key.Enter)
+            //    tree.SearchCommand.Execute(null);
         }
     }
 }

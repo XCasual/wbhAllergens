@@ -32,7 +32,9 @@ namespace AllerConnectManager
             None,
             TreeCategoryView,
             TreeProductView,
-            TreePartproductView,
+            TreePartproductSelectionView,
+            TreeIngridientSelectionView,
+            TreeConservantSelectionView,
             TreeIngridientView
         }
 
@@ -82,23 +84,30 @@ namespace AllerConnectManager
         public static void IntiliazieViewModels()
         {
             var vmIngridient = new AllerConnectCommon.ViewModel.IngridientModel();
+            var vmAllergenDisplay = new AllerConnectCommon.ViewModel.AllergenDisplayModel();
+            var vmProductInfo = new AllerConnectCommon.ViewModel.ProductInformationModel();
+            var vmProductDisplay = new AllerConnectCommon.ViewModel.ProductDisplayModel();
+            var vmProductComposition = new ProductCompositionModel();
+            var vmInformation = new InformationModel();
             var vmNavigation = new NavigationBarModel();
 
             dataTemplateVMDataContext.Add(ViewStates.WelcomeView, vmNavigation);
-            dataTemplateVMDataContext.Add(ViewStates.AllergenView, new AllerConnectCommon.ViewModel.AllergenDisplayModel());
-            dataTemplateVMDataContext.Add(ViewStates.ProductInformationView, new AllerConnectCommon.ViewModel.ProductInformationModel());
+            dataTemplateVMDataContext.Add(ViewStates.AllergenView, vmAllergenDisplay);
+            dataTemplateVMDataContext.Add(ViewStates.ProductInformationView, vmProductInfo);
             dataTemplateVMDataContext.Add(ViewStates.AllergenSelectionView, vmIngridient.AllergenVMModel);
-            dataTemplateVMDataContext.Add(ViewStates.ProductView, new AllerConnectCommon.ViewModel.ProductDisplayModel());
-            dataTemplateVMDataContext.Add(ViewStates.ProductSelectionView, new ProductCompositionModel());
+            dataTemplateVMDataContext.Add(ViewStates.ProductView, vmProductDisplay);
+            dataTemplateVMDataContext.Add(ViewStates.ProductSelectionView, vmProductComposition);
             dataTemplateVMDataContext.Add(ViewStates.IngridientView, vmIngridient);
-            dataTemplateVMDataContext.Add(ViewStates.InformationView, new InformationModel());
+            dataTemplateVMDataContext.Add(ViewStates.InformationView, vmInformation);
 
             var productCompositeModel = new ProductCompositionModel();
             dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.None, productCompositeModel);
             dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeCategoryView, productCompositeModel);
             dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeProductView, productCompositeModel);
-            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreePartproductView, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreePartproductSelectionView, productCompositeModel);
             dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeIngridientView, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeIngridientSelectionView, productCompositeModel);
+            dataTemplateVMProductCompositeDataContext.Add(ProductCompositeViewStates.TreeConservantSelectionView, productCompositeModel);
         }
     }
 }

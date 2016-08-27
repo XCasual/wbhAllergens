@@ -183,11 +183,12 @@ namespace AllerConnectCommon.Model
             try
             {
                 var dc = new LinqDataContext();
+                int langID = Services.UIControllerService.Instance.CurrentLanguageID;
                 if (ignoreConservantFlag)
                 {
                     var query = from id in dc.IngridientDatas
                                 join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                                where pd.ProductID == parentProductID || parentProductID == -1
+                                where id.IngridientLanguageID == langID && (pd.ProductID == parentProductID || parentProductID == -1)
                                 select new ViewModel.Ingridient
                                 {
                                     ID = pd.ProductID,
@@ -207,7 +208,7 @@ namespace AllerConnectCommon.Model
                 {
                     var query = from id in dc.IngridientDatas
                                 join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                                where ((id.IngridientClass != null) == conservantsOnly) && (pd.ProductID == parentProductID || parentProductID == -1)
+                                where id.IngridientLanguageID == langID && ((id.IngridientClass != null) == conservantsOnly) && (pd.ProductID == parentProductID || parentProductID == -1)
                                 select new ViewModel.Ingridient
                                 {
                                     ID = pd.ProductID,

@@ -12,6 +12,12 @@ namespace AllerConnectCommon.ViewModel
         {
             ingriedientItems = new Model.DBObservableCollection<Ingridient>();
             IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(true);
+            ConservantsItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, -1, true);
+            DataItems = new Model.DBObservableCollection<Ingridient>();
+            foreach (var element in IngriedientItems)
+                DataItems.Add(element);
+            foreach (var element in ConservantsItems)
+                DataItems.Add(element);
             listBoxCommand = new Foundation.RelayCommand(() => SelectionHasChanged());
             Services.UIControllerService.Instance.Messenger.Register("IngridientCleared", (Action)(() => SelectedIngriedient = null));
             Services.UIControllerService.Instance.Messenger.Register("GetIngriedients", (Action)(() => GetIngriedients()));
@@ -23,6 +29,12 @@ namespace AllerConnectCommon.ViewModel
         private void GetIngriedients()
         {
             IngriedientItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(true);
+            ConservantsItems = Services.UIControllerService.Instance.IngridientsDB.GetIngridients(false, -1, true);
+            DataItems = new Model.DBObservableCollection<Ingridient>();
+            foreach (var element in IngriedientItems)
+                DataItems.Add(element);
+            foreach (var element in ConservantsItems)
+                DataItems.Add(element);
             if (Services.UIControllerService.Instance.IngridientsDB.hasError)
                 Services.UIControllerService.Instance.Messenger.NotifyColleagues("SetStatus", Services.UIControllerService.Instance.IngridientsDB.errorMessage);
         }
@@ -54,6 +66,36 @@ namespace AllerConnectCommon.ViewModel
             get { return ingriedientItems; }
             //If dataItems replaced by new collection, WPF must be told
             set { ingriedientItems = value; OnPropertyChanged(new PropertyChangedEventArgs("IngridientItems")); }
+        }
+
+        private Model.DBObservableCollection<Ingridient> conservantsItems;
+        public Model.DBObservableCollection<Ingridient> ConservantsItems
+        {
+            get { return conservantsItems; }
+            //If dataItems replaced by new collection, WPF must be told
+            set { conservantsItems = value; OnPropertyChanged(new PropertyChangedEventArgs("ConservantsItems")); }
+        }
+
+        private Model.DBObservableCollection<Ingridient> dataItems;
+        public Model.DBObservableCollection<Ingridient> DataItems
+        {
+            get { return dataItems; }
+            //If dataItems replaced by new collection, WPF must be told
+            set { dataItems = value; OnPropertyChanged(new PropertyChangedEventArgs("DataItems")); }
+        }
+
+        private Ingridient selectedItem;
+        public Ingridient SelectedItem
+        {
+            get { return selectedItem; }
+            set { selectedItem = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedItem")); }
+        }
+
+        private Ingridient selectedConservant;
+        public Ingridient SelectedConservant
+        {
+            get { return selectedConservant; }
+            set { selectedConservant = value; OnPropertyChanged(new PropertyChangedEventArgs("SelectedConservant")); }
         }
 
         private Ingridient selectedIngriedient;

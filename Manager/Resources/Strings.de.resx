@@ -168,4 +168,10 @@
   <data name="Column_Class" xml:space="preserve">
     <value>Zusatzstoff</value>
   </data>
+  <data name="Column_ClassName" xml:space="preserve">
+    <value>Klassennamme</value>
+  </data>
+  <data name="Column_ClassType" xml:space="preserve">
+    <value>Klassentyp</value>
+  </data>
 </root>

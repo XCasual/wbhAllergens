@@ -168,4 +168,10 @@
   <data name="Column_Class" xml:space="preserve">
     <value>Conservant</value>
   </data>
+  <data name="Column_ClassName" xml:space="preserve">
+    <value>Class name</value>
+  </data>
+  <data name="Column_ClassType" xml:space="preserve">
+    <value>Class type</value>
+  </data>
 </root>

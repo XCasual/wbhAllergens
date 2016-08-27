@@ -50,8 +50,8 @@
 
             <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.ColumnSpan="3"
                 Background="#FF251E1E"
-                ItemsSource="{Binding IngridientVMModel.IngriedientItems}" 
-                SelectedItem="{Binding IngridientVMModel.SelectedIngriedient, ConverterParameter=SelectedIngriedient, Converter={StaticResource SentinelConverter}}"
+                ItemsSource="{Binding IngridientVMModel.DataItems}" 
+                SelectedItem="{Binding IngridientVMModel.SelectedItem, ConverterParameter=SelectedIngriedient, Converter={StaticResource SentinelConverter}}"
                 foundation:CommandBehavior.RoutedEventName="SelectionChanged" Margin="2,2,2,2"
                 AutoGenerateColumns="False">
                 <DataGrid.RowStyle>
@@ -64,7 +64,8 @@
                     <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding Path=LocalName}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_OrdinaryName}" Binding="{Binding Path=OrdinaryName}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_ToolTip}" Binding="{Binding Path=ToolTip}" Width="80" />
-                    <DataGridCheckBoxColumn Header="{lex:Loc Key=Column_Conservant}" Binding="{Binding Path=Conservant}" Width="80" />
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_ClassName}" Binding="{Binding Path=ClassName}" Width="80" />
+                    <DataGridTextColumn Header="{lex:Loc Key=Column_ClassType}" Binding="{Binding Path=ClassType}" Width="80" />
                     <DataGridTextColumn Header="{lex:Loc Key=Column_SymbolID}" Binding="{Binding Path=SymbolID}" Width="80" Visibility="Hidden" />
                 </DataGrid.Columns>
             </DataGrid>
