@@ -51,9 +51,6 @@ namespace AllerConnectCommon
     partial void InsertIngridientsAllergen(IngridientsAllergen instance);
     partial void UpdateIngridientsAllergen(IngridientsAllergen instance);
     partial void DeleteIngridientsAllergen(IngridientsAllergen instance);
-    partial void InsertIngridientsLocal(IngridientsLocal instance);
-    partial void UpdateIngridientsLocal(IngridientsLocal instance);
-    partial void DeleteIngridientsLocal(IngridientsLocal instance);
     partial void InsertLanguage(Language instance);
     partial void UpdateLanguage(Language instance);
     partial void DeleteLanguage(Language instance);
@@ -81,6 +78,9 @@ namespace AllerConnectCommon
     partial void InsertIngridient(Ingridient instance);
     partial void UpdateIngridient(Ingridient instance);
     partial void DeleteIngridient(Ingridient instance);
+    partial void InsertIngridientsLocal(IngridientsLocal instance);
+    partial void UpdateIngridientsLocal(IngridientsLocal instance);
+    partial void DeleteIngridientsLocal(IngridientsLocal instance);
     #endregion
 		
 		public LinqDataContext() : 
@@ -166,14 +166,6 @@ namespace AllerConnectCommon
 			get
 			{
 				return this.GetTable<IngridientsAllergen>();
-			}
-		}
-		
-		public System.Data.Linq.Table<IngridientsLocal> IngridientsLocals
-		{
-			get
-			{
-				return this.GetTable<IngridientsLocal>();
 			}
 		}
 		
@@ -294,6 +286,14 @@ namespace AllerConnectCommon
 			get
 			{
 				return this.GetTable<Ingridient>();
+			}
+		}
+		
+		public System.Data.Linq.Table<IngridientsLocal> IngridientsLocals
+		{
+			get
+			{
+				return this.GetTable<IngridientsLocal>();
 			}
 		}
 		
@@ -460,25 +460,11 @@ namespace AllerConnectCommon
 			return ((ISingleResult<IngridientAllergenUpdateResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientCreate")]
-		public ISingleResult<IngridientCreateResult> IngridientCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientOrdinaryName", DbType="NVarChar(100)")] string ingridientOrdinaryName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientOrdinaryName);
-			return ((ISingleResult<IngridientCreateResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientDelete")]
 		public int IngridientDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientOrdinaryName", DbType="NVarChar(100)")] string original_IngridientOrdinaryName)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_IngridientID, original_IngridientOrdinaryName);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalCreate")]
-		public ISingleResult<IngridientLocalCreateResult> IngridientLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientName", DbType="NVarChar(100)")] string ingridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IgrridientToolTip", DbType="NVarChar(600)")] string igrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLanguageID", DbType="Int")] System.Nullable<int> ingridientLanguageID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientName, igrridientToolTip, ingridientID, ingridientLanguageID);
-			return ((ISingleResult<IngridientLocalCreateResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalDelete")]
@@ -495,25 +481,11 @@ namespace AllerConnectCommon
 			return ((ISingleResult<IngridientLocalReadResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalUpdate")]
-		public ISingleResult<IngridientLocalUpdateResult> IngridientLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientName", DbType="NVarChar(100)")] string ingridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IgrridientToolTip", DbType="NVarChar(600)")] string igrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLanguageID", DbType="Int")] System.Nullable<int> ingridientLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLocalID", DbType="Int")] System.Nullable<int> original_IngridientLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientName", DbType="NVarChar(100)")] string original_IngridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IgrridientToolTip", DbType="NVarChar(600)")] string original_IgrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLanguageID", DbType="Int")] System.Nullable<int> original_IngridientLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLocalID", DbType="Int")] System.Nullable<int> ingridientLocalID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientName, igrridientToolTip, ingridientID, ingridientLanguageID, original_IngridientLocalID, original_IngridientName, original_IgrridientToolTip, original_IngridientID, original_IngridientLanguageID, ingridientLocalID);
-			return ((ISingleResult<IngridientLocalUpdateResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientRead")]
 		public ISingleResult<IngridientReadResult> IngridientRead()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<IngridientReadResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientUpdate")]
-		public ISingleResult<IngridientUpdateResult> IngridientUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientOrdinaryName", DbType="NVarChar(100)")] string ingridientOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientOrdinaryName", DbType="NVarChar(100)")] string original_IngridientOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientOrdinaryName, original_IngridientID, original_IngridientOrdinaryName, ingridientID);
-			return ((ISingleResult<IngridientUpdateResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LanguageCreate")]
@@ -821,6 +793,34 @@ namespace AllerConnectCommon
 		public IQueryable<v_ProductAllergensResult> v_ProductAllergens([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryID", DbType="Int")] System.Nullable<int> categoryID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageID", DbType="Int")] System.Nullable<int> languageID)
 		{
 			return this.CreateMethodCallQuery<v_ProductAllergensResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, locationID, categoryID, languageID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalCreate")]
+		public ISingleResult<IngridientLocalCreateResult> IngridientLocalCreate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientName", DbType="NVarChar(100)")] string ingridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IgrridientToolTip", DbType="NVarChar(600)")] string igrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientClass", DbType="NVarChar(100)")] string ingridientClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLanguageID", DbType="Int")] System.Nullable<int> ingridientLanguageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientName, igrridientToolTip, ingridientClass, ingridientID, ingridientLanguageID);
+			return ((ISingleResult<IngridientLocalCreateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientLocalUpdate")]
+		public ISingleResult<IngridientLocalUpdateResult> IngridientLocalUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientName", DbType="NVarChar(100)")] string ingridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IgrridientToolTip", DbType="NVarChar(600)")] string igrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLanguageID", DbType="Int")] System.Nullable<int> ingridientLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLocalID", DbType="Int")] System.Nullable<int> original_IngridientLocalID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientName", DbType="NVarChar(100)")] string original_IngridientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IgrridientToolTip", DbType="NVarChar(600)")] string original_IgrridientToolTip, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientLanguageID", DbType="Int")] System.Nullable<int> original_IngridientLanguageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientLocalID", DbType="Int")] System.Nullable<int> ingridientLocalID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientName, igrridientToolTip, ingridientID, ingridientLanguageID, original_IngridientLocalID, original_IngridientName, original_IgrridientToolTip, original_IngridientID, original_IngridientLanguageID, ingridientLocalID);
+			return ((ISingleResult<IngridientLocalUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngridientUpdate")]
+		public ISingleResult<IngridientUpdateResult> IngridientUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientOrdinaryName", DbType="NVarChar(100)")] string ingridientOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientID", DbType="Int")] System.Nullable<int> original_IngridientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_IngridientOrdinaryName", DbType="NVarChar(100)")] string original_IngridientOrdinaryName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Conservant", DbType="Bit")] System.Nullable<bool> original_Conservant, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientTyp", DbType="NVarChar(100)")] string ingridientTyp, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientClass", DbType="NVarChar(100)")] string ingridientClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IngridientID", DbType="Int")] System.Nullable<int> ingridientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ingridientOrdinaryName, original_IngridientID, original_IngridientOrdinaryName, original_Conservant, ingridientTyp, ingridientClass, ingridientID);
+			return ((ISingleResult<IngridientUpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LanguageCreate")]
+		public ISingleResult<LanguageCreateResult1> LanguageCreate1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageShortCode", DbType="NChar(2)")] string languageShortCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageEnglishName", DbType="NVarChar(100)")] string languageEnglishName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LanguageGermanName", DbType="NVarChar(100)")] string languageGermanName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), languageShortCode, languageEnglishName, languageGermanName);
+			return ((ISingleResult<LanguageCreateResult1>)(result.ReturnValue));
 		}
 	}
 	
@@ -2190,246 +2190,6 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngridientsLocals")]
-	public partial class IngridientsLocal : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IngridientLocalID;
-		
-		private string _IngridientName;
-		
-		private string _IgrridientToolTip;
-		
-		private int _IngridientID;
-		
-		private int _IngridientLanguageID;
-		
-		private EntityRef<Language> _Language;
-		
-		private EntityRef<Ingridient> _Ingridient;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIngridientLocalIDChanging(int value);
-    partial void OnIngridientLocalIDChanged();
-    partial void OnIngridientNameChanging(string value);
-    partial void OnIngridientNameChanged();
-    partial void OnIgrridientToolTipChanging(string value);
-    partial void OnIgrridientToolTipChanged();
-    partial void OnIngridientIDChanging(int value);
-    partial void OnIngridientIDChanged();
-    partial void OnIngridientLanguageIDChanging(int value);
-    partial void OnIngridientLanguageIDChanged();
-    #endregion
-		
-		public IngridientsLocal()
-		{
-			this._Language = default(EntityRef<Language>);
-			this._Ingridient = default(EntityRef<Ingridient>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IngridientLocalID
-		{
-			get
-			{
-				return this._IngridientLocalID;
-			}
-			set
-			{
-				if ((this._IngridientLocalID != value))
-				{
-					this.OnIngridientLocalIDChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientLocalID = value;
-					this.SendPropertyChanged("IngridientLocalID");
-					this.OnIngridientLocalIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string IngridientName
-		{
-			get
-			{
-				return this._IngridientName;
-			}
-			set
-			{
-				if ((this._IngridientName != value))
-				{
-					this.OnIngridientNameChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientName = value;
-					this.SendPropertyChanged("IngridientName");
-					this.OnIngridientNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
-		public string IgrridientToolTip
-		{
-			get
-			{
-				return this._IgrridientToolTip;
-			}
-			set
-			{
-				if ((this._IgrridientToolTip != value))
-				{
-					this.OnIgrridientToolTipChanging(value);
-					this.SendPropertyChanging();
-					this._IgrridientToolTip = value;
-					this.SendPropertyChanged("IgrridientToolTip");
-					this.OnIgrridientToolTipChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					if (this._Ingridient.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIngridientIDChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientID = value;
-					this.SendPropertyChanged("IngridientID");
-					this.OnIngridientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
-		public int IngridientLanguageID
-		{
-			get
-			{
-				return this._IngridientLanguageID;
-			}
-			set
-			{
-				if ((this._IngridientLanguageID != value))
-				{
-					if (this._Language.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIngridientLanguageIDChanging(value);
-					this.SendPropertyChanging();
-					this._IngridientLanguageID = value;
-					this.SendPropertyChanged("IngridientLanguageID");
-					this.OnIngridientLanguageIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_IngridientsLocal", Storage="_Language", ThisKey="IngridientLanguageID", OtherKey="LanguageID", IsForeignKey=true)]
-		public Language Language
-		{
-			get
-			{
-				return this._Language.Entity;
-			}
-			set
-			{
-				Language previousValue = this._Language.Entity;
-				if (((previousValue != value) 
-							|| (this._Language.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Language.Entity = null;
-						previousValue.IngridientsLocals.Remove(this);
-					}
-					this._Language.Entity = value;
-					if ((value != null))
-					{
-						value.IngridientsLocals.Add(this);
-						this._IngridientLanguageID = value.LanguageID;
-					}
-					else
-					{
-						this._IngridientLanguageID = default(int);
-					}
-					this.SendPropertyChanged("Language");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_Ingridient", ThisKey="IngridientID", OtherKey="IngridientID", IsForeignKey=true)]
-		public Ingridient Ingridient
-		{
-			get
-			{
-				return this._Ingridient.Entity;
-			}
-			set
-			{
-				Ingridient previousValue = this._Ingridient.Entity;
-				if (((previousValue != value) 
-							|| (this._Ingridient.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ingridient.Entity = null;
-						previousValue.IngridientsLocals.Remove(this);
-					}
-					this._Ingridient.Entity = value;
-					if ((value != null))
-					{
-						value.IngridientsLocals.Add(this);
-						this._IngridientID = value.IngridientID;
-					}
-					else
-					{
-						this._IngridientID = default(int);
-					}
-					this.SendPropertyChanged("Ingridient");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Languages")]
 	public partial class Language : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2448,9 +2208,9 @@ namespace AllerConnectCommon
 		
 		private EntitySet<CategoriesLocal> _CategoriesLocals;
 		
-		private EntitySet<IngridientsLocal> _IngridientsLocals;
-		
 		private EntitySet<ProductsLocal> _ProductsLocals;
+		
+		private EntitySet<IngridientsLocal> _IngridientsLocals;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2470,8 +2230,8 @@ namespace AllerConnectCommon
 		{
 			this._AllergensLocals = new EntitySet<AllergensLocal>(new Action<AllergensLocal>(this.attach_AllergensLocals), new Action<AllergensLocal>(this.detach_AllergensLocals));
 			this._CategoriesLocals = new EntitySet<CategoriesLocal>(new Action<CategoriesLocal>(this.attach_CategoriesLocals), new Action<CategoriesLocal>(this.detach_CategoriesLocals));
-			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
 			this._ProductsLocals = new EntitySet<ProductsLocal>(new Action<ProductsLocal>(this.attach_ProductsLocals), new Action<ProductsLocal>(this.detach_ProductsLocals));
+			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
 			OnCreated();
 		}
 		
@@ -2581,19 +2341,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="LanguageID", OtherKey="IngridientLanguageID")]
-		public EntitySet<IngridientsLocal> IngridientsLocals
-		{
-			get
-			{
-				return this._IngridientsLocals;
-			}
-			set
-			{
-				this._IngridientsLocals.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_ProductsLocal", Storage="_ProductsLocals", ThisKey="LanguageID", OtherKey="ProductLanguageID")]
 		public EntitySet<ProductsLocal> ProductsLocals
 		{
@@ -2604,6 +2351,19 @@ namespace AllerConnectCommon
 			set
 			{
 				this._ProductsLocals.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="LanguageID", OtherKey="IngridientLanguageID")]
+		public EntitySet<IngridientsLocal> IngridientsLocals
+		{
+			get
+			{
+				return this._IngridientsLocals;
+			}
+			set
+			{
+				this._IngridientsLocals.Assign(value);
 			}
 		}
 		
@@ -2651,18 +2411,6 @@ namespace AllerConnectCommon
 			entity.Language = null;
 		}
 		
-		private void attach_IngridientsLocals(IngridientsLocal entity)
-		{
-			this.SendPropertyChanging();
-			entity.Language = this;
-		}
-		
-		private void detach_IngridientsLocals(IngridientsLocal entity)
-		{
-			this.SendPropertyChanging();
-			entity.Language = null;
-		}
-		
 		private void attach_ProductsLocals(ProductsLocal entity)
 		{
 			this.SendPropertyChanging();
@@ -2670,6 +2418,18 @@ namespace AllerConnectCommon
 		}
 		
 		private void detach_ProductsLocals(ProductsLocal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Language = null;
+		}
+		
+		private void attach_IngridientsLocals(IngridientsLocal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Language = this;
+		}
+		
+		private void detach_IngridientsLocals(IngridientsLocal entity)
 		{
 			this.SendPropertyChanging();
 			entity.Language = null;
@@ -5078,13 +4838,15 @@ namespace AllerConnectCommon
 		
 		private string _IngridientOrdinaryName;
 		
-		private bool _Conservant;
+		private string _IngridientTyp;
+		
+		private string _IngridientClass;
 		
 		private EntitySet<IngridientsAllergen> _IngridientsAllergens;
 		
-		private EntitySet<IngridientsLocal> _IngridientsLocals;
-		
 		private EntitySet<ProductsIngridient> _ProductsIngridients;
+		
+		private EntitySet<IngridientsLocal> _IngridientsLocals;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5094,15 +4856,17 @@ namespace AllerConnectCommon
     partial void OnIngridientIDChanged();
     partial void OnIngridientOrdinaryNameChanging(string value);
     partial void OnIngridientOrdinaryNameChanged();
-    partial void OnConservantChanging(bool value);
-    partial void OnConservantChanged();
+    partial void OnIngridientTypChanging(string value);
+    partial void OnIngridientTypChanged();
+    partial void OnIngridientClassChanging(string value);
+    partial void OnIngridientClassChanged();
     #endregion
 		
 		public Ingridient()
 		{
 			this._IngridientsAllergens = new EntitySet<IngridientsAllergen>(new Action<IngridientsAllergen>(this.attach_IngridientsAllergens), new Action<IngridientsAllergen>(this.detach_IngridientsAllergens));
-			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
 			this._ProductsIngridients = new EntitySet<ProductsIngridient>(new Action<ProductsIngridient>(this.attach_ProductsIngridients), new Action<ProductsIngridient>(this.detach_ProductsIngridients));
+			this._IngridientsLocals = new EntitySet<IngridientsLocal>(new Action<IngridientsLocal>(this.attach_IngridientsLocals), new Action<IngridientsLocal>(this.detach_IngridientsLocals));
 			OnCreated();
 		}
 		
@@ -5146,22 +4910,42 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conservant", DbType="Bit NOT NULL")]
-		public bool Conservant
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientTyp", DbType="NVarChar(100)")]
+		public string IngridientTyp
 		{
 			get
 			{
-				return this._Conservant;
+				return this._IngridientTyp;
 			}
 			set
 			{
-				if ((this._Conservant != value))
+				if ((this._IngridientTyp != value))
 				{
-					this.OnConservantChanging(value);
+					this.OnIngridientTypChanging(value);
 					this.SendPropertyChanging();
-					this._Conservant = value;
-					this.SendPropertyChanged("Conservant");
-					this.OnConservantChanged();
+					this._IngridientTyp = value;
+					this.SendPropertyChanged("IngridientTyp");
+					this.OnIngridientTypChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientClass", DbType="NVarChar(100)")]
+		public string IngridientClass
+		{
+			get
+			{
+				return this._IngridientClass;
+			}
+			set
+			{
+				if ((this._IngridientClass != value))
+				{
+					this.OnIngridientClassChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientClass = value;
+					this.SendPropertyChanged("IngridientClass");
+					this.OnIngridientClassChanged();
 				}
 			}
 		}
@@ -5179,19 +4963,6 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="IngridientID", OtherKey="IngridientID")]
-		public EntitySet<IngridientsLocal> IngridientsLocals
-		{
-			get
-			{
-				return this._IngridientsLocals;
-			}
-			set
-			{
-				this._IngridientsLocals.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_ProductsIngridient", Storage="_ProductsIngridients", ThisKey="IngridientID", OtherKey="IngridientID")]
 		public EntitySet<ProductsIngridient> ProductsIngridients
 		{
@@ -5202,6 +4973,19 @@ namespace AllerConnectCommon
 			set
 			{
 				this._ProductsIngridients.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_IngridientsLocals", ThisKey="IngridientID", OtherKey="IngridientID")]
+		public EntitySet<IngridientsLocal> IngridientsLocals
+		{
+			get
+			{
+				return this._IngridientsLocals;
+			}
+			set
+			{
+				this._IngridientsLocals.Assign(value);
 			}
 		}
 		
@@ -5237,6 +5021,18 @@ namespace AllerConnectCommon
 			entity.Ingridient = null;
 		}
 		
+		private void attach_ProductsIngridients(ProductsIngridient entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = this;
+		}
+		
+		private void detach_ProductsIngridients(ProductsIngridient entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ingridient = null;
+		}
+		
 		private void attach_IngridientsLocals(IngridientsLocal entity)
 		{
 			this.SendPropertyChanging();
@@ -5248,17 +5044,269 @@ namespace AllerConnectCommon
 			this.SendPropertyChanging();
 			entity.Ingridient = null;
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngridientsLocals")]
+	public partial class IngridientsLocal : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		private void attach_ProductsIngridients(ProductsIngridient entity)
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private string _IngridientClass;
+		
+		private int _IngridientID;
+		
+		private int _IngridientLanguageID;
+		
+		private EntityRef<Ingridient> _Ingridient;
+		
+		private EntityRef<Language> _Language;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIngridientLocalIDChanging(int value);
+    partial void OnIngridientLocalIDChanged();
+    partial void OnIngridientNameChanging(string value);
+    partial void OnIngridientNameChanged();
+    partial void OnIgrridientToolTipChanging(string value);
+    partial void OnIgrridientToolTipChanged();
+    partial void OnIngridientClassChanging(string value);
+    partial void OnIngridientClassChanged();
+    partial void OnIngridientIDChanging(int value);
+    partial void OnIngridientIDChanged();
+    partial void OnIngridientLanguageIDChanging(int value);
+    partial void OnIngridientLanguageIDChanged();
+    #endregion
+		
+		public IngridientsLocal()
 		{
-			this.SendPropertyChanging();
-			entity.Ingridient = this;
+			this._Ingridient = default(EntityRef<Ingridient>);
+			this._Language = default(EntityRef<Language>);
+			OnCreated();
 		}
 		
-		private void detach_ProductsIngridients(ProductsIngridient entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IngridientLocalID
 		{
-			this.SendPropertyChanging();
-			entity.Ingridient = null;
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this.OnIngridientLocalIDChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientLocalID = value;
+					this.SendPropertyChanged("IngridientLocalID");
+					this.OnIngridientLocalIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this.OnIngridientNameChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientName = value;
+					this.SendPropertyChanged("IngridientName");
+					this.OnIngridientNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this.OnIgrridientToolTipChanging(value);
+					this.SendPropertyChanging();
+					this._IgrridientToolTip = value;
+					this.SendPropertyChanged("IgrridientToolTip");
+					this.OnIgrridientToolTipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientClass", DbType="NVarChar(100)")]
+		public string IngridientClass
+		{
+			get
+			{
+				return this._IngridientClass;
+			}
+			set
+			{
+				if ((this._IngridientClass != value))
+				{
+					this.OnIngridientClassChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientClass = value;
+					this.SendPropertyChanged("IngridientClass");
+					this.OnIngridientClassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					if (this._Ingridient.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIngridientIDChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientID = value;
+					this.SendPropertyChanged("IngridientID");
+					this.OnIngridientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					if (this._Language.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIngridientLanguageIDChanging(value);
+					this.SendPropertyChanging();
+					this._IngridientLanguageID = value;
+					this.SendPropertyChanged("IngridientLanguageID");
+					this.OnIngridientLanguageIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingridient_IngridientsLocal", Storage="_Ingridient", ThisKey="IngridientID", OtherKey="IngridientID", IsForeignKey=true)]
+		public Ingridient Ingridient
+		{
+			get
+			{
+				return this._Ingridient.Entity;
+			}
+			set
+			{
+				Ingridient previousValue = this._Ingridient.Entity;
+				if (((previousValue != value) 
+							|| (this._Ingridient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Ingridient.Entity = null;
+						previousValue.IngridientsLocals.Remove(this);
+					}
+					this._Ingridient.Entity = value;
+					if ((value != null))
+					{
+						value.IngridientsLocals.Add(this);
+						this._IngridientID = value.IngridientID;
+					}
+					else
+					{
+						this._IngridientID = default(int);
+					}
+					this.SendPropertyChanged("Ingridient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_IngridientsLocal", Storage="_Language", ThisKey="IngridientLanguageID", OtherKey="LanguageID", IsForeignKey=true)]
+		public Language Language
+		{
+			get
+			{
+				return this._Language.Entity;
+			}
+			set
+			{
+				Language previousValue = this._Language.Entity;
+				if (((previousValue != value) 
+							|| (this._Language.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Language.Entity = null;
+						previousValue.IngridientsLocals.Remove(this);
+					}
+					this._Language.Entity = value;
+					if ((value != null))
+					{
+						value.IngridientsLocals.Add(this);
+						this._IngridientLanguageID = value.LanguageID;
+					}
+					else
+					{
+						this._IngridientLanguageID = default(int);
+					}
+					this.SendPropertyChanged("Language");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -5284,7 +5332,9 @@ namespace AllerConnectCommon
 		
 		private int _AllergenID;
 		
-		private bool _Conservant;
+		private string _IngridientTyp;
+		
+		private string _IngridientClass;
 		
 		public IngridientData()
 		{
@@ -5434,18 +5484,34 @@ namespace AllerConnectCommon
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conservant", DbType="Bit NOT NULL")]
-		public bool Conservant
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientTyp", DbType="NVarChar(100)")]
+		public string IngridientTyp
 		{
 			get
 			{
-				return this._Conservant;
+				return this._IngridientTyp;
 			}
 			set
 			{
-				if ((this._Conservant != value))
+				if ((this._IngridientTyp != value))
 				{
-					this._Conservant = value;
+					this._IngridientTyp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientClass", DbType="NVarChar(100)")]
+		public string IngridientClass
+		{
+			get
+			{
+				return this._IngridientClass;
+			}
+			set
+			{
+				if ((this._IngridientClass != value))
+				{
+					this._IngridientClass = value;
 				}
 			}
 		}
@@ -7097,148 +7163,6 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	public partial class IngridientCreateResult
-	{
-		
-		private int _IngridientID;
-		
-		private string _IngridientOrdinaryName;
-		
-		public IngridientCreateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					this._IngridientID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string IngridientOrdinaryName
-		{
-			get
-			{
-				return this._IngridientOrdinaryName;
-			}
-			set
-			{
-				if ((this._IngridientOrdinaryName != value))
-				{
-					this._IngridientOrdinaryName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class IngridientLocalCreateResult
-	{
-		
-		private int _IngridientLocalID;
-		
-		private string _IngridientName;
-		
-		private string _IgrridientToolTip;
-		
-		private int _IngridientID;
-		
-		private int _IngridientLanguageID;
-		
-		public IngridientLocalCreateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
-		public int IngridientLocalID
-		{
-			get
-			{
-				return this._IngridientLocalID;
-			}
-			set
-			{
-				if ((this._IngridientLocalID != value))
-				{
-					this._IngridientLocalID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string IngridientName
-		{
-			get
-			{
-				return this._IngridientName;
-			}
-			set
-			{
-				if ((this._IngridientName != value))
-				{
-					this._IngridientName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
-		public string IgrridientToolTip
-		{
-			get
-			{
-				return this._IgrridientToolTip;
-			}
-			set
-			{
-				if ((this._IgrridientToolTip != value))
-				{
-					this._IgrridientToolTip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					this._IngridientID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
-		public int IngridientLanguageID
-		{
-			get
-			{
-				return this._IngridientLanguageID;
-			}
-			set
-			{
-				if ((this._IngridientLanguageID != value))
-				{
-					this._IngridientLanguageID = value;
-				}
-			}
-		}
-	}
-	
 	public partial class IngridientLocalReadResult
 	{
 		
@@ -7337,104 +7261,6 @@ namespace AllerConnectCommon
 		}
 	}
 	
-	public partial class IngridientLocalUpdateResult
-	{
-		
-		private int _IngridientLocalID;
-		
-		private string _IngridientName;
-		
-		private string _IgrridientToolTip;
-		
-		private int _IngridientID;
-		
-		private int _IngridientLanguageID;
-		
-		public IngridientLocalUpdateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
-		public int IngridientLocalID
-		{
-			get
-			{
-				return this._IngridientLocalID;
-			}
-			set
-			{
-				if ((this._IngridientLocalID != value))
-				{
-					this._IngridientLocalID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string IngridientName
-		{
-			get
-			{
-				return this._IngridientName;
-			}
-			set
-			{
-				if ((this._IngridientName != value))
-				{
-					this._IngridientName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
-		public string IgrridientToolTip
-		{
-			get
-			{
-				return this._IgrridientToolTip;
-			}
-			set
-			{
-				if ((this._IgrridientToolTip != value))
-				{
-					this._IgrridientToolTip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					this._IngridientID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
-		public int IngridientLanguageID
-		{
-			get
-			{
-				return this._IngridientLanguageID;
-			}
-			set
-			{
-				if ((this._IngridientLanguageID != value))
-				{
-					this._IngridientLanguageID = value;
-				}
-			}
-		}
-	}
-	
 	public partial class IngridientReadResult
 	{
 		
@@ -7443,50 +7269,6 @@ namespace AllerConnectCommon
 		private string _IngridientOrdinaryName;
 		
 		public IngridientReadResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
-		public int IngridientID
-		{
-			get
-			{
-				return this._IngridientID;
-			}
-			set
-			{
-				if ((this._IngridientID != value))
-				{
-					this._IngridientID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string IngridientOrdinaryName
-		{
-			get
-			{
-				return this._IngridientOrdinaryName;
-			}
-			set
-			{
-				if ((this._IngridientOrdinaryName != value))
-				{
-					this._IngridientOrdinaryName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class IngridientUpdateResult
-	{
-		
-		private int _IngridientID;
-		
-		private string _IngridientOrdinaryName;
-		
-		public IngridientUpdateResult()
 		{
 		}
 		
@@ -10158,6 +9940,380 @@ namespace AllerConnectCommon
 				if ((this._SymbolImage != value))
 				{
 					this._SymbolImage = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientLocalCreateResult
+	{
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private string _IngridientClass;
+		
+		private int _IngridientID;
+		
+		private int _IngridientLanguageID;
+		
+		public IngridientLocalCreateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
+		public int IngridientLocalID
+		{
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this._IngridientLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this._IngridientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this._IgrridientToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientClass", DbType="NVarChar(100)")]
+		public string IngridientClass
+		{
+			get
+			{
+				return this._IngridientClass;
+			}
+			set
+			{
+				if ((this._IngridientClass != value))
+				{
+					this._IngridientClass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					this._IngridientLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientLocalUpdateResult
+	{
+		
+		private int _IngridientLocalID;
+		
+		private string _IngridientName;
+		
+		private string _IgrridientToolTip;
+		
+		private int _IngridientID;
+		
+		private int _IngridientLanguageID;
+		
+		public IngridientLocalUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLocalID", DbType="Int NOT NULL")]
+		public int IngridientLocalID
+		{
+			get
+			{
+				return this._IngridientLocalID;
+			}
+			set
+			{
+				if ((this._IngridientLocalID != value))
+				{
+					this._IngridientLocalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientName
+		{
+			get
+			{
+				return this._IngridientName;
+			}
+			set
+			{
+				if ((this._IngridientName != value))
+				{
+					this._IngridientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IgrridientToolTip", DbType="NVarChar(600) NOT NULL", CanBeNull=false)]
+		public string IgrridientToolTip
+		{
+			get
+			{
+				return this._IgrridientToolTip;
+			}
+			set
+			{
+				if ((this._IgrridientToolTip != value))
+				{
+					this._IgrridientToolTip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientLanguageID", DbType="Int NOT NULL")]
+		public int IngridientLanguageID
+		{
+			get
+			{
+				return this._IngridientLanguageID;
+			}
+			set
+			{
+				if ((this._IngridientLanguageID != value))
+				{
+					this._IngridientLanguageID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class IngridientUpdateResult
+	{
+		
+		private int _IngridientID;
+		
+		private string _IngridientOrdinaryName;
+		
+		private string _IngridientTyp;
+		
+		private string _IngridientClass;
+		
+		public IngridientUpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientID", DbType="Int NOT NULL")]
+		public int IngridientID
+		{
+			get
+			{
+				return this._IngridientID;
+			}
+			set
+			{
+				if ((this._IngridientID != value))
+				{
+					this._IngridientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientOrdinaryName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string IngridientOrdinaryName
+		{
+			get
+			{
+				return this._IngridientOrdinaryName;
+			}
+			set
+			{
+				if ((this._IngridientOrdinaryName != value))
+				{
+					this._IngridientOrdinaryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientTyp", DbType="NVarChar(100)")]
+		public string IngridientTyp
+		{
+			get
+			{
+				return this._IngridientTyp;
+			}
+			set
+			{
+				if ((this._IngridientTyp != value))
+				{
+					this._IngridientTyp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngridientClass", DbType="NVarChar(100)")]
+		public string IngridientClass
+		{
+			get
+			{
+				return this._IngridientClass;
+			}
+			set
+			{
+				if ((this._IngridientClass != value))
+				{
+					this._IngridientClass = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LanguageCreateResult1
+	{
+		
+		private int _LanguageID;
+		
+		private string _LanguageShortCode;
+		
+		private string _LanguageEnglishName;
+		
+		private string _LanguageGermanName;
+		
+		public LanguageCreateResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageID", DbType="Int NOT NULL")]
+		public int LanguageID
+		{
+			get
+			{
+				return this._LanguageID;
+			}
+			set
+			{
+				if ((this._LanguageID != value))
+				{
+					this._LanguageID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageShortCode", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string LanguageShortCode
+		{
+			get
+			{
+				return this._LanguageShortCode;
+			}
+			set
+			{
+				if ((this._LanguageShortCode != value))
+				{
+					this._LanguageShortCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageEnglishName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageEnglishName
+		{
+			get
+			{
+				return this._LanguageEnglishName;
+			}
+			set
+			{
+				if ((this._LanguageEnglishName != value))
+				{
+					this._LanguageEnglishName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageGermanName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string LanguageGermanName
+		{
+			get
+			{
+				return this._LanguageGermanName;
+			}
+			set
+			{
+				if ((this._LanguageGermanName != value))
+				{
+					this._LanguageGermanName = value;
 				}
 			}
 		}

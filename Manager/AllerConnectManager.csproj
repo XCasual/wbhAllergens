@@ -84,7 +84,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\TreeIngridientsConservantsViewModel.cs" />
     <Compile Include="ViewModel\TreeIngridientsViewModel.cs" />
     <Compile Include="ViewModel\TreeIngridientsRootViewModel.cs" />
     <Compile Include="ViewModel\TreePartproductRootViewModel.cs" />

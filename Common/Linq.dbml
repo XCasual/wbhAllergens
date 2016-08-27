@@ -67,17 +67,6 @@
       <Association Name="Ingridient_IngridientsAllergen" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.IngridientsLocals" Member="IngridientsLocals">
-    <Type Name="IngridientsLocal">
-      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Language_IngridientsLocal" Member="Language" ThisKey="IngridientLanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" />
-      <Association Name="Ingridient_IngridientsLocal" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Languages" Member="Languages">
     <Type Name="Language">
       <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -86,8 +75,8 @@
       <Column Name="LanguageGermanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="Language_AllergensLocal" Member="AllergensLocals" ThisKey="LanguageID" OtherKey="AllergenLanguageID" Type="AllergensLocal" />
       <Association Name="Language_CategoriesLocal" Member="CategoriesLocals" ThisKey="LanguageID" OtherKey="CategoryLanguageID" Type="CategoriesLocal" />
-      <Association Name="Language_IngridientsLocal" Member="IngridientsLocals" ThisKey="LanguageID" OtherKey="IngridientLanguageID" Type="IngridientsLocal" />
       <Association Name="Language_ProductsLocal" Member="ProductsLocals" ThisKey="LanguageID" OtherKey="ProductLanguageID" Type="ProductsLocal" />
+      <Association Name="Language_IngridientsLocal" Member="IngridientsLocals" ThisKey="LanguageID" OtherKey="IngridientLanguageID" Type="IngridientsLocal" />
     </Type>
   </Table>
   <Table Name="dbo.Locations" Member="Locations">
@@ -235,10 +224,23 @@
     <Type Name="Ingridient">
       <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Conservant" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientTyp" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IngridientClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="Ingridient_IngridientsAllergen" Member="IngridientsAllergens" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsAllergen" />
-      <Association Name="Ingridient_IngridientsLocal" Member="IngridientsLocals" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsLocal" />
       <Association Name="Ingridient_ProductsIngridient" Member="ProductsIngridients" ThisKey="IngridientID" OtherKey="IngridientID" Type="ProductsIngridient" />
+      <Association Name="Ingridient_IngridientsLocal" Member="IngridientsLocals" ThisKey="IngridientID" OtherKey="IngridientID" Type="IngridientsLocal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IngridientsLocals" Member="IngridientsLocals">
+    <Type Name="IngridientsLocal">
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Ingridient_IngridientsLocal" Member="Ingridient" ThisKey="IngridientID" OtherKey="IngridientID" Type="Ingridient" IsForeignKey="true" />
+      <Association Name="Language_IngridientsLocal" Member="Language" ThisKey="IngridientLanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.IngridientData" Member="IngridientDatas">
@@ -252,7 +254,8 @@
       <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IngridientAllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="AllergenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Conservant" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientTyp" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IngridientClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.v_AllergenSymbol" Method="v_AllergenSymbol" IsComposable="true">
@@ -496,30 +499,10 @@
       <Column Name="IngridientFeelLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.IngridientCreate" Method="IngridientCreate">
-    <Parameter Name="IngridientOrdinaryName" Parameter="ingridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="IngridientCreateResult">
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.IngridientDelete" Method="IngridientDelete">
     <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
     <Parameter Name="Original_IngridientOrdinaryName" Parameter="original_IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.IngridientLocalCreate" Method="IngridientLocalCreate">
-    <Parameter Name="IngridientName" Parameter="ingridientName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="IgrridientToolTip" Parameter="igrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IngridientLanguageID" Parameter="ingridientLanguageID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="IngridientLocalCreateResult">
-      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
   </Function>
   <Function Name="dbo.IngridientLocalDelete" Method="IngridientLocalDelete">
     <Parameter Name="Original_IngridientLocalID" Parameter="original_IngridientLocalID" Type="System.Int32" DbType="Int" />
@@ -538,37 +521,8 @@
       <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.IngridientLocalUpdate" Method="IngridientLocalUpdate">
-    <Parameter Name="IngridientName" Parameter="ingridientName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="IgrridientToolTip" Parameter="igrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IngridientLanguageID" Parameter="ingridientLanguageID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_IngridientLocalID" Parameter="original_IngridientLocalID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_IngridientName" Parameter="original_IngridientName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_IgrridientToolTip" Parameter="original_IgrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
-    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_IngridientLanguageID" Parameter="original_IngridientLanguageID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IngridientLocalID" Parameter="ingridientLocalID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="IngridientLocalUpdateResult">
-      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.IngridientRead" Method="IngridientRead">
     <ElementType Name="IngridientReadResult">
-      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.IngridientUpdate" Method="IngridientUpdate">
-    <Parameter Name="IngridientOrdinaryName" Parameter="ingridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_IngridientOrdinaryName" Parameter="original_IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="IngridientUpdateResult">
       <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -1025,6 +979,66 @@
       <Column Name="SymbolArt" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="SymbolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SymbolImage" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientLocalCreate" Method="IngridientLocalCreate">
+    <Parameter Name="IngridientName" Parameter="ingridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IgrridientToolTip" Parameter="igrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="IngridientClass" Parameter="ingridientClass" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientLanguageID" Parameter="ingridientLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientLocalCreateResult">
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientLocalUpdate" Method="IngridientLocalUpdate">
+    <Parameter Name="IngridientName" Parameter="ingridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IgrridientToolTip" Parameter="igrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientLanguageID" Parameter="ingridientLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientLocalID" Parameter="original_IngridientLocalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientName" Parameter="original_IngridientName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_IgrridientToolTip" Parameter="original_IgrridientToolTip" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientLanguageID" Parameter="original_IngridientLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IngridientLocalID" Parameter="ingridientLocalID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientLocalUpdateResult">
+      <Column Name="IngridientLocalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IgrridientToolTip" Type="System.String" DbType="NVarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientLanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IngridientUpdate" Method="IngridientUpdate">
+    <Parameter Name="IngridientOrdinaryName" Parameter="ingridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_IngridientID" Parameter="original_IngridientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_IngridientOrdinaryName" Parameter="original_IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_Conservant" Parameter="original_Conservant" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IngridientTyp" Parameter="ingridientTyp" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IngridientClass" Parameter="ingridientClass" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IngridientID" Parameter="ingridientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="IngridientUpdateResult">
+      <Column Name="IngridientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientOrdinaryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IngridientTyp" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IngridientClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LanguageCreate" Method="LanguageCreate1">
+    <Parameter Name="LanguageShortCode" Parameter="languageShortCode" Type="System.String" DbType="NChar(2)" />
+    <Parameter Name="LanguageEnglishName" Parameter="languageEnglishName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="LanguageGermanName" Parameter="languageGermanName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="LanguageCreateResult1">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageShortCode" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageEnglishName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageGermanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

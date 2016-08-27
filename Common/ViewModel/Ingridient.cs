@@ -11,6 +11,9 @@ namespace AllerConnectCommon.ViewModel
     public class Ingridient : LocalizedItem, ICloneable
     {
         public bool IsConservant { get; set; }
+        public string ClassName { get; set; }
+        public string ClassType { get; set; }
+
 
         public object Clone()
         {
@@ -19,7 +22,9 @@ namespace AllerConnectCommon.ViewModel
                 ID = this.ID,
                 OrdinaryName = this.OrdinaryName,
                 LocalName = this.LocalName,
-                IsConservant = this.IsConservant
+                IsConservant = this.IsConservant,
+                ClassName = this.ClassName,
+                ClassType = this.ClassType
             };
         }
     }

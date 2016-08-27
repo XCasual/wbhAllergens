@@ -59,13 +59,13 @@
             </Button.Background>
         </Button>
 
-        <Grid x:Name="PrintGrid" Grid.Column="0" Grid.Row="1">
+        <Grid x:Name="ShowGrid" Grid.Column="0" Grid.Row="1">
             <StackPanel Orientation="Vertical">
                 <Label x:Name="label" Content="{Binding DisplayedProduct.OrdinaryName}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="133.054" Foreground="White"/>
                 <Label x:Name="label_Copy" Content="Das ausgewählte Produkt enthält folgende Allergene:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="24" Width="250" Foreground="White" FontSize="10"/>
 
                 <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Background="#FF251E1E"
+                Background="#FF251E1E" 
                 ItemsSource="{Binding DisplayedAllergens}" 
                 SelectedItem="{Binding SelectedAllergen}"
                 CanUserAddRows="False" CanUserDeleteRows="False"
@@ -83,6 +83,33 @@
                     
                 </ListBox>
                 <Label x:Name="label_Copy2" Content="Alle Angaben ohne Gewähr. Das Produkt kann Spuren weiterere Allergene enthalten." HorizontalAlignment="Left" Margin="0,5,5,5" VerticalAlignment="Bottom" Height="23.624" Width="290" Foreground="White" FontSize="7.5"/>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="PrintGrid" Grid.Column="0" Grid.Row="1" Background="White" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="labely" Content="{Binding DisplayedProduct.OrdinaryName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,25,5,0" Height="35" Width="133.054" />
+                <Label x:Name="label_Copyy" Content="Das ausgewählte Produkt enthält folgende Allergene:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="24" Width="250" FontSize="10"/>
+
+                <DataGrid x:Name="dataGridd" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Background="#FF251E1E"
+                ItemsSource="{Binding DisplayedAllergens}" 
+                SelectedItem="{Binding SelectedAllergen}"
+                HeadersVisibility="None"
+                CanUserAddRows="False" CanUserDeleteRows="False"
+                foundation:CommandBehavior.RoutedEventName="SelectionChanged"
+                foundation:CommandBehavior.TheCommandToRun="{Binding Path=ListBoxCommand}" Margin="2,2,2,2"
+                AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{lex:Loc Key=Column_LocalName}" Binding="{Binding AllergenLocalName}" Width="80" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Label x:Name="label_Copyy1" Content="Symbole" HorizontalAlignment="Left" Margin="0,5,5,0" VerticalAlignment="Top" Height="29" Width="133.054"/>
+
+                <ListBox Height="150" ItemsSource="{Binding DisplayedAllergens}" HorizontalAlignment="Left" Margin="2,0,0,0">
+
+                </ListBox>
+                <Label x:Name="label_Copyy2" Content="Alle Angaben ohne Gewähr. Das Produkt kann Spuren weiterere Allergene enthalten." HorizontalAlignment="Left" Margin="0,5,5,5" VerticalAlignment="Bottom" Height="23.624" Width="290" FontSize="7.5"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -30,10 +30,10 @@ namespace AllerConnectCommon.Model
                             select new ViewModel.Allergen
                             {
                                 ID = ad.AllergenID,
-                                OrdinaryName = ad.AllergenOrdinaryName,
+                                OrdinaryName = ad.AllergenOrdinaryName.Replace("\r\n",""),
                                 LocalisationID = ad.AllergenLocalD.HasValue ? ad.AllergenLocalD.Value : -100,
                                 LanguageID = ad.AllergenLanguageID.HasValue ? ad.AllergenLanguageID.Value : -101,
-                                LocalName = ad.AllergenLocalName != null ? ad.AllergenLocalName : "(ERR:102)",
+                                LocalName = ad.AllergenLocalName != null ? ad.AllergenLocalName.Trim() : "(ERR:102)",
                                 ToolTip = ad.AllergenLocalToolTip != null ? ad.AllergenLocalToolTip : "(ERR:103)",
                                 SymbolID = ad.AllergenSymbolID,
                                 SymbolBuffer = ad.SymbolImage.ToArray(),
@@ -64,9 +64,9 @@ namespace AllerConnectCommon.Model
                             select new ViewModel.Category
                             {
                                 ID = cd.CategoryID,
-                                OrdinaryName = cd.CategoryOrdinaryName,
+                                OrdinaryName = cd.CategoryOrdinaryName.Replace("\r\n",""),
                                 LanguageID = cd.CategoryLanguageID,
-                                LocalName = cd.CategoryLocalName != null ? cd.CategoryLocalName : "(ERR:102)"
+                                LocalName = cd.CategoryLocalName != null ? cd.CategoryLocalName.Trim() : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -93,11 +93,11 @@ namespace AllerConnectCommon.Model
                             select new ViewModel.Product
                             {
                                 ID = pd.ProductID,
-                                OrdinaryName = pd.ProductOdrinaryName,
+                                OrdinaryName = pd.ProductOdrinaryName.Replace("\r\n",""),
                                 LanguageID = pd.ProductLanguageID,
                                 CategoryID = pd.ProductCategoryID,
                                 LocalID = pd.LocationID,
-                                LocalName = pd.ProductName != null ? pd.ProductName : "(ERR:102)"
+                                LocalName = pd.ProductName != null ? pd.ProductName.Trim() : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -124,11 +124,11 @@ namespace AllerConnectCommon.Model
                             select new ViewModel.Product
                             {
                                 ID = pd.ProductID,
-                                OrdinaryName = pd.ProductOdrinaryName,
+                                OrdinaryName = pd.ProductOdrinaryName.Replace("\r\n",""),
                                 LanguageID = pd.ProductLanguageID,
                                 CategoryID = pd.ProductCategoryID,
                                 LocalID = pd.LocationID,
-                                LocalName = pd.ProductName != null ? pd.ProductName : "(ERR:102)"
+                                LocalName = pd.ProductName != null ? pd.ProductName.Trim() : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -157,11 +157,11 @@ namespace AllerConnectCommon.Model
                             select new ViewModel.Product
                             {
                                 ID = pd.ProductID,
-                                OrdinaryName = pd.ProductOdrinaryName,
+                                OrdinaryName = pd.ProductOdrinaryName.Replace("\r\n",""),
                                 LanguageID = pd.ProductLanguageID,
                                 CategoryID = pd.ProductCategoryID,
                                 LocalID = pd.LocationID,
-                                LocalName = pd.ProductName != null ? pd.ProductName : "(ERR:102)"
+                                LocalName = pd.ProductName != null ? pd.ProductName.Trim() : "(ERR:102)"
                             };
                 foreach (var sp in query)
                 {
@@ -191,8 +191,10 @@ namespace AllerConnectCommon.Model
                                 select new ViewModel.Ingridient
                                 {
                                     ID = pd.ProductID,
-                                    OrdinaryName = id.IngridientOrdinaryName,
-                                    IsConservant = id.Conservant,
+                                    OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n",""),
+                                    IsConservant = id.IngridientClass != null,
+                                    ClassName = id.IngridientClass,
+                                    ClassType = id.IngridientTyp,
                                     LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
                                     LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
                                 };
@@ -205,14 +207,16 @@ namespace AllerConnectCommon.Model
                 {
                     var query = from id in dc.IngridientDatas
                                 join pd in dc.ProductsIngridients on id.IngridientID equals pd.IngridientID
-                                where id.Conservant == conservantsOnly && (pd.ProductID == parentProductID || parentProductID == -1)
+                                where ((id.IngridientClass != null) == conservantsOnly) && (pd.ProductID == parentProductID || parentProductID == -1)
                                 select new ViewModel.Ingridient
                                 {
                                     ID = pd.ProductID,
-                                    OrdinaryName = id.IngridientOrdinaryName,
-                                    IsConservant = id.Conservant,
+                                    OrdinaryName = id.IngridientOrdinaryName.Replace("\r\n",""),
+                                    IsConservant = id.IngridientClass != null,
+                                    ClassName = id.IngridientClass,
+                                    ClassType = id.IngridientTyp,
                                     LanguageID = id.IngridientLanguageID.HasValue ? id.IngridientLanguageID.Value : -1,
-                                    LocalName = id.IngridientName != null ? id.IngridientName : "(ERR:102)"
+                                    LocalName = id.IngridientName != null ? id.IngridientName.Trim() : "(ERR:102)"
                                 };
                     foreach (var sp in query)
                     {
@@ -340,5 +344,57 @@ namespace AllerConnectCommon.Model
             }
             return !hasError;
         }// DeleteAllergen()
+
+
+        public bool AddIngriedient(ViewModel.Ingridient ig)
+        {
+            try
+            {
+                var dc = new LinqDataContext();
+            }
+            catch (Exception ex)
+            {
+                errorMessage = "Update error, " + ex.Message;
+                hasError = true;
+            }
+            return (!hasError);
+        } //AddAllergen()
+
+        public bool UpdateIngriedient(ViewModel.Ingridient ig)
+        {
+            try
+            {
+                var dc = new LinqDataContext();
+
+                // Automaticly via constrains
+            }
+            catch (Exception ex)
+            {
+                errorMessage = "Update error, " + ex.Message;
+                hasError = true;
+            }
+            return (!hasError);
+        } //UpdateAllergen()
+
+        public bool DeleteIngriedient(int ingriedientID)
+        {
+            hasError = false;
+            try
+            {
+                var dc = new LinqDataContext();
+
+                var rowToDelete = dc.Allergens.Where(param => param.AllergenID == ingriedientID).First();
+                dc.Allergens.DeleteOnSubmit(rowToDelete);
+                dc.SubmitChanges(ConflictMode.FailOnFirstConflict);
+            }
+            catch (Exception ex)
+            {
+                errorMessage = "Delete error, " + ex.Message;
+                hasError = true;
+            }
+            return !hasError;
+        }// DeleteAllergen()
+
+
     }
 }

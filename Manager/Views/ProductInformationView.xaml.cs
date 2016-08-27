@@ -35,9 +35,17 @@ namespace AllerConnectManager.Views
 
         private void btnPrintClicked(object sender, RoutedEventArgs e)
         {
-            var visualSize = new Size(PrintGrid.ActualWidth, PrintGrid.ActualHeight);
-            var printControl = PrintControlFactory.Create(visualSize, PrintGrid);
-            printControl.ShowPrintPreview();
+            ShowGrid.Visibility = Visibility.Collapsed;
+            PrintGrid.Visibility = Visibility.Visible;
+            this.UpdateLayout();
+            if (PrintGrid.IsLoaded)
+            {
+                var visualSize = new Size(PrintGrid.ActualWidth, PrintGrid.ActualHeight);
+                var printControl = PrintControlFactory.Create(visualSize, PrintGrid);
+                printControl.ShowPrintPreview();
+                PrintGrid.Visibility = Visibility.Collapsed;
+            }
+            ShowGrid.Visibility = Visibility.Visible;
         }
     }
 }
