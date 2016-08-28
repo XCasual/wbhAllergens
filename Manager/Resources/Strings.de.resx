@@ -198,4 +198,16 @@
   <data name="Lbl_ProductSymbol" xml:space="preserve">
     <value>Symbol</value>
   </data>
+  <data name="TreeAdditives" xml:space="preserve">
+    <value>Zusatzstoffe</value>
+  </data>
+  <data name="TreeIngriedients" xml:space="preserve">
+    <value>Rohstoffe</value>
+  </data>
+  <data name="TreePartproducts" xml:space="preserve">
+    <value>Halbfabrikate</value>
+  </data>
+  <data name="TreeProducts" xml:space="preserve">
+    <value>Produkte</value>
+  </data>
 </root>

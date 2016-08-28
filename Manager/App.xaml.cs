@@ -23,7 +23,6 @@ namespace AllerConnectManager
             ProductInformationView,
             ProductSelectionView,
             IngridientView,
-            ProductView,
             InformationView
         }
 
@@ -95,7 +94,6 @@ namespace AllerConnectManager
             dataTemplateVMDataContext.Add(ViewStates.AllergenView, vmAllergenDisplay);
             dataTemplateVMDataContext.Add(ViewStates.ProductInformationView, vmProductInfo);
             dataTemplateVMDataContext.Add(ViewStates.AllergenSelectionView, vmIngridient.AllergenVMModel);
-            dataTemplateVMDataContext.Add(ViewStates.ProductView, vmProductDisplay);
             dataTemplateVMDataContext.Add(ViewStates.ProductSelectionView, vmProductComposition);
             dataTemplateVMDataContext.Add(ViewStates.IngridientView, vmIngridient);
             dataTemplateVMDataContext.Add(ViewStates.InformationView, vmInformation);

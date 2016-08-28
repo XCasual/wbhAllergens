@@ -201,7 +201,7 @@ namespace AllerConnectCommon.Model
         } //GetProducts()
 
 
-        public DBObservableCollection<ViewModel.Product> GetPartproduct(int parentProductID)
+        public DBObservableCollection<ViewModel.Product> GetPartproduct(int parentProductID, int languageID, int localID)
         {
             hasError = false;
             var partproductCollection = new DBObservableCollection<ViewModel.Product>();
@@ -209,8 +209,9 @@ namespace AllerConnectCommon.Model
             {
                 var dc = new LinqDataContext();
                 var partproducts = dc.ProductProducts.Where(row => row.ProductParentID == parentProductID);
-                var query = from pp in partproducts
-                            join pd in dc.ProductDatas on pp.ProductChildID equals pd.ProductID
+                var query = from pd in dc.ProductDatas
+                            join pp in partproducts on pd.ProductID equals pp.ProductChildID
+                            where pd.ProductLanguageID == languageID && pd.LocationID == localID
                             select new ViewModel.Product
                             {
                                 ID = pd.ProductID,

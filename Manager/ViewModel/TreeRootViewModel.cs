@@ -28,7 +28,7 @@ namespace AllerConnectManager.ViewModel
         {
             get
             {
-                return "Produkte"; ;
+                return WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.GetLocalizedObject("TreeProducts", null, System.Threading.Thread.CurrentThread.CurrentUICulture).ToString();
             }
         }
 

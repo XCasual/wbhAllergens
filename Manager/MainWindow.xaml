@@ -35,9 +35,6 @@
         <DataTemplate x:Key="IngridientViewDataTemplate">
             <vw:IngridientView x:Name="IngridientView"/>
         </DataTemplate>
-        <DataTemplate x:Key="ProductViewDataTemplate">
-            <vw:ProductView x:Name="ProductView"/>
-        </DataTemplate>
         <DataTemplate x:Key="ProductInformationViewDataTemplate">
             <vw:ProductInformationView x:Name="ProductInformationView"/>
         </DataTemplate>

@@ -302,5 +302,41 @@ namespace AllerConnectManager.Resources {
                 return ResourceManager.GetString("NavigationBar_Welcome", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additives.
+        /// </summary>
+        internal static string TreeAdditives {
+            get {
+                return ResourceManager.GetString("TreeAdditives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingriedients.
+        /// </summary>
+        internal static string TreeIngriedients {
+            get {
+                return ResourceManager.GetString("TreeIngriedients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partproducts.
+        /// </summary>
+        internal static string TreePartproducts {
+            get {
+                return ResourceManager.GetString("TreePartproducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products.
+        /// </summary>
+        internal static string TreeProducts {
+            get {
+                return ResourceManager.GetString("TreeProducts", resourceCulture);
+            }
+        }
     }
 }

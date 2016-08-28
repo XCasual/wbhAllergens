@@ -14,7 +14,7 @@ namespace AllerConnectManager.ViewModel
 
         public override string ElementName
         {
-            get { return "Halbfabrikat"; }
+            get { return WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.GetLocalizedObject("TreePartproducts", null, System.Threading.Thread.CurrentThread.CurrentUICulture).ToString(); }
         }
 
         internal int ID
@@ -25,7 +25,7 @@ namespace AllerConnectManager.ViewModel
         protected override void LoadChildren()
         {
             var parentModel = base.Parent as TreeProductViewModel;
-            foreach (Product productElement in App.UIController.IngridientsDB.GetPartproduct(parentModel.ID))
+            foreach (Product productElement in App.UIController.IngridientsDB.GetPartproduct(parentModel.ID, App.UIController.CurrentLanguageID, product.LocalID))
                     base.Children.Add(new TreePartproductViewModel(productElement, parentModel));
         }
 

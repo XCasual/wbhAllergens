@@ -16,7 +16,8 @@ namespace AllerConnectManager.ViewModel
 
         public override string ElementName
         {
-            get { return isConservant ? "Zusatzstoffe" : "Rohstoffe"; }
+            get { return isConservant ? WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.GetLocalizedObject("TreeAdditives", null, System.Threading.Thread.CurrentThread.CurrentUICulture).ToString() : 
+                 WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.GetLocalizedObject("TreeIngriedients", null, System.Threading.Thread.CurrentThread.CurrentUICulture).ToString(); }
         }
 
         internal int ID

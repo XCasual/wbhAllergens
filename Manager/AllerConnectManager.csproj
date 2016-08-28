@@ -139,9 +139,6 @@
     <Compile Include="Views\IngridientView.xaml.cs">
       <DependentUpon>IngridientView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductView.xaml.cs">
-      <DependentUpon>ProductView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\WelcomeScreenView.xaml.cs">
       <DependentUpon>WelcomeScreenView.xaml</DependentUpon>
     </Compile>
@@ -210,10 +207,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\IngridientView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
