@@ -223,7 +223,7 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All statements without guarantee. The product may contain traces of other allergen..
+        ///   Looks up a localized string similar to All statements without guarantee. The product may contain traces of other allergenes..
         /// </summary>
         internal static string Lbl_ProductFooter {
             get {
@@ -232,7 +232,7 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The choosen product contains following allergen:.
+        ///   Looks up a localized string similar to The chosen product contains following allergenes:.
         /// </summary>
         internal static string Lbl_ProductInfo {
             get {
@@ -268,7 +268,7 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Informations.
+        ///   Looks up a localized string similar to _Information.
         /// </summary>
         internal static string NavigationBar_Informations {
             get {

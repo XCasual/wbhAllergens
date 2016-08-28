@@ -154,7 +154,7 @@
     <value>_Allergenes</value>
   </data>
   <data name="NavigationBar_Informations" xml:space="preserve">
-    <value>_Informations</value>
+    <value>_Information</value>
   </data>
   <data name="NavigationBar_Ingriedients" xml:space="preserve">
     <value>_Ingriedients</value>
@@ -190,10 +190,10 @@
     <value>Conservants:</value>
   </data>
   <data name="Lbl_ProductFooter" xml:space="preserve">
-    <value>All statements without guarantee. The product may contain traces of other allergen.</value>
+    <value>All statements without guarantee. The product may contain traces of other allergenes.</value>
   </data>
   <data name="Lbl_ProductInfo" xml:space="preserve">
-    <value>The choosen product contains following allergen:</value>
+    <value>The chosen product contains following allergenes:</value>
   </data>
   <data name="Lbl_ProductSymbol" xml:space="preserve">
     <value>Symbol</value>

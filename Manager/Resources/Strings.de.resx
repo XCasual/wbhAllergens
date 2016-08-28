@@ -127,7 +127,7 @@
     <value>Referenziert</value>
   </data>
   <data name="Column_LocalName" xml:space="preserve">
-    <value>Lokale Name</value>
+    <value>Lokaler Name</value>
   </data>
   <data name="Column_OrdinaryName" xml:space="preserve">
     <value>Name</value>
@@ -190,7 +190,7 @@
     <value>Zusatzstoffe:</value>
   </data>
   <data name="Lbl_ProductFooter" xml:space="preserve">
-    <value>Alle Angaben ohne Gewähr. Das Produkt kann Spuren weiterere Allergene enthalten.</value>
+    <value>Alle Angaben ohne Gewähr. Das Produkt kann Spuren von weitereren Allergenen enthalten.</value>
   </data>
   <data name="Lbl_ProductInfo" xml:space="preserve">
     <value>Das ausgewählte Produkt enthält folgende Allergene:</value>
