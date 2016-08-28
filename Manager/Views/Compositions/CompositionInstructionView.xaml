@@ -8,8 +8,13 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
              xmlns:vm="clr-namespace:AllerConnectCommon.ViewModel;assembly=AllerConnectCommon"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
              d:DataContext="{d:DesignInstance {x:Type vm:AllergenDisplayModel}, IsDesignTimeCreatable=True}">
     <Grid Background="#FF251E1E">
-        <TextBlock>Bla bla bla</TextBlock>
+        <TextBlock></TextBlock>
     </Grid>
 </UserControl>

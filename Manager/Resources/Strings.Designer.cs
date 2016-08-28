@@ -61,11 +61,38 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _Add.
+        /// </summary>
+        internal static string Btn_Add {
+            get {
+                return ResourceManager.GetString("Btn_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Cancel.
         /// </summary>
         internal static string Btn_Cancel {
             get {
                 return ResourceManager.GetString("Btn_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Delete.
+        /// </summary>
+        internal static string Btn_Delete {
+            get {
+                return ResourceManager.GetString("Btn_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Edit.
+        /// </summary>
+        internal static string Btn_Edit {
+            get {
+                return ResourceManager.GetString("Btn_Edit", resourceCulture);
             }
         }
         

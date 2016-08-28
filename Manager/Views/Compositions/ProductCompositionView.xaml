@@ -8,6 +8,11 @@
              d:DesignHeight="300" d:DesignWidth="400"
              xmlns:vw="clr-namespace:AllerConnectManager.Views"     
              xmlns:vm="clr-namespace:AllerConnectManager.ViewModel"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             lex:ResxLocalizationProvider.DefaultAssembly="AllerConnectManager"
+             lex:ResxLocalizationProvider.DefaultDictionary="Strings"
              d:DataContext="{d:DesignInstance {x:Type vm:ProductCompositionModel}, IsDesignTimeCreatable=True}">
     <Grid Background="#FF251E1E">
         <Grid.ColumnDefinitions>
@@ -19,9 +24,9 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" Margin="5,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Height="200">
-            <Label x:Name="lblName" Content="Bezeichnung" HorizontalAlignment="Left" Margin="5,5,5,5" Grid.Row="0" Foreground="White"/>
-            <Label x:Name="lblDescription" Content="Beschreibung" HorizontalAlignment="Left" Margin="5,5,5,5"  Foreground="White"/>
-            <Label x:Name="lblLocalName" Content="Übersetzung" HorizontalAlignment="Left" Margin="5,5,5,5" Foreground="White"/>
+            <Label x:Name="lblName" Content="{lex:Loc Key=Column_OrdinaryName}" HorizontalAlignment="Left" Margin="5,5,5,5" Grid.Row="0" Foreground="White"/>
+            <Label x:Name="lblDescription" Content="{lex:Loc Key=Column_ToolTip}" HorizontalAlignment="Left" Margin="5,5,5,5"  Foreground="White"/>
+            <Label x:Name="lblLocalName" Content="{lex:Loc Key=Column_LocalName}" HorizontalAlignment="Left" Margin="5,5,5,5" Foreground="White"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <TextBox x:Name="tbxName" Margin="5,10,5,5" TextWrapping="Wrap" VerticalAlignment="Top" 
@@ -34,11 +39,11 @@
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
-                <Button x:Name="btnAdd" Content="Add" Margin="0,0,5,5" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
+                <Button x:Name="btnAdd" Content="{lex:Loc Key=Btn_Add}" Margin="0,0,5,5" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
                         />
-                <Button x:Name="btnSave" Content="Save" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
+                <Button x:Name="btnSave" Content="{lex:Loc Key=Btn_Save}" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
                         />
-                <Button x:Name="btnDelete" Content="Delete" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
+                <Button x:Name="btnDelete" Content="{lex:Loc Key=Btn_Delete}" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="67"
                         />
             </StackPanel>
         </Grid>

@@ -210,4 +210,13 @@
   <data name="TreeProducts" xml:space="preserve">
     <value>Products</value>
   </data>
+  <data name="Btn_Add" xml:space="preserve">
+    <value>_Add</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>_Delete</value>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>_Edit</value>
+  </data>
 </root>
