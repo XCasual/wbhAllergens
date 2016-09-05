@@ -148,7 +148,7 @@
     <value>Save allergen</value>
   </data>
   <data name="Ingridients_SaveIngriedient" xml:space="preserve">
-    <value>Save ingriedient</value>
+    <value>Save ingredient</value>
   </data>
   <data name="NavigationBar_Allergens" xml:space="preserve">
     <value>_Allergenes</value>
@@ -157,7 +157,7 @@
     <value>_Information</value>
   </data>
   <data name="NavigationBar_Ingriedients" xml:space="preserve">
-    <value>_Ingriedients</value>
+    <value>_Ingredients</value>
   </data>
   <data name="NavigationBar_Products" xml:space="preserve">
     <value>_Products</value>
@@ -202,7 +202,7 @@
     <value>Additives</value>
   </data>
   <data name="TreeIngriedients" xml:space="preserve">
-    <value>Ingriedients</value>
+    <value>Ingredients</value>
   </data>
   <data name="TreePartproducts" xml:space="preserve">
     <value>Partproducts</value>

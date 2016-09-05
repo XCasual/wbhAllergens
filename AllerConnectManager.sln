@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{2DB6
 		InhaltstoffeStorage.sql = InhaltstoffeStorage.sql
 		Insert Statement.sql = Insert Statement.sql
 		SQLProceduren.sql = SQLProceduren.sql
+		Update Allergene en.sql = Update Allergene en.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllerConnectCommon", "Common\AllerConnectCommon.csproj", "{7BDEEB58-EE77-415C-849E-65C59423A24B}"

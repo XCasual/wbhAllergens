@@ -232,7 +232,7 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save ingriedient.
+        ///   Looks up a localized string similar to Save ingredient.
         /// </summary>
         internal static string Ingridients_SaveIngriedient {
             get {
@@ -304,7 +304,7 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Ingriedients.
+        ///   Looks up a localized string similar to _Ingredients.
         /// </summary>
         internal static string NavigationBar_Ingriedients {
             get {
@@ -340,7 +340,7 @@ namespace AllerConnectManager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ingriedients.
+        ///   Looks up a localized string similar to Ingredients.
         /// </summary>
         internal static string TreeIngriedients {
             get {
