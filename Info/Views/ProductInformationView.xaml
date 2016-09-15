@@ -61,7 +61,7 @@
 
         <Grid x:Name="ShowGrid" Grid.Column="0" Grid.Row="1">
             <StackPanel Orientation="Vertical">
-                <Label x:Name="label" Content="{Binding DisplayedProduct.LocalName}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="133.054" Foreground="White" FontSize="16"/>
+                <Label x:Name="label" Content="{Binding DisplayedProduct.LocalName}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Foreground="White" FontSize="16"/>
                 <ComboBox ItemsSource="{Binding PossibleProducts}" SelectedItem="{Binding DisplayedProduct}" DisplayMemberPath="LocalName"></ComboBox>
                 <Label x:Name="label_Copy" Content="{lex:Loc Key=Lbl_ProductInfo}" HorizontalAlignment="Left" Margin="0,5,5,5" VerticalAlignment="Top" Height="32" Foreground="White" FontSize="14"/>
 
@@ -92,7 +92,7 @@
         </Grid>
         <Grid x:Name="PrintGrid" Grid.Column="0" Grid.Row="1" Background="White" Visibility="Collapsed">
             <StackPanel Orientation="Vertical">
-                <Label x:Name="labely" Content="{Binding DisplayedProduct.LocalName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,25,5,0" Height="45" Width="133.054" FontSize="15"/>
+                <Label x:Name="labely" Content="{Binding DisplayedProduct.LocalName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,25,5,0" Height="45" FontSize="15"/>
                 <Label x:Name="label_Copyy" Content="{lex:Loc Key=Lbl_ProductInfo}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="32" FontSize="12"/>
 
                 <DataGrid x:Name="dataGridd" HorizontalAlignment="Left" VerticalAlignment="Top"
